@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/black">
+
+    <!--顶部头像 昵称 签名-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="25dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <!--头像-->
+        <FrameLayout
+            android:layout_width="104dp"
+            android:layout_height="104dp"
+            android:background="@drawable/shape_audio_head_back">
+
+            <ImageView
+                android:id="@+id/head_iv"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@drawable/default_head_img" />
+
+        </FrameLayout>
+
+        <!--昵称-->
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!--签名-->
+        <TextView
+            android:id="@+id/sign_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <!--中间部分++++++++++++++++++++++++++-->
+    <!--挂断-->
+    <TextView
+        android:id="@+id/middle_hang_up_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="19dp"
+        android:drawableTop="@drawable/audio_hang_up"
+        android:drawablePadding="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/hang_up"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+    <!--您正发起通话-->
+    <TextView
+        android:id="@+id/calling_des_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="130dp"
+        android:text="@string/calling_audio_des"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+    <!--左右两个按钮部分++++++++++++++++++++++++++++-->
+    <!--挂断-->
+    <TextView
+        android:id="@+id/left_hang_up_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="30dp"
+        android:layout_marginBottom="19dp"
+        android:drawableTop="@drawable/audio_hang_up"
+        android:drawablePadding="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/hang_up"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <!--接听-->
+    <TextView
+        android:id="@+id/answer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="19dp"
+        android:drawableTop="@drawable/answer_green"
+        android:drawablePadding="10dp"
+        android:gravity="center_horizontal"
+        android:text="@string/accept"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:visibility="gone" />
+
+    <!--中间操作部分++++++++++++++++++++++-->
+    <LinearLayout
+        android:id="@+id/middle_action_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="155dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!--时间-->
+        <Chronometer
+            android:id="@+id/time_ch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <!--上方三个-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <!--举报-->
+            <TextView
+                android:id="@+id/report_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/report_white"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/report_one"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <!--静音-->
+            <TextView
+                android:id="@+id/mute_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="54dp"
+                android:drawableTop="@drawable/selector_mute"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/mute_voice"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <!--免提-->
+            <TextView
+                android:id="@+id/speaker_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="54dp"
+                android:drawableTop="@drawable/selector_speaker"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/hands_free"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!--下方三个-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+
+            <!--关注-->
+            <TextView
+                android:id="@+id/focus_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableTop="@drawable/selector_focus"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/focus"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <!--礼物-->
+            <TextView
+                android:id="@+id/gift_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="54dp"
+                android:drawableTop="@drawable/gift_white"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/gift"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+            <!--充值-->
+            <TextView
+                android:id="@+id/charge_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="54dp"
+                android:drawableTop="@drawable/charge_white"
+                android:drawablePadding="10dp"
+                android:gravity="center_horizontal"
+                android:text="@string/charge"
+                android:textColor="@color/white"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--礼物动画-->
+    <LinearLayout
+        android:id="@+id/gift_ll"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical"
+        android:layout_marginStart="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="32dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/shape_gift_one_back"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingEnd="60dp">
+
+            <ImageView
+                android:id="@+id/gift_head_iv"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:background="@drawable/default_head_img"
+                android:contentDescription="@null" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/me"
+                    android:textColor="@color/black_333333"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+                <TextView
+                    android:id="@+id/gift_des_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/pink_ff32a0"
+                    android:textSize="10sp"
+                    tools:ignore="SmallSp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/gift_iv"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="-50dp"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:id="@+id/gift_number_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="5dp"
+            android:text="@string/multi_one"
+            android:textColor="@color/yellow_fff000"
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <!--动画-->
+    <com.opensource.svgaplayer.SVGAImageView
+        android:id="@+id/gif_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:autoPlay="true"
+        app:loopCount="1" />
+
+</FrameLayout>

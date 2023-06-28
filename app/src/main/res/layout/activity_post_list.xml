@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/divider_horizontal_gray"
+    android:showDividers="middle|end"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/active_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:drawableEnd="@drawable/icon_arrow_gray"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:text="动态"
+        android:textColor="@color/black_333333"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/video_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:drawableEnd="@drawable/icon_arrow_gray"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:text="视频"
+        android:textColor="@color/black_333333"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/album_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:drawableEnd="@drawable/icon_arrow_gray"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:text="照片"
+        android:textColor="@color/black_333333"
+        android:textSize="17sp" />
+
+</LinearLayout>

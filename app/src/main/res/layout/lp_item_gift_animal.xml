@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginBottom="15dp"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    tools:ignore="RtlSymmetry">
+
+    <RelativeLayout
+        android:id="@+id/parent_rl"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:background="@drawable/shape_info_one_back"
+        android:visibility="visible">
+
+        <ImageView
+            android:id="@+id/head_iv"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:contentDescription="@null" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/head_iv"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp">
+
+            <TextView
+                android:id="@+id/nick_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="@string/send_to_actor"
+                android:textColor="@android:color/white"
+                android:textSize="11sp"
+                tools:ignore="SmallSp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/gift_iv"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="-6dp"
+            android:layout_marginEnd="10dp"
+            android:contentDescription="@null"
+            android:visibility="invisible" />
+
+    </RelativeLayout>
+
+    <com.lovechatapp.chat.gift.MagicTextView
+        android:id="@+id/giftNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:includeFontPadding="false"
+        android:textColor="#FF8600"
+        android:textSize="30sp"
+        android:textStyle="italic"
+        android:visibility="visible"
+        app:outerShadowDx="3"
+        app:outerShadowDy="3"
+        app:outerShadowRadius="1"
+        app:strokeColor="#f15353"
+        app:strokeJoinStyle="round"
+        app:stroke_width="1" />
+
+</LinearLayout>

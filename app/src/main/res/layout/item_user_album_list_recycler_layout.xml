@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_fl"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="2dp">
+
+    <ImageView
+        android:layout_width="40dp"
+        android:layout_height="41dp"
+        android:layout_gravity="center"
+        android:background="@drawable/default_back_small"
+        android:contentDescription="@null"
+        android:scaleType="center" />
+
+    <ImageView
+        android:id="@+id/image_iv"
+        android:layout_width="match_parent"
+        android:layout_height="165dp"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/play_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/video_new"
+        android:contentDescription="@null"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/status_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:text="@string/checking"
+        android:textColor="@color/white"
+        android:textSize="10sp"
+        tools:ignore="SmallSp" />
+
+    <ImageView
+        android:id="@+id/delete_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_margin="6dp"
+        android:src="@drawable/album_delete" />
+
+    <TextView
+        android:id="@+id/more_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#7f000000"
+        android:gravity="center"
+        android:padding="5dp"
+        android:text="66金币"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+</FrameLayout>

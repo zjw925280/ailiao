@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#fff"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:paddingTop="5dp"
+        android:paddingRight="15dp"
+        android:paddingBottom="5dp">
+
+        <ImageView
+            android:id="@+id/head_iv"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerVertical="true"
+            android:contentDescription="@null"
+            android:src="@drawable/default_head_img" />
+
+        <TextView
+            android:id="@+id/nick_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/head_iv"
+            android:lines="1"
+            android:text="name"
+            android:textColor="@color/black_333333"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/head_iv"
+            android:layout_marginLeft="5dp"
+            android:layout_marginBottom="6dp"
+            android:layout_toRightOf="@+id/head_iv"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/age_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/img_selected_sex_common"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="0岁"
+                android:textColor="@drawable/color_selected_sex"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/time_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="25dp"
+                android:drawablePadding="5dp"
+                android:gravity="center"
+                android:text="time"
+                android:textColor="@color/gray_868686"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/attention_tv"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/head_iv"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/selector_corner_stroke_red_gray"
+            android:paddingTop="3dp"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:text="关注"
+            android:textColor="@drawable/color_selected_gray_red"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <View style="@style/HorizontalDivideLine" />
+
+</LinearLayout>

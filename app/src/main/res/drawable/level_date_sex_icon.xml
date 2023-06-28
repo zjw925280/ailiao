@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<level-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:maxLevel="0"
+        android:minLevel="0">
+        <selector>
+            <item
+                android:drawable="@mipmap/icon_date_sex_man_gray"
+                android:state_selected="false" />
+            <item
+                android:drawable="@mipmap/icon_date_sex_man_color"
+                android:state_selected="true" />
+        </selector>
+    </item>
+    <item
+        android:maxLevel="1"
+        android:minLevel="1">
+        <selector>
+            <item
+                android:drawable="@mipmap/icon_date_sex_woman_gray"
+                android:state_selected="false" />
+            <item
+                android:drawable="@mipmap/icon_date_sex_woman_color"
+                android:state_selected="true" />
+        </selector>
+    </item>
+</level-list>

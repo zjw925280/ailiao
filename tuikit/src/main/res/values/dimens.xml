@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="page_title_height">45dp</dimen>
+    <dimen name="page_margin">10dp</dimen>
+
+    // 按钮通用
+    <dimen name="btn_margin_left">12dp</dimen>
+    <dimen name="btn_margin_right">12dp</dimen>
+
+    // 小按钮
+
+    // 大按钮
+
+
+    // 列表头像
+    <dimen name="item_width">49.35dp</dimen>
+    <dimen name="conversation_avatar_width">49.35dp</dimen>
+    <dimen name="conversation_avatar_height">49.35dp</dimen>
+    <dimen name="contact_avatar_width">40.48dp</dimen>
+    <dimen name="contact_avatar_height">40.48dp</dimen>
+
+    <dimen name="switch_thumb_padding">2dp</dimen>
+    <dimen name="switch_thumb_width">23dp</dimen>
+    <dimen name="switch_thumb_height">23dp</dimen>
+    <dimen name="switch_thumb_radius">20dp</dimen>
+    <dimen name="dp_130_46">130.46dp</dimen>
+
+</resources>

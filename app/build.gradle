@@ -1,0 +1,210 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+
+Properties buildProperties = new Properties()
+buildProperties.load(project.rootProject.file('build.properties').newDataInputStream())
+def keystorePropertiesFile = rootProject.file("./app/sign/keystore.properties")
+def keystoreProperties = new Properties()
+keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.lovechatapp.chat"
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 2
+        versionName "1.0.1"
+        multiDexEnabled true// dex突破65535的限制
+
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: applicationId,
+                JPUSH_APPKEY : "1e49d0ea616ca637bfa73d3c", //JPush上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "developer-default", //暂时填写默认值即可.
+        ]
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(keystoreProperties['storeFile'])
+            storePassword keystoreProperties['storePassword']
+            keyAlias keystoreProperties['keyAlias']
+            keyPassword keystoreProperties['keyPassword']
+            v2SigningEnabled true
+        }
+    }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['src/main/jniLibs']
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            def releaseTime = new Date().format("MMdd_HHmm", TimeZone.getDefault())
+            if ("release" == variant.buildType.name) {
+                outputFileName = "loveChat_V${versionName}_${releaseTime}.apk"
+            }
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        //测试环境
+        debug {
+            buildConfigField "boolean", "debug", "true"
+            buildConfigField "String", "rkey", "\"${AppKey}\""
+            buildConfigField "String", "charset", "\"UTF-8\""
+//            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
+//            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
+            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
+            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
+            signingConfig signingConfigs.release
+        }
+        //正式环境
+        release {
+            buildConfigField "String", "rkey", "\"${AppKey}\""
+            buildConfigField "boolean", "debug", "false"
+            buildConfigField "String", "charset", "\"UTF-8\""
+            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
+            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
+    viewBinding {
+        enabled = true
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+
+    //google multi dex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //注解butter knife
+    implementation 'com.jakewharton:butterknife:8.4.0'
+
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
+
+    //沉浸式状态栏
+    implementation 'com.gyf.barlibrary:barlibrary:2.3.0'
+
+    //glide 高斯模糊
+    implementation 'jp.wasabeef:glide-transformations:3.0.1'
+    implementation 'com.github.bumptech.glide:glide:3.3.0'
+
+    //fastJson
+    implementation 'com.alibaba:fastjson:1.2.34'
+
+    //recycler view
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+
+    //zhy bitmap http utils
+    implementation 'com.zhy:okhttputils:2.6.2'
+
+    //smart refresh layout
+
+    //1.1.0 API改动过大，老用户升级需谨慎
+    implementation 'com.scwang.smartrefresh:SmartRefreshLayout:1.1.0-alpha-7'
+
+    //知乎图片选择
+    implementation 'com.zhihu.android:matisse:0.5.2-beta3'
+
+    //LuBan图片压缩
+    implementation 'top.zibin:Luban:1.1.7'
+
+    //微信开放
+    implementation 'com.tencent.mm.opensdk:wechat-sdk-android-with-mta:5.1.4'
+
+    //QQ登录分享等sdk
+    implementation files('libs/open_sdk_r6008_lite.jar')
+
+    //u corp裁剪
+    api('com.github.yalantis:ucrop:2.2.2') {
+        exclude group: 'com.android.support'
+    }
+
+    //腾讯云
+    implementation files('libs/cos-android-sdk-5.4.6.jar')
+
+    //支付宝支付
+    implementation files('libs/alipaySdk-20180601.jar')
+
+    //Mina
+    implementation files('libs/mina-core-2.0.16.jar')
+
+    //PhotoView 查看图片
+    implementation 'com.github.chrisbanes:PhotoView:2.1.3'
+
+    //极光推送
+    implementation 'cn.jiguang.sdk:jpush:3.3.4'
+    implementation 'cn.jiguang.sdk:jcore:2.1.2'
+
+    //二维码
+    implementation 'com.google.zxing:core:3.3.0'
+
+    //高德定位
+    implementation 'com.amap.api:location:4.3.0'
+
+    //高德搜索
+    implementation 'com.amap.api:search:6.5.0.1'
+
+    //cjt自定义可长按录视频camera
+//    implementation 'cjt.library.wheel:camera:1.1.9'
+
+    //Android Material Design
+    implementation 'com.android.support:design:28.0.0'
+
+    //SVGAPlayer 是一个轻量的动画渲染库
+    implementation 'com.github.yyued:SVGAPlayer-Android:2.0.0'
+
+    //悬浮窗
+    implementation project(':floating_message')
+
+    //底部菜单
+    implementation 'com.github.zhaolei9527:BottomMenu:v1.0.1'
+
+    //美颜
+    implementation project(':faceunity')
+    implementation project(':beauty')
+
+    //腾讯云im
+    implementation project(':tuikit')
+
+    implementation project(':camera')
+
+    implementation 'com.mcxiaoke.packer-ng:helper:2.0.1'
+
+    implementation 'com.hyman:flowlayout-lib:1.1.2'
+    implementation 'com.robinhood.ticker:ticker:2.0.2'
+
+    implementation(name: 'video-capture', ext: 'aar')
+    implementation(name: 'paytypelibrary2.0.0', ext: 'aar')
+    implementation 'cat.ereza:customactivityoncrash:2.2.0'
+    implementation 'com.google.code.gson:gson:2.8.9'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+//    implementation('io.agora.rtc:full-sdk:4.1.1') { transitive = false }
+}

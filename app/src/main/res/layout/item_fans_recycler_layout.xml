@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="100dp"
+    android:paddingLeft="15dp"
+    android:paddingRight="15dp">
+
+    <!--头像-->
+    <ImageView
+        android:id="@+id/head_iv"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:layout_marginRight="9dp"
+        android:background="@drawable/shape_head_back"
+        android:contentDescription="@null"
+        android:src="@drawable/default_head" />
+
+    <!--  昵称  -->
+    <TextView
+        android:id="@+id/nick_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/head_iv"
+        android:layout_toRightOf="@+id/head_iv"
+        android:drawableRight="@drawable/vip_icon"
+        android:drawablePadding="5dp"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxWidth="200dp"
+        android:maxLines="1"
+        android:text="星辰大海"
+        android:textColor="@color/black_333333"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <!--  在线状态  -->
+    <TextView
+        android:id="@+id/online_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/head_iv"
+        android:layout_alignParentRight="true"
+        android:text="@string/free"
+        android:textColor="@color/gray_8a8a8a"
+        android:textSize="11sp" />
+
+    <!--中间信息部分-->
+    <TextView
+        android:id="@+id/age_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/head_iv"
+        android:drawableLeft="@drawable/near_sex_women"
+        android:drawablePadding="5dp"
+        android:text="25岁  |  175cm  |  设计师"
+        android:textColor="@color/gray_8a8a8a"
+        android:textSize="11sp"
+        tools:ignore="SmallSp" />
+
+    <!--关注-->
+    <LinearLayout
+        android:id="@+id/follow_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/head_iv"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/chat_text_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/fans_chat_text" />
+
+        <ImageView
+            android:id="@+id/chat_video_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/fans_chat_video" />
+
+    </LinearLayout>
+
+    <!--  个性签名  -->
+    <TextView
+        android:id="@+id/sign_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/head_iv"
+        android:layout_marginRight="15dp"
+        android:layout_toLeftOf="@+id/follow_iv"
+        android:layout_toRightOf="@+id/head_iv"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="那天的你好美"
+        android:textColor="@color/gray_8a8a8a"
+        android:textSize="12sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/gray_e1e1e1" />
+
+</RelativeLayout>

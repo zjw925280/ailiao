@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/navigation_bar_color"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/input_title_line_color" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:minHeight="50dp"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <ImageView
+            android:id="@+id/voice_input_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:src="@drawable/action_audio_selector" />
+
+        <EditText
+            android:id="@+id/chat_message_input"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/msg_editor_border"
+            android:maxLines="3"
+            android:minHeight="36dp"
+            android:textCursorDrawable="@drawable/my_cursor"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/chat_voice_input"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/msg_editor_border"
+            android:text="按住说话"
+            android:textColor="@color/text_color_gray"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/more_btn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_margin="5dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/action_more_selector"
+            android:visibility="gone" />
+
+        <ImageView
+            android:id="@+id/face_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:src="@drawable/input_enjoy" />
+
+        <Button
+            android:id="@+id/send_btn"
+            android:layout_width="45dp"
+            android:layout_height="33dp"
+            android:background="@drawable/message_send_border"
+            android:text="@string/send"
+            android:textColor="#fff"
+            android:textSize="13sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:paddingBottom="5dp">
+
+        <TextView
+            android:id="@+id/btn_video"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/im_chat_video"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="视频"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/btn_audio"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/btn_audio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/im_chat_audio"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="语音"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@+id/btn_video"
+            app:layout_constraintRight_toLeftOf="@+id/im_protect"
+            app:layout_constraintTop_toTopOf="@+id/btn_video" />
+
+        <TextView
+            android:id="@+id/im_protect"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/im_chat_protect"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="守护"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            android:visibility="gone"
+            app:layout_constraintLeft_toRightOf="@+id/btn_audio"
+            app:layout_constraintRight_toLeftOf="@+id/btn_camera"
+            app:layout_constraintTop_toTopOf="@+id/btn_video" />
+
+        <TextView
+            android:id="@+id/btn_camera"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/im_chat_camera"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="拍摄"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@+id/im_protect"
+            app:layout_constraintRight_toLeftOf="@+id/btn_picture"
+            app:layout_constraintTop_toTopOf="@+id/btn_video" />
+
+        <TextView
+            android:id="@+id/btn_picture"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/im_chat_picture"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="相册"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@+id/btn_camera"
+            app:layout_constraintRight_toLeftOf="@+id/btn_gift"
+            app:layout_constraintTop_toTopOf="@+id/btn_video" />
+
+        <TextView
+            android:id="@+id/btn_gift"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@drawable/im_chat_gift"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="礼物"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@+id/btn_picture"
+            app:layout_constraintRight_toLeftOf="@+id/btn_date"
+            app:layout_constraintTop_toTopOf="@+id/btn_video" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btn_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableTop="@mipmap/btn_chat_date"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:text="约会"
+            android:textColor="#333333"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_video"
+            app:layout_constraintLeft_toRightOf="@id/btn_gift"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_video" />
+
+    </android.support.constraint.ConstraintLayout>
+
+    <RelativeLayout
+        android:id="@+id/more_groups"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

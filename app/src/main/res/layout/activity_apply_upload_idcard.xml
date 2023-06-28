@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#EEEEEE"
+        android:paddingLeft="14dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="18dp"
+        android:text="请上传本人有效期内的身份证照片"
+        android:textColor="@color/black_333333"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/inside_iv"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="14dp"
+                android:src="@drawable/id_card_inside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请上传身份证人像面"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/outside_iv"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="14dp"
+                android:src="@drawable/id_card_outside" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请上传身份证国徽面"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:lineSpacingExtra="5dp"
+        android:text="1、请保证照片清晰；\n2、该照片仅用作认证，官方将对照片保密。"
+        android:textColor="@color/black_333333"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/next_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginRight="40dp"
+        android:background="@drawable/corner_gradient_blue_pink"
+        android:gravity="center"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:text="提交"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
+
+</LinearLayout>

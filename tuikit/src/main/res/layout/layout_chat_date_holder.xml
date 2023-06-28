@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dateBg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
+        android:background="@mipmap/bg_date_w"
+        android:layout_alignParentTop="true"
+        android:layout_alignBottom="@+id/bottomLayout"/>
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dateGiftImg"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="17dp"
+        tools:src="@mipmap/icon_date_location_n" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/dateStatusImg"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:layout_marginTop="5dp"
+        android:scaleType="fitStart"
+        android:adjustViewBounds="true"
+        android:src="@drawable/level_icon_date_status" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/dateTitle"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp"
+        android:text="接收到TA的礼物和约会邀请…"
+        android:textColor="#3B3369"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dateGiftImg" />
+
+    <android.support.constraint.ConstraintLayout
+        android:id="@+id/dateInfoLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dateTitle"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="18dp">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iconName"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginBottom="7dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/level_icon_date_name"
+            app:layout_constraintBottom_toTopOf="@+id/iconPhone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iconPhone"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="7dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/level_icon_date_phone"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconName" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iconLocation"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="7dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/level_icon_date_location"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconPhone" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iconTime"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="7dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/level_icon_date_time"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/iconLocation" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/iconMark"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="7dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/level_icon_date_remark"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iconTime" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconName"
+            app:layout_constraintLeft_toRightOf="@+id/iconName"
+            app:layout_constraintTop_toTopOf="@+id/iconName"
+            tools:text="张一楠" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textPhone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconPhone"
+            app:layout_constraintLeft_toRightOf="@+id/iconPhone"
+            app:layout_constraintTop_toTopOf="@+id/iconPhone"
+            tools:text="17756236523" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#AD75F7"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconLocation"
+            app:layout_constraintLeft_toRightOf="@+id/iconLocation"
+            app:layout_constraintTop_toTopOf="@+id/iconLocation"
+            tools:text="西安市" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconTime"
+            app:layout_constraintLeft_toRightOf="@+id/iconTime"
+            app:layout_constraintTop_toTopOf="@+id/iconTime"
+            tools:text="2023-05-15     14:00" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/textMark"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:textColor="#333333"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@+id/iconMark"
+            app:layout_constraintLeft_toRightOf="@+id/iconMark"
+            app:layout_constraintTop_toTopOf="@+id/iconMark"
+            tools:text="不见不散哦" />
+
+        <View
+            android:id="@+id/sexBg"
+            android:layout_width="38dp"
+            android:layout_height="15dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/shape_bg_date_sex"
+            app:layout_constraintBottom_toBottomOf="@+id/textName"
+            app:layout_constraintLeft_toRightOf="@+id/textName"
+            app:layout_constraintTop_toTopOf="@+id/textName" />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/sexIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="8.5dp"
+            android:adjustViewBounds="true"
+            android:src="@drawable/level_date_sex_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/sexBg"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintLeft_toLeftOf="@+id/sexBg"
+            app:layout_constraintRight_toLeftOf="@+id/ageText"
+            app:layout_constraintTop_toTopOf="@+id/sexBg" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/ageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:textColor="#AD75F7"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@+id/sexBg"
+            app:layout_constraintLeft_toRightOf="@+id/sexIcon"
+            app:layout_constraintRight_toRightOf="@id/sexBg"
+            app:layout_constraintTop_toTopOf="@+id/sexBg"
+            tools:ignore="SmallSp"
+            tools:text="26" />
+    </android.support.constraint.ConstraintLayout>
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:id="@+id/bottomLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/dateInfoLayout"
+        android:layout_marginTop="13dp"
+        android:paddingBottom="17dp"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btnRefuse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_date_refuse_button"
+            android:gravity="center"
+            android:paddingHorizontal="34dp"
+            android:paddingVertical="6dp"
+            android:text="拒绝"
+            android:textColor="#3B3369"
+            android:textSize="12sp"
+            app:layout_constraintHorizontal_chainStyle="packed" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btnAccept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/shape_bg_date_accept_btn"
+            android:gravity="center"
+            android:paddingHorizontal="34dp"
+            android:paddingVertical="6dp"
+            android:text="接受"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+</RelativeLayout>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--上方筛选-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="horizontal">
+
+        <!--日榜-->
+        <TextView
+            android:id="@+id/day_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/selector_share_choose_image_background"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="@string/day_rank"
+            android:textColor="@drawable/selector_share_choose_text_color"
+            android:textSize="16sp" />
+
+        <!--周榜-->
+        <TextView
+            android:id="@+id/week_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/selector_share_choose_image_background"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="@string/week_rank"
+            android:textColor="@drawable/selector_share_choose_text_color"
+            android:textSize="16sp" />
+
+        <!--月榜-->
+        <TextView
+            android:id="@+id/month_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/selector_share_choose_image_background"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="@string/month_rank"
+            android:textColor="@drawable/selector_share_choose_text_color"
+            android:textSize="16sp" />
+
+        <!--总榜-->
+        <TextView
+            android:id="@+id/total_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_weight="1"
+            android:drawableBottom="@drawable/selector_share_choose_image_background"
+            android:drawablePadding="6dp"
+            android:gravity="center"
+            android:text="@string/total_rank"
+            android:textColor="@drawable/selector_share_choose_text_color"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/content_rv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never" />
+
+</LinearLayout>

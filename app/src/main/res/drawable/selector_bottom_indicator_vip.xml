@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <corners android:radius="2dp" />
+            <solid android:color="#653100" />
+            <size android:width="@dimen/label_bottom_indicator_width" android:height="3dp" />
+        </shape>
+    </item>
+
+    <item android:drawable="@drawable/shape_bottom_indicator_transparent_line" />
+
+</selector>

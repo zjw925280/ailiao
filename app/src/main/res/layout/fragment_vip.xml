@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/bg_vip_top"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/bg_ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bg_charge_vip"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/vip_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_weight="1"
+                android:drawableLeft="@drawable/charge_vip"
+                android:drawablePadding="8dp"
+                android:ellipsize="end"
+                android:gravity="bottom"
+                android:maxLines="1"
+                android:textColor="#ab8a5f"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/vip_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/corner_solid_white"
+                android:paddingLeft="13dp"
+                android:paddingTop="7dp"
+                android:paddingRight="13dp"
+                android:paddingBottom="7dp"
+                android:text="开通超级会员"
+                android:textColor="#925815"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+        </LinearLayout>
+
+    </FrameLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadeScrollbars="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="20dp"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/rights_interests_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="22dp"
+                android:src="@drawable/vip_rights_interests" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rights_interests_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:id="@+id/open_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="25dp"
+                android:src="@drawable/vip_open" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/package_rv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp" />
+
+            <!--    <LinearLayout-->
+            <!--        android:layout_width="match_parent"-->
+            <!--        android:layout_height="wrap_content"-->
+            <!--        android:gravity="center_vertical"-->
+            <!--        android:orientation="horizontal">-->
+
+            <!--        <CheckBox-->
+            <!--            android:id="@+id/vip_agree_cb"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="我已阅读并同意"-->
+            <!--            android:textColor="@color/black_333333"-->
+            <!--            android:textSize="12sp" />-->
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/vip_agree"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="《付费会员协议》"-->
+            <!--            android:textColor="#D7965A"-->
+            <!--            android:textSize="12sp" />-->
+
+            <!--        <TextView-->
+            <!--            android:id="@+id/vip_agree2"-->
+            <!--            android:layout_width="wrap_content"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:text="《权益规则》"-->
+            <!--            android:textColor="#D7965A"-->
+            <!--            android:textSize="12sp" />-->
+
+            <!--    </LinearLayout>-->
+
+            <TextView
+                android:id="@+id/vip_pay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/bg_vip_pay"
+                android:gravity="center"
+                android:text="立即支付"
+                android:textColor="#653100"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+</LinearLayout>

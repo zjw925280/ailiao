@@ -1,0 +1,91 @@
+<resources>
+    <string name="app_name">FULiveDemo</string>
+
+    <string name="camera_dialog_title">警告</string>
+    <string name="camera_dialog_message">相机权限被禁用或者相机被别的应用占用！</string>
+    <string name="camera_dialog_open">重试</string>
+    <string name="camera_dialog_back">退出</string>
+
+    <string name="save_photo_success">保存照片成功！</string>
+    <string name="save_video_success">保存视频成功！</string>
+    <string name="fu_base_is_tracking_text">未检测到人脸</string>
+    <string name="fu_base_input_type_single">单输入</string>
+    <string name="fu_base_input_type_double">双输入</string>
+
+    <string name="beauty_box_skin_detect">精准美肤</string>
+    <string name="beauty_box_skin_detect_close">精准美肤 关闭</string>
+    <string name="beauty_box_skin_detect_open">精准美肤 开启</string>
+    <string name="beauty_box_heavy_blur_double">朦胧磨皮</string>
+    <string name="beauty_box_heavy_blur_normal">清晰磨皮</string>
+    <string name="beauty_box_heavy_blur_normal_text">当前为 清晰磨皮 模式</string>
+    <string name="beauty_box_heavy_blur_double_text">当前为 朦胧磨皮 模式</string>
+    <string name="beauty_box_blur_level">磨皮</string>
+    <string name="beauty_box_color_level">美白</string>
+    <string name="beauty_box_red_level">红润</string>
+    <string name="beauty_box_eye_bright">亮眼</string>
+    <string name="beauty_box_tooth_whiten">美牙</string>
+    <string name="beauty_box_eye_enlarge">大眼</string>
+    <string name="beauty_box_cheek_thinning">瘦脸</string>
+    <string name="beauty_box_cheek_v">V脸</string>
+    <string name="beauty_box_cheek_narrow">窄脸</string>
+    <string name="beauty_box_cheek_small">小脸</string>
+    <string name="beauty_box_intensity_chin">下巴</string>
+    <string name="beauty_box_intensity_forehead">额头</string>
+    <string name="beauty_box_intensity_nose">瘦鼻</string>
+    <string name="beauty_box_intensity_mouth">嘴型</string>
+    <string name="beauty_radio_skin_beauty">美肤</string>
+    <string name="beauty_radio_face_shape">美型</string>
+    <string name="beauty_radio_filter">滤镜</string>
+    <string name="beauty_radio_beauty">质感美颜</string>
+    <string name="makeup_radio_lipstick">口红</string>
+    <string name="makeup_radio_blusher">腮红</string>
+    <string name="makeup_radio_eyebrow">眉毛</string>
+    <string name="makeup_radio_eye_shadow">眼影</string>
+    <string name="makeup_radio_eye_liner">眼线</string>
+    <string name="makeup_radio_eyelash">睫毛</string>
+    <string name="makeup_radio_contact_lens">美瞳</string>
+    <string name="makeup_radio_remove">卸妆</string>
+    <string name="makeup_peach_blossom">桃花</string>
+    <string name="makeup_red_tea">赤茶妆</string>
+    <string name="makeup_winter">冬日妆</string>
+    <string name="makeup_boyfriend">男友</string>
+    <string name="makeup_cream">奶油妆</string>
+    <string name="makeup_clear">清透</string>
+    <string name="makeup_grapefruit">西柚</string>
+
+    <string name="origin">原图</string>
+    <string name="bailiang">白亮</string>
+    <string name="fennen">粉嫩</string>
+    <string name="qingxin">小清新</string>
+    <string name="lengsediao">冷色调</string>
+    <string name="nuansediao">暖色调</string>
+
+    <string name="dialog_no_track_face">未检测到人脸，请重新拍摄</string>
+    <string name="dialog_got">知道啦</string>
+    <string name="tip_dual_face">检测到多人，请选择一人进行换脸</string>
+
+    <string name="avatar_face_length">脸型长度</string>
+    <string name="avatar_face_width">脸颊宽度</string>
+    <string name="avatar_chin_width">下颚宽度</string>
+    <string name="avatar_chin_height">下巴高低</string>
+    <string name="avatar_eye_position">眼睛位置</string>
+    <string name="avatar_eye_corner_height">眼角高度</string>
+    <string name="avatar_eye_height">眼睛高低</string>
+    <string name="avatar_eye_width">眼睛宽窄</string>
+    <string name="avatar_nose_position">鼻子位置</string>
+    <string name="avatar_nose_width">鼻翼宽窄</string>
+    <string name="avatar_nose_height">鼻头高低</string>
+    <string name="avatar_mouth_position">嘴部位置</string>
+    <string name="avatar_up_lip_thickness">上唇厚度</string>
+    <string name="avatar_down_lip_thickness">下唇厚度</string>
+    <string name="avatar_lip_width">嘴唇宽度</string>
+    <string name="dialog_reset_avatar_model">是否将所有参数恢复到默认值?</string>
+
+    <string name="live_photo_cant_add_more">不能添加更多了哦~</string>
+    <string name="confirm">确定</string>
+    <string name="cancel">取消</string>
+    <string name="dialog_confirm_delete">确定删除所选中的道具？</string>
+    <string name="live_photo_save_succeed">道具保存成功</string>
+    <string name="recover">恢复</string>
+
+</resources>

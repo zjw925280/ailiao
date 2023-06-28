@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="end|center_vertical"
+        android:orientation="horizontal">
+
+        <!--登录-->
+        <TextView
+            android:id="@+id/login_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="9dp"
+            android:padding="6dp"
+            android:text="@string/login_one"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+        <View
+            android:id="@+id/pass_v"
+            android:layout_width="1dp"
+            android:layout_height="15dp"
+            android:background="@color/red_fe2947"
+            android:visibility="gone" />
+
+        <!--注册-->
+        <TextView
+            android:id="@+id/register_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="9dp"
+            android:gravity="end"
+            android:padding="6dp"
+            android:text="@string/register"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="100dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/logo_sign" />
+
+    <!--手机号码-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/corner_stroke1_main">
+
+        <TextView
+            android:id="@+id/aa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:contentDescription="@null"
+            android:text="@string/phone_num_des"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/mobile_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/aa"
+            android:background="@color/transparent"
+            android:digits="0123456789"
+            android:hint="@string/please_input_phone_login"
+            android:inputType="number"
+            android:lines="1"
+            android:maxLength="11"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/black_333333"
+            android:textColorHint="@color/gray_b4b4b4"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <!--密码 验证码-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="38dp">
+
+        <TextView
+            android:id="@+id/send_verify_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="49dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/corner_stroke1_main"
+            android:gravity="center"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:text="@string/get_code_one"
+            android:textColor="@color/gray_b4b4b4"
+            android:textSize="15sp"
+            android:visibility="visible" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_toStartOf="@+id/send_verify_tv"
+            android:background="@drawable/corner_stroke1_main">
+
+            <TextView
+                android:id="@+id/down_text_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="@string/verify_code"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/code_et"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_toEndOf="@+id/down_text_tv"
+                android:background="@color/transparent"
+                android:hint="@string/please_verify_code"
+                android:inputType="number"
+                android:lines="1"
+                android:maxLength="20"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:textColor="@color/black_333333"
+                android:textColorHint="@color/gray_acacac"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+    <!--新密码-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/corner_stroke1_main">
+
+        <TextView
+            android:id="@+id/des_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:contentDescription="@null"
+            android:text="@string/password"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <EditText
+            android:id="@+id/pass_code_et"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="12dp"
+            android:layout_toEndOf="@+id/des_tv"
+            android:background="@color/transparent"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+            android:hint="@string/please_input_password"
+            android:inputType="textPassword"
+            android:lines="1"
+            android:maxLength="16"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:textColor="@color/black_333333"
+            android:textColorHint="@color/gray_b4b4b4"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/confirm_tv"
+        android:layout_width="match_parent"
+        android:layout_height="49dp"
+        android:layout_marginStart="38dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/corner_gradient_blue_pink"
+        android:gravity="center"
+        android:text="@string/register"
+        android:textColor="@drawable/selector_charge_text_color"
+        android:textSize="17sp" />
+
+</LinearLayout>

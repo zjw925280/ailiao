@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingTop="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginStart="15dp"
+        android:orientation="horizontal">
+
+        <!--头像部分-->
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/head_iv"
+                android:layout_width="80dp"
+                android:layout_height="72dp"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/state_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@drawable/shape_search_state_text_background"
+                android:paddingEnd="5dp"
+                android:paddingStart="5dp"
+                android:textColor="@color/white"
+                android:textSize="9sp"
+                android:visibility="gone"
+                tools:ignore="SmallSp" />
+
+        </FrameLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp">
+
+            <!--左边-->
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="5dp">
+
+                <TextView
+                    android:id="@+id/title_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@color/black_171717"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/id_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:ellipsize="end"
+                    android:lines="1"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/verify_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:background="@drawable/have_verify"
+                    android:contentDescription="@null"
+                    android:visibility="invisible" />
+
+            </FrameLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/HorizontalDivideLine"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp" />
+
+</LinearLayout>

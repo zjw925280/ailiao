@@ -1,0 +1,37 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply from: rootProject.file('script.gradle')
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+    }
+
+    sourceSets {
+        main.assets.srcDirs += ['src/main/assets', 'src/main/effects/bundle', 'src/main/makeup/material',
+                                "src/main/poster", "src/main/livephoto"]
+        main.res.srcDirs += ['src/main/res', 'src/main/effects/res', 'src/main/makeup/res']
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation project(':faceunity')
+    implementation fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:cardview-v7:28.0.0'
+    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.wuyr:pathlayoutmanager:1.0.3'
+    implementation 'com.alibaba:fastjson:1.2.34'
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}

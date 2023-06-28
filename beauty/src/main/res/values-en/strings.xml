@@ -1,0 +1,92 @@
+<resources>
+    <string name="app_name">FULiveDemo</string>
+
+    <string name="camera_dialog_title">warning</string>
+    <string name="camera_dialog_message">Camera permissions are disabled or the camera is occupied by another app!</string>
+    <string name="camera_dialog_open">Retry</string>
+    <string name="camera_dialog_back">quit</string>
+
+    <string name="save_photo_success">Save photo successfully!</string>
+    <string name="save_video_success">Save video successfully!</string>
+    <string name="fu_base_is_tracking_text">No Face Tracking</string>
+    <string name="fu_base_input_type_single">SingleInput</string>
+    <string name="fu_base_input_type_double">DualInput</string>
+
+    <string name="beauty_box_skin_detect">Skin Detect</string>
+    <string name="beauty_box_skin_detect_close">Skin Detect off</string>
+    <string name="beauty_box_skin_detect_open">Skin Detect on</string>
+    <string name="beauty_box_heavy_blur_double">Heavy Blur</string>
+    <string name="beauty_box_heavy_blur_normal">Light Blur</string>
+    <string name="beauty_box_heavy_blur_double_text">Heavy Blur mode</string>
+    <string name="beauty_box_heavy_blur_normal_text">Light Blur mode</string>
+    <string name="beauty_radio_beauty">Light Makeup</string>
+    <string name="beauty_box_blur_level">Blur</string>
+    <string name="beauty_box_color_level">Whiten</string>
+    <string name="beauty_box_red_level">Ruddy</string>
+    <string name="beauty_box_eye_bright">Eye Brighten</string>
+    <string name="beauty_box_tooth_whiten">Tooth Whiten</string>
+    <string name="beauty_box_eye_enlarge">Eye Enlarge</string>
+    <string name="beauty_box_cheek_thinning">Cheek Thin</string>
+    <string name="beauty_box_cheek_v">V Thin</string>
+    <string name="beauty_box_cheek_narrow">Cheek Narrow</string>
+    <string name="beauty_box_cheek_small">Cheek Small</string>
+    <string name="beauty_box_intensity_chin">Chin</string>
+    <string name="beauty_box_intensity_forehead">Forehead</string>
+    <string name="beauty_box_intensity_nose">Nose</string>
+    <string name="beauty_box_intensity_mouth">Mouth</string>
+    <string name="beauty_radio_skin_beauty">Skin</string>
+    <string name="beauty_radio_face_shape">Style</string>
+    <string name="beauty_radio_filter">Filter</string>
+    <string name="makeup_radio_lipstick">Lipstick</string>
+    <string name="makeup_radio_blusher">Blush</string>
+    <string name="makeup_radio_eyebrow">Eyebrow</string>
+    <string name="makeup_radio_eye_shadow">Eye Shadow</string>
+    <string name="makeup_radio_eye_liner">Eye Liner</string>
+    <string name="makeup_radio_eyelash">Eyelash</string>
+    <string name="makeup_radio_contact_lens">Contact Lens</string>
+    <string name="makeup_radio_remove">Remove</string>
+    <string name="makeup_peach_blossom">peach</string>
+    <string name="makeup_red_tea">redtea</string>
+    <string name="makeup_winter">winter</string>
+    <string name="makeup_boyfriend">boyfriend</string>
+    <string name="makeup_cream">cream</string>
+    <string name="makeup_clear">clear</string>
+    <string name="makeup_grapefruit">grapefruit</string>
+
+    <string name="origin">Origin</string>
+    <string name="fennen">Pink</string>
+    <string name="qingxin">Fresh</string>
+    <string name="lengsediao">Cold tone</string>
+    <string name="nuansediao">Warm tone</string>
+    <string name="bailiang">Bright</string>
+
+
+    <string name="dialog_no_track_face">No face detected, please re-upload</string>
+    <string name="dialog_got">OK</string>
+    <string name="tip_dual_face">Multiple people detected, please choose one person for face fusion</string>
+
+    <string name="live_photo_cant_add_more">Can\'t add more</string>
+    <string name="confirm">Yes</string>
+    <string name="cancel">No</string>
+    <string name="dialog_confirm_delete">Are you sure to delete?</string>
+    <string name="live_photo_save_succeed">Save succeed</string>
+
+    <string name="avatar_face_length">Face length</string>
+    <string name="avatar_face_width">Cheek width</string>
+    <string name="avatar_chin_width">Jaw width</string>
+    <string name="avatar_chin_height">Jaw length</string>
+    <string name="avatar_eye_position">Eye position</string>
+    <string name="avatar_eye_corner_height">Canthus position</string>
+    <string name="avatar_eye_height">Eye width</string>
+    <string name="avatar_eye_width">Eye length</string>
+    <string name="avatar_nose_position">Nose position</string>
+    <string name="avatar_nose_width">Nose width</string>
+    <string name="avatar_nose_height">Nose height</string>
+    <string name="avatar_mouth_position">Mouth position</string>
+    <string name="avatar_up_lip_thickness">Upper lip thickness</string>
+    <string name="avatar_down_lip_thickness">Down lip thickness</string>
+    <string name="avatar_lip_width">Lip width</string>
+    <string name="dialog_reset_avatar_model">Reset all parameters to default?</string>
+    <string name="recover">Recover</string>
+
+</resources>

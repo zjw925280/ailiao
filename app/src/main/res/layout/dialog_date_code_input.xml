@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/dp_12"
+        android:background="@drawable/shape_chat_edit_text_back"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="39dp"
+            android:text="约会暗语"
+            android:textColor="@color/black_333333"
+            android:textSize="24sp" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp_9"
+            android:text="为保证线下约会更安全，请您输入约会暗语"
+            android:textColor="@color/gray_999999"
+            android:textSize="14sp" />
+
+        <android.support.v7.widget.LinearLayoutCompat
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="29dp"
+            android:orientation="horizontal">
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/codeEdt1"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_70"
+                android:background="@drawable/bg_date_code_input"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_333333"
+                android:textSize="24sp"
+                tools:text="3" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/codeEdt2"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_70"
+                android:layout_marginStart="@dimen/dp_16"
+                android:background="@drawable/bg_date_code_input"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_333333"
+                android:textSize="24sp"
+                tools:text="3" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/codeEdt3"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_70"
+                android:layout_marginStart="@dimen/dp_16"
+                android:background="@drawable/bg_date_code_input"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_333333"
+                android:textSize="24sp"
+                tools:text="3" />
+
+            <android.support.v7.widget.AppCompatEditText
+                android:id="@+id/codeEdt4"
+                android:layout_width="@dimen/dp_60"
+                android:layout_height="@dimen/dp_70"
+                android:layout_marginStart="@dimen/dp_16"
+                android:background="@drawable/bg_date_code_input"
+                android:digits="0123456789"
+                android:gravity="center"
+                android:inputType="numberDecimal"
+                android:textColor="@color/black_333333"
+                android:textSize="24sp"
+                tools:text="3" />
+
+        </android.support.v7.widget.LinearLayoutCompat>
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="29dp"
+            android:background="#E6E6E6" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/btnConfirm"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/transparent"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#9A52F4"
+            android:textSize="14sp" />
+    </android.support.v7.widget.LinearLayoutCompat>
+</FrameLayout>

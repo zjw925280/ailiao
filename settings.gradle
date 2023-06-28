@@ -1,0 +1,2 @@
+include ':app', ':floating_message', ':tuikit'
+include ':camera', ':faceunity', ':beauty'

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:background="@drawable/shape_young_mode_back"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/young_lock"
+            android:contentDescription="@null" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/already_open_young_mode"
+            android:textColor="@color/gray_868686"
+            android:textSize="15sp" />
+
+        <!--关闭未成年模式-->
+        <TextView
+            android:id="@+id/close_mode_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/shape_close_mode_text_back"
+            android:gravity="center"
+            android:paddingStart="40dp"
+            android:paddingEnd="40dp"
+            android:text="@string/close_young_mode"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginTop="20dp" />
+
+        <!--忘记密码-->
+        <TextView
+            android:id="@+id/forget_tv"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:gravity="center"
+            android:text="@string/forget_password_one"
+            android:textColor="@color/black_333333"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

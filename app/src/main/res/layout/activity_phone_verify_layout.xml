@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/phone_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:lineSpacingExtra="3dp"
+        android:visibility="gone"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/gray_666666"
+        android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/mobile_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent"
+        android:hint="@string/mobile_num"
+        android:inputType="number"
+        android:paddingStart="5dp"
+        android:paddingTop="15dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="15dp"
+        android:textColor="@color/black_text"
+        android:textColorHint="@color/gray_right_text"
+        android:textSize="13sp"
+        tools:ignore="Autofill" />
+
+    <View style="@style/HorizontalDivideLine" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/get_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:paddingStart="7dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="7dp"
+            android:paddingBottom="4dp"
+            android:text="@string/get_code"
+            android:textColor="@color/pink_main" />
+
+        <EditText
+            android:id="@+id/code_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/get_tv"
+            android:background="@color/transparent"
+            android:hint="@string/code"
+            android:inputType="number"
+            android:paddingStart="5dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="5dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black_text"
+            android:textColorHint="@color/gray_right_text"
+            android:textSize="13sp"
+            tools:ignore="Autofill" />
+
+    </RelativeLayout>
+
+    <View style="@style/HorizontalDivideLine" />
+
+    <TextView
+        android:id="@+id/finish_tv"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/shape_share_button_background"
+        android:gravity="center"
+        android:text="@string/finish_verify"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</LinearLayout>

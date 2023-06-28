@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingTop="20dp">
+
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/head_iv"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:src="@drawable/default_head" />
+
+        <ImageView
+            android:id="@+id/remove_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginTop="3dp"
+            android:src="@drawable/mutiple_remove" />
+
+        <ImageView
+            android:id="@+id/online_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:src="@drawable/mansion_online" />
+
+        <TextView
+            android:id="@+id/online_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:text="在线"
+            android:textColor="@color/white"
+            android:textSize="9sp" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/nick_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="9dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:text="星辰大海"
+        android:textColor="@color/black_333333"
+        android:textSize="12sp" />
+
+</LinearLayout>

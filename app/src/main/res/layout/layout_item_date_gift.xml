@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="125dp"
+    android:background="@drawable/bg_date_gift_selected">
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/giftImg"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        tools:src="@mipmap/ic_launcher" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/giftName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/giftImg"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/black_333333"
+        android:textSize="12sp"
+        android:visibility="gone"
+        tools:text="小心心" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/giftPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/giftName"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/gray_999999"
+        android:textSize="10sp"
+        android:visibility="gone"
+        tools:ignore="SmallSp"
+        tools:text="20金币" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/giftPriceSend"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/giftImg"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-7dp"
+        android:textColor="@color/gray_999999"
+        android:textSize="10sp"
+        tools:text="20金币" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/giftSend"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_btn_date_gift_send"
+        android:gravity="center"
+        android:text="赠送"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+</RelativeLayout>

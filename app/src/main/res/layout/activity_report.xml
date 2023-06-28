@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.ReportActivity">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/etContent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/transparent"
+                android:gravity="top"
+                android:hint="投诉内容(至少10个字)"
+                android:minLines="8"
+                android:padding="10dp"
+                android:textSize="14sp" />
+
+            <View style="@style/HorizontalDivideLine"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="上传图片(至少一张)"
+                android:textColor="@color/gray_666666"
+                android:textSize="14sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="联系方式"
+                android:textColor="@color/gray_666666"
+                android:textSize="14sp" />
+
+            <!--手机号码-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <EditText
+                    android:id="@+id/phone_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/transparent"
+                    android:hint="@string/please_input_phone"
+                    android:inputType="phone"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black_333333"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+            <View style="@style/HorizontalDivideLine" />
+
+            <!--验证码-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <!--获取验证码-->
+                <com.lovechatapp.chat.view.CodeTextView
+                    android:id="@+id/get_code_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/corner_solid_main"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:text="获取验证码"
+                    android:textColor="@color/white"
+                    android:textSize="15sp"
+                    tools:ignore="RelativeOverlap,UnusedAttribute" />
+
+                <EditText
+                    android:id="@+id/verify_code_et"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/get_code_tv"
+                    android:background="@color/transparent"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:maxLength="10"
+                    android:padding="10dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/black_333333"
+                    android:textSize="15sp" />
+
+            </RelativeLayout>
+
+            <View style="@style/HorizontalDivideLine" />
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <TextView
+        android:id="@+id/save_tv"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="58dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/corner_solid_main"
+        android:gravity="center"
+        android:text="@string/submit"
+        android:textColor="@color/white"
+        android:textSize="17sp" />
+
+</LinearLayout>

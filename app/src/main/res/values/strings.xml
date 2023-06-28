@@ -1,0 +1,869 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="MissingTranslation">
+    <string name="app_name">甛觅Mru</string>
+
+    <!--通用-->
+    <string name="rmb">元</string>
+    <string name="second">秒</string>
+    <string name="cancel">取消</string>
+    <string name="delete">删除</string>
+    <string name="success_str">成功</string>
+    <string name="year">年</string>
+    <string name="percent">%</string>
+    <string name="ju">。</string>
+    <string name="ok">好</string>
+    <string name="red_pack">红包</string>
+    <string name="gift">礼物</string>
+    <string name="upload_fail">上传失败</string>
+    <string name="file_too_big">文件大小应该在50M以内</string>
+    <string name="system_error">请检查网络连接！</string>
+    <string name="vip_free">VIP 免费</string>
+    <string name="pay_success">消费成功</string>
+    <string name="pay_fail">赠送失败</string>
+    <string name="reward_success">赠送成功</string>
+    <string name="add">+</string>
+    <string name="sub">-</string>
+    <string name="rmb_des">¥</string>
+    <string name="me">我</string>
+    <string name="multi">x</string>
+    <string name="multi_one">x1</string>
+    <string name="accept">接听</string>
+    <string name="hang_up">挂断</string>
+    <string name="pay">支付</string>
+    <string name="pay_vip_success">支付成功</string>
+    <string name="pay_vip_fail">支付失败</string>
+    <string name="see_rule">查看规则</string>
+    <string name="been_suspend">对不起,由于您违反了平台相关规定,账号已被封禁</string>
+    <string name="swtich_off_alert_video">关闭后你将收不到视频邀请</string>
+    <string name="swtich_off_alert_audio">关闭后你将收不到语音邀请</string>
+    <string name="swtich_off_alert_private">关闭后你将收不到私聊消息</string>
+    <string name="notice_title">小提示</string>
+    <string name="update_now">立即更新</string>
+    <string name="clear_all">清空</string>
+    <string name="free_one">免费</string>
+    <string name="charge_one">付费</string>
+    <string name="see_video_need">查看本视频需要支付:</string>
+    <string name="male_not">暂未开放男主播认证</string>
+    <string name="qq_fail">获取QQ登录信息失败,请换其他方式登录</string>
+    <string name="we_chat_fail">获取微信登录信息失败,请换其他方式登录</string>
+    <string name="can_not_communicate">暂未开放未认证用户之间交流</string>
+    <string name="sex_can_not_communicate">暂未开放同性用户之间交流</string>
+    <string name="nine_nine">99+</string>
+    <string name="message_sound">消息提示音</string>
+    <string name="message_vibrate">消息提示震动</string>
+    <string name="group_message_sound">群消息提示音</string>
+    <string name="group_message_vibrate">群消息提示震动</string>
+    <string name="my_active">我的动态</string>
+    <string name="data_get_error">数据获取失败</string>
+    <string name="data_getting">正在获取数据中</string>
+    <string name="data_age">%s岁</string>
+    <string name="token_invalid">登录失效，请重新登录</string>
+    <string name="data_retry">加载失败，点击重试</string>
+
+    <!--黑名单-->
+    <string name="black_list">黑名单</string>
+    <string name="black_alert">确定将%s加入黑名单吗?</string>
+    <string name="black_add_ok">成功加入黑名单</string>
+    <string name="black_remove">移除黑名单</string>
+
+    <!--个人中心-->
+    <string name="gold">金币</string>
+    <string name="gold_des"> (金币)</string>
+    <string name="gold_des_one"> 金币</string>
+    <string name="zero">0</string>
+    <string name="charge">充值</string>
+    <string name="help_center">常见问题</string>
+    <string name="green_agree">甛觅Mru直播协议书</string>
+    <string name="clear_cache">清除缓存</string>
+    <string name="apply_company">申请公会</string>
+    <string name="actor_ing">主播审核中</string>
+    <string name="apply_company_ing_des">你的公会正在审核中,请勿重复提交</string>
+    <string name="reject">拒绝</string>
+    <string name="accept_des">接受</string>
+    <string name="invite_you">邀请你加入</string>
+    <string name="company">公会</string>
+    <string name="operate_success">操作成功</string>
+    <string name="operate_fail">操作失败</string>
+    <string name="belong_company">所属公会: %s</string>
+    <string name="company_down">你的公会已下架,请联系客服</string>
+    <string name="account_left">账户余额</string>
+    <string name="apply_actor">申请主播</string>
+
+    <!--首页底部导航-->
+    <string name="home">首页</string>
+    <string name="focus">关注</string>
+    <string name="message">消息</string>
+    <string name="mine">我的</string>
+    <string name="dynamic">动态</string>
+
+    <string name="main_rank">排行榜</string>
+    <string name="main_message">消息</string>
+    <string name="main_mine">我的</string>
+
+    <!--编辑修改个人资料-->
+    <string name="edit_verify_info">编辑资料</string>
+    <string name="nick">昵称</string>
+    <string name="please_input_nick">请输入昵称 (必填)</string>
+    <string name="please_input_nick_des">请输入昵称</string>
+    <string name="job">职业</string>
+    <string name="model">模特</string>
+    <string name="please_input_job">请选择职业</string>
+    <string name="please_input_phone">请输入手机号</string>
+    <string name="we_chat_number">微信号</string>
+    <string name="qq_number">QQ号</string>
+    <string name="please_input_we_chat">请输入微信号</string>
+    <string name="please_input_qq">请输入QQ号</string>
+    <string name="modify_age">年龄</string>
+    <string name="age_title">年龄(岁)</string>
+    <string name="eighteen">18</string>
+    <string name="age_des">岁</string>
+    <string name="modify_age_des">请选择年龄</string>
+    <string name="height">身高</string>
+    <string name="one_hundred_and_sixty">160</string>
+    <string name="high_des">cm</string>
+    <string name="high_title_des">身高(cm)</string>
+    <string name="please_input_height">请选择身高</string>
+    <string name="weight">体重</string>
+    <string name="fourty_kg">40</string>
+    <string name="body_des">kg</string>
+    <string name="body_title_des">体重(kg)</string>
+    <string name="please_input_weight">请选择体重</string>
+    <string name="star">星座</string>
+    <string name="marriage">婚姻</string>
+    <string name="please_input_star">请选择星座</string>
+    <string name="city">城市</string>
+    <string name="choose_city">选择城市</string>
+    <string name="please_input_city">请选择城市</string>
+    <string name="sign">个性签名</string>
+    <string name="submit_verify">确认修改</string>
+    <string name="set_cover">封面</string>
+    <string name="set_cover_long">设为封面</string>
+    <string name="four_most">最多只能上传6张</string>
+    <string name="delete_fail">删除失败</string>
+    <string name="tags_not_select">您还未选择标签</string>
+    <string name="edit_fail">编辑资料失败</string>
+    <string name="file_not_exist">文件不存在,请重新选择</string>
+    <string name="nick_repeat">昵称重复不可用</string>
+    <string name="actor_at_least_upload_one">请至少上传一张图片作为封面</string>
+    <string name="update_fail">更新失败</string>
+
+    <!--我的钱包-->
+    <string name="with_draw_money">提现明细</string>
+
+    <!--分享赚钱-->
+    <string name="first_charge_rank">首冲排行</string>
+
+    <!--申请认证-->
+    <string name="apply_verify">申请主播</string>
+    <string name="apply_step_one">第一步  上传身份证正面照片</string>
+    <string name="click_upload_head_image">点击上传照片</string>
+    <string name="upload_head_image_notice">1.确保是本人真实照片, 正面照片。\n2.图片清晰可见, 色彩明亮。</string>
+    <string name="upload_head_image_notice_one">1、确保身份证与本人照片相符;\n2、图片清晰可见, 色彩明亮。\n3、本照片仅用于认证,不会对外公开</string>
+    <string name="notice_three">3.本图片仅作为认证使用,</string>
+    <string name="notice_pink">不会对外公开</string>
+    <string name="apply_step_three">第二步  上传本人正面照片</string>
+    <string name="real_name">真实姓名</string>
+    <string name="submit_verify_des">立即认证</string>
+    <string name="please_input_real_name">请输入真实姓名</string>
+    <string name="please_input_id_card_number">请输入身份证号</string>
+    <string name="picture_not_choose">您还未选择照片</string>
+    <string name="law_des">认证即代表您已经阅读并同意</string>
+    <string name="law_des_one"> 《甛觅Mru绿色直播协议书》</string>
+    <string name="verify_fail">认证失败</string>
+    <string name="verify_success">认证成功</string>
+    <string name="id_card_picture_not_choose">您还未选择身份证正面照片</string>
+    <string name="self_picture_not_choose">您还未选择本人正面照片</string>
+    <string name="choose_again">上传失败,请重新选择</string>
+
+    <!--充值-->
+    <string name="my_gold">我的金币</string>
+    <string name="service">客服</string>
+    <string name="please_choose_money">请选择充值金额</string>
+    <string name="account_detail">账单详情</string>
+    <string name="charge_gold">充值金币</string>
+
+    <!--提现-->
+    <string name="with_draw_now">立即兑换</string>
+    <string name="withdraw">提现</string>
+    <string name="with_draw_not_select">未选择具体金额</string>
+    <string name="account_not_bind">您还未绑定账号</string>
+    <string name="please_choose_alipay_account">请选择支付宝账户</string>
+    <string name="please_choose_wechat_account">请选择微信账户</string>
+    <string name="apply_withdraw_success">申请提现成功</string>
+    <string name="can_with_draw_one">可提现金币</string>
+    <string name="bind_now">立即绑定</string>
+    <string name="need_gold">所需金币:</string>
+    <string name="with_draw_need_know">提现须知：\n1，提现当日到账（17点以前提现当日到账，17点以后提现次日上班打款）。\n2，提现仅支持支付宝，请上传支付宝收款码和填写正确的支付宝账号和姓名。\n3，每人每天只能提现一次。
+</string>
+
+    <!--我的相册-->
+    <string name="checking">审核中</string>
+
+    <!--提现明细-->
+    <string name="ali_pay_des">支付宝提现</string>
+    <string name="we_chat_des">微信提现</string>
+    <string name="month">月</string>
+    <string name="all">全部</string>
+    <string name="withdraw_ing">提现中</string>
+    <string name="withdraw_successful">提现成功</string>
+    <string name="withdraw_fail">提现失败</string>
+
+    <!--收入、支出、充值明细-->
+    <string name="with_draw_total">提现总额 (元)</string>
+
+    <!--我推荐的-->
+
+    <!--首页-->
+    <string name="quick">速配</string>
+
+    <!--女神-->
+    <string name="age"> 岁</string>
+    <string name="free">在线</string>
+    <string name="offline">离线</string>
+    <string name="busy">忙碌</string>
+
+    <!--消息-->
+    <string name="system_message">系统消息</string>
+    <string name="click_to_see">点击查看最新消息</string>
+    <string name="chat_user">聊友: </string>
+    <string name="chat_group">群消息</string>
+
+    <!--主播视频播放-->
+    <string name="video_chat">视频聊天</string>
+    <string name="audio_chat">语音聊天</string>
+    <string name="complain">投诉举报</string>
+    <string name="report">黑名单</string>
+    <string name="report_des">投诉</string>
+
+    <!--投诉举报-->
+    <string name="complain_fail">投诉失败</string>
+
+    <!--等待通话  被邀请通话-->
+    <string name="warn">甛觅Mru倡导绿色交友, 严禁低俗,  色情,  诱导,  暴力,  赌博,\n反动等不良内容,  一旦涉及将被屏蔽或封停账号,  网警\n24小时在线巡查,  敬请配合</string>
+    <string name="yellow_warning">系统检测到你可能存在不规范行为，视频将在10秒后断开！</string>
+
+
+    <!--语音通话-->
+
+    <!--主播资料-->
+    <string name="have_focus">已关注</string>
+    <string name="person_info">个人信息</string>
+    <string name="last_time">最后登录</string>
+    <string name="receive_red">收到打赏</string>
+    <string name="tag_info">标签</string>
+    <string name="actor_tag">自评形象</string>
+    <string name="user_comment">用户评价</string>
+    <string name="send_red">发红包</string>
+    <string name="private_video">私密视频</string>
+    <string name="private_image">私密照片</string>
+    <string name="busy_actor">您拨打的用户正忙,请稍候再拨</string>
+    <string name="not_online">对方不在线</string>
+    <string name="not_bother">对方设置了勿扰</string>
+    <string name="lazy">TA很懒，没有填写个性签名！</string>
+    <string name="lazy_one">您还没有填写个性签名</string>
+
+    <!--接通视频-->
+    <string name="can_use_gold">可用金币: </string>
+    <string name="gold_not_enough">金币余额不足</string>
+    <string name="month_every_one">¥ </string>
+    <string name="info_block_des">该主播不允许他人查看TA的%1$s</string>
+    <string name="see_info_number_des">查看该主播%1$s需支付%2$s金币</string>
+    <string name="see_qq_number_des">查看该主播QQ号码需支付</string>
+    <string name="have_hang_up">对方已挂断</string>
+    <string name="have_hang_up_one">连接已挂断</string>
+    <string name="please_select_gift">请选择礼物</string>
+    <string name="send_you">收到</string>
+    <string name="send_to">送出</string>
+    <string name="please_retry">计时失败,请重新发起视频</string>
+    <string name="no_response">对方无应答,连接已挂断</string>
+    <string name="reward">打赏</string>
+    <string name="off_camera">已关闭摄像头</string>
+    <string name="open_camera">已开启摄像头</string>
+    <string name="have_off_camera">对方关闭了摄像头</string>
+
+    <!--登录页面-->
+    <string name="please_input_phone_login">请输入手机号码</string>
+    <string name="login">登录</string>
+    <string name="phone_number_null">手机号码为空</string>
+    <string name="verify_code_number_null">短信验证码为空</string>
+    <string name="wrong_phone_number">手机号码格式错误</string>
+    <string name="re_send">重新发送</string>
+    <string name="re_send_one">重新发送\n</string>
+    <string name="login_fail">登录失败</string>
+    <string name="login_success">登录成功</string>
+    <string name="qq_login_fail">QQ登录失败</string>
+    <string name="login_cancel">登录取消</string>
+    <string name="not_install_we_chat">用户未安装微信</string>
+    <string name="send_success">发送成功</string>
+    <string name="send_success_des">验证码发送成功</string>
+    <string name="send_code_fail">验证码发送失败</string>
+    <string name="choose_success">选择成功</string>
+    <string name="agree_detail">用户协议</string>
+    <string name="private_detail">隐私政策</string>
+    <string name="login_agree">《用户协议》</string>
+    <string name="private_agree">《隐私政策》</string>
+    <string name="seven_days">该设备已注册,请勿重复注册</string>
+    <string name="get_code_one">获取\n验证码</string>
+    <string name="verify_code">验证码:</string>
+    <string name="please_verify_code">请输入验证码</string>
+
+    <!--选择性别-->
+    <string name="choose_gender">选择性别</string>
+    <string name="depend_on_gender">将根据性别为您推荐</string>
+    <string name="choose_gender_careful">*性别选择后无法修改, 请选择真实的性别</string>
+
+    <!--设置-->
+    <string name="check_version">检查版本</string>
+    <string name="setting_center">设置</string>
+    <string name="cache_des">0.0Byte</string>
+    <string name="clear">清除</string>
+    <string name="exit_login">退出登录</string>
+    <string name="already_the_latest">已经是最新版本</string>
+    <string name="clear_done">清除完成</string>
+
+    <!--意见反馈-->
+    <string name="input_your_opinion">输入您的反馈</string>
+    <string name="connect_way">联系方式</string>
+    <string name="submit_opinion">提交反馈</string>
+    <string name="opinion_feed_back">意见反馈</string>
+    <string name="choose_picture_failed">选择图片失败</string>
+    <string name="five_most">最多只能上传4张</string>
+    <string name="submit_fail">提交失败</string>
+    <string name="please_input_your_opinion">请输入您的意见</string>
+    <string name="thanks_for_you_opinion">感谢您提出宝贵意见，我们会尽快回复您！</string>
+
+    <!--速配-->
+    <string name="quick_today_success">今日成功速配: 5562次</string>
+    <string name="online_actor">当前在线主播: 5562次</string>
+    <string name="online_user">当前在线用户: 5562次</string>
+    <string name="start_quick">开始速配</string>
+    <string name="change">换一下</string>
+    <string name="quicking">速配中,请注意形象....</string>
+
+    <!--红包-->
+    <string name="congratulation">恭喜发财, 大吉大利</string>
+    <string name="have_save">已存入钱包中,可直接使用</string>
+    <string name="red_history">红包记录</string>
+
+    <!--空界面-->
+    <string name="no_pay_history">你还没有支付账单</string>
+    <string name="not_upload">该主播还未上传照片/视频</string>
+    <string name="no_focus">你还没关注主播</string>
+    <string name="no_comment">暂无评价</string>
+
+    <!--系统消息-->
+
+    <!--设置收费项目-->
+    <string name="text_private_chat">文字私聊</string>
+    <string name="audio_chat_gold">语音聊天</string>
+    <string name="see_phone_gold">查看手机号码</string>
+    <string name="see_we_chat_gold">查看微信号码</string>
+    <string name="see_qq_gold">查看QQ号码</string>
+    <string name="confirm">确定</string>
+    <string name="set_charge">设置收费项目</string>
+    <string name="phone_private">私密(不公开)</string>
+
+    <!--上传相册-->
+    <string name="set_title">设置标题</string>
+    <string name="upload_album">上传相册</string>
+    <string name="submit">提交</string>
+    <string name="image">图片</string>
+    <string name="video_des_one">视频</string>
+    <string name="set_money">收费设置</string>
+    <string name="please_input_title">请输入标题</string>
+    <string name="please_choose_file">请选择文件</string>
+    <string name="money_des">收费为0则表示此视频/照片为公开</string>
+    <string name="upload_done">上传完成</string>
+
+    <!--手机验证-->
+    <string name="phone_verify">手机验证</string>
+    <string name="mobile_num">手机号</string>
+    <string name="code">验证码</string>
+    <string name="verify_good">验证成功</string>
+    <string name="get_code">点击获取验证码</string>
+    <string name="finish_verify">完成验证</string>
+
+    <!--腾讯IM-->
+    <string name="chat_press_talk">按住 说话</string>
+    <string name="chat_release_send">松开 结束</string>
+    <string name="chat_image">图片</string>
+    <string name="chat_photo">拍摄</string>
+    <string name="chat_video">小视频</string>
+
+    <!--消息页面-->
+    <string name="send">发送</string>
+
+    <!--评论页面-->
+    <string name="send_comment">本次视频评价</string>
+    <string name="comment_success">评价成功</string>
+    <string name="comment_fail">评价失败</string>
+    <string name="complain_des">投诉</string>
+
+    <!--管理账户页面-->
+    <string name="alipay_account_number">支付宝账号</string>
+    <string name="we_chat_account">微信账号管理</string>
+    <string name="alipay_account">支付宝账号管理</string>
+    <string name="alipay_name">支付宝姓名</string>
+    <string name="please_input_alipay_name">请输入支付宝姓名</string>
+    <string name="save_safely">安全修改</string>
+    <string name="finish">完成</string>
+    <string name="save_success">保存成功</string>
+    <string name="save_fail">保存失败</string>
+    <string name="please_input_alipay_account">请输入支付宝账号</string>
+    <string name="note_one">温馨提示:</string>
+    <string name="note_two">1.请填写微信中绑定银行卡时填写的真实姓名(请不要填昵称)</string>
+    <string name="note_two_one">1.请确保支付宝已实名认证,并填写真实姓名(请不要填昵称)</string>
+    <string name="note_three">2.为了保证顺利提现,30天内不要更换其他账号,否则会导致提现不通过</string>
+    <string name="note_four">3.我们承诺不会向任何人透露你的个人信息</string>
+    <string name="please_bind_we_chat">请绑定微信账号</string>
+
+    <!--分享-->
+    <string name="share_to">分享到</string>
+    <string name="share_success">分享成功</string>
+    <string name="share_cancel">分享取消</string>
+    <string name="please_check">请注意查收</string>
+    <string name="share_picture_error">图片获取失败</string>
+
+    <string name="share_title">方便吗？你的好友【%s】邀请您——视频私聊</string>
+
+    <!--分享文章页面-->
+    <string name="one_key_share">一键分享</string>
+
+    <!--搜索页面-->
+    <string name="search">搜索</string>
+    <string name="search_hint">请输入用户昵称/ID号</string>
+    <string name="no_one">没有搜到相关用户</string>
+
+    <!--新用户红包-->
+    <string name="need_one">还需分享 </string>
+    <string name="need_two">个微信群聊,即可领取红包</string>
+    <string name="back_app">返回甛觅Mru开始认证主播即可领取红包</string>
+    <string name="continue_share">继续完成分享</string>
+    <string name="back_and_verify">返回并开始认证</string>
+
+    <!--我的主播-->
+    <string name="my_actor">我的主播</string>
+    <string name="actor_total_number">主播总人数(人)</string>
+    <string name="actor_earn_gold">主播贡献值(金币)</string>
+    <string name="earn_gold_des">贡献值: </string>
+
+    <!--申请工会-->
+    <string name="card_number">身份证号码:</string>
+    <string name="please_input_card_number">请输入身份证号码</string>
+    <string name="company_name_des">公 会 名 称 :</string>
+    <string name="please_input_company_name">请输入公会名称</string>
+    <string name="apply_name_des">申请人姓名:</string>
+    <string name="please_input_apply_name">请输入公会申请者姓名</string>
+    <string name="contact_way_des">联 系 方 式 :</string>
+    <string name="please_input_apply_contact">请输入公会申请者联系电话</string>
+    <string name="please_input_apply_count">请输入你的主播人数</string>
+    <string name="apply_count_des">主 播 人 数 :</string>
+    <string name="notice_one">注:</string>
+    <string name="notice_two">主播人数是指公会旗下主播数量,请真实填写,以免造成不必要的损失。</string>
+    <string name="agree_des">已阅读并同意《甛觅Mru公会协议书》</string>
+    <string name="confirm_apply">确认申请</string>
+    <string name="not_agree">未同意甛觅Mru公会协议书</string>
+    <string name="chat_company_agree">甛觅Mru公会协议书</string>
+
+    <!--主播贡献值详情-->
+    <string name="today_earn_des">今日贡献值: </string>
+    <string name="actor_earn_detail_title">主播贡献值详情</string>
+    <string name="apply_fail">申请失败</string>
+    <string name="apply_success">申请成功!请耐心等待审核</string>
+    <string name="company_earn">公会贡献</string>
+
+    <!--VIP会员页面-->
+    <string name="go_pay">去支付</string>
+    <string name="choose_pay_way">选择支付方式</string>
+    <string name="please_choose_pay_way">请选择支付方式</string>
+    <string name="please_choose_pay_way_one">暂未获取到支付方式</string>
+    <string name="charge_prompt">充值金币属于虚拟代币，充值后无法退款，请谨慎充值，适度消费。</string>
+
+    <!--申请CPS-->
+    <string name="apply_cps">申请CPS</string>
+    <string name="ten_percent">10</string>
+    <string name="channel_name">渠道名称:</string>
+    <string name="please_input_channel_name">请输入渠道名称</string>
+    <string name="web_site">网        址:</string>
+    <string name="please_input_web_site">请输入网址</string>
+    <string name="active_user">活跃用户:</string>
+    <string name="please_input_active_user">请输入您的活跃用户</string>
+    <string name="ten_thousand">万</string>
+    <string name="share_percent">提成比例:</string>
+    <string name="real_name_des">真实姓名:</string>
+    <string name="please_input_real_name_des">请填写您的真实姓名</string>
+    <string name="withdraw_way">提现方式:</string>
+    <string name="please_choose_withdraw_way">请选择提现方式</string>
+    <string name="withdraw_way_one">提现方式</string>
+    <string name="withdraw_account">提现账号:</string>
+    <string name="please_input_withdraw_account">请输入提现账号</string>
+    <string name="contact_way">联系方式:</string>
+    <string name="please_input_contact_way">请输入您的联系电话</string>
+
+    <!--CPS介绍-->
+    <string name="cps_intro">CPS介绍</string>
+    <string name="one">1、</string>
+    <string name="one_title">什么是CPS</string>
+    <string name="one_des">CPS(Cost Per Sales)以实际销售产品额度来换算广告报酬的模式。</string>
+    <string name="two">2、</string>
+    <string name="two_title">申请条件</string>
+    <string name="two_des">有流量的站长,个人以及各类广告联盟均可申请。</string>
+    <string name="three">3、</string>
+    <string name="three_title">发布渠道</string>
+    <string name="three_des">网站, app, 自媒体, QQ群, 微信群, 微博等。</string>
+    <string name="four_suf">4、</string>
+    <string name="four_title">分成费用</string>
+    <string name="four_des">最少10%起,根据充值量,最高可达30%大客户可具体协商</string>
+    <string name="five">5、</string>
+    <string name="five_title">结算方式</string>
+    <string name="five_des">每周二统一结算,大客户可以协商结算周期。\n其他问题请咨询在线客服</string>
+    <string name="i_need_apply">我要申请</string>
+
+    <!--我的CPS-->
+    <string name="copy_success">复制成功</string>
+
+    <!--排行榜-->
+    <string name="day_rank">日榜</string>
+    <string name="week_rank">周榜</string>
+    <string name="month_rank">月榜</string>
+    <string name="total_rank">总榜</string>
+    <string name="yesterday_rank">昨日奖励</string>
+    <string name="chat_number_one">ID: </string>
+
+    <!--金币不足页面-->
+    <string name="vip_des_one">会员免费畅聊、看私密视频私照</string>
+    <string name="upgrade_vip">立即升级 </string>
+    <string name="more_gold">更多充值金额</string>
+    <string name="get_gold_free">免费领取金币</string>
+
+    <!--分类页面-->
+
+    <!--邀请赚钱页面-->
+    <string name="invite_gold">邀请奖励</string>
+    <string name="invite_man">邀请用户</string>
+    <string name="reward_twenty">奖励排行</string>
+    <string name="number_twenty">人数排行</string>
+    <string name="invite_earn">邀请赚钱</string>
+    <string name="earn_rule">奖励规则</string>
+    <string name="i_need_warn">我要赚钱</string>
+    <string name="total_reward">共奖励 </string>
+    <string name="total_invite">共邀请 </string>
+    <string name="man_des"> 人</string>
+
+    <!--二维码页面-->
+    <string name="my_code">我的二维码</string>
+
+    <string name="chat_title">【甛觅Mru】与真人美女零距离互动</string>
+    <string name="chat_des">玩嗨同城附近</string>
+
+    <!--个人资料页面-->
+    <string name="album">相册</string>
+    <string name="phone_num_des">手机号:</string>
+    <string name="we_chat_num_des">微信号:</string>
+    <string name="user_info">个人信息</string>
+    <string name="accept_rate">接  听  率</string>
+    <string name="high_one_des">身        高</string>
+    <string name="weight_one_des">体        重</string>
+    <string name="star_one_des">星        座</string>
+    <string name="city_one_des">城        市</string>
+
+    <!--个人相册-->
+    <string name="more_one">查看更多  </string>
+
+    <!--账户余额-->
+    <string name="income">收入</string>
+    <string name="out_come">支出</string>
+    <string name="left_gold">本月汇总</string>
+
+    <!--亲密榜-->
+    <string name="close_rank">亲密榜</string>
+    <string name="close_des">亲密度:  </string>
+    <string name="close_bottom_des">对主播每消费1金币增加1点亲密度</string>
+
+    <!--礼物柜-->
+    <string name="gift_pack_title">礼物柜</string>
+    <string name="gift_total">礼物总数:</string>
+    <string name="per">份</string>
+
+    <!--赠送礼物页面-->
+    <string name="can_use_gold_des">可用金币:  </string>
+    <string name="charge_one_des">充值>></string>
+
+    <!--月相册列表-->
+
+    <!--我的通话-->
+    <string name="my_call_list">我的通话</string>
+    <string name="not_answer">未接听</string>
+    <string name="minute">分钟</string>
+    <string name="call_time">通话时间  </string>
+
+    <!--主播申请审核中-->
+    <string name="actor_verifying">主播申请审核中</string>
+    <string name="ok_go">知道了</string>
+    <string name="verify_des">你提交的资料我们已收到</string>
+    <string name="verify_des_one">请加客服微信进行认证\n谢谢合作</string>
+
+    <!--安卓手机指南-->
+    <string name="phone_navi">安卓手机指南</string>
+    <string name="vivo">vivo手机</string>
+    <string name="xiaomi">小米手机</string>
+    <string name="huawei">华为手机</string>
+    <string name="oppo">oppo手机</string>
+
+    <!--vivo手机指南-->
+
+    <!--魅族手机指南-->
+
+    <!--华为手机指南-->
+
+    <!--小米手机指南-->
+
+    <!--OPPO手机指南-->
+
+    <!--附近页面-->
+    <string name="note_des">温馨提示</string>
+
+    <!--不足一分钟-->
+    <string name="one_minute_left_one">金币即将耗尽, 通话将在 1 分钟后挂断~</string>
+    <string name="money_not_enough">余额不足!</string>
+    <string name="ignore">忽略</string>
+
+    <!--我的邀请码-->
+    <string name="copy">复制</string>
+
+    <!--动态-->
+    <string name="shoot">拍摄</string>
+    <string name="see_all">查看全部</string>
+    <string name="collapse">收起</string>
+
+    <!--发布动态-->
+    <string name="post">发表</string>
+    <string name="post_success">发布成功,请耐心等待审核</string>
+    <string name="post_fail">发布失败</string>
+    <string name="post_active">发布动态</string>
+    <string name="say_content">此时此刻, 想和大家分享什么呢~</string>
+    <string name="where">你在哪里?</string>
+    <string name="file_invalidate">文件无效,请重新选择</string>
+    <string name="set_content">未设置动态内容</string>
+    <string name="get_permission_fail">未获取到权限</string>
+    <string name="comment_number">评论 </string>
+    <string name="comment_quickly">快给主播评论一个吧~</string>
+    <string name="heart_success">点赞成功</string>
+    <string name="focus_success">关注成功</string>
+    <string name="cancel_focus_success">取消关注成功</string>
+    <string name="please_input_comment">请输入评论内容</string>
+    <string name="comment_success_one">评论成功,请耐心等待审核</string>
+    <string name="comment_fail_one">评论失败</string>
+    <string name="delete_success">删除成功</string>
+
+    <!--我的位置页面-->
+    <string name="my_position">我的位置</string>
+    <string name="search_position">搜索附近位置</string>
+    <string name="need_position_permission">位置服务需开启定位权限</string>
+    <string name="not_show">不显示位置</string>
+    <string name="position_invalidate">位置无效,请重新选择</string>
+    <string name="middle_point"> · </string>
+    <string name="report_one">举报</string>
+
+    <!--评论消息-->
+
+    <!--短信验证-->
+    <string name="safety_verify">安全验证</string>
+    <string name="not_see">看不清?</string>
+    <string name="change_one">换一张</string>
+    <string name="input_next">请输入下列字符</string>
+    <string name="please_input_image_code">请输入图形验证码</string>
+    <string name="wrong_image_code">图形验证码错误</string>
+
+    <!--未知来源权限-->
+    <string name="notice_unkown_des">安装应用需要打开未知来源权限,请开启权限</string>
+    <string name="go_open">去开启</string>
+
+    <!--速配-->
+    <string name="quick_fail">啊!被别人抢走了,下次手速快点哦!</string>
+    <string name="five_one">6</string>
+    <string name="no_anchor">暂无速配主播</string>
+
+    <string name="please_input_text_message">请输入文字消息</string>
+    <string name="me_one">我:  </string>
+
+    <string name="click_here">【如不能正常升级,请点这里】</string>
+    <string name="get_download_url_fail">获取下载地址失败,请稍候再试</string>
+    <string name="get_download_url_fail_one">更新地址为空,请稍候再试</string>
+
+    <!--新的个人中心-->
+    <string name="who_saw_me">谁看过我</string>
+    <string name="who_saw_ta">谁看过TA</string>
+    <string name="my_visitor">最近来访</string>
+    <string name="who_saw_me_empty">还没人看过你哦</string>
+    <string name="visitor_count">%s个人访问过你</string>
+    <string name="video_chat_switch">视频聊天</string>
+    <string name="audio_chat_switch">语音聊天</string>
+    <string name="private_chat_switch">私信聊天</string>
+
+
+    <!--红包提示-->
+
+    <!--vip到期时间-->
+
+    <!--新的主播详情页面-->
+    <string name="listen_rate">接听率</string>
+    <string name="close_to_mee">与我亲密</string>
+    <string name="my_gift">我的礼物</string>
+    <string name="no_text">" "</string>
+    <string name="last_time_des">最后登录: </string>
+    <string name="we_chat_num_des_one">微信号: %1$s</string>
+    <string name="phone_num_one">手机号: %1$s</string>
+    <string name="qq_num_one">QQ号: </string>
+    <string name="see_more_active">查看主播更多动态</string>
+
+    <!--新红包-->
+
+    <!--速配-->
+    <string name="change_des">视频配对, 缘分面对面</string>
+
+    <!--账号密码-->
+    <string name="account_password">账号密码登录</string>
+    <string name="verify_login">验证码登录</string>
+    <string name="password">密    码:</string>
+    <string name="please_input_password">请输入密码</string>
+    <string name="forget_password">忘记密码?</string>
+    <string name="register">注册</string>
+    <string name="login_one">登录</string>
+    <string name="length_wrong">密码长度需在6到16位之间</string>
+    <string name="register_success">注册成功,请登录</string>
+    <string name="register_fail">注册失败</string>
+    <string name="new_password">新密码:</string>
+    <string name="please_set_new_password">请设置新密码</string>
+    <string name="set_new_password_success">请设置新密码成功,请重新登录</string>
+    <string name="set_new_password_fail">请设置新密码失败</string>
+    <string name="please_input_new_password">请输入新密码</string>
+    <string name="new_length_wrong">新密码长度需在6到16位之间</string>
+
+    <!--背景滚动页面-->
+    <string name="phone_number_login">手机</string>
+    <string name="we_chat_login">微信</string>
+    <string name="qq_login">QQ</string>
+    <string name="register_notice">我已阅读并同意</string>
+
+    <!--新页面-->
+    <string name="level_one">LV1</string>
+    <string name="level_two">LV2</string>
+    <string name="level_three">LV3</string>
+    <string name="level_four">LV4</string>
+    <string name="level_five">LV5</string>
+    <string name="open">开通</string>
+    <string name="wechat_account_number">微信账号</string>
+    <string name="please_input_we_chat_account">请输入微信账号</string>
+
+    <!--更新-->
+    <string name="update_des">为 你 变 得 更 好</string>
+    <string name="new_version_des">发现新版本</string>
+    <string name="new_version_des_one">发现新版本V</string>
+    <string name="company_hint">建议旗下有10名以上主播的家族长（公会）申请，否则可能你的申请无法通过审核</string>
+    <string name="old_price">原价: </string>
+
+    <!--美颜-->
+
+    <!--直播-->
+    <string name="number_man"> 人</string>
+    <string name="number_ten_thousand"> 万</string>
+    <string name="total_send">贡献值</string>
+    <string name="online_user_one">在线观众</string>
+    <string name="fan">粉丝</string>
+    <string name="send_gift">送出礼物</string>
+    <string name="sign_one">: </string>
+    <string name="send_to_actor">送 主播</string>
+    <string name="come_welcome"> 来了,欢迎!</string>
+    <string name="living_des">直播中</string>
+
+    <!--昵称长度-->
+    <string name="nick_length">昵称长度不可超过10</string>
+    <string name="copy_link">复制链接</string>
+    <string name="please_input_sign_one">请输入个性签名</string>
+
+    <string name="can_not_delete_main">不能删除主封面</string>
+    <string name="already_main">已经是主封面</string>
+
+    <!--手势认证-->
+    <string name="verify_apply">认证申请</string>
+    <string name="right_example">正确示例</string>
+    <string name="click_shoot">点击拍照</string>
+    <string name="shoot_one">请按照图中人物自拍姿势进行自拍,并提交</string>
+    <string name="shoot_two">1、请保证自拍为本人\n2、请保证照片五官清晰\n3、该照片仅用作认证,官方将对照片保密</string>
+    <string name="shoot_three">4、添加主播客服微信</string>
+    <string name="shoot_four">,可加速审核</string>
+    <string name="share_now">立即分享</string>
+    <string name="we_friend">微信好友</string>
+
+    <!--actor_pager-->
+
+    <!--其他-->
+    <string name="upload_money_code">上传收款码</string>
+    <string name="click_upload_money_code">点击\n上传收款码</string>
+    <string name="money_code_note">请上传和真实姓名，收款方式一致的收款码。</string>
+    <string name="money_code_picture_not_choose">您还未选择收款码图片</string>
+    <string name="total_charge">总充值: </string>
+    <string name="left_money">余额: </string>
+    <string name="left_gold_one">对方剩余金币: </string>
+    <string name="please_select_with_draw_way">请选择提现方式</string>
+    <string name="set_fail">设置失败</string>
+    <string name="element_send_fail">构建消息失败,发送失败</string>
+    <string name="tim_send_fail">云通信初始化未成功,请稍候再试</string>
+    <string name="get_a_gift">打赏了你一个礼物，快去看看吧</string>
+    <string name="login_other">您的账号在其他设备登录</string>
+
+    <!--悬浮-->
+    <string name="floating_vip">恭喜成为会员</string>
+    <string name="floating_charge">充值%s金币</string>
+    <string name="floating_send">   送   </string>
+
+    <!--随机聊-->
+    <string name="young_notice">为保护未成年人健康成长,甛觅Mru特别推出未成年模式,该模式下可以禁止所有功能,如需使用,请设置密码保护。</string>
+    <string name="set_young_mode">设置未成年模式 ></string>
+    <string name="i_know">我知道了</string>
+    <string name="already_open_young_mode">你已开启未成年模式,所有功能已关闭</string>
+    <string name="forget_password_one">忘记密码</string>
+    <string name="close_young_mode">关闭未成年模式</string>
+    <string name="young_mode">未成年模式</string>
+    <string name="young_mode_have_close">未成年模式已关闭</string>
+    <string name="open_young_mode">开启未成年模式,可防未成年人使用</string>
+    <string name="open_young_mode_one">开启未成年模式</string>
+    <string name="verify_password">验证密码</string>
+    <string name="input_password">输入密码</string>
+    <string name="need_independent_password">启动未成年模式,需要设置独立密码</string>
+    <string name="next_step">下一步</string>
+    <string name="please_input_long_password">密码长度不够</string>
+    <string name="please_input_password_again">请再次输入密码</string>
+    <string name="password_wrong">两次密码不相同,请重新输入</string>
+    <string name="close_password_des">关闭未成年模式</string>
+    <string name="wrong_password">密码不正确,请重新输入</string>
+    <string name="bind_phone">请先绑定手机号</string>
+
+    <string name="operate_top_success">置顶成功</string>
+    <string name="operate_top_fail">置顶失败</string>
+    <string name="calling_audio_des">您正在发起语音....</string>
+    <string name="mute_voice">静音</string>
+    <string name="hands_free">免提</string>
+
+    <!--守护-->
+    <string name="protect_success">守护成功</string>
+
+    <string name="only_man_can_one_vs_two">只有男用户才能邀请主播1对2</string>
+    <string name="promotion_quotations_empty">暂无语录</string>
+    <string name="promotion_share">分享我的海报</string>
+    <string name="promotion_invite_code">--邀请码--</string>
+    <string name="picture_save_error">图片保存失败</string>
+    <string name="promotion_poster">推广海报</string>
+    <string name="my_invite">我的邀请</string>
+    <string name="gold_gap">距离上名:%s</string>
+    <string name="illegal_info_other">对方可能存在不文明行为，系统已自动为您屏蔽。15秒之后视频将会重新打开。</string>
+    <string name="illegal_info_self">你可能存在不文明行为，系统已将你的视频关闭，请规范自己的行为。15秒后视频将重新打开。</string>
+
+    <!--  隐私协议弹窗  -->
+    <string name="alert_agreement_title">用户协议及隐私政策</string>
+    <string name="alert_agreement_des">感谢您信任并使用甛觅Mru！\n我们非常重视您的个人信息和隐私保护，为了更好的保障您的个人权益，在您使用我们的产品前，
+        请您认证阅读《用户协议》和《隐私政策》的全部内容，同意并接受全部条款后开始使用我们的产品和服务。若选择不同意，将无法使用我们的产品和服务，并会退出应用。</string>
+
+
+    <string name="date_home_list_user_info">%1$s · %2$s岁 · %3$s</string>
+</resources>

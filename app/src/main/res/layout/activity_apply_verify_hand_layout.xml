@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--头部图片-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <!--左边-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:layout_width="168dp"
+                    android:layout_height="33dp"
+                    android:background="@color/gray_ebebeb"
+                    android:gravity="center"
+                    android:text="@string/right_example"
+                    android:textColor="@color/black_333333"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:layout_width="168dp"
+                    android:layout_height="170dp"
+                    android:background="@drawable/right_example"
+                    android:contentDescription="@null" />
+
+            </LinearLayout>
+
+            <!--右边-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:orientation="vertical"
+                tools:ignore="UseCompoundDrawables">
+
+                <TextView
+                    android:layout_width="168dp"
+                    android:layout_height="33dp"
+                    android:background="@color/gray_ebebeb"
+                    android:gravity="center"
+                    android:text="@string/click_shoot"
+                    android:textColor="@color/black_333333"
+                    android:textSize="15sp" />
+
+                <ImageView
+                    android:id="@+id/click_shoot_iv"
+                    android:layout_width="168dp"
+                    android:layout_height="170dp"
+                    android:background="@drawable/click_shoot"
+                    android:contentDescription="@null" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="5dp"
+            android:text="@string/shoot_one"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="微信号"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp" />
+
+            <EditText
+                android:id="@+id/wx_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:maxLength="50"
+                android:maxLines="1"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="18dp"
+            android:text="@string/shoot_two"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <LinearLayout
+            android:layout_width="345dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="-1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/shoot_three"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/we_chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="2dp"
+                android:textColor="@color/red_fe2947"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="@string/shoot_four"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/submit_now_tv"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="80dp"
+            android:background="@drawable/corner_gradient_blue_pink"
+            android:gravity="center"
+            android:text="@string/submit_verify_des"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="35dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/law_des"
+                android:textColor="@color/black_333333"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/agree_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="4dp"
+                android:paddingBottom="4dp"
+                android:text="《甛觅Mru视频交友协议》"
+                android:textColor="@color/main"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

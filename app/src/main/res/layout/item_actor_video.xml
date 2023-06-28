@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="130dp"
+    android:layout_height="130dp"
+    android:background="@drawable/corner8_solid_gray">
+
+    <ImageView
+        android:id="@+id/content_iv"
+        android:layout_width="130dp"
+        android:layout_height="130dp" />
+
+    <ImageView
+        android:id="@+id/lock_iv"
+        android:layout_width="12dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:adjustViewBounds="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/actor_album_lock" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/actor_play_btn" />
+
+</FrameLayout>

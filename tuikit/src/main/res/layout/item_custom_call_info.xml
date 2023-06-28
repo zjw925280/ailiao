@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_tv"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:drawableLeft="@drawable/im_selector_call_video"
+    android:drawablePadding="15dp"
+    android:gravity="center"
+    android:padding="8dp"
+    android:text="未接听"
+    android:textColor="#333333"
+    android:textSize="15sp" />

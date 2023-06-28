@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <!--第一步-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_ebebeb"
+            android:gravity="center"
+            android:text="@string/apply_step_one"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-1dp"
+            android:background="@drawable/shape_id_card_back"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/head_img_iv"
+                android:layout_width="179dp"
+                android:layout_height="115dp"
+                android:layout_gravity="center"
+                android:background="@drawable/id_card_front"
+                android:contentDescription="@null" />
+
+        </FrameLayout>
+
+        <!--第二步-->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="33dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/gray_ebebeb"
+            android:gravity="center"
+            android:text="@string/apply_step_three"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="-1dp"
+            android:background="@drawable/shape_id_card_back"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/self_iv"
+                android:layout_width="179dp"
+                android:layout_height="115dp"
+                android:layout_gravity="center"
+                android:background="@drawable/self_img"
+                android:contentDescription="@null" />
+
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="15dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/notice_one"
+                android:textColor="@color/red_fe2947"
+                android:textSize="15sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:lineSpacingExtra="8dp"
+                android:text="@string/upload_head_image_notice_one"
+                android:textColor="@color/red_fe2947"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/submit_now_tv"
+            android:layout_width="300dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/shape_verify_submit_background"
+            android:gravity="center"
+            android:text="@string/submit_verify_des"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="35dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/law_des"
+                android:textColor="@color/black_333333"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/agree_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp"
+                android:paddingTop="4dp"
+                android:text="@string/law_des_one"
+                android:textColor="@color/red_fe2947"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>

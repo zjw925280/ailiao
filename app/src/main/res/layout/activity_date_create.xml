@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f7f7f7"
+    tools:context=".activity.DateCreateActivity">
+
+    <View
+        android:id="@+id/giftBg"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_home_date_item"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/giftTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="17dp"
+        android:text="赠送礼物"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintLeft_toLeftOf="@+id/giftBg"
+        app:layout_constraintTop_toTopOf="@+id/giftBg" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/giftImg"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginStart="40dp"
+        android:adjustViewBounds="true"
+        app:layout_constraintBottom_toBottomOf="@+id/giftBg"
+        app:layout_constraintLeft_toRightOf="@+id/giftTitle"
+        app:layout_constraintTop_toTopOf="@+id/giftBg"
+        tools:src="@mipmap/ic_launcher" />
+
+
+    <android.support.v7.widget.AppCompatImageView
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/person_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/giftBg"
+        app:layout_constraintRight_toRightOf="@id/giftBg"
+        app:layout_constraintTop_toTopOf="@+id/giftBg" />
+
+    <View
+        android:id="@+id/infoBg"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="17dp"
+        android:background="@drawable/bg_home_date_item"
+        app:layout_constraintTop_toBottomOf="@+id/giftBg" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/labelPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:gravity="center_vertical"
+        android:text="电话"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labelAddress"
+        app:layout_constraintLeft_toLeftOf="@id/infoBg"
+        app:layout_constraintTop_toTopOf="@+id/infoBg" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/labelAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:text="约会地址"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/labelTime"
+        app:layout_constraintLeft_toLeftOf="@+id/labelPhone"
+        app:layout_constraintTop_toBottomOf="@+id/labelPhone" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/labelTime"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:gravity="center_vertical"
+        android:text="约会时间"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/infoBg"
+        app:layout_constraintLeft_toLeftOf="@+id/labelPhone"
+        app:layout_constraintTop_toBottomOf="@+id/labelAddress" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textPhone"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:maxLength="11"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/labelPhone"
+        app:layout_constraintLeft_toRightOf="@+id/labelAddress"
+        app:layout_constraintRight_toLeftOf="@+id/moreAddress"
+        app:layout_constraintTop_toTopOf="@+id/labelPhone"
+        tools:text="18888888888" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/morePhone"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/person_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/labelPhone"
+        app:layout_constraintRight_toRightOf="@id/infoBg"
+        app:layout_constraintTop_toTopOf="@+id/labelPhone" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textAddress"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/labelAddress"
+        app:layout_constraintLeft_toRightOf="@+id/labelAddress"
+        app:layout_constraintRight_toLeftOf="@+id/moreAddress"
+        app:layout_constraintTop_toTopOf="@+id/labelAddress"
+        tools:text="西安市" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/moreAddress"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/person_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/labelAddress"
+        app:layout_constraintRight_toRightOf="@id/infoBg"
+        app:layout_constraintTop_toTopOf="@+id/labelAddress" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/textTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:ellipsize="end"
+        android:lines="1"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/labelTime"
+        app:layout_constraintLeft_toRightOf="@+id/labelAddress"
+        app:layout_constraintRight_toLeftOf="@+id/moreTime"
+        app:layout_constraintTop_toTopOf="@+id/labelTime"
+        tools:text="2023-05-16       13:14" />
+
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/moreTime"
+        android:layout_width="wrap_content"
+        android:layout_height="17dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="12dp"
+        android:adjustViewBounds="true"
+        android:src="@drawable/person_arrow"
+        app:layout_constraintBottom_toBottomOf="@+id/labelTime"
+        app:layout_constraintRight_toRightOf="@id/infoBg"
+        app:layout_constraintTop_toTopOf="@+id/labelTime" />
+
+    <View
+        android:id="@+id/markBg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/bg_home_date_item"
+        app:layout_constraintTop_toBottomOf="@+id/infoBg" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/markTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:text="备注"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/markBg"
+        app:layout_constraintLeft_toLeftOf="@+id/markBg"
+        app:layout_constraintTop_toTopOf="@+id/markBg" />
+
+    <android.support.v7.widget.AppCompatEditText
+        android:id="@+id/markEdt"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginEnd="12dp"
+        android:background="@color/transparent"
+        android:gravity="center_vertical"
+        android:hint="请输入备注内容"
+        android:textColor="@color/black"
+        android:textColorHint="#D8D8D8"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/markBg"
+        app:layout_constraintLeft_toRightOf="@+id/markTitle"
+        app:layout_constraintRight_toRightOf="@+id/markBg"
+        app:layout_constraintTop_toTopOf="@+id/markBg" />
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/btnSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/bg_btn_submit_date"
+        android:gravity="center"
+        android:text="提交约会"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F7F7F7"
+    tools:context=".activity.DateMineActivity">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:paddingHorizontal="12dp">
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/labelNotGo"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="未赴约"
+            android:textAppearance="@style/dateMineTabText"
+            android:textColor="@color/color_date_item_age" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/labelGone"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="已赴约"
+            android:textAppearance="@style/dateMineTabText"
+            android:textColor="@color/color_date_item_age" />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/labelInactive"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="已失效"
+            android:textAppearance="@style/dateMineTabText"
+            android:textColor="@color/color_date_item_age" />
+    </android.support.v7.widget.LinearLayoutCompat>
+
+    <View
+        android:id="@+id/indexView"
+        android:layout_width="42dp"
+        android:layout_height="2dp"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="-2dp"
+        android:background="#9A52F4" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/contentRv"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/transparent"
+        android:layout_weight="1" />
+</android.support.v7.widget.LinearLayoutCompat>

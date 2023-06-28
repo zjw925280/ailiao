@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:divider="@drawable/divider_horizontal_gray"
+    android:orientation="vertical"
+    android:showDividers="middle|end">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="视频认证"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/video_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:drawablePadding="10dp"
+            android:gravity="end"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="未认证"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="手机认证"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/phone_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:drawablePadding="10dp"
+            android:gravity="end"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="未认证"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="身份认证"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/identity_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:layout_weight="1"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:drawablePadding="10dp"
+            android:gravity="end"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="未认证"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

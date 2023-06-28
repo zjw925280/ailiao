@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="XCircleIndicator">
+        <!-- 被选中圆点的颜色 -->
+        <attr name="indicator_fillColor" format="color" />
+        <!-- 未选中圆点的颜色 -->
+        <attr name="indicator_strokeColor" format="color" />
+        <!-- 圆点的大小 -->
+        <attr name="indicator_radius" format="dimension" />
+        <!-- 圆点间间距的大小 -->
+        <attr name="indicator_circleInterval" format="dimension" />
+    </declare-styleable>
+</resources>

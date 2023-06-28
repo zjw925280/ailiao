@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/real_name"
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/real_name_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="90dp"
+                android:background="@color/transparent"
+                android:hint="@string/please_input_real_name"
+                android:inputType="text"
+                android:paddingStart="5dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/black_text"
+                android:textSize="14sp"
+                tools:ignore="Autofill" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/wechat_account_number"
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+
+            <EditText
+                android:id="@+id/we_chat_account_et"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="90dp"
+                android:background="@color/transparent"
+                android:hint="@string/please_input_we_chat_account"
+                android:inputType="text"
+                android:paddingStart="5dp"
+                android:paddingTop="3dp"
+                android:paddingEnd="5dp"
+                android:paddingBottom="3dp"
+                android:textColor="@color/black_text"
+                android:textSize="14sp"
+                android:visibility="visible"
+                tools:ignore="Autofill" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--收款码-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            tools:ignore="UseCompoundDrawables">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="@string/upload_money_code"
+                android:textColor="@color/black_text"
+                android:textSize="14sp" />
+
+            <FrameLayout
+                android:id="@+id/code_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/shape_money_code_back">
+
+                <ImageView
+                    android:id="@+id/money_code_iv"
+                    android:layout_width="120dp"
+                    android:layout_height="120dp"
+                    android:contentDescription="@null" />
+
+                <TextView
+                    android:id="@+id/money_des_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:lineSpacingExtra="5dp"
+                    android:text="@string/click_upload_money_code"
+                    android:textColor="@color/gray_868686"
+                    android:textSize="15sp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="10dp"
+            android:gravity="center_vertical"
+            android:text="@string/money_code_note"
+            android:textColor="@color/red_fe2947"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/submit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/shape_save_text_button_background"
+            android:gravity="center"
+            android:paddingTop="11dp"
+            android:paddingBottom="11dp"
+            android:text="@string/save_safely"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginEnd="12dp"
+            android:text="@string/note_one"
+            android:textColor="@color/black_text"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/note_two"
+            android:textColor="@color/black_text"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/note_three"
+            android:textColor="@color/black_text"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="12dp"
+            android:layout_marginBottom="20dp"
+            android:lineSpacingExtra="5dp"
+            android:text="@string/note_four"
+            android:textColor="@color/black_text"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</ScrollView>

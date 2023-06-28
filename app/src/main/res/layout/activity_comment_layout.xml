@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <ImageView
+            android:id="@+id/head_iv"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
+            android:layout_marginTop="30dp"
+            android:src="@drawable/default_head" />
+
+        <TextView
+            android:id="@+id/nick_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/black_333333"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/cost_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:lineSpacingExtra="3dp"
+            android:textColor="#ff333333"
+            android:textSize="16sp" />
+
+        <com.lovechatapp.chat.view.NoTouchRatingBar
+            android:id="@+id/star_rb"
+            style="@style/myRatingBarBig"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:focusableInTouchMode="false"
+            android:numStars="5"
+            android:rating="5"
+            android:stepSize="1" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/content_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp" />
+
+        <TextView
+            android:id="@+id/submit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginStart="37dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="37dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/corner_gradient_blue_pink"
+            android:gravity="center"
+            android:text="提交评价"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/complain_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/shape_complain_comment_red"
+            android:gravity="center"
+            android:text="@string/complain_des"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:visibility="gone" />
+
+    </LinearLayout>
+
+</ScrollView>

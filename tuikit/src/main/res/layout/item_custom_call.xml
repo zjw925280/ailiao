@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/call_type_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/item_custom_call_bg"
+        android:drawableLeft="@drawable/im_selector_callback"
+        android:drawablePadding="6dp"
+        android:gravity="center"
+        android:paddingLeft="15dp"
+        android:paddingTop="8dp"
+        android:paddingRight="35dp"
+        android:paddingBottom="8dp"
+        android:text="发来一个视频请求"
+        android:textColor="#6D6D6D"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/call_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/im_corner10_bottom_purple"
+        android:gravity="center"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        android:text="立即回拨"
+        android:textColor="@color/white"
+        android:textSize="14sp" />
+
+</LinearLayout>

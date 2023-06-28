@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_weight="1">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:drawableTop="@drawable/selector_navigation_mine_background"
+        android:gravity="center"
+        android:drawablePadding="@dimen/item_main_tab_draw_padding"
+        android:text="@string/mine"
+        android:textColor="@drawable/selector_navigation_text_color"
+        android:textSize="11sp" />
+
+    <ImageView
+        android:id="@+id/red_small_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:background="@drawable/red_pack_small" />
+</FrameLayout>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_fl"
+    android:layout_width="105dp"
+    android:layout_height="105dp"
+    android:layout_gravity="center"
+    android:layout_marginBottom="10dp"
+    android:background="@color/gray_f5f5f5">
+
+    <ImageView
+        android:id="@+id/content_iv"
+        android:layout_width="105dp"
+        android:layout_height="105dp"
+        android:layout_gravity="bottom"
+        android:contentDescription="@null" />
+
+    <ImageView
+        android:id="@+id/delete_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_margin="3dp"
+        android:src="@drawable/post_active_delete" />
+
+    <TextView
+        android:id="@+id/charge_tv"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:layout_gravity="bottom"
+        android:background="#7f000000"
+        android:gravity="center"
+        android:text="@string/free_one"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:visibility="gone" />
+
+</FrameLayout>

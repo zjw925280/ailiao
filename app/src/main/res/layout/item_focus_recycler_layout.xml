@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_rl"
+    android:layout_width="match_parent"
+    android:layout_height="100dp">
+
+    <ImageView
+        android:id="@+id/head_iv"
+        android:layout_width="61dp"
+        android:layout_height="61dp"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="15dp"
+        android:contentDescription="@null" />
+
+    <!--状态-->
+    <FrameLayout
+        android:id="@+id/status_fl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="12dp">
+
+        <TextView
+            android:id="@+id/offline_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/shape_focus_status_new_back"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/shape_offline_new_indicator"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:text="@string/offline"
+            android:textColor="@color/gray_868686"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/online_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/shape_focus_status_new_back"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/shape_online_new_indicator"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:text="@string/free"
+            android:textColor="@color/gray_868686"
+            android:textSize="11sp"
+            android:visibility="gone"
+            tools:ignore="SmallSp" />
+
+        <TextView
+            android:id="@+id/busy_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:background="@drawable/shape_focus_status_new_back"
+            android:drawablePadding="4dp"
+            android:drawableStart="@drawable/shape_busy_one_indicator"
+            android:gravity="center"
+            android:paddingBottom="3dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="3dp"
+            android:text="@string/busy"
+            android:textColor="@color/gray_868686"
+            android:textSize="11sp"
+            android:visibility="gone"
+            tools:ignore="SmallSp" />
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginEnd="12dp"
+        android:layout_marginStart="15dp"
+        android:layout_toEndOf="@+id/head_iv"
+        android:layout_toStartOf="@+id/status_fl"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:lines="1"
+            android:maxLength="12"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/sign_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="@color/gray_868686"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="15dp"
+        android:background="@color/gray_e1e1e1" />
+
+</RelativeLayout>

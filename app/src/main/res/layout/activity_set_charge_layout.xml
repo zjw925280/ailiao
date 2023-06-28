@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:scrollbars="none">
+
+        <!--视频聊天-->
+        <RelativeLayout
+            android:id="@+id/video_chat_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/video_chat"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/video_chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="7dp"
+                android:textColor="@color/gray_right_text"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="14dp" />
+
+        <!--语音聊天-->
+        <RelativeLayout
+            android:id="@+id/audio_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/audio_chat_gold"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/audio_chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="7dp"
+                android:textColor="@color/gray_right_text"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="14dp" />
+
+        <!--文字聊天-->
+        <RelativeLayout
+            android:id="@+id/text_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/text_private_chat"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/text_chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="7dp"
+                android:textColor="@color/gray_right_text"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="14dp" />
+
+        <!--查看手机号码-->
+        <RelativeLayout
+            android:id="@+id/phone_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/see_phone_gold"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/phone_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="7dp"
+                android:textColor="@color/gray_right_text"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="14dp" />
+
+        <!--查看微信号码-->
+        <RelativeLayout
+            android:id="@+id/we_chat_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/see_we_chat_gold"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/we_chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="7dp"
+                android:textColor="@color/gray_right_text"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="14dp" />
+
+        <!--查看微信号码-->
+        <RelativeLayout
+            android:id="@+id/qq_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="14dp"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:text="@string/see_qq_gold"
+                android:textColor="@color/black_text"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/qq_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:drawableEnd="@drawable/icon_right_arrow"
+                android:drawablePadding="7dp"
+                android:textColor="@color/gray_right_text"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <View
+            style="@style/HorizontalDivideLine"
+            android:layout_marginStart="14dp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/submit_tv"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="15dp"
+            android:background="@drawable/shape_report_text_button_background"
+            android:gravity="center"
+            android:text="@string/submit"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </LinearLayout>
+
+</RelativeLayout>

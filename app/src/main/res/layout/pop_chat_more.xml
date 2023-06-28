@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:layout_marginEnd="28dp"
+        android:src="@drawable/chat_pop_top" />
+
+    <LinearLayout
+        android:id="@+id/pop_ll"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-1dp"
+        android:layout_marginEnd="6dp"
+        android:background="@drawable/corner5_solid_white"
+        android:divider="@drawable/divider_horizontal_gray"
+        android:orientation="vertical"
+        android:showDividers="middle">
+
+        <TextView
+            android:id="@+id/black_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="加入黑名单"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/top_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="消息置顶"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/follow_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="关注"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/report_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="投诉"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/remark_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="修改备注"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/person_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp"
+            android:text="查看主页"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+
+</LinearLayout>

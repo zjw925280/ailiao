@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_weight="1"
+    android:drawableTop="@drawable/selector_navigation_mine_background"
+    android:gravity="center"
+    android:paddingTop="2dp"
+    android:drawablePadding="@dimen/item_main_tab_draw_padding"
+    android:paddingBottom="2dp"
+    android:text="短视频"
+    android:textColor="@drawable/selector_navigation_text_color"
+    android:textSize="11sp" />

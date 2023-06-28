@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!--消息提示音-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="@string/message_sound"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/sound_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/selector_bother_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--消息提示震动-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="@string/message_vibrate"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/vibrate_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/selector_bother_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--消息提示音-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="@string/group_message_sound"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/sound_group_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/selector_bother_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--消息提示震动-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="@string/group_message_vibrate"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/vibrate_group_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/selector_bother_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/black_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="@string/black_list"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            tools:ignore="RelativeOverlap" />
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/young_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="@string/young_mode"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            tools:ignore="RelativeOverlap" />
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--检查版本-->
+        <RelativeLayout
+            android:id="@+id/check_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/check_version"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/check_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:textColor="#f554da"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--清除缓存-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:id="@+id/one_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/clear_cache"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp" />
+
+            <TextView
+                android:id="@+id/cache_number_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_toEndOf="@+id/one_tv"
+                android:textColor="@color/gray_999999"
+                android:textSize="15sp"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/clear_cache_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:text="@string/clear"
+                android:textColor="#f554da"
+                android:textSize="17sp" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/help_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="用户帮助"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            tools:ignore="RelativeOverlap" />
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <!--意见反馈-->
+        <RelativeLayout
+            android:id="@+id/opinion_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/opinion_feed_back"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/icon_arrow_gray"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/agreement_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="用户协议"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            tools:ignore="RelativeOverlap" />
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/private_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="隐私协议"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            tools:ignore="RelativeOverlap" />
+
+        <View style="@style/HorizontalDivideLine" />
+
+        <TextView
+            android:id="@+id/exit_tv"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/corner_gradient_blue_pink"
+            android:gravity="center"
+            android:text="@string/exit_login"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</android.support.v4.widget.NestedScrollView>

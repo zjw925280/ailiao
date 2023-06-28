@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="420dp"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <!--贡献值 在线观众-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="47dp"
+            android:orientation="horizontal">
+
+            <!--贡献值-->
+            <FrameLayout
+                android:id="@+id/total_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="15dp">
+
+                <TextView
+                    android:id="@+id/total_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/total_send"
+                    android:textColor="@color/gray_868686"
+                    android:textSize="15sp"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/total_big_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/total_send"
+                    android:textColor="@color/black_333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="visible" />
+
+                <View
+                    android:id="@+id/total_v"
+                    android:layout_width="20dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/shape_home_indicator_back"
+                    android:visibility="visible" />
+
+            </FrameLayout>
+
+            <!--贡献值-->
+            <FrameLayout
+                android:id="@+id/online_fl"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="45dp">
+
+                <TextView
+                    android:id="@+id/online_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/online_user_one"
+                    android:textColor="@color/gray_868686"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/online_big_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/online_user_one"
+                    android:textColor="@color/black_333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:visibility="gone" />
+
+                <View
+                    android:id="@+id/online_v"
+                    android:layout_width="20dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="bottom|center_horizontal"
+                    android:background="@drawable/shape_home_indicator_back"
+                    android:visibility="gone" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/gray_e1e1e1" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/content_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+</LinearLayout>

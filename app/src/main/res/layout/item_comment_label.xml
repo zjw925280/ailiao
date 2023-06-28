@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/corner5_stroke_gray_eb"
+    android:ellipsize="end"
+    android:gravity="center"
+    android:paddingStart="2dp"
+    android:paddingTop="7dp"
+    android:paddingEnd="2dp"
+    android:paddingBottom="7dp"
+    android:singleLine="true"
+    android:text="清纯可爱"
+    android:textColor="#ff868686"
+    android:textSize="13sp" />

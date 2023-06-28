@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.tencent.qcloud.tim.uikit.modules.chat.ChatLayout
+        android:id="@+id/chat_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--动画-->
+    <com.opensource.svgaplayer.SVGAImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/gif_sv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        app:autoPlay="true"
+        app:loopCount="1" />
+
+</FrameLayout>

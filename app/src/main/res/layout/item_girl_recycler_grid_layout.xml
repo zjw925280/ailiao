@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.lovechatapp.chat.view.SquareFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:contentDescription="@null"
+        android:scaleType="center"
+        android:src="@drawable/default_back_small" />
+
+    <!--图片-->
+    <ImageView
+        android:id="@+id/head_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:contentDescription="@null" />
+
+    <!--下方-->
+    <LinearLayout
+        android:id="@+id/info_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/shape_cover_gold_background6"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingTop="12dp"
+        android:paddingBottom="9dp">
+
+        <!--昵称-->
+        <TextView
+            android:id="@+id/name_tv"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="6dp"
+            android:layout_marginEnd="6dp"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="星辰大海"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <!--价格-->
+        <TextView
+            android:id="@+id/price_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:text="30 金币"
+            android:textColor="@color/white"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@drawable/shape_cover2_gold_background6"
+        android:orientation="horizontal"
+        android:padding="6dp">
+
+        <ImageView
+            android:id="@+id/status_iv"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/circle_white"
+            android:padding="1dp"
+            android:src="@drawable/shape_free_indicator" />
+
+        <TextView
+            android:id="@+id/city_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical|end"
+            android:drawableStart="@drawable/home_position"
+            android:drawablePadding="2dp"
+            android:text="北京"
+            android:textColor="@color/white"
+            android:textSize="11sp" />
+
+    </FrameLayout>
+
+    <!--    &lt;!&ndash;状态&ndash;&gt;-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/status_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_gravity="end"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:background="@drawable/shape_status_new_text_back"-->
+    <!--        android:drawableStart="@drawable/shape_free_indicator"-->
+    <!--        android:drawablePadding="2dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:paddingStart="8dp"-->
+    <!--        android:paddingTop="2dp"-->
+    <!--        android:paddingEnd="8dp"-->
+    <!--        android:paddingBottom="3dp"-->
+    <!--        android:text="@string/free"-->
+    <!--        android:textColor="@color/white"-->
+    <!--        android:textSize="12sp"-->
+    <!--        tools:ignore="SmallSp" />-->
+
+</com.lovechatapp.chat.view.SquareFrameLayout>

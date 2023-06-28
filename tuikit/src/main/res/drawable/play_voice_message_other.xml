@@ -1,0 +1,7 @@
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android" android:oneshot="false">
+
+    <item android:drawable="@drawable/voice_msg_other1" android:duration="400"/>
+    <item android:drawable="@drawable/voice_msg_other2" android:duration="400"/>
+    <item android:drawable="@drawable/voice_msg_other3" android:duration="400"/>
+
+</animation-list>

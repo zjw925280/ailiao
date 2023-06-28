@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:layout_weight="1">
+
+    <TextView
+        android:id="@+id/title_tv"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="2dp"
+        android:drawableTop="@drawable/selector_navigation_message_background"
+        android:drawablePadding="@dimen/item_main_tab_draw_padding"
+        android:gravity="center"
+        android:text="@string/message"
+        android:textColor="@drawable/selector_navigation_text_color"
+        android:textSize="11sp" />
+
+    <TextView
+        android:id="@+id/red_count_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="2dp"
+        android:background="@drawable/shape_unread_count_text_back"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+</FrameLayout>
