@@ -55,7 +55,7 @@
         android:background="#7f000000"
         android:gravity="center"
         android:padding="5dp"
-        android:text="66金币"
+        android:text="66约豆"
         android:textColor="@color/white"
         android:textSize="12sp" />
 

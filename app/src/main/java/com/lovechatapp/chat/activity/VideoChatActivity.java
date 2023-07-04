@@ -203,7 +203,7 @@ public class VideoChatActivity extends BaseActivity implements TIMMessageListene
     @BindView(R.id.city_tv)
     TextView mCityTv;
 
-    //剩余金币
+    //剩余约豆
     @BindView(R.id.left_gold_tv)
     TextView mLeftGoldTv;
 
@@ -1350,7 +1350,7 @@ public class VideoChatActivity extends BaseActivity implements TIMMessageListene
     }
 
     /**
-     * 显示金币一分钟后挂断dialog
+     * 显示约豆一分钟后挂断dialog
      */
     private void showGoldJustEnoughDialog() {
         final Dialog mDialog = new Dialog(this, R.style.DialogStyle);

@@ -17,7 +17,7 @@ import java.util.List;
  * Copyright (C) 2018
  * 版权所有
  *
- * 功能描述：接通视频页面打赏金币RecyclerView的Adapter
+ * 功能描述：接通视频页面打赏约豆RecyclerView的Adapter
  * 作者：
  * 创建时间：2018/6/22
  *

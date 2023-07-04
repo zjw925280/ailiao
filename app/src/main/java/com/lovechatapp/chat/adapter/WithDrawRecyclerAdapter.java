@@ -56,7 +56,7 @@ public class WithDrawRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
         final int mPosition = position;
         MyViewHolder mHolder = (MyViewHolder) holder;
         if (bean != null) {
-            //金币
+            //约豆
             String gold = bean.t_gold + mContext.getResources().getString(R.string.gold);
             mHolder.mGoldTv.setText(gold);
             //钱  ¥ 12/个月

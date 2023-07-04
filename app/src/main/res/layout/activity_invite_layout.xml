@@ -82,7 +82,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="累积奖励（金币）"
+                            android:text="累积奖励（约豆）"
                             android:textColor="@color/black_333333"
                             android:textSize="14sp" />
 

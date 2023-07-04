@@ -1154,7 +1154,7 @@ public class BigHouseActivity extends BaseActivity implements TIMMessageListener
 //        animMessage.userName = customMessageBean.nickName;
 //        animMessage.headUrl = customMessageBean.headUrl;
 //        animMessage.giftImgUrl = customMessageBean.gift_still_url;
-//        if (customMessageBean.type.equals("1")) {// 0-金币 1-礼物
+//        if (customMessageBean.type.equals("1")) {// 0-约豆 1-礼物
 //            animMessage.giftNum = 1;
 //        } else {
 //            animMessage.giftNum = customMessageBean.gold_number;
@@ -1307,7 +1307,7 @@ public class BigHouseActivity extends BaseActivity implements TIMMessageListener
 //        try {
 //            CustomMessageBean bean = CustomMessageBean.parseBean(json);
 //            if (bean != null) {
-//                if (bean.type.equals("0")) {//金币
+//                if (bean.type.equals("0")) {//约豆
 //                    bean.gift_name = getResources().getString(R.string.gold);
 //                }
 //                //显示大礼物

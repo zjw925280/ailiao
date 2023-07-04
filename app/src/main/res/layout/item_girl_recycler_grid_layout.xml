@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="4dp"
-            android:text="30 金币"
+            android:text="30 约豆"
             android:textColor="@color/white"
             android:textSize="12sp" />
 

@@ -89,8 +89,8 @@ public class FirstChargeDialog extends Dialog implements View.OnClickListener {
                 holder.<TextView>getView(R.id.gold_tv).setTextColor(!bean.isSelected ? 0xff666666 : 0xffffffff);
                 holder.itemView.setBackgroundResource(bean.isSelected ?
                         R.drawable.corner7_solid_purple_ae4ffd : R.drawable.corner7_stroke_gray_eb);
-                holder.<TextView>getView(R.id.gold_tv).setText(String.format("%s金币", bean.t_gold));
-                holder.<TextView>getView(R.id.send_tv).setText(String.format("赠送%s金币", bean.t_give_gold));
+                holder.<TextView>getView(R.id.gold_tv).setText(String.format("%s约豆", bean.t_gold));
+                holder.<TextView>getView(R.id.send_tv).setText(String.format("赠送%s约豆", bean.t_give_gold));
                 holder.<TextView>getView(R.id.charge_tv).setText(String.format("%s元", decimalFormat.format(bean.t_money)));
             }
         };

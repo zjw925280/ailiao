@@ -272,6 +272,11 @@ public class MansionManFragment extends BaseFragment {
 
                             @Override
                             public void onPermissionGranted() {
+                                if(AppManager.getInstance().getUserInfo().isSexMan()){
+                                    ToastUtil.INSTANCE.showToast("该房间仅SVIP用户使用");
+                               return;
+                                }
+
                                 if (getActivity() != null && !getActivity().isFinishing()) {
                                     new CreateMultipleRoomDialog(getActivity(), mansionPermission.mansionId).show();
                                 }

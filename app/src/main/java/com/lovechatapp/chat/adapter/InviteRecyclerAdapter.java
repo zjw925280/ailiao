@@ -73,7 +73,7 @@ public class InviteRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             if (!TextUtils.isEmpty(nick)) {
                 mHolder.mNameTv.setText(nick);
             }
-            //金币
+            //约豆
             mHolder.mGoldTv.setText(String.valueOf(bean.totalGold));
             mHolder.mContentRl.setOnClickListener(new View.OnClickListener() {
                 @Override

@@ -42,7 +42,7 @@
                         android:paddingStart="15dp"
                         android:paddingTop="15dp"
                         android:paddingEnd="15dp"
-                        android:text="具体规则：邀请用户在注册完成7天内累计充值≥300元算一个有效用户数，累计达到以下对应人数则奖励相应的金币。"
+                        android:text="具体规则：邀请用户在注册完成7天内累计充值≥300元算一个有效用户数，累计达到以下对应人数则奖励相应的约豆。"
                         android:textColor="@color/gray_666666"
                         android:textSize="14sp" />
 
@@ -107,7 +107,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="累积奖励（金币）"
+                            android:text="累积奖励（约豆）"
                             android:textColor="@color/gray_666666"
                             android:textSize="14sp" />
 

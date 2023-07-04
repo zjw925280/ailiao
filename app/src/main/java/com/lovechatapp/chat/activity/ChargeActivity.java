@@ -12,9 +12,11 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.pay.paytypelibrary.OrderInfo;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.adapter.ChargeRecyclerAdapter;
@@ -164,7 +166,7 @@ public class ChargeActivity extends BaseActivity {
     }
 
     /**
-     * 获取我的金币余额
+     * 获取我的约豆余额
      */
     private void getMyGold() {
         Map<String, String> paramMap = new HashMap<>();
@@ -200,6 +202,7 @@ public class ChargeActivity extends BaseActivity {
                 .build().execute(new AjaxCallback<BaseListResponse<ChargeListBean>>() {
             @Override
             public void onResponse(BaseListResponse<ChargeListBean> response, int id) {
+                Log.e("充值=",new Gson().toJson(response));
                 if (isFinishing()) {
                     return;
                 }

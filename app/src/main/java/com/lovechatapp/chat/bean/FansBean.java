@@ -21,7 +21,7 @@ public class FansBean extends BaseBean {
     public String t_handImg;//
     public String t_create_time;//创建时间
     public String t_nickName;
-    public int goldfiles;//		金币档
+    public int goldfiles;//		约豆档
     public int grade;//		充值档 1.第一档 星星 2.第二档 月亮 3.第三档 太阳
     public int t_onLine;
     public int t_is_vip = 1;//	是否VIP 0.是1.否

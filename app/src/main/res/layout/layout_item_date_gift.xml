@@ -36,7 +36,7 @@
         android:textSize="10sp"
         android:visibility="gone"
         tools:ignore="SmallSp"
-        tools:text="20金币" />
+        tools:text="20约豆" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/giftPriceSend"
@@ -47,7 +47,7 @@
         android:layout_marginTop="-7dp"
         android:textColor="@color/gray_999999"
         android:textSize="10sp"
-        tools:text="20金币" />
+        tools:text="20约豆" />
 
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/giftSend"

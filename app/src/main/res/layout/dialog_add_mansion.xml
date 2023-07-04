@@ -39,7 +39,7 @@
         android:layout_marginTop="14dp"
         android:layout_marginBottom="14dp"
         android:lineSpacingExtra="10dp"
-        android:text="只有消费超过金币或者开通vip会员才能开通府邸哦"
+        android:text="只有消费超过约豆或者开通vip会员才能开通府邸哦"
         android:textColor="@color/black_333333"
         android:textSize="14sp" />
 

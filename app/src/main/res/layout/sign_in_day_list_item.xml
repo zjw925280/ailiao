@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/day_num"
+        android:layout_centerHorizontal="true"
+        android:layout_width="40dp"
+        android:layout_height="40dp">
+        <ImageView
+            android:id="@+id/imge_num_bg"
+            android:src="@drawable/sign_in_day_item_h_bg"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <TextView
+        android:id="@+id/tv_gole"
+        android:textSize="14sp"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="+5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    </RelativeLayout>
+    <TextView
+        android:layout_marginTop="3dp"
+        android:id="@+id/tv_day_num"
+        android:textSize="13sp"
+        android:text="第1天"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/day_num"
+        android:layout_width="40dp"
+        android:layout_height="wrap_content"/>
+
+</RelativeLayout>

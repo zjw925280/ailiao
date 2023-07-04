@@ -86,8 +86,8 @@ class BottomDateGiftDialog(context: Context, dataList: ArrayList<DateGiftBean>) 
                 val priceSelected = itemView.findViewById<AppCompatTextView>(R.id.giftPriceSend)
                 val nameText = itemView.findViewById<AppCompatTextView>(R.id.giftName)
                 val btnSend = itemView.findViewById<AppCompatTextView>(R.id.giftSend)
-                priceUnSelected.text = "${bean.t_gift_gold}金币"
-                priceSelected.text = "${bean.t_gift_gold}金币"
+                priceUnSelected.text = "${bean.t_gift_gold}约豆"
+                priceSelected.text = "${bean.t_gift_gold}约豆"
                 nameText.text = bean.t_gift_name
                 itemView.isSelected = bean.isSelected
                 if (bean.isSelected) {

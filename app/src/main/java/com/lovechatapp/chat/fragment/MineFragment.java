@@ -47,6 +47,7 @@ import com.lovechatapp.chat.activity.PhoneVerifyActivity;
 import com.lovechatapp.chat.activity.SetBeautyActivity;
 import com.lovechatapp.chat.activity.SetChargeActivity;
 import com.lovechatapp.chat.activity.SettingActivity;
+import com.lovechatapp.chat.activity.SignInActivity;
 import com.lovechatapp.chat.activity.UserAlbumListActivity;
 import com.lovechatapp.chat.activity.UserSelfActiveActivity;
 import com.lovechatapp.chat.activity.VerifyOptionActivity;
@@ -56,6 +57,7 @@ import com.lovechatapp.chat.activity.WithDrawActivity;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseFragment;
 import com.lovechatapp.chat.base.BaseResponse;
+import com.lovechatapp.chat.bean.ChatUserInfo;
 import com.lovechatapp.chat.bean.ReceiveRedBean;
 import com.lovechatapp.chat.bean.RedCountBean;
 import com.lovechatapp.chat.bean.UserCenterBean;
@@ -76,6 +78,7 @@ import com.lovechatapp.chat.view.recycle.ViewHolder;
 import com.robinhood.ticker.TickerView;
 import com.zhy.http.okhttp.OkHttpUtils;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -286,9 +289,7 @@ public class MineFragment extends BaseFragment {
      * 设置功能按钮
      */
     private void setFunction() {
-
-        final List<MineMenu> list = Arrays.asList(
-
+        final List<MineMenu> list =new ArrayList<>(Arrays.asList(
                 new MineMenu(R.mipmap.icon_date_invite, "约会邀请", DateInviteListActivity.class),
                 new MineMenu(R.mipmap.icon_date_mine, "我的约会", DateMineActivity.class),
                 new MineMenu(R.mipmap.mine_funciton_albm, "我的视频", UserAlbumListActivity.class),
@@ -296,14 +297,23 @@ public class MineFragment extends BaseFragment {
                 new MineMenu(R.drawable.mine_funciton_vip, "开通会员", VipCenterActivity.class),
                 menuApply = new MineMenu(R.drawable.mine_funciton_apply, "申请主播", VerifyOptionActivity.class),
 
+
+
                 new MineMenu(R.drawable.mine_funciton_verify, "我的公会", MyActorActivity.class),
                 new MineMenu(R.drawable.mine_funciton_beauty, "美颜设置", SetBeautyActivity.class),
                 new MineMenu(R.drawable.mine_funciton_help, "常见问题", HelpCenterActivity.class),
 
                 new MineMenu(R.drawable.mine_funciton_call, "来电提醒", PhoneNaviActivity.class),
                 new MineMenu(R.drawable.mine_funciton_sys, "系统设置", SettingActivity.class),
-                new MineMenu(R.drawable.mine_funciton_bind, "绑定手机", PhoneVerifyActivity.class));
+                new MineMenu(R.drawable.mine_funciton_bind, "绑定手机", PhoneVerifyActivity.class),
+                new MineMenu(R.drawable.sign_in_logo, "签到日历", SignInActivity.class)));
+//        男性用户不能申请主播
+        ChatUserInfo accountInfo = SharedPreferenceHelper.getAccountInfo(getActivity());
+        Log.e("有没有值","有没有值"+accountInfo.isSexMan());
+        if (accountInfo.isSexMan()) {
+            list.remove(5);
 
+        }
         RecyclerView recyclerView = findViewById(R.id.mine_rv);
         recyclerView.setNestedScrollingEnabled(false);
         recyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
@@ -332,11 +342,11 @@ public class MineFragment extends BaseFragment {
                 CodeUtil.jumpToQQ(mContext);
             } else if (clazz == VerifyOptionActivity.class) {
 
-                //未开放男性申请主播
-                if (AppManager.getInstance().getUserInfo().isSexMan()) {
-                    ToastUtil.INSTANCE.showToast(getContext(), R.string.male_not);
-                    return;
-                }
+//                //未开放男性申请主播
+//                if (AppManager.getInstance().getUserInfo().isSexMan()) {
+//                    ToastUtil.INSTANCE.showToast(getContext(), R.string.male_not);
+//                    return;
+//                }
 
                 if (!isGetState) {
                     ToastUtil.INSTANCE.showToast("获取数据中");

@@ -183,13 +183,13 @@ public class VipCenterActivity extends BaseActivity {
 
                 new RightsInterestsBean(
                         R.drawable.vip_rights_interests2,
-                        "开通赠送金币",
-                        "开通会员则送金币"),
+                        "开通赠送约豆",
+                        "开通会员则送约豆"),
 
                 new RightsInterestsBean(
                         R.drawable.vip_rights_interests3,
-                        "充值另送金币",
-                        "充值额外赠送金币"),
+                        "充值另送约豆",
+                        "充值额外赠送约豆"),
 
                 new RightsInterestsBean(
                         R.drawable.vip_rights_interests4,

@@ -440,7 +440,7 @@ public class ChatApi {
     }
 
     /**
-     * 金币充值
+     * 约豆充值
      */
     public static String GOLD_STORE_VALUE() {
         return SERVER + "goldStoreValue.html";
@@ -454,7 +454,7 @@ public class ChatApi {
     }
 
     /**
-     * 获取用户可提现金币
+     * 获取用户可提现约豆
      */
     public static String GET_USEABLE_GOLD() {
         return SERVER + "getUsableGold.html";

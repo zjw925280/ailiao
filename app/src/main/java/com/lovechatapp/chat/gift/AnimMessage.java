@@ -17,6 +17,6 @@ public class AnimMessage extends BaseBean {
     boolean isComboAnimationOver;
     long updateTime;
     public String giftImgUrl;
-    public String giftType;//0-金币 1-礼物
+    public String giftType;//0-约豆 1-礼物
 
 }

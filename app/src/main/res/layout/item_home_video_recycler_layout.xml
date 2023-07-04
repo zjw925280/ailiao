@@ -73,7 +73,7 @@
                 android:paddingTop="1dp"
                 android:paddingRight="2dp"
                 android:paddingBottom="1dp"
-                android:text="10金币"
+                android:text="10约豆"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 

@@ -16,7 +16,7 @@ import com.lovechatapp.chat.base.BaseBean;
  */
 public class UserCenterBean extends BaseBean {
 
-    //用户金币
+    //用户约豆
     public int amount;
 
     //用户昵称
@@ -52,7 +52,7 @@ public class UserCenterBean extends BaseBean {
     //	 cps推广 -1:未申请 1:审核中 2:已通过 3:已下架
     public int isCps = -1;
 
-    //可提现金币
+    //可提现约豆
     public int extractGold;
 
     //	个性签名

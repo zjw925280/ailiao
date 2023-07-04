@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
+import com.lovechatapp.chat.activity.DateCreateActivity;
+import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.helper.IMHelper;
 import com.lovechatapp.chat.helper.ImageLoadHelper;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
@@ -117,6 +119,10 @@ public class HomeDateContentFragment extends BaseFragment {
 
                                 v.findViewById(R.id.btnChat).setOnClickListener(view -> {
                                     IMHelper.toChat(getActivity(), bean.t_nickName, bean.t_id, bean.t_sex);
+                                });
+                                v.findViewById(R.id.btnDate).setOnClickListener(view -> {
+                                    int otherId = mContext.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
+                                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf(otherId), bean.t_nickName);
                                 });
                             }
                         };

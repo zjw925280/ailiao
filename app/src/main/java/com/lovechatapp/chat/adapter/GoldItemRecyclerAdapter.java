@@ -18,7 +18,7 @@ import java.util.List;
  * Copyright (C) 2018
  * 版权所有
  *
- * 功能描述：金币不足RecyclerView的Adapter
+ * 功能描述：约豆不足RecyclerView的Adapter
  * 作者：
  * 创建时间：2018/9/30
  *
@@ -54,7 +54,7 @@ public class GoldItemRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.V
         final int mPosition = position;
         MyViewHolder mHolder = (MyViewHolder) holder;
         if (bean != null) {
-            //金币
+            //约豆
             String gold = bean.t_gold + mContext.getResources().getString(R.string.gold);
             mHolder.mGoldTv.setText(gold);
             //钱  ¥ 12/个月

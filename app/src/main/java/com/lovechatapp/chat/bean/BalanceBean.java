@@ -16,6 +16,6 @@ import com.lovechatapp.chat.base.BaseBean;
  */
 public class BalanceBean extends BaseBean {
 
-    public int amount;//金币
+    public int amount;//约豆
 
 }

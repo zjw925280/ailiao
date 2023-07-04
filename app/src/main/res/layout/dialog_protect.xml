@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="115dp"
                 android:gravity="center"
-                android:text="花费1314个金币守护她"
+                android:text="花费1314个约豆守护她"
                 android:textColor="#ff333333"
                 android:textSize="18sp" />
 

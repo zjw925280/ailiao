@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="金币"
+            android:text="约豆"
             android:textColor="#ED2ECC"
             android:textSize="10sp" />
 

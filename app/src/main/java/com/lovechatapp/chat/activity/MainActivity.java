@@ -215,7 +215,6 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
         TabFragmentAdapter adapter = new TabFragmentAdapter(getSupportFragmentManager(), mContentVp);
 
         adapter.init(
-
                 FragmentParamBuilder.create()
                         .withClazz(HomeFragment.class)
                         .withName(getString(R.string.home))

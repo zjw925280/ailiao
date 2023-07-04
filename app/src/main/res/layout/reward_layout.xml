@@ -29,7 +29,7 @@
             android:id="@+id/reward_gold_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="奖励:18888金币"
+            android:text="奖励:18888约豆"
             android:textColor="#ff333333"
             android:textSize="14sp" />
 

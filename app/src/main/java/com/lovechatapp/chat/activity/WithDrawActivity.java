@@ -100,7 +100,7 @@ public class WithDrawActivity extends BaseActivity {
     }
 
     /**
-     * 获取用户可提现金币
+     * 获取用户可提现约豆
      */
     private void getMyGold() {
         Map<String, String> paramMap = new HashMap<>();
@@ -116,7 +116,7 @@ public class WithDrawActivity extends BaseActivity {
                 if (response != null && response.m_istatus == NetCode.SUCCESS) {
                     WithDrawBean<AccountBean> balanceBean = response.m_object;
                     if (balanceBean != null) {
-                        //可提现金币
+                        //可提现约豆
                         mMyGold = balanceBean.totalMoney;
                         if (mMyGold >= 0) {
                             mGoldTv.setText(String.valueOf(mMyGold));

@@ -200,7 +200,7 @@ public class RankFragment extends BaseFragment implements View.OnClickListener {
             rankBeans = new ArrayList<>();
         }
 
-        //计算距离上一名的金币数
+        //计算距离上一名的约豆数
         RankBean lastBean = null;
         for (RankBean rankBean : rankBeans) {
             rankBean.off_gold = lastBean != null ? lastBean.gold - rankBean.gold : 0;
@@ -248,7 +248,7 @@ public class RankFragment extends BaseFragment implements View.OnClickListener {
                         .transform(new CircleCrop())
                         .into(rankVH.headIv);
 
-                //设置金币
+                //设置约豆
                 rankVH.goldTv.setText(String.format(Locale.CHINA, mContext.getString(R.string.gold_gap), rankBean.getOffGold()));
 
                 //奖励领取状态
@@ -439,7 +439,7 @@ public class RankFragment extends BaseFragment implements View.OnClickListener {
         //Id
         TextView idTv;
 
-        //金币
+        //约豆
         TextView goldTv;
 
         //奖励领取状态

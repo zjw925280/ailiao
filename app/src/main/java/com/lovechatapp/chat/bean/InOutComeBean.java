@@ -16,7 +16,7 @@ import com.lovechatapp.chat.base.BaseBean;
  */
 public class InOutComeBean extends BaseBean {
 
-    public int pay;//支出金币
-    public int profit;//收益金币
+    public int pay;//支出约豆
+    public int profit;//收益约豆
 
 }

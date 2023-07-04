@@ -278,10 +278,11 @@ public class MultipleVideoActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-        destroy();
         super.onDestroy();
+        destroy();
         IMHelper.syncGroup(null);
     }
+
 
     @Override
     public void onBackPressed() {

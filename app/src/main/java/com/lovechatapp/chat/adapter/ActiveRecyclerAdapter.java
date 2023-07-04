@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.activity.DateCreateActivity;
 import com.lovechatapp.chat.activity.PersonInfoActivity;
 import com.lovechatapp.chat.activity.ActiveCommentActivity;
 import com.lovechatapp.chat.activity.ReportActivity;
@@ -108,7 +109,6 @@ public class ActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         final MyViewHolder mHolder = (MyViewHolder) holder;
 
         if (bean != null) {
-
             //头像
             Glide.with(mContext)
                     .load(bean.t_handImg)
@@ -218,6 +218,24 @@ public class ActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
                 }
             });
 
+//            约会
+            mHolder.yhui_imge.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (bean.t_sex == AppManager.getInstance().getUserInfo().t_sex) {
+                        ToastUtil.INSTANCE.showToast(R.string.sex_can_not_communicate);
+                        return;
+                    }
+                    //判断双方是不是都是用户
+//                    if (bean.t_role == 0 && AppManager.getInstance().getUserInfo().t_role == 0) {
+//                        ToastUtil.INSTANCE.showToast(mContext, R.string.can_not_communicate);
+//                        return;
+//                    }
+                   int otherId = mContext.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
+
+                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf(otherId), bean.t_nickName);
+                }
+            });
             //举报
             mHolder.mMoreIv.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -493,6 +511,9 @@ public class ActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
         FrameLayout mOneLockFl;
         FrameLayout mOneImageFl;
         ImageView mOneImageIv;
+
+        ImageView yhui_imge;
+
         //2张图
         LinearLayout mTwoImageLl;
         FrameLayout mTwoImageOneFl;
@@ -556,6 +577,8 @@ public class ActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             mVideoTimeTv = itemView.findViewById(R.id.video_time_tv);
             mTwoImageOneFl = itemView.findViewById(R.id.two_image_one_fl);
             mTwoImageTwoFl = itemView.findViewById(R.id.two_image_two_fl);
+            yhui_imge = itemView.findViewById(R.id.date_iv);
+
         }
     }
 

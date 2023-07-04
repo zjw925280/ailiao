@@ -72,12 +72,12 @@ public class UserAlbumListRecyclerAdapter extends RecyclerView.Adapter<RecyclerV
                 mHolder.mStatusTv.setText("审核中");
             }
 
-            //金币判断是否收费相册，免费视频可设为视频封面
+            //约豆判断是否收费相册，免费视频可设为视频封面
             mHolder.moreBtn.setVisibility(View.GONE);
             if (bean.t_money > 0) {
                 mHolder.moreBtn.setVisibility(View.VISIBLE);
                 mHolder.moreBtn.setOnClickListener(null);
-                mHolder.moreBtn.setText(String.format("%s 金币", bean.t_money));
+                mHolder.moreBtn.setText(String.format("%s 约豆", bean.t_money));
             } else if (bean.t_is_first == 1 && bean.t_file_type == 1) {
                 mHolder.moreBtn.setVisibility(View.VISIBLE);
                 mHolder.moreBtn.setText("视频封面");

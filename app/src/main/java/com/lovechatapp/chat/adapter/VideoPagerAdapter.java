@@ -1,5 +1,6 @@
 package com.lovechatapp.chat.adapter;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -11,6 +12,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.lovechatapp.chat.activity.DateCreateActivity;
+import com.lovechatapp.chat.constant.Constant;
 import com.pili.pldroid.player.widget.PLVideoTextureView;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.PersonInfoActivity;
@@ -71,7 +74,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
     }
 
     @Override
-    public void onBindViewHolder(@NonNull VideoPagerHolder holder, int position) {
+    public void onBindViewHolder(@NonNull VideoPagerHolder holder, @SuppressLint("RecyclerView") int position) {
         VideoPagerHolder viewHolder = holder;
         viewHolder.position = position;
         Context mContext = holder.itemView.getContext();
@@ -163,7 +166,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
         TextView onLineTv;
         View infoView;
         TextView ageTv;
-
+        TextView  mdateTv;
         public PLVideoTextureView videoView;
         public ImageView coverImage;
         public TextView mNameTv;
@@ -198,6 +201,9 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
             mFocusTv = itemView.findViewById(R.id.follow_tv);
             mVideoChatTv = itemView.findViewById(R.id.video_chat_tv);
             mPauseIv = itemView.findViewById(R.id.pause_iv);
+            mdateTv = itemView.findViewById(R.id.video_date_tv);
+
+
 
             /**
              * 关注
@@ -208,27 +214,35 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
                     follow(v.isSelected());
                 }
             });
+//约会
+            mdateTv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int otherId = activity.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
 
+                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_id), String.valueOf(otherId), videoBeans.get(position).t_nickName);
+                }
+            });
             /**
              * 解锁
              */
-            lockView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    final AlbumBean bean = videoBeans.get(position);
-                    bean.t_file_type = 1;
-                    LookResourceDialog.showAlbum(activity, bean, getActorId(), new OnCommonListener<Boolean>() {
-                        @Override
-                        public void execute(Boolean aBoolean) {
-                            if (aBoolean) {
-                                bean.is_see = 1;
-                                notifyDataSetChanged();
-                                play();
-                            }
-                        }
-                    });
-                }
-            });
+//            lockView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    final AlbumBean bean = videoBeans.get(position);
+//                    bean.t_file_type = 1;
+//                    LookResourceDialog.showAlbum(activity, bean, getActorId(), new OnCommonListener<Boolean>() {
+//                        @Override
+//                        public void execute(Boolean aBoolean) {
+//                            if (aBoolean) {
+//                                bean.is_see = 1;
+//                                notifyDataSetChanged();
+//                                play();
+//                            }
+//                        }
+//                    });
+//                }
+//            });
 
             /**
              * 打赏礼物

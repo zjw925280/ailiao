@@ -12,7 +12,7 @@ class DateGiftBean : BaseBean() {
     /**礼物图片*/
     var t_gift_still_url = ""
 
-    /**礼物价格（金币）*/
+    /**礼物价格（约豆）*/
     var t_gift_gold = 0
 
     /**礼物id*/

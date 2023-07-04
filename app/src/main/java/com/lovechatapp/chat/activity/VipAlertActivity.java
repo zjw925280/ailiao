@@ -13,7 +13,7 @@ import com.lovechatapp.chat.dialog.VipDialog;
  * Copyright (C) 2018
  * 版权所有
  *
- * 功能描述   金币不足页面
+ * 功能描述   约豆不足页面
  * 作者：
  * 创建时间：2018/8/15
  *

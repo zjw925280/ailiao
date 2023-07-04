@@ -18,7 +18,7 @@ public class ReceiveRedBean extends BaseBean {
 
     public String t_redpacket_content;//	红包内容
     public int t_redpacket_type;//		红包类型 0.赠送红包 1.返利红包
-    public int t_redpacket_gold;//		金币数
+    public int t_redpacket_gold;//		约豆数
     public String t_create_time;//	时间
     public String t_handImg;//	头像
     public String t_nickName;//	昵称

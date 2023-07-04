@@ -198,7 +198,24 @@
                 android:text="关注"
                 android:textColor="@color/white"
                 android:textSize="14sp" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1px"
+                android:layout_weight="1" />
 
+            <TextView
+                android:id="@+id/video_date_tv"
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/corner6_solid_15black"
+                android:drawableTop="@mipmap/video_date"
+                android:drawablePadding="7dp"
+                android:gravity="center"
+                android:paddingTop="8dp"
+                android:paddingBottom="7dp"
+                android:text="约会"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>

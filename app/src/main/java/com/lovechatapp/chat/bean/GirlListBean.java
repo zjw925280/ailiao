@@ -25,7 +25,7 @@ public class GirlListBean extends BaseBean {
     public String t_nickName;//昵称
     public String t_city;//	所在地
     public int t_is_public;//该主播是否存在免费视频0.不存在1.存在
-    public int t_video_gold;//	视频聊天金币数
+    public int t_video_gold;//	视频聊天约豆数
     public String t_autograph;//签名
     public String t_vocation;//职业
     public String labels;//标签

@@ -88,7 +88,7 @@ public class CloseRankRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.
             if (!TextUtils.isEmpty(bean.t_nickName)) {
                 mHolder.mNickTv.setText(bean.t_nickName);
             }
-            //金币档
+            //约豆档
             int goldLevel = bean.grade;
             if (goldLevel == 1) {
                 mHolder.mLevelIv.setBackgroundResource(R.drawable.gold_one);

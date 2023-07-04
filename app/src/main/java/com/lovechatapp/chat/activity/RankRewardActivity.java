@@ -129,7 +129,7 @@ public class RankRewardActivity extends BaseActivity {
                 holder.<TextView>getView(R.id.gold_tv).setText(goldGapText);
 
                 //奖励
-                holder.<TextView>getView(R.id.reward_gold_tv).setText(String.format("奖励: %s金币", bean.t_rank_gold));
+                holder.<TextView>getView(R.id.reward_gold_tv).setText(String.format("奖励: %s约豆", bean.t_rank_gold));
 
                 //奖励领取状态
                 holder.<TextView>getView(R.id.reward_state_tv).setText(bean.t_is_receive == 1 ? "已领取" : "未领取");
@@ -236,9 +236,9 @@ public class RankRewardActivity extends BaseActivity {
             TextView myRankTv = findViewById(R.id.my_reward_tv);
             myRankTv.setText(String.format("我的排名: %s", index));
 
-            //奖励金币数
+            //奖励约豆数
             TextView rewardGoldTv = findViewById(R.id.reward_gold_tv);
-            rewardGoldTv.setText(String.format("奖励: %s金币", bean.t_rank_gold));
+            rewardGoldTv.setText(String.format("奖励: %s约豆", bean.t_rank_gold));
 
             //奖励领取状态
             TextView rewardStateTv = findViewById(R.id.get_reward_tv);

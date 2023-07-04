@@ -65,7 +65,6 @@ class DateMineActivity : BaseActivity() {
         //ViewPager的页码改变监听
         mBinding.contentRv.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrolled(p0: Int, p1: Float, p2: Int) {
-
             }
 
             override fun onPageSelected(index: Int) {

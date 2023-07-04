@@ -18,12 +18,12 @@ import com.lovechatapp.chat.base.BaseBean;
  */
 public class CustomMessageBean extends BaseBean {
 
-    public String type;//礼物类型  0-金币 1-礼物
+    public String type;//礼物类型  0-约豆 1-礼物
     public int gift_id;//礼物id
     public String gift_name;//礼物名称
     public String gift_still_url;//礼物静态图
     public String gift_gif_url;//礼物静态图
-    public int gold_number;//金币数量
+    public int gold_number;//约豆数量
     public int gift_number;//礼物数量
     public String nickName;//昵称
     public String headUrl;//头像

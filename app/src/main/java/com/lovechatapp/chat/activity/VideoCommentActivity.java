@@ -212,7 +212,7 @@ public class VideoCommentActivity extends BaseActivity {
                 .load(response.t_handImg)
                 .transform(new CircleCrop())
                 .into(headIv);
-        costTv.setText(String.format(avChatBean.isActor() ? "收益%s金币" : "消费%s金币", response.t_room_gold));
+        costTv.setText(String.format(avChatBean.isActor() ? "收益%s约豆" : "消费%s约豆", response.t_room_gold));
         costTv.append("\n");
         costTv.append(String.format("通话时长: %s", response.roomTime));
     }

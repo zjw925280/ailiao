@@ -19,6 +19,6 @@ import java.util.List;
 public class WithDrawBean<T> extends BaseBean {
 
     public List<T> data;//绑定信息
-    public int totalMoney;//可提现金币
+    public int totalMoney;//可提现约豆
 
 }

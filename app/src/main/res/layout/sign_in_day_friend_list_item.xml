@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:src="@mipmap/bg_home_date"
+        android:id="@+id/imge_head"
+        android:layout_width="46dp"
+        android:layout_height="46dp"/>
+
+<TextView
+    android:id="@+id/tv_friend_head"
+    android:textColor="#000000"
+    android:textSize="16sp"
+    android:layout_marginLeft="10dp"
+    android:layout_centerVertical="true"
+    android:layout_toRightOf="@+id/imge_head"
+    android:text="辛勤的抹布"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+    <TextView
+        android:textColor="#999999"
+        android:textSize="14sp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="06-05   12:15:12已签到"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+</RelativeLayout>

@@ -64,7 +64,7 @@ public class AccountBalanceRecyclerAdapter extends RecyclerView.Adapter<Recycler
             if (!TextUtils.isEmpty(bean.tTime)) {
                 mHolder.mTimeTv.setText(bean.tTime);
             }
-            //金币
+            //约豆
             //-1:支出 1:收益 VIP为RMB
             int profitAndPay = bean.profitAndPay;
             int t_value = bean.t_value;

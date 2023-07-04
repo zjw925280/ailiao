@@ -77,6 +77,7 @@ public class ReportActivity extends BaseActivity {
     private int mActorId;
 
     private final int CHOOSE_IMAGE = 1001;
+    private String sensu;
 
     @Override
     protected View getContentView() {
@@ -85,9 +86,15 @@ public class ReportActivity extends BaseActivity {
 
     @Override
     protected void onContentAdded() {
+        Intent intent = getIntent();
+        mActorId =intent.getIntExtra(Constant.ACTOR_ID, 0);
+         sensu = intent.getStringExtra(Constant.SENSU);
+        if (sensu!=null&&!sensu.equals("")){
+            setTitle(sensu);
+        }else {
+            setTitle(R.string.report_des);
+        }
 
-        mActorId = getIntent().getIntExtra(Constant.ACTOR_ID, 0);
-        setTitle(R.string.report_des);
 
         adapter = new AbsRecycleAdapter(new AbsRecycleAdapter.Type(R.layout.item_img_report, UploadTask.class)) {
 
@@ -196,13 +203,24 @@ public class ReportActivity extends BaseActivity {
                                 if (response.m_istatus == NetCode.SUCCESS) {
                                     finish();
                                 }
-                                ToastUtil.INSTANCE.showToast(response.m_strMessage);
+                                if (sensu!=null&&!sensu.equals("")){
+                                    ToastUtil.INSTANCE.showToast(sensu+"成功");
+                                }else {
+                                    ToastUtil.INSTANCE.showToast(response.m_strMessage);
+
+                                }
                             }
                         }
 
                         @Override
                         public void onError(Call call, Exception e, int id) {
-                            ToastUtil.INSTANCE.showToast(R.string.complain_fail);
+                            if (sensu!=null&&!sensu.equals("")){
+                                ToastUtil.INSTANCE.showToast(sensu+"失败");
+                            }else {
+                                ToastUtil.INSTANCE.showToast(R.string.complain_fail);
+
+                            }
+
                         }
 
                         @Override

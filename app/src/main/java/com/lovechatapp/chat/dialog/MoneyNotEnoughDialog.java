@@ -12,7 +12,7 @@ import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.ChargeActivity;
 
 /**
- * 金币不足
+ * 约豆不足
  */
 public class MoneyNotEnoughDialog extends Dialog {
 

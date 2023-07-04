@@ -19,7 +19,7 @@ public class AlbumBean extends BaseBean {
 
     public int t_is_private;//是否私密：0.否1.是
     public String t_handImg;//头像地址
-    public int t_money;//	金币(可能为空)
+    public int t_money;//	约豆(可能为空)
     public String t_addres_url;//	图片或者视频地址
     public String t_video_img;//视频地址封面
     public String t_nickName;//		昵称

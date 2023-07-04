@@ -49,12 +49,16 @@ public class RtcManager {
             mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
             mRtcEngine.setClientRole(Constants.CLIENT_ROLE_BROADCASTER);
 
+
+
+
             preprocessorFaceUnity = new PreprocessorFaceUnity(AppManager.getInstance());
+
             cameraVideoManager = new CameraVideoManager(AppManager.getInstance(), preprocessorFaceUnity);
             cameraVideoManager.setPictureSize(CAPTURE_WIDTH, CAPTURE_HEIGHT);
             cameraVideoManager.setFrameRate(CAPTURE_FRAME_RATE);
             cameraVideoManager.setFacing(io.agora.capture.video.camera.Constant.CAMERA_FACING_FRONT);
-            cameraVideoManager.setLocalPreviewMirror(io.agora.capture.video.camera.Constant.MIRROR_MODE_AUTO);
+            cameraVideoManager.setLocalPreviewMirror(io.agora.capture.video.camera.Constant.MIRROR_MODE_ENABLED);
             cameraVideoManager.setCameraStateListener(new VideoCapture.VideoCaptureStateListener() {
 
                 @Override

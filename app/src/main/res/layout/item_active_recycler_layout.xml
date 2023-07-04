@@ -92,160 +92,164 @@
 
             </RelativeLayout>
 
-            <!--2.  文字 视频 图片-->
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
+                android:layout_height="wrap_content">
+                <!--2.  文字 视频 图片-->
                 <LinearLayout
-                    android:id="@+id/text_content_ll"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="15dp"
                     android:orientation="vertical">
 
-                    <com.lovechatapp.chat.view.ExpandTextView
-                        android:id="@+id/expand_tv"
+                    <LinearLayout
+                        android:id="@+id/text_content_ll"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textColor="@color/black_353553"
-                        android:textSize="15sp" />
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="15dp"
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/see_more_tv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="3dp"
-                        android:text="@string/see_all"
-                        android:textColor="@color/red_fe2947"
-                        android:textSize="15sp"
-                        android:visibility="gone" />
+                        <com.lovechatapp.chat.view.ExpandTextView
+                            android:id="@+id/expand_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="@color/black_353553"
+                            android:textSize="15sp" />
 
-                </LinearLayout>
+                        <TextView
+                            android:id="@+id/see_more_tv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:text="@string/see_all"
+                            android:textColor="@color/red_fe2947"
+                            android:textSize="15sp"
+                            android:visibility="gone" />
 
-                <FrameLayout
-                    android:id="@+id/image_fl"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="15dp"
-                    android:visibility="gone">
+                    </LinearLayout>
 
-                    <!--1张图片/视频-->
                     <FrameLayout
-                        android:id="@+id/one_image_fl"
+                        android:id="@+id/image_fl"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
                         android:visibility="gone">
 
-                        <com.lovechatapp.chat.view.RoundImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                            android:id="@+id/one_image_iv"
-                            android:layout_width="180dp"
-                            android:layout_height="240dp"
-                            app:roundSize="6dp" />
-
-                        <!--锁-->
+                        <!--1张图片/视频-->
                         <FrameLayout
-                            android:id="@+id/one_lock_fl"
-                            android:layout_width="48dp"
-                            android:layout_height="48dp"
-                            android:layout_gravity="center"
-                            android:background="@drawable/shape_lock_fl_back"
+                            android:id="@+id/one_image_fl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:visibility="gone">
 
-                            <ImageView
-                                android:layout_width="46dp"
-                                android:layout_height="46dp"
+                            <com.lovechatapp.chat.view.RoundImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                android:id="@+id/one_image_iv"
+                                android:layout_width="180dp"
+                                android:layout_height="240dp"
+                                app:roundSize="6dp" />
+
+                            <!--锁-->
+                            <FrameLayout
+                                android:id="@+id/one_lock_fl"
+                                android:layout_width="48dp"
+                                android:layout_height="48dp"
                                 android:layout_gravity="center"
-                                android:background="@drawable/shape_lock_iv_back"
-                                android:contentDescription="@null"
-                                android:scaleType="center"
-                                android:src="@drawable/lock_white_big" />
+                                android:background="@drawable/shape_lock_fl_back"
+                                android:visibility="gone">
+
+                                <ImageView
+                                    android:layout_width="46dp"
+                                    android:layout_height="46dp"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/shape_lock_iv_back"
+                                    android:contentDescription="@null"
+                                    android:scaleType="center"
+                                    android:src="@drawable/lock_white_big" />
+
+                            </FrameLayout>
+
+                            <!--视频时长-->
+                            <TextView
+                                android:id="@+id/video_time_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom|end"
+                                android:layout_marginEnd="7dp"
+                                android:layout_marginBottom="6dp"
+                                android:textColor="@color/white"
+                                android:textSize="12sp"
+                                android:visibility="gone" />
 
                         </FrameLayout>
 
-                        <!--视频时长-->
-                        <TextView
-                            android:id="@+id/video_time_tv"
+                        <!--2张图片-->
+                        <LinearLayout
+                            android:id="@+id/two_image_ll"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="bottom|end"
-                            android:layout_marginEnd="7dp"
-                            android:layout_marginBottom="6dp"
-                            android:textColor="@color/white"
-                            android:textSize="12sp"
+                            android:orientation="horizontal"
+                            android:visibility="gone">
+
+                            <FrameLayout
+                                android:id="@+id/two_image_one_fl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                                <com.lovechatapp.chat.view.RoundImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/two_image_one_iv"
+                                    android:layout_width="126dp"
+                                    android:layout_height="135dp"
+                                    app:roundSize="6dp" />
+
+                                <ImageView
+                                    android:id="@+id/two_lock_one_iv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/active_image_lock"
+                                    android:contentDescription="@null"
+                                    android:visibility="gone" />
+
+                            </FrameLayout>
+
+                            <FrameLayout
+                                android:id="@+id/two_image_two_fl"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="3dp">
+
+                                <com.lovechatapp.chat.view.RoundImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                                    android:id="@+id/two_image_two_iv"
+                                    android:layout_width="126dp"
+                                    android:layout_height="135dp"
+                                    app:roundSize="6dp" />
+
+                                <ImageView
+                                    android:id="@+id/two_lock_two_iv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:background="@drawable/active_image_lock"
+                                    android:contentDescription="@null"
+                                    android:visibility="gone" />
+
+                            </FrameLayout>
+
+                        </LinearLayout>
+
+                        <!--大于等于3张-->
+                        <android.support.v7.widget.RecyclerView
+                            android:id="@+id/three_rv"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
                             android:visibility="gone" />
 
                     </FrameLayout>
 
-                    <!--2张图片-->
-                    <LinearLayout
-                        android:id="@+id/two_image_ll"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        android:visibility="gone">
-
-                        <FrameLayout
-                            android:id="@+id/two_image_one_fl"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content">
-
-                            <com.lovechatapp.chat.view.RoundImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                                android:id="@+id/two_image_one_iv"
-                                android:layout_width="126dp"
-                                android:layout_height="135dp"
-                                app:roundSize="6dp" />
-
-                            <ImageView
-                                android:id="@+id/two_lock_one_iv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:background="@drawable/active_image_lock"
-                                android:contentDescription="@null"
-                                android:visibility="gone" />
-
-                        </FrameLayout>
-
-                        <FrameLayout
-                            android:id="@+id/two_image_two_fl"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="3dp">
-
-                            <com.lovechatapp.chat.view.RoundImageView xmlns:app="http://schemas.android.com/apk/res-auto"
-                                android:id="@+id/two_image_two_iv"
-                                android:layout_width="126dp"
-                                android:layout_height="135dp"
-                                app:roundSize="6dp" />
-
-                            <ImageView
-                                android:id="@+id/two_lock_two_iv"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_gravity="center"
-                                android:background="@drawable/active_image_lock"
-                                android:contentDescription="@null"
-                                android:visibility="gone" />
-
-                        </FrameLayout>
-
-                    </LinearLayout>
-
-                    <!--大于等于3张-->
-                    <android.support.v7.widget.RecyclerView
-                        android:id="@+id/three_rv"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone" />
-
-                </FrameLayout>
-
-            </LinearLayout>
+                </LinearLayout>
+            </RelativeLayout>
 
             <!--3. 位置-->
             <TextView
@@ -263,7 +267,7 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="6dp"
                 android:layout_marginBottom="12dp">
 
                 <!--点赞-->
@@ -303,7 +307,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="20dp"
                     android:layout_toEndOf="@+id/heart_ll"
                     android:gravity="center_vertical"
                     android:orientation="horizontal"
@@ -335,12 +339,23 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginStart="40dp"
+                    android:layout_marginStart="20dp"
                     android:layout_toEndOf="@+id/comment_ll"
                     android:background="@drawable/more"
                     android:contentDescription="@null"
                     android:padding="3dp" />
+                <!-- 约会 -->
+                <ImageView
 
+                    android:id="@+id/date_iv"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/more_iv"
+                    android:src="@mipmap/dt_date"
+                    android:contentDescription="@null"
+                    android:padding="5dp" />
                 <!--关注-->
                 <TextView
                     android:id="@+id/focus_tv"

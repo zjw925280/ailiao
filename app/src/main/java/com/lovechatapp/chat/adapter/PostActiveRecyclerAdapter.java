@@ -72,10 +72,10 @@ public class PostActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
                     ImageLoadHelper.glideShowImageWithUri(mContext, pictureUri,
                             mHolder.mContentIv, resizeWidth, resizeWidth);
                 }
-                //设置金币
+                //设置约豆
 //                int gold = bean.gold;
 //                if (gold > 0) {
-//                    mHolder.mChargeTv.setText(String.format("%s金币", gold));
+//                    mHolder.mChargeTv.setText(String.format("%s约豆", gold));
 //                } else {
 //                    mHolder.mChargeTv.setText(mContext.getResources().getString(R.string.free_one));
 //                }

@@ -91,7 +91,7 @@ public class WeChatAccountActivity extends BaseActivity {
     }
 
     /**
-     * 获取用户可提现金币
+     * 获取用户可提现约豆
      */
     private void getMyAccountInfo() {
         Map<String, String> paramMap = new HashMap<>();

@@ -90,7 +90,7 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
                 GiftBean.GiftAmountBean amountBean = (GiftBean.GiftAmountBean) t;
                 boolean isSelected = holder.getRealPosition() == selected;
                 if (isSelected) {
-                    contentTv.setText(String.format("花费%s个金币守护TA", amountBean.t_two_gift_number * bean.t_gift_gold));
+                    contentTv.setText(String.format("花费%s个约豆守护TA", amountBean.t_two_gift_number * bean.t_gift_gold));
                 }
                 TextView textView = (TextView) holder.itemView;
                 textView.setBackgroundResource(isSelected ?

@@ -7,10 +7,12 @@ import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.ActorVideoPlayActivity;
 import com.lovechatapp.chat.activity.PhotoViewActivity;
@@ -40,8 +42,8 @@ import okhttp3.Call;
 public class LookResourceDialog extends Dialog {
 
     private Activity mContext;
-    private Map<String, Object> paramMap;
-    private String method;
+    public static Map<String, Object> paramMap;
+    public static String method;
     private SpannableString description;
     private OnCommonListener<Boolean> listener;
 
@@ -60,12 +62,11 @@ public class LookResourceDialog extends Dialog {
     }
 
     /**
-     * 查看相册
+     * 查看私密视频或者照片
+     *
      */
     public static void showAlbum(Activity activity, final AlbumBean bean, int otherId, final OnCommonListener<Boolean> commonListener) {
-
         if (bean != null) {
-
             OnCommonListener<Boolean> listener = new OnCommonListener<Boolean>() {
                 @Override
                 public void execute(Boolean aBoolean) {
@@ -78,16 +79,65 @@ public class LookResourceDialog extends Dialog {
                 }
             };
 
-            String method = bean.t_file_type == 1 ? ChatApi.SEE_VIDEO_CONSUME() : ChatApi.SEE_IMAGE_CONSUME();
-            Map<String, Object> paramMap = new HashMap<>();
-            paramMap.put(bean.t_file_type == 1 ? "videoId" : "photoId", bean.t_id);
-            paramMap.put("coverConsumeUserId", otherId);
-            new LookResourceDialog(
-                    activity,
-                    paramMap,
-                    method,
-                    buildDescription(bean.t_file_type == 1, bean.t_money),
-                    listener).show();
+            String method1 = bean.t_file_type == 1 ? ChatApi.SEE_VIDEO_CONSUME() : ChatApi.SEE_IMAGE_CONSUME();
+            Map<String, Object> paramMap1 = new HashMap<>();
+            paramMap1.put(bean.t_file_type == 1 ? "videoId" : "photoId", bean.t_id);
+            paramMap1.put("coverConsumeUserId", otherId);
+            if (bean.t_file_type == 1 ){
+                paramMap1.put("userId", AppManager.getInstance().getUserInfo().t_id);
+                OkHttpUtils.post()
+                        .url(method1)
+                        .addParams("param", ParamUtil.getParam(paramMap1))
+                        .build().execute(new AjaxCallback<BaseResponse>() {
+                            @Override
+                            public void onResponse(BaseResponse response, int id) {
+                                Log.e("支付是否成功","成功="+new Gson().toJson(response));
+                                if (activity == null || activity.isFinishing())
+                                    return;
+                                boolean ok = false;
+                                if (response != null) {
+                                    if (response.m_istatus == NetCode.SUCCESS || response.m_istatus == 2) {
+                                        ok = true;
+                                        if (response.m_istatus == 2) {
+                                            ToastUtil.INSTANCE.showToast(activity, "无需支付");
+                                        }
+                                    } else if (response.m_istatus == -1) {//余额不足
+                                        ChargeHelper.showSetCoverDialog(activity);
+                                    } else {
+                                        ToastUtil.INSTANCE.showToast(activity, response.m_strMessage);
+                                    }
+                                } else {
+                                    ToastUtil.INSTANCE.showToast(activity, R.string.system_error);
+                                }
+                                notify(ok);
+                            }
+
+                            @Override
+                            public void onError(Call call, Exception e, int id) {
+                                if (activity == null || activity.isFinishing())
+                                    return;
+                                super.onError(call, e, id);
+                                Log.e("支付是否成功","错误="+e.getMessage());
+                                listener.execute(false);
+                                ToastUtil.INSTANCE.showToast(activity, R.string.system_error);
+                            }
+
+                            private void notify(boolean ok) {
+                                if (listener != null) {
+                                    listener.execute(ok);
+                                }
+                            }
+                        });
+
+            }else {
+                new LookResourceDialog(
+                        activity,
+                        paramMap1,
+                        method1,
+                        buildDescription(bean.t_file_type == 1, bean.t_money),
+                        listener).show();
+            }
+
         }
     }
 
@@ -159,7 +209,7 @@ public class LookResourceDialog extends Dialog {
     }
 
     private static SpannableString buildDescription(boolean isVideo, int gold) {
-        String desc = isVideo ? "查看本视频需要支付 %s金币 哦!" : "查看本图片需要支付 %s金币 哦!";
+        String desc = isVideo ? "查看本视频需要支付 %s约豆 哦!" : "查看本图片需要支付 %s约豆 哦!";
         int index = desc.indexOf("%s");
         desc = String.format(desc, gold);
         SpannableString description = new SpannableString(desc);

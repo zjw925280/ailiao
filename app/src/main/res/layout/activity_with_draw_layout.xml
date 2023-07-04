@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <!--可提现金币-->
+            <!--可提现约豆-->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="81dp"

@@ -67,7 +67,7 @@ public class LPGiftView extends RelativeLayout {
         //用户昵称
         nick_tv.setText(mAnimMessage.userName);
         //礼物图片`
-        if (mAnimMessage.giftType.equals("1")) {//礼物 0-金币 1-礼物
+        if (mAnimMessage.giftType.equals("1")) {//礼物 0-约豆 1-礼物
             if (!TextUtils.isEmpty(mAnimMessage.giftImgUrl)) {
                 Glide.with(getContext()).load(mAnimMessage.giftImgUrl).into(gift_iv);
                 gift_iv.setVisibility(VISIBLE);

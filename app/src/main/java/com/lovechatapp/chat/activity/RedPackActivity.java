@@ -67,7 +67,7 @@ public class RedPackActivity extends BaseActivity {
             mNickOneTv.setText(bean.t_nickName);
             //内容
             mDesTv.setText(bean.t_redpacket_content);
-            //金币
+            //约豆
             mGoldNumberTv.setText(String.valueOf(bean.t_redpacket_gold));
         }
     }

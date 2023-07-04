@@ -16,7 +16,7 @@ import com.lovechatapp.chat.base.BaseBean;
  */
 public class FirstChargeRankBean extends BaseBean {
 
-    public int valueSum;//金币数量
+    public int valueSum;//约豆数量
     public String t_handImg;
     public int userCount;//用户数量
     public String t_nickName;

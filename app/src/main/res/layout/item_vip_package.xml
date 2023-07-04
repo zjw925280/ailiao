@@ -61,7 +61,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="送1888金币"
+        android:text="送1888约豆"
         android:textColor="#ff999999"
         android:textSize="10sp" />
 

@@ -81,7 +81,7 @@ public class SendRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             } else {
                 mHolder.mVipIv.setVisibility(View.GONE);
             }
-            //金币档
+            //约豆档
             int goldLevel = bean.goldfiles;
             if (goldLevel == 1) {
                 mHolder.mLevelTv.setText(mContext.getString(R.string.level_one));

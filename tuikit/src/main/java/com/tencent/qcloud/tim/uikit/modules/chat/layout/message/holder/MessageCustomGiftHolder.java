@@ -39,10 +39,10 @@ public class MessageCustomGiftHolder extends MessageContentHolder {
     @Override
     public void layoutVariableViews(MessageInfo msg, int position) {
         ImCustomMessage customMessageBean = (ImCustomMessage) msg.getExtra();
-        //金币
+        //约豆
         if (customMessageBean.type.equals("0")) {
             giftIv.setImageResource(R.drawable.im_ic_gold);
-            String giftDes = "金币x1";
+            String giftDes = "约豆x1";
             giftNameTv.setText(giftDes);
         }
         //礼物

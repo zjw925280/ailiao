@@ -66,9 +66,9 @@
     <string name="black_remove">移除黑名单</string>
 
     <!--个人中心-->
-    <string name="gold">金币</string>
-    <string name="gold_des"> (金币)</string>
-    <string name="gold_des_one"> 金币</string>
+    <string name="gold">约豆</string>
+    <string name="gold_des"> (约豆)</string>
+    <string name="gold_des_one"> 约豆</string>
     <string name="zero">0</string>
     <string name="charge">充值</string>
     <string name="help_center">常见问题</string>
@@ -175,11 +175,11 @@
     <string name="choose_again">上传失败,请重新选择</string>
 
     <!--充值-->
-    <string name="my_gold">我的金币</string>
+    <string name="my_gold">我的约豆</string>
     <string name="service">客服</string>
     <string name="please_choose_money">请选择充值金额</string>
     <string name="account_detail">账单详情</string>
-    <string name="charge_gold">充值金币</string>
+    <string name="charge_gold">充值约豆</string>
 
     <!--提现-->
     <string name="with_draw_now">立即兑换</string>
@@ -189,9 +189,9 @@
     <string name="please_choose_alipay_account">请选择支付宝账户</string>
     <string name="please_choose_wechat_account">请选择微信账户</string>
     <string name="apply_withdraw_success">申请提现成功</string>
-    <string name="can_with_draw_one">可提现金币</string>
+    <string name="can_with_draw_one">可提现约豆</string>
     <string name="bind_now">立即绑定</string>
-    <string name="need_gold">所需金币:</string>
+    <string name="need_gold">所需约豆:</string>
     <string name="with_draw_need_know">提现须知：\n1，提现当日到账（17点以前提现当日到账，17点以后提现次日上班打款）。\n2，提现仅支持支付宝，请上传支付宝收款码和填写正确的支付宝账号和姓名。\n3，每人每天只能提现一次。
 </string>
 
@@ -262,11 +262,11 @@
     <string name="lazy_one">您还没有填写个性签名</string>
 
     <!--接通视频-->
-    <string name="can_use_gold">可用金币: </string>
-    <string name="gold_not_enough">金币余额不足</string>
+    <string name="can_use_gold">可用约豆: </string>
+    <string name="gold_not_enough">约豆余额不足</string>
     <string name="month_every_one">¥ </string>
     <string name="info_block_des">该主播不允许他人查看TA的%1$s</string>
-    <string name="see_info_number_des">查看该主播%1$s需支付%2$s金币</string>
+    <string name="see_info_number_des">查看该主播%1$s需支付%2$s约豆</string>
     <string name="see_qq_number_des">查看该主播QQ号码需支付</string>
     <string name="have_hang_up">对方已挂断</string>
     <string name="have_hang_up_one">连接已挂断</string>
@@ -443,7 +443,7 @@
     <!--我的主播-->
     <string name="my_actor">我的主播</string>
     <string name="actor_total_number">主播总人数(人)</string>
-    <string name="actor_earn_gold">主播贡献值(金币)</string>
+    <string name="actor_earn_gold">主播贡献值(约豆)</string>
     <string name="earn_gold_des">贡献值: </string>
 
     <!--申请工会-->
@@ -476,7 +476,7 @@
     <string name="choose_pay_way">选择支付方式</string>
     <string name="please_choose_pay_way">请选择支付方式</string>
     <string name="please_choose_pay_way_one">暂未获取到支付方式</string>
-    <string name="charge_prompt">充值金币属于虚拟代币，充值后无法退款，请谨慎充值，适度消费。</string>
+    <string name="charge_prompt">充值约豆属于虚拟代币，充值后无法退款，请谨慎充值，适度消费。</string>
 
     <!--申请CPS-->
     <string name="apply_cps">申请CPS</string>
@@ -529,11 +529,11 @@
     <string name="yesterday_rank">昨日奖励</string>
     <string name="chat_number_one">ID: </string>
 
-    <!--金币不足页面-->
+    <!--约豆不足页面-->
     <string name="vip_des_one">会员免费畅聊、看私密视频私照</string>
     <string name="upgrade_vip">立即升级 </string>
     <string name="more_gold">更多充值金额</string>
-    <string name="get_gold_free">免费领取金币</string>
+    <string name="get_gold_free">免费领取约豆</string>
 
     <!--分类页面-->
 
@@ -577,7 +577,7 @@
     <!--亲密榜-->
     <string name="close_rank">亲密榜</string>
     <string name="close_des">亲密度:  </string>
-    <string name="close_bottom_des">对主播每消费1金币增加1点亲密度</string>
+    <string name="close_bottom_des">对主播每消费1约豆增加1点亲密度</string>
 
     <!--礼物柜-->
     <string name="gift_pack_title">礼物柜</string>
@@ -585,7 +585,7 @@
     <string name="per">份</string>
 
     <!--赠送礼物页面-->
-    <string name="can_use_gold_des">可用金币:  </string>
+    <string name="can_use_gold_des">可用约豆:  </string>
     <string name="charge_one_des">充值>></string>
 
     <!--月相册列表-->
@@ -623,7 +623,7 @@
     <string name="note_des">温馨提示</string>
 
     <!--不足一分钟-->
-    <string name="one_minute_left_one">金币即将耗尽, 通话将在 1 分钟后挂断~</string>
+    <string name="one_minute_left_one">约豆即将耗尽, 通话将在 1 分钟后挂断~</string>
     <string name="money_not_enough">余额不足!</string>
     <string name="ignore">忽略</string>
 
@@ -804,7 +804,7 @@
     <string name="money_code_picture_not_choose">您还未选择收款码图片</string>
     <string name="total_charge">总充值: </string>
     <string name="left_money">余额: </string>
-    <string name="left_gold_one">对方剩余金币: </string>
+    <string name="left_gold_one">对方剩余约豆: </string>
     <string name="please_select_with_draw_way">请选择提现方式</string>
     <string name="set_fail">设置失败</string>
     <string name="element_send_fail">构建消息失败,发送失败</string>
@@ -814,7 +814,7 @@
 
     <!--悬浮-->
     <string name="floating_vip">恭喜成为会员</string>
-    <string name="floating_charge">充值%s金币</string>
+    <string name="floating_charge">充值%s约豆</string>
     <string name="floating_send">   送   </string>
 
     <!--随机聊-->

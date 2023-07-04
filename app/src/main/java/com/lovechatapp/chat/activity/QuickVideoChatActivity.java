@@ -116,7 +116,7 @@ public class QuickVideoChatActivity extends BaseActivity implements TIMMessageLi
 //    //主播开始速配后的提示
 //    @BindView(R.id.hint_tv)
 //    TextView mHintTv;
-//    //剩余金币
+//    //剩余约豆
 //    @BindView(R.id.left_gold_tv)
 //    TextView mLeftGoldTv;
 //    //gif动图礼物
@@ -1026,7 +1026,7 @@ public class QuickVideoChatActivity extends BaseActivity implements TIMMessageLi
 //     */
 //    private void startGiftInAnim(CustomMessageBean bean, boolean fromSend, boolean isGold) {
 //        String lastDes = mGiftDesTv.getText().toString().trim();
-//        //判断需不需要重新开始一个,如果礼物不是重复,或则是金币
+//        //判断需不需要重新开始一个,如果礼物不是重复,或则是约豆
 //        if ((!TextUtils.isEmpty(lastDes) && !lastDes.contains(bean.gift_name)) || isGold) {
 //            mSingleTimeSendGiftCount = 0;
 //        }
@@ -1041,7 +1041,7 @@ public class QuickVideoChatActivity extends BaseActivity implements TIMMessageLi
 //            }
 //            mGiftDesTv.setText(des);
 //            //礼物类型
-//            if (isGold) {//是金币
+//            if (isGold) {//是约豆
 //                mGiftIv.setImageResource(R.drawable.ic_gold);
 //                String goldNumber = getResources().getString(R.string.multi) + bean.gold_number;
 //                mGiftNumberTv.setText(goldNumber);
@@ -1247,7 +1247,7 @@ public class QuickVideoChatActivity extends BaseActivity implements TIMMessageLi
 //                        mGoldIv.setVisibility(View.VISIBLE);
 //                        //城市
 //                        mCityTv.setText(bean.t_city);
-//                        //剩余金币
+//                        //剩余约豆
 //                        if (!TextUtils.isEmpty(bean.balance)) {
 //                            String left = getString(R.string.left_gold_one) + bean.balance;
 //                            mLeftGoldTv.setText(left);
@@ -1610,7 +1610,7 @@ public class QuickVideoChatActivity extends BaseActivity implements TIMMessageLi
 //                    LogUtil.i("接收到的礼物: " + bean.gift_name);
 //                    startGif(bean.gift_gif_url);
 //                    startGiftInAnim(bean, false, false);
-//                } else if (bean.type.equals("0")) {//金币
+//                } else if (bean.type.equals("0")) {//约豆
 //                    bean.gift_name = getResources().getString(R.string.gold);
 //                    LogUtil.i("接收到的礼物: " + bean.gift_name);
 //                    startGiftInAnim(bean, false, true);

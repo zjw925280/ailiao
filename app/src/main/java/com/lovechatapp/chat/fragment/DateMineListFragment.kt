@@ -1,6 +1,7 @@
 package com.lovechatapp.chat.fragment
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
@@ -8,12 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import com.lovechatapp.chat.R
+import com.lovechatapp.chat.activity.ReportActivity
 import com.lovechatapp.chat.base.AppManager
 import com.lovechatapp.chat.base.BaseActivity
 import com.lovechatapp.chat.base.BaseFragment
 import com.lovechatapp.chat.base.BaseResponse
 import com.lovechatapp.chat.bean.DateBean
 import com.lovechatapp.chat.constant.ChatApi
+import com.lovechatapp.chat.constant.Constant
 import com.lovechatapp.chat.databinding.FragmentHomeContentBinding
 import com.lovechatapp.chat.databinding.LayoutItemDateMineBinding
 import com.lovechatapp.chat.dialog.DateCodeInputDialog
@@ -31,7 +34,6 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.*
-import kotlin.collections.HashMap
 
 class DateMineListFragment : BaseFragment() {
     private lateinit var mBinding: FragmentHomeContentBinding
@@ -61,11 +63,9 @@ class DateMineListFragment : BaseFragment() {
                     ), 0, 1, true
                 )
             )
-            mHolder =
-                object : ListTypeAdapter.BindViewHolder(R.layout.layout_item_date_mine, true) {
+            mHolder = object : ListTypeAdapter.BindViewHolder(R.layout.layout_item_date_mine, true) {
                     override fun createViewHolder(parent: ViewGroup, layoutId: Int): ViewHolder {
-                        val binding =
-                            LayoutItemDateMineBinding.inflate(LayoutInflater.from(parent.context))
+                        val binding = LayoutItemDateMineBinding.inflate(LayoutInflater.from(parent.context))
                         val holder = object : ViewHolder(binding.root) {
                             override fun convert(holder: ViewHolder, data: Any) {
                                 data as DateBean
@@ -172,6 +172,13 @@ class DateMineListFragment : BaseFragment() {
                                             ToastUtil.showToast(msg)
                                         }
                                     }
+                                }
+                                binding.btnAppeal.setOnClickListener {
+                                    //申诉
+                                    val intent =Intent(mContext, ReportActivity::class.java)
+                                    intent.putExtra(Constant.ACTOR_ID, data.inviteeId)
+                                    intent.putExtra(Constant.SENSU, "申诉")
+                                    startActivity(intent)
                                 }
                             }
                         }

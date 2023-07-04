@@ -113,8 +113,8 @@ public class RewardView extends FrameLayout {
             myRankTv.setText(bean.t_title);
             myRankTv.append(String.format("排名: %s", bean.t_rank_sort));
 
-            //奖励金币数
-            rewardGoldTv.setText(String.format("奖励: %s金币", bean.t_rank_gold));
+            //奖励约豆数
+            rewardGoldTv.setText(String.format("奖励: %s约豆", bean.t_rank_gold));
 
             //奖励领取状态
             rewardStateTv.setText("领取");

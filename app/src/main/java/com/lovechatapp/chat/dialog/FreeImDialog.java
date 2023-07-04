@@ -2,6 +2,7 @@ package com.lovechatapp.chat.dialog;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.activity.SignInActivity;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseBean;
 import com.lovechatapp.chat.base.BaseResponse;
@@ -59,9 +61,14 @@ public class FreeImDialog extends Dialog implements View.OnClickListener {
             textView.setText(String.format("私信条数+%s", freeImBean.number));
         }
         if (freeImBean.isGold) {
-            textView.append(String.format(freeImBean.isCase ? "  金币+%s" : "金币+%s", freeImBean.goldNumber));
+            textView.append(String.format(freeImBean.isCase ? "  约豆+%s" : "约豆+%s", freeImBean.goldNumber));
         }
-        findViewById(R.id.confirm_tv).setOnClickListener(this);
+        findViewById(R.id.confirm_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                activity.startActivity(new Intent(activity, SignInActivity.class));
+            }
+        });
     }
 
     @Override

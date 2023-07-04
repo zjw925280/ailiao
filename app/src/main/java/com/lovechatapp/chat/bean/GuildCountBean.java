@@ -17,6 +17,6 @@ import com.lovechatapp.chat.base.BaseBean;
 public class GuildCountBean extends BaseBean {
 
     public int anchorCount;//主播数
-    public int totalGold;//贡献金币数
+    public int totalGold;//贡献约豆数
 
 }

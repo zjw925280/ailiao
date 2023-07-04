@@ -58,6 +58,7 @@ public class Constant {
 
     //标题extra标志
     public static final String TITLE = "title";
+    public static final String SENSU = "appeal";//申诉
     public static final String ACTOR_ID = "actor_id";//主播的id
     public static final String VIDEO_URL = "video_url";//短视频地址
     public static final String ROOM_ID = "room_id";//房间编号

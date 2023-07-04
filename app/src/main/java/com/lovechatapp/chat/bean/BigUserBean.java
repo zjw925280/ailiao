@@ -26,6 +26,6 @@ public class BigUserBean extends BaseBean {
     public String t_autograph;
     public String t_city;
     public int followCount;//	关注数
-    public double totalMoney;//	消费或者收益金币
+    public double totalMoney;//	消费或者收益约豆
 
 }

@@ -442,11 +442,11 @@ public class ModifyUserInfoActivity extends BaseActivity {
 
                         //城市
                         if (!TextUtils.isEmpty(personBean.t_city)) {
-                            if (LocationHelper.get().getLocation() != null) {
-                                mCityTv.setText(LocationHelper.get().getLocation().getCity());
-                            } else {
+//                            if (LocationHelper.get().getLocation() != null) {
+//                                mCityTv.setText(LocationHelper.get().getLocation().getCity());
+//                            } else {
                                 mCityTv.setText(personBean.t_city);
-                            }
+//                            }
                         }
 
                         //个性签名

@@ -95,16 +95,33 @@
         app:layout_constraintBottom_toBottomOf="@+id/textName"
         app:layout_constraintLeft_toRightOf="@+id/textName"
         app:layout_constraintTop_toTopOf="@+id/textName" />
-
+<LinearLayout
+    app:layout_constraintBottom_toBottomOf="@+id/itemBg"
+    app:layout_constraintRight_toRightOf="@+id/itemBg"
+    app:layout_constraintTop_toTopOf="@+id/itemBg"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <android.support.v7.widget.AppCompatImageView
+        android:layout_marginStart="10dp"
         android:id="@+id/btnChat"
         android:layout_width="46dp"
         android:layout_height="46dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="10dp"
         android:adjustViewBounds="true"
         android:src="@mipmap/icon_btn_chat"
         app:layout_constraintBottom_toBottomOf="@+id/itemBg"
-        app:layout_constraintRight_toRightOf="@+id/itemBg"
+        app:layout_constraintLeft_toRightOf="@+id/textInfo"
         app:layout_constraintTop_toTopOf="@+id/itemBg" />
+    <android.support.v7.widget.AppCompatImageView
+        android:id="@+id/btnDate"
+        android:layout_width="46dp"
+        android:layout_height="46dp"
+        android:layout_marginEnd="10dp"
+        android:adjustViewBounds="true"
+        android:src="@mipmap/date"
+        />
+
+</LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

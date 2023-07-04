@@ -67,7 +67,7 @@ public class MansionPermissionDialog extends Dialog implements View.OnClickListe
     public final void show(MansionManFragment.MansionPermission mansionPermission) {
         show();
 
-        String firstText = mansionPermission.mansionMoney + "金币";
+        String firstText = mansionPermission.mansionMoney + "约豆";
         String secondText = "vip会员、svip会员";
         String content = String.format("只有消费超过%1$s或者开通%2$s才可以开通府邸", firstText, secondText);
         int firstIndex = content.indexOf(firstText);

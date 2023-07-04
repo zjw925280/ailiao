@@ -32,7 +32,7 @@ public class ImCustomMessage {
     public static final String Type_leaved = "leaved";
 
     /**
-     * 自定义赠送金币消息
+     * 自定义赠送约豆消息
      */
     public static final String Type_gold = "0";
 
@@ -88,12 +88,12 @@ public class ImCustomMessage {
     public int t_id;
 
     //----------礼物部分----------
-    //type 礼物类型  0-金币 1-礼物
+    //type 礼物类型  0-约豆 1-礼物
     public int gift_id;//礼物id
     public String gift_name;//礼物名称
     public String gift_still_url;//礼物静态图
     public String gift_gif_url;//礼物静态图
-    public int gold_number;//金币数量
+    public int gold_number;//约豆数量
     public int gift_number;//礼物数量
     //    otherName //受赠人
     //----------礼物部分----------

@@ -118,7 +118,7 @@ public class HomeContentFragment extends BaseFragment {
                                         .transform(new CenterCrop(), new GlideRoundTransform(6))
                                         .into(holder.<ImageView>getView(R.id.head_iv));
 
-                                //视频聊天价格（金币）
+                                //视频聊天价格（约豆）
                                 holder.<TextView>getView(R.id.price_tv).setText(String.format("%s岁", bean.t_age));
                             }
                         };

@@ -72,7 +72,7 @@ public class OnLineRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
             } else {
                 mHolder.mVipIv.setVisibility(View.GONE);
             }
-            //金币档
+            //约豆档
             int goldLevel = bean.goldfiles;
             if (goldLevel == 1) {
                 mHolder.mLevelTv.setText(mContext.getString(R.string.level_one));

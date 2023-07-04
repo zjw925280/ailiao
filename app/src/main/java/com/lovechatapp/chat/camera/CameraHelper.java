@@ -195,7 +195,7 @@ public class CameraHelper implements Camera.PreviewCallback {
                 break;
         }
         additionalRotation /= 90;
-        additionalRotation *= 90;
+//        additionalRotation *= 90;
         degrees += additionalRotation;
         int result;
         Camera.CameraInfo info = new Camera.CameraInfo();

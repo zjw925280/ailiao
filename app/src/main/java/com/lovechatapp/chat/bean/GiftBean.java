@@ -22,7 +22,7 @@ public class GiftBean extends BaseBean {
     public String t_gift_name;//礼物名称
     public String t_gift_gif_url;//动态图地址
     public String t_gift_still_url;//静态图地址
-    public int t_gift_gold;//消耗金币
+    public int t_gift_gold;//消耗约豆
     public List<GiftAmountBean> twoGiftList;
 
     public boolean isSelected = false;//是否选中

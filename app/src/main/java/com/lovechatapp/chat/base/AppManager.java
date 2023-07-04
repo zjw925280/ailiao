@@ -77,7 +77,7 @@ public class AppManager extends Application {
 
     private static AppManager mInstance;
 
-    //判断微信支付是充值VIP 还是充值金币
+    //判断微信支付是充值VIP 还是充值约豆
     private boolean mIsWeChatForVip = false;
 
     //判断微信登录是绑定提现账号,还是登录页面的微信登录

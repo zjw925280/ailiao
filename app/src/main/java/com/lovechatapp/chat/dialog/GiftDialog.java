@@ -186,7 +186,7 @@ public class GiftDialog extends Dialog {
         gift_rv.setVisibility(View.VISIBLE);
         indicator_ll.setVisibility(View.VISIBLE);
 
-        //可用金币
+        //可用约豆
         getMyGold(gold_tv);
 
         //处理list
@@ -396,7 +396,7 @@ public class GiftDialog extends Dialog {
     }
 
     /**
-     * 获取我的金币余额
+     * 获取我的约豆余额
      */
     private void getMyGold(final TextView can_use_iv) {
         Map<String, String> paramMap = new HashMap<>();

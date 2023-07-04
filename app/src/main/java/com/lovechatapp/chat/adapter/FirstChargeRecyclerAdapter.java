@@ -72,7 +72,7 @@ public class FirstChargeRecyclerAdapter extends RecyclerView.Adapter<RecyclerVie
             if (!TextUtils.isEmpty(nick)) {
                 mHolder.mNameTv.setText(nick);
             }
-            //金币
+            //约豆
             mHolder.mGoldTv.setText(String.valueOf(bean.userCount));
         }
     }

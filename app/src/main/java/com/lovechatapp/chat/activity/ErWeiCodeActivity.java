@@ -43,7 +43,6 @@ import butterknife.OnClick;
  * 修改日期
  */
 public class ErWeiCodeActivity extends BaseActivity {
-
     @BindView(R.id.content_fl)
     FrameLayout mContentFl;
 

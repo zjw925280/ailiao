@@ -61,7 +61,7 @@ public class WXPayEntryActivity extends Activity implements IWXAPIEventHandler {
                     if (AppManager.getInstance().getIsWeChatForVip()) {//是充值VIP
                         LogUtil.i("是充值VIP");
                     } else {
-                        LogUtil.i("是充值金币");
+                        LogUtil.i("是充值约豆");
                         //发送广播关闭Login页面
                         Intent intent = new Intent(Constant.FINISH_CHARGE_PAGE);
                         sendBroadcast(intent);

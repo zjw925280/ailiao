@@ -11,6 +11,7 @@ import android.os.Looper;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.AlphaAnimation;
@@ -20,6 +21,8 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
+import com.lovechatapp.chat.dialog.LookResourceDialog;
+import com.lovechatapp.chat.listener.OnCommonListener;
 import com.pili.pldroid.player.PLOnPreparedListener;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -228,7 +231,6 @@ public class VideoPagerActivity extends BaseActivity {
      */
     private synchronized void playVideo(final AlbumBean bean) {
         handler.removeCallbacksAndMessages(null);
-
         if (videoPagerHolder != null) {
             videoPagerHolder.clickView.setOnClickListener(null);
             videoPagerHolder.videoView.stopPlayback();
@@ -236,8 +238,21 @@ public class VideoPagerActivity extends BaseActivity {
 
         final String url = bean.t_addres_url;
         if (!bean.canSee()) {
+            bean.t_file_type = 1;
+            LookResourceDialog.showAlbum(this, bean, bean.t_user_id, new OnCommonListener<Boolean>() {
+                @Override
+                public void execute(Boolean aBoolean) {
+                    Log.e("支付是否成功","成功回调="+aBoolean);
+                    if (aBoolean) {
+                        bean.is_see = 1;
+                        videoPagerAdapter.notifyDataSetChanged();
+                        playVideo(bean);
+                    }
+                }
+            });
             return;
         }
+
 
         VideoPagerAdapter.VideoPagerHolder holder = null;
         for (int i = 0; i < rv.getChildCount(); i++) {

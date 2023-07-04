@@ -20,8 +20,8 @@ public class SendBean extends BaseBean {
     public String t_nickName;
     public String t_handImg;
     public int t_is_vip;//	是否VIP
-    public int total;//	赠送金币
-    public int goldfiles;//		金币档
+    public int total;//	赠送约豆
+    public int goldfiles;//		约豆档
     public int grade;//		充值级别
 
 

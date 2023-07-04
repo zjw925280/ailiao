@@ -53,7 +53,7 @@ public class ActorEarnDetailRecyclerAdapter extends RecyclerView.Adapter<Recycle
         final ActorEarnDetailListBean bean = mBeans.get(position);
         MyViewHolder mHolder = (MyViewHolder) holder;
         if (bean != null) {
-            //金币
+            //约豆
             String gold = bean.totalGold + mContext.getResources().getString(R.string.gold);
             mHolder.mGoldTv.setText(gold);
             //时间

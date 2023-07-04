@@ -287,7 +287,7 @@ public class PayChooserActivity extends Activity {
     }
 
     /**
-     * 金币充值
+     * 约豆充值
      */
     public void payForGold(final Activity activity, int goldId, final int payType, int payDeployId) {
         payFor(activity, ChatApi.GOLD_STORE_VALUE(), goldId, payType, payDeployId);
@@ -301,7 +301,7 @@ public class PayChooserActivity extends Activity {
     }
 
     /**
-     * 充值金币/vip
+     * 充值约豆/vip
      */
     private void payFor(final Activity activity, String method, int vipId, final int payType, int payDeployId) {
 

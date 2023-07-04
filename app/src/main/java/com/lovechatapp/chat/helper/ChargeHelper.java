@@ -26,7 +26,7 @@ import com.lovechatapp.chat.activity.InviteEarnActivity;
 public class ChargeHelper {
 
     /**
-     * 金币不足
+     * 约豆不足
      */
     public static void showSetCoverDialog(Activity activity) {
         Intent intent = new Intent(activity, GoldNotEnoughActivity.class);

@@ -376,7 +376,7 @@ public class PersonInfoFragment extends BaseFragment {
                     span.append(String.valueOf(bean.anchorSetup.get(0).t_video_gold),
                             new ForegroundColorSpan(0xffFB3B96),
                             Spannable.SPAN_INCLUSIVE_EXCLUSIVE);
-                    span.append("金币/分钟");
+                    span.append("约豆/分钟");
                     priceTv.setText(span);
                 } else {
                     priceTv.setVisibility(View.GONE);

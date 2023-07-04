@@ -199,7 +199,7 @@ public class ChatLayoutHelper {
 //            TextView mRightGoldTv = itemView.findViewById(R.id.gold_tv);
 //            //礼物图片
 //            if (customMessageBean.type.equals("0")) {
-//                //金币
+//                //约豆
 //                mRightGiftIv.setImageResource(R.drawable.ic_gold);
 //                //礼物名  和 数量
 //                String giftDes = mContext.getString(R.string.gold) + mContext.getString(R.string.multi_one);
@@ -210,7 +210,7 @@ public class ChatLayoutHelper {
 //                String giftDes = customMessageBean.gift_name + mContext.getString(R.string.multi_one);
 //                mRightGiftNameTv.setText(giftDes);
 //            }
-//            //金币
+//            //约豆
 //            mRightGoldTv.setText(String.valueOf(customMessageBean.gold_number));
         }
     }
