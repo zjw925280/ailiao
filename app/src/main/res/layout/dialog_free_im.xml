@@ -2,11 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/free_im_vip"
-    android:gravity="bottom|center_horizontal"
     android:orientation="vertical"
-    android:paddingBottom="16dp">
-
+    >
+<LinearLayout
+    android:paddingBottom="16dp"
+    android:visibility="gone"
+    android:gravity="bottom|center_horizontal"
+    android:background="@drawable/free_im_vip"
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -40,5 +45,93 @@
         android:textColor="@color/white"
         android:textSize="15sp"
         android:textStyle="bold" />
+</LinearLayout>
+
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+<RelativeLayout
+    android:layout_width="wrap_content"
+    android:layout_height="181dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sign_in_dialog_bg" />
+
+    <TextView
+    android:layout_marginTop="84dp"
+    android:textSize="26sp"
+    android:textColor="#ffffff"
+    android:layout_centerHorizontal="true"
+    android:text="第3天"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"/>
+
+</RelativeLayout>
+    <RelativeLayout
+        android:background="@drawable/sign_in_dialog_w_bg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+<TextView
+    android:layout_marginTop="14dp"
+    android:id="@+id/tv_qiandoa"
+    android:gravity="center_horizontal"
+    android:textSize="16sp"
+    android:textColor="#9A52F4"
+    android:layout_centerHorizontal="true"
+    android:text="签到有礼"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"/>
+<LinearLayout
+    android:id="@+id/lin_lianqi"
+    android:gravity="center_horizontal"
+    android:layout_marginTop="20dp"
+    android:layout_below="@+id/tv_qiandoa"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:textSize="16sp"
+        android:text="连续签到"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="16sp"
+        android:textColor="#9A52F4"
+        android:text=" 7 "
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:textSize="16sp"
+        android:text="天可领取奖品"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>
+        <TextView
+            android:id="@+id/tv_now"
+            android:layout_marginBottom="30dp"
+            android:layout_marginTop="30dp"
+            android:textColor="#ffffff"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/sign_in_btn_bg"
+            android:layout_below="@+id/lin_lianqi"
+            android:text="立即签到"
+            android:layout_width="120dp"
+            android:layout_height="40dp"/>
+    </RelativeLayout>
+
+</LinearLayout>
+<ImageView
+    android:id="@+id/imge_qx"
+    android:layout_marginTop="20dp"
+    android:layout_gravity="center_horizontal"
+    android:src="@drawable/sign_in_qux"
+    android:padding="15dp"
+    android:layout_width="60dp"
+    android:layout_height="60dp"/>
 
 </LinearLayout>

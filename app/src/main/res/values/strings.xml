@@ -865,5 +865,5 @@
         请您认证阅读《用户协议》和《隐私政策》的全部内容，同意并接受全部条款后开始使用我们的产品和服务。若选择不同意，将无法使用我们的产品和服务，并会退出应用。</string>
 
 
-    <string name="date_home_list_user_info">%1$s · %2$s岁 · %3$s</string>
+    <string name="date_home_list_user_info">%1$s·%2$s岁·%3$s</string>
 </resources>

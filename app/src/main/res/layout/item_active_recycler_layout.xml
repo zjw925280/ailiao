@@ -332,18 +332,6 @@
                         tools:ignore="SmallSp" />
 
                 </LinearLayout>
-
-                <!--更多-->
-                <ImageView
-                    android:id="@+id/more_iv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginStart="20dp"
-                    android:layout_toEndOf="@+id/comment_ll"
-                    android:background="@drawable/more"
-                    android:contentDescription="@null"
-                    android:padding="3dp" />
                 <!-- 约会 -->
                 <ImageView
 
@@ -352,10 +340,22 @@
                     android:layout_height="30dp"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="20dp"
-                    android:layout_toEndOf="@+id/more_iv"
+                    android:layout_toEndOf="@+id/comment_ll"
                     android:src="@mipmap/dt_date"
                     android:contentDescription="@null"
                     android:padding="5dp" />
+                <!--更多-->
+                <ImageView
+                    android:id="@+id/more_iv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="20dp"
+                    android:layout_toEndOf="@+id/date_iv"
+                    android:background="@drawable/more"
+                    android:contentDescription="@null"
+                    android:padding="3dp" />
+
                 <!--关注-->
                 <TextView
                     android:id="@+id/focus_tv"

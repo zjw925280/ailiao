@@ -11,6 +11,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lovechatapp.chat.R;
@@ -54,25 +55,39 @@ public class FreeImDialog extends Dialog implements View.OnClickListener {
 
         setCanceledOnTouchOutside(true);
         setCancelable(true);
-
-        TextView textView = findViewById(R.id.info_tv);
-        textView.setText("");
-        if (freeImBean.isCase) {
-            textView.setText(String.format("私信条数+%s", freeImBean.number));
-        }
-        if (freeImBean.isGold) {
-            textView.append(String.format(freeImBean.isCase ? "  约豆+%s" : "约豆+%s", freeImBean.goldNumber));
-        }
-        findViewById(R.id.confirm_tv).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.imge_qx).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dismiss();
+            }
+        });
+        findViewById(R.id.tv_now).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 activity.startActivity(new Intent(activity, SignInActivity.class));
+                dismiss();
             }
         });
+
+//        TextView textView = findViewById(R.id.info_tv);
+//        textView.setText("");
+//        if (freeImBean.isCase) {
+//            textView.setText(String.format("私信条数+%s", freeImBean.number));
+//        }
+//        if (freeImBean.isGold) {
+//            textView.append(String.format(freeImBean.isCase ? "  约豆+%s" : "约豆+%s", freeImBean.goldNumber));
+//        }
+//        findViewById(R.id.confirm_tv).setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                activity.startActivity(new Intent(activity, SignInActivity.class));
+//            }
+//        });
     }
 
     @Override
     public void show() {
+        super.show();
         Map<String, Object> params = new HashMap<>();
         params.put("userId", AppManager.getInstance().getUserInfo().t_id);
         OkHttpUtils
@@ -91,7 +106,7 @@ public class FreeImDialog extends Dialog implements View.OnClickListener {
                         }
                         freeImBean = response.m_object;
                         if (freeImBean.isCase || freeImBean.isGold) {
-                            FreeImDialog.super.show();
+//                            FreeImDialog.super.show();
                         }
                     }
                 });

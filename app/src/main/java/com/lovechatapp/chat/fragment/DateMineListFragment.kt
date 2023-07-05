@@ -78,6 +78,7 @@ class DateMineListFragment : BaseFragment() {
                                 binding.cityIcon.isSelected = isActive
                                 when (mStatusTag) {
                                     DateBean.DATE_STATUS_NOT_GO -> {
+                                        binding.btnAppeal.visibility = View.VISIBLE
                                         if (data.isSelf()) {
                                             binding.codeRow.visibility = View.VISIBLE
                                             binding.codeText.text = data.appointmentCode
@@ -92,6 +93,7 @@ class DateMineListFragment : BaseFragment() {
                                         }
                                     }
                                     else -> {
+                                        binding.btnAppeal.visibility = View.GONE
                                         binding.codeRow.visibility =
                                             if (data.isSelf()) View.VISIBLE else View.GONE
                                         if (data.isSelf()) {
@@ -173,6 +175,7 @@ class DateMineListFragment : BaseFragment() {
                                         }
                                     }
                                 }
+
                                 binding.btnAppeal.setOnClickListener {
                                     //申诉
                                     val intent =Intent(mContext, ReportActivity::class.java)
