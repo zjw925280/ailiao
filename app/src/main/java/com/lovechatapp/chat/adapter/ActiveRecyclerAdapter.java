@@ -233,7 +233,7 @@ public class ActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.Vie
 //                    }
                    int otherId = mContext.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
 
-                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf(otherId), bean.t_nickName);
+                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf( String.valueOf(AppManager.getInstance().getUserInfo().t_id+10000)), bean.t_nickName);
                 }
             });
             //举报

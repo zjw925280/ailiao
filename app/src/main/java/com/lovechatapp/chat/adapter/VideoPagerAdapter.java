@@ -220,7 +220,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
                 public void onClick(View v) {
                     int otherId = activity.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
 
-                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_id), String.valueOf(otherId), videoBeans.get(position).t_nickName);
+                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_id), String.valueOf(AppManager.getInstance().getUserInfo().t_id), videoBeans.get(position).t_nickName);
                 }
             });
             /**
@@ -272,10 +272,10 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
                         getActorInfo(getItem(position));
                         return;
                     }
-                    if (AppManager.getInstance().getUserInfo().t_sex == 0) {
-                        ToastUtil.INSTANCE.showToast(activity, R.string.sex_can_not_communicate);
-                        return;
-                    }
+//                    if (AppManager.getInstance().getUserInfo().t_sex == 0) {
+//                        ToastUtil.INSTANCE.showToast(activity, R.string.sex_can_not_communicate);
+//                        return;
+//                    }
                     //如果对方是主播,直接用户对主播发起,如果不是就主播对用户发起
                     AudioVideoRequester audioVideoRequester = new AudioVideoRequester(activity,
                             true,

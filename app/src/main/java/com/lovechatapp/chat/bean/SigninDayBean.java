@@ -1,37 +1,84 @@
 package com.lovechatapp.chat.bean;
 
-public class SigninDayBean {
-    private int isSignIn;//0：未签到 1：已经签到
-    private String dayNum;//天数
-    private String gole;//奖励
+import com.lovechatapp.chat.base.BaseBean;
 
-    public int getIsSignIn() {
+import java.util.List;
+
+public class SigninDayBean extends BaseBean {
+    private int day;
+    private boolean isSignIn;
+    private int total;//": 20,
+    private List<RowsBean> rows;
+
+    public int getDay() {
+        return day;
+    }
+
+    public void setDay(int day) {
+        this.day = day;
+    }
+
+    public boolean isSignIn() {
         return isSignIn;
     }
 
-    public void setIsSignIn(int isSignIn) {
-        this.isSignIn = isSignIn;
+    public void setSignIn(boolean signIn) {
+        isSignIn = signIn;
     }
 
-    public String getDayNum() {
-        return dayNum;
+    public int getTotal() {
+        return total;
     }
 
-    public void setDayNum(String dayNum) {
-        this.dayNum = dayNum;
+    public void setTotal(int total) {
+        this.total = total;
     }
 
-    public String getGole() {
-        return gole;
+    public List<RowsBean> getRows() {
+        return rows;
     }
 
-    public void setGole(String gole) {
-        this.gole = gole;
+    public void setRows(List<RowsBean> rows) {
+        this.rows = rows;
     }
 
-    public SigninDayBean(int isSignIn, String dayNum, String gole) {
-        this.isSignIn = isSignIn;
-        this.dayNum = dayNum;
-        this.gole = gole;
+    public class RowsBean{
+        private int  id;//": 12,
+        private int day;//": 1,
+        private int gold;//": 40.00
+        private boolean signIn=false;
+
+        public boolean isSignIn() {
+            return signIn;
+        }
+
+        public void setSignIn(boolean signIn) {
+            this.signIn = signIn;
+        }
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public int getDay() {
+            return day;
+        }
+
+        public void setDay(int day) {
+            this.day = day;
+        }
+
+        public int getGold() {
+            return gold;
+        }
+
+        public void setGold(int gold) {
+            this.gold = gold;
+        }
     }
+
 }

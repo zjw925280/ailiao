@@ -8,6 +8,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.text.TextUtils
+import android.util.Log
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -81,6 +82,10 @@ class ChatFragment : BaseFragment() {
         return mBaseView
     }
 
+    override fun onStart() {
+        super.onStart()
+        initView()
+    }
     @SuppressLint("SetTextI18n")
     private fun initView() {
         mGifSv = mBaseView.findViewById(R.id.gif_sv)
@@ -99,6 +104,7 @@ class ChatFragment : BaseFragment() {
 
         //需要聊天的基本信息
         mChatLayout.chatInfo = mChatInfo
+
 
         //设置文字过滤
         mChatLayout.inputLayout.setImFilter(IMFilterHelper.getInstance())
@@ -454,8 +460,10 @@ class ChatFragment : BaseFragment() {
                 .build().execute(object : AjaxCallback<BaseResponse<*>?>() {
                     override fun onResponse(response: BaseResponse<*>?, id: Int) {
                         response?.apply {
+                            Log.e("不然怎么会这样","不然怎么会这样="+m_istatus)
                             when (m_istatus) {
-                                NetCode.SUCCESS, 2 -> {
+                                NetCode.SUCCESS,
+                                2 -> {
                                     //扣费成功或者是VIP用户
                                     onSend.canSend(true)
                                 }
@@ -463,7 +471,7 @@ class ChatFragment : BaseFragment() {
                                     //余额不足
                                     ChargeHelper.showSetCoverDialog(requireActivity())
                                 }
-                                3 -> {
+                                  3 -> {
                                     ToastUtil.showToast(requireActivity(), m_strMessage)
                                     onSend.canSend(true)
                                 }

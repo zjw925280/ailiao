@@ -86,14 +86,18 @@ public class ImCustomMessage {
     public String otherName;
 
     public int t_id;
-
+    public int inviteeId;
+    public int inviterId;
     //----------礼物部分----------
     //type 礼物类型  0-约豆 1-礼物
     public int gift_id;//礼物id
+    public int giftId;//礼物id
     public String gift_name;//礼物名称
     public String gift_still_url;//礼物静态图
     public String gift_gif_url;//礼物静态图
     public int gold_number;//约豆数量
+    public int giftGold;
+    public int  invitationID;
     public int gift_number;//礼物数量
     //    otherName //受赠人
     //----------礼物部分----------
@@ -122,6 +126,8 @@ public class ImCustomMessage {
     public String remarks;//约会备注
     public String giftImg;//约会礼物图片地址
     public int appointmentStatus;//约会邀请状态
+    public boolean isCharge;//付款方\
+
     //----------自定义约会消息部分----------
 
     /**

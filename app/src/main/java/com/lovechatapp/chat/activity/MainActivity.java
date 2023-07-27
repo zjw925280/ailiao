@@ -37,6 +37,7 @@ import com.lovechatapp.chat.bean.UpdateBean;
 import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.dialog.CloseYoungModeDialog;
+import com.lovechatapp.chat.dialog.FreeDialog;
 import com.lovechatapp.chat.dialog.FreeImDialog;
 import com.lovechatapp.chat.dialog.SetYoungModeDialog;
 import com.lovechatapp.chat.fragment.FindFragment;
@@ -156,15 +157,18 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
         IMFilterHelper.getInstance().updateImFilterWord();
         AppManager.getInstance().startService();
         new FreeImDialog(this).show();
+        new FreeDialog(this).show();
         if (!BuildConfig.DEBUG) {
             new IBgStartImpl().requestStartPermission(this, new PermissionLisenter() {
 
                 @Override
                 public void onGranted() {
+
                 }
 
                 @Override
                 public void cancel() {
+
                 }
 
                 @Override

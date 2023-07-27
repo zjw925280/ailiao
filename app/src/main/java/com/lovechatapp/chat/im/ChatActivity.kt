@@ -4,14 +4,12 @@ import android.content.Intent
 import android.support.v4.app.Fragment
 import android.view.View
 import android.view.WindowManager
-import com.google.gson.Gson
 import com.lovechatapp.chat.R
 import com.lovechatapp.chat.base.BaseActivity
 import com.lovechatapp.chat.helper.IMHelper
 import com.lovechatapp.chat.listener.OnCommonListener
 import com.tencent.qcloud.tim.uikit.modules.chat.C2CChatManagerKit
 import com.tencent.qcloud.tim.uikit.modules.chat.base.ChatInfo
-import com.tencent.qcloud.tim.uikit.modules.message.MessageInfo
 
 /**
  * Im聊天室

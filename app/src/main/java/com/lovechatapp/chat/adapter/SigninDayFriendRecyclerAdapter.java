@@ -3,6 +3,7 @@ package com.lovechatapp.chat.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,7 +12,9 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.bean.SiginBean;
 import com.lovechatapp.chat.glide.GlideCircleTransform;
+import com.lovechatapp.chat.util.TimeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,13 +22,13 @@ import java.util.List;
 public class SigninDayFriendRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
-    private List<String> mBeans = new ArrayList<>();
+    private List<SiginBean.SiginInRecordBean> mBeans = new ArrayList<>();
 
     public SigninDayFriendRecyclerAdapter(Context context) {
         mContext = context;
     }
 
-    public void loadData(List<String> beans) {
+    public void loadData(List<SiginBean.SiginInRecordBean> beans) {
         mBeans = beans;
         notifyDataSetChanged();
     }
@@ -40,12 +43,14 @@ public class SigninDayFriendRecyclerAdapter extends RecyclerView.Adapter<Recycle
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder mHolder = (MyViewHolder) holder;
-        mHolder.tv_friend_head.setText(mBeans.get(position));
+        SiginBean.SiginInRecordBean siginInRecordBean = mBeans.get(position);
+        mHolder.tv_friend_head.setText(siginInRecordBean.getNickName());
         Glide.with(mContext)
-                .load(R.mipmap.bg_home_date)
+                .load(siginInRecordBean.getHandImg())
                 .error(R.drawable.default_head_img)
                 .transform(new GlideCircleTransform(mContext))
                 .into(mHolder.imge_head);
+        mHolder.tv_time.setText(TimeUtil.getFormatYMD(siginInRecordBean.getSignInTime())+"已签到");
 
     }
 
@@ -58,10 +63,12 @@ public class SigninDayFriendRecyclerAdapter extends RecyclerView.Adapter<Recycle
 
         TextView tv_friend_head;
         ImageView imge_head;
+        TextView    tv_time;
         MyViewHolder(View itemView) {
             super(itemView);
             tv_friend_head = itemView.findViewById(R.id.tv_friend_head);
             imge_head = itemView.findViewById(R.id.imge_head);
+            tv_time = itemView.findViewById(R.id.tv_time);
 
         }
     }

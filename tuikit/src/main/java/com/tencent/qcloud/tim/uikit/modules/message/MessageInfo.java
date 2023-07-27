@@ -11,6 +11,7 @@ import java.util.UUID;
 
 public class MessageInfo {
 
+
     public static final int MSG_TYPE_MIME = 0x1;
 
     /**
@@ -163,6 +164,9 @@ public class MessageInfo {
     private int imgWidth;
     private int imgHeight;
     private boolean peerRead;
+    private boolean isCharge;//哪方付款
+    private int  giftGold;
+    public int invitationID;
 
     /**
      * true：消息不出现在聊天室窗口
@@ -171,6 +175,14 @@ public class MessageInfo {
 
     private TIMMessage TIMMessage;
     private TIMElem element;
+
+    public Boolean getPay() {
+        return isCharge;
+    }
+
+    public void setPay(Boolean isCharge) {
+        this.isCharge = isCharge;
+    }
 
     /**
      * 获取消息唯一标识

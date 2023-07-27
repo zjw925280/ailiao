@@ -6,129 +6,140 @@
     android:background="#33cdcdcd"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-<RelativeLayout
-    android:background="@drawable/sign_in_bg"
-    android:layout_width="match_parent"
-    android:layout_height="230dp">
 
-    <TextView
-        android:id="@+id/tv_t"
-        android:layout_marginTop="40dp"
-        android:layout_centerHorizontal="true"
-        android:textColor="#ffffff"
-        android:textSize="20sp"
-        android:text="今日签到成功"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-<LinearLayout
-    android:id="@+id/lin_day_num"
-    android:layout_marginTop="10dp"
-    android:layout_below="@+id/tv_t"
-    android:layout_centerHorizontal="true"
-    android:orientation="horizontal"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
-    <TextView
-        android:textSize="14sp"
-        android:textColor="#ffffff"
-        android:text="恭喜您获得 "
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
-<TextView
-    android:id="@+id/tv_day_num"
-    android:textSize="14sp"
-    android:textColor="#FC7242"
-    android:text="10"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"/>
-    <TextView
-        android:textSize="14sp"
-        android:textColor="#ffffff"
-        android:text=" 积分"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+           <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent">
+               <RelativeLayout
+                   android:background="@drawable/sign_in_bg"
+                   android:layout_width="match_parent"
+                   android:layout_height="230dp">
 
-</LinearLayout>
+                   <TextView
+                       android:id="@+id/tv_t"
+                       android:layout_marginTop="40dp"
+                       android:layout_centerHorizontal="true"
+                       android:textColor="#ffffff"
+                       android:textSize="20sp"
+                       android:text="今日签到成功"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
+                   <LinearLayout
+                       android:id="@+id/lin_day_num"
+                       android:layout_marginTop="10dp"
+                       android:layout_below="@+id/tv_t"
+                       android:layout_centerHorizontal="true"
+                       android:orientation="horizontal"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:textSize="14sp"
+                           android:textColor="#ffffff"
+                           android:text="恭喜您获得 "
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                       <TextView
+                           android:id="@+id/tv_day_num"
+                           android:textSize="14sp"
+                           android:textColor="#FC7242"
+                           android:text=""
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                       <TextView
+                           android:textSize="14sp"
+                           android:textColor="#ffffff"
+                           android:text=" 约豆"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
 
-</RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/relayout"
-        android:layout_marginTop="110dp"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
-        android:background="@drawable/signin_list_item_bg"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+                   </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/lin_signin_day_num"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#333333"
-                android:text="已连续签到  "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:textColor="#333333"
-                android:text="4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:textStyle="bold"
-                android:textSize="18sp"
-                android:textColor="#333333"
-                android:text="  天"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+               </RelativeLayout>
+               <RelativeLayout
+                   android:id="@+id/relayout"
+                   android:layout_marginTop="110dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_marginRight="16dp"
+                   android:background="@drawable/signin_list_item_bg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
 
-        </LinearLayout>
+                   <LinearLayout
+                       android:layout_marginLeft="16dp"
+                       android:layout_marginTop="10dp"
+                       android:id="@+id/lin_signin_day_num"
+                       android:orientation="horizontal"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:textStyle="bold"
+                           android:textSize="18sp"
+                           android:textColor="#333333"
+                           android:text="已连续签到  "
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                       <TextView
+                           android:id="@+id/tv_day"
+                           android:textStyle="bold"
+                           android:textSize="20sp"
+                           android:textColor="#333333"
+                           android:text=""
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
+                       <TextView
+                           android:textStyle="bold"
+                           android:textSize="18sp"
+                           android:textColor="#333333"
+                           android:text="  天"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:layout_marginLeft="10dp"
-            android:id="@+id/rv_signin"
-            android:layout_below="@+id/lin_signin_day_num"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
-            />
+                   </LinearLayout>
+
+                   <android.support.v7.widget.RecyclerView
+                       android:id="@+id/rv_signin"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_below="@+id/lin_signin_day_num"
+                       android:layout_marginLeft="10dp"
+                       android:layout_marginBottom="10dp" />
 
 
-    </RelativeLayout>
-<RelativeLayout
-    android:layout_marginTop="16dp"
-    android:layout_marginRight="16dp"
-    android:layout_marginLeft="16dp"
-    android:layout_below="@+id/relayout"
-    android:background="@drawable/signin_list_item_bg"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+               </RelativeLayout>
+               <RelativeLayout
+                   android:layout_marginTop="16dp"
+                   android:layout_marginRight="16dp"
+                   android:layout_marginLeft="16dp"
+                   android:layout_below="@+id/relayout"
+                   android:background="@drawable/signin_list_item_bg"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content">
 
-        <TextView
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="10dp"
-            android:id="@+id/tv_signin_friend"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="#333333"
-            android:text="已连续签到伙伴"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+                   <TextView
+                       android:layout_marginLeft="16dp"
+                       android:layout_marginTop="10dp"
+                       android:id="@+id/tv_signin_friend"
+                       android:textStyle="bold"
+                       android:textSize="18sp"
+                       android:textColor="#333333"
+                       android:text="已连续签到伙伴"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"/>
 
-<android.support.v7.widget.RecyclerView
-    android:layout_marginTop="10dp"
-    android:layout_below="@+id/tv_signin_friend"
-    android:id="@+id/rv_signin_friend"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"/>
-</RelativeLayout>
+                   <android.support.v7.widget.RecyclerView
+                       android:layout_marginTop="10dp"
+                       android:layout_below="@+id/tv_signin_friend"
+                       android:id="@+id/rv_signin_friend"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"/>
+               </RelativeLayout>
+
+
+           </RelativeLayout>
+   </ScrollView>
 
 
 </RelativeLayout>

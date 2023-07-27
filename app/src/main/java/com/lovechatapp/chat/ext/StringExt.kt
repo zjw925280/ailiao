@@ -5,7 +5,9 @@ fun String.getPhoneMasked(): String {
         "****"
     } else {
         val head = substring(0, 3)
-        val end = substring(length - 4, length)
+
+        val end = substring(length -4, length)
+
         "$head****$end"
     }
 }

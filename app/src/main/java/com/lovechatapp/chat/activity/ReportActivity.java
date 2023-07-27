@@ -78,6 +78,7 @@ public class ReportActivity extends BaseActivity {
 
     private final int CHOOSE_IMAGE = 1001;
     private String sensu;
+    private String url="";
 
     @Override
     protected View getContentView() {
@@ -193,7 +194,12 @@ public class ReportActivity extends BaseActivity {
                     paramMap.put("comment", getEditString(etContent));
                     paramMap.put("t_code", getEditString(verifyCodeEt));
                     paramMap.put("img", paths);
-                    OkHttpUtils.post().url(ChatApi.SAVE_COMPLAINT())
+//                    if (sensu.equals("申诉")){
+//                        url=ChatApi.INVITERAPPEAL();
+//                    }else {
+                        url=ChatApi.SAVE_COMPLAINT();
+//                }
+                    OkHttpUtils.post().url(url)
                             .addParams("param", ParamUtil.getParam(paramMap))
                             .build().execute(new AjaxCallback<BaseResponse<String>>() {
 

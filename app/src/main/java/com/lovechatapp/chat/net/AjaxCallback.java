@@ -1,7 +1,10 @@
 package com.lovechatapp.chat.net;
 
 
+import android.util.Log;
+
 import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.BuildConfig;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.base.AppManager;
@@ -38,13 +41,11 @@ public abstract class AjaxCallback<T> extends Callback<T> {
 
     @Override
     public T parseNetworkResponse(Response response, int id) throws Exception {
-
         if (response.isSuccessful() && types != null && types.length > 0) {
 
             String str = response.body().string();
-
             if (BuildConfig.DEBUG) {
-                LogUtil.i("==--http", response.request().url().toString() + ": " + str);
+                Log.e("错误了", new Gson().toJson(response));
             }
 
             BaseResponse baseResponse = JSON.parseObject(str, BaseResponse.class);
@@ -54,16 +55,19 @@ public abstract class AjaxCallback<T> extends Callback<T> {
                 switch (baseResponse.m_istatus) {
 
                     case -1010: {
+                        Log.e("code","1010="+response.isSuccessful());
                         AppManager.getInstance().exit(baseResponse.m_strMessage, true);
                         throw new IllegalAccessException("封号");
                     }
 
                     case -1020: {
+                        Log.e("code","1020="+response.isSuccessful());
                         AppManager.getInstance().exit(AppManager.getInstance().getString(R.string.token_invalid), true);
                         throw new IllegalAccessException("登录失效");
                     }
 
                     case -1030: {
+                        Log.e("code","1030="+response.isSuccessful());
                         AppManager.getInstance().updateApp(JSON.parseObject(baseResponse.m_object.toString(), UpdateBean.class));
                         throw new IllegalAccessException("更新版本");
                     }
@@ -74,7 +78,6 @@ public abstract class AjaxCallback<T> extends Callback<T> {
 
             return JSON.parseObject(str, types[0]);
         }
-
         return null;
     }
 

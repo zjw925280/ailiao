@@ -3,16 +3,13 @@ package com.lovechatapp.chat.activity
 
 import android.annotation.SuppressLint
 import android.app.Activity
-import android.app.AlertDialog
 import android.content.Context
-import android.content.DialogInterface
 import android.content.Intent
 import android.text.InputType
 import android.text.TextUtils
 import android.util.Log
 import android.view.View
 import com.google.gson.Gson
-import com.lovechatapp.chat.R
 import com.lovechatapp.chat.base.AppManager
 import com.lovechatapp.chat.base.BaseActivity
 import com.lovechatapp.chat.base.BaseResponse
@@ -21,6 +18,7 @@ import com.lovechatapp.chat.constant.ChatApi
 import com.lovechatapp.chat.databinding.ActivityDateCreateBinding
 import com.lovechatapp.chat.dialog.BottomDateGiftDialog
 import com.lovechatapp.chat.dialog.BottomDateGiftDialog.GiftSelectedListener
+import com.lovechatapp.chat.dialog.DatePayDialog
 import com.lovechatapp.chat.dialog.DateTimePickerDialog
 import com.lovechatapp.chat.dialog.InputRemarkDialog
 import com.lovechatapp.chat.ext.setClick
@@ -45,8 +43,14 @@ import org.json.JSONObject
  * 发起约会界面
  */
 class DateCreateActivity : BaseActivity() {
+
+
     /**初始化当前用户信息对象*/
     private val user = AppManager.getInstance().userInfo
+    private lateinit var list: ArrayList<DateGiftBean>
+    private lateinit var bean1:DateGiftBean
+    private  var money=0
+    private  var giftImg:String=""
 
     /**底部弹出的礼物选择弹框*/
     private var dialog: BottomDateGiftDialog? = null
@@ -67,6 +71,7 @@ class DateCreateActivity : BaseActivity() {
         needHeader(true)
         title = "约会"
         setListeners()
+
     }
 
     /***/
@@ -104,8 +109,8 @@ class DateCreateActivity : BaseActivity() {
             val address =
                 mBinding.textAddress.text.toString().trim()//获取输入的地址
             val phone = mBinding.textPhone.text.toString().trim()//获取手机号码
-            val time =
-                mBinding.textTime.text.toString().trim()//获取选择的日期时间
+            val time = removeExtraSpaces(mBinding.textTime.text.toString().trim())//获取选择的日期时间
+
             val mark =
                 mBinding.markEdt.text.toString().trim()//获取输入的备注
             if (giftIdSelected == -1) {//未选择礼物
@@ -126,11 +131,20 @@ class DateCreateActivity : BaseActivity() {
                 ToastUtil.showToast("请选择约会时间")
                 return@setClick
             }
+
+            if (AppManager.getInstance().userInfo.t_sex==0){//女性发起约会
+                DatePayDialog(mContext,intent.getStringExtra("targetId") ?: "",intent.getStringExtra("chatid")?:"",intent.getStringExtra("targetName")?:"",address,time,phone,mark,bean1).show()
+          return@setClick
+            }
+
             //创建约会
             createDate(address, time, mark, phone)
         }
     }
-
+    fun removeExtraSpaces(input: String): String {
+        val regex = "\\s+".toRegex()
+        return input.replace(regex, " ")
+    }
     /**已经选择的礼物id*/
     private var giftIdSelected = -1
 
@@ -152,7 +166,6 @@ class DateCreateActivity : BaseActivity() {
         OkHttpUtils.post().url(ChatApi.getDateGiftList())
             .addParams("param", ParamUtil.getParam(paramMap))
             .build().execute(object : AjaxCallback<BaseResponse<ArrayList<DateGiftBean>>?>() {
-
                 override fun onResponse(response: BaseResponse<ArrayList<DateGiftBean>>?, id: Int) {
                     if (this@DateCreateActivity.isFinishing) {
                         return
@@ -174,11 +187,13 @@ class DateCreateActivity : BaseActivity() {
     /**初始化礼物弹框*/
     private fun initGiftDialog(list: ArrayList<DateGiftBean>) {
         //使用传递进来的数据初始化数据
+        this.list=list
         if (list.isNotEmpty()) {
             list[0].isSelected = true
             dialog = BottomDateGiftDialog(this@DateCreateActivity, list)
             dialog?.setGiftSelectListener(object : GiftSelectedListener() {
                 override fun onSelected(bean: DateGiftBean) {
+                    bean1=bean
                     selectedGift(bean)
                 }
             })
@@ -202,7 +217,7 @@ class DateCreateActivity : BaseActivity() {
 
     /**使用输入的地址[address]， 约会时间[time]， 备注[mark]创建约会的方法*/
     @SuppressLint("SimpleDateFormat")
-    private fun createDate(address: String, time: String, mark: String, phone: String) {
+     fun createDate(address: String, time: String, mark: String, phone: String) {
         showLoadingDialog()
         if (isCreateRequested && jsonStr.isNotEmpty()) {//如果已经请求过创建约会的服务器且成功，则直接发送消息
             sendMessage()
@@ -217,7 +232,7 @@ class DateCreateActivity : BaseActivity() {
         paramMap["appointmentTime"] = time
         paramMap["appointmentAddress"] = address
         paramMap["remarks"] = mark
-        Log.e("ralph", "params ========= $paramMap")
+        Log.e("ralph", "params ========= $paramMap"+" url="+ChatApi.createDate())
         //创建请求
         OkHttpUtils.post()
             .url(ChatApi.createDate())
@@ -235,6 +250,7 @@ class DateCreateActivity : BaseActivity() {
                                 isCreateRequested = true //设置标识
                                 //记录返回的数据
                                 jsonStr = m_object
+
                                 //调用发送消息的方法
                                 sendMessage()
                             }
@@ -252,7 +268,7 @@ class DateCreateActivity : BaseActivity() {
     }
 
     /**发送消息的方法*/
-    private fun sendMessage() {
+     fun sendMessage() {
         if (jsonStr.isEmpty()) {//如果服务器返回的数据为空，则不发送消息
             return
         }
@@ -262,14 +278,14 @@ class DateCreateActivity : BaseActivity() {
             outIntent.putExtra("data", jsonStr)
             setResult(RESULT_OK, outIntent)
             this@DateCreateActivity.finish()
-        } else {//如果从其他界面进入此界面，则在此界面发送消息
+        } else {
+            //如果从其他界面进入此界面，则在此界面发送消息
             //将数据转化成Json对象
             val json = JSONObject(jsonStr)
             //添加消息的类型
             json.put("type", ImCustomMessage.Type_Date)
             //将Json对象转换成自定义消息数据对象
-            val imCustomMessage =
-                Gson().fromJson(json.toString(), ImCustomMessage::class.java)
+            val imCustomMessage = Gson().fromJson(json.toString(), ImCustomMessage::class.java)
             //初始化消息封装对象
             val info = MessageInfo()
             //初始化即时通讯消息对象
@@ -287,7 +303,11 @@ class DateCreateActivity : BaseActivity() {
             info.msgType = MessageInfo.MSG_TYPE_DATE
             info.fromUser = TIMManager.getInstance().loginUser
             val chatInfo = ChatInfo()
-            chatInfo.id = intent.getStringExtra("chatId") ?: ""
+            val targetId=  intent.getStringExtra("targetId") ?: ""
+            Log.e("是不是这个","targetId="+targetId)
+            val i: Int = targetId.toInt() + 10000
+            Log.e("是不是这个","targetId=i="+i.toString())
+            chatInfo.id = i.toString()
             chatInfo.chatName = intent.getStringExtra("targetName") ?: ""
             chatInfo.isTopChat = false
             //查询是否有备注
@@ -297,9 +317,11 @@ class DateCreateActivity : BaseActivity() {
             }
             //设置发送消息的对象
             C2CChatManagerKit.getInstance().currentChatInfo = chatInfo
+            Log.e("是不是这个","info=="+Gson().toJson(info)+" chatInfo="+Gson().toJson(chatInfo));
             //发送消息
             C2CChatManagerKit.getInstance().sendMessage(info, false, object : IUIKitCallBack {
                 override fun onSuccess(data: Any?) {
+                    Log.e("是不是这个","发送成功data=="+data);
                     //消息发送成功，退出界面
                     this@DateCreateActivity.finish()
                 }
@@ -307,12 +329,14 @@ class DateCreateActivity : BaseActivity() {
                 override fun onError(module: String?, errCode: Int, errMsg: String?) {
                     //TODO 失败处理
                     ToastUtil.showToast(errMsg ?: "出错啦！")
+                    Log.e("是不是这个","出错啦errMsg=="+errMsg+" module="+module)
                 }
             })
         }
     }
 
     companion object {
+
         /**使用
          * 上下文对象[context]
          * 对方用户id[targetId],

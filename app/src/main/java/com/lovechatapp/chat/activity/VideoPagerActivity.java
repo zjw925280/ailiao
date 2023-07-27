@@ -107,7 +107,6 @@ public class VideoPagerActivity extends BaseActivity {
     @Override
     protected void onContentAdded() {
         needHeader(false);
-
         defaultIndex = getIntent().getIntExtra("index", 0);
         currentIndex = defaultIndex;
         initRecycle();

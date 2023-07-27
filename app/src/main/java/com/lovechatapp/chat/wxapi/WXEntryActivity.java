@@ -122,6 +122,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                         finish();
                     }
                 }
+
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
                 if (baseResp.getType() == ConstantsAPI.COMMAND_SENDAUTH) {//微信登录

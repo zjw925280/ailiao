@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.lovechatapp.chat">
 
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 知乎Matisse所需权限 -->
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 头像图片选择 从拍照 -->
@@ -46,6 +49,10 @@
             android:name=".activity.DateMineActivity"
             android:exported="false" />
         <activity
+            android:name=".activity.VideoActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".activity.DateCreateActivity"
             android:exported="false"/>
         <activity
@@ -54,6 +61,7 @@
         <activity
             android:name=".activity.SignInActivity"
             android:exported="false" />
+
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" /> <!-- activity页面 start -->

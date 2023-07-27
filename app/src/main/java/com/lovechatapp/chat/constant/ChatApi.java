@@ -18,10 +18,62 @@ public class ChatApi {
 
     private static String SERVER = BuildConfig.hostAddress + "app/";
     private static String SHARE = BuildConfig.hostAddress + "share/";
-
+    private static String SIGNIN = BuildConfig.hostAddress + "signIn/";
     public static void setUrl(String url) {
         ChatApi.SERVER = url + "app/";
         ChatApi.SHARE = url + "share/";
+        ChatApi.SIGNIN = url + "signIn/";
+
+    }
+
+    /**
+     * 获取女方发起的对方支付的约会id
+     */
+//    public static String GET_DATE_ID() {
+//        return SERVER + "updateInvitation.html";
+//    }
+//    /**
+//     * 获取女方发起的对方支付的约会id
+//     */
+//    public static String GET_DATE_ID() {
+//        return SERVER + "getInvitation.html";
+//    }
+    /**
+     * 获取女方发起的对方支付的约会id
+     */
+    public static String GET_DATE_ID() {
+
+//        return "https://475mm80226.imdo.co/chat_app_war/app/insertInvitation.html";
+        return SERVER + "insertInvitation.html";
+    }
+    /**
+     * 获取主播个人发布视频
+     */
+    public static String PESON_VIODE() {
+        return SERVER + "getUserVideoList.html";
+    }
+
+    /**
+     * 签到接口
+     */
+    public static String SIGIN_NOW() {
+        return SERVER + "signIn.html";
+    }
+
+
+
+    /**
+     * 申诉接口
+     */
+    public static String INVITERAPPEAL() {
+        return SERVER + "inviterAppealAppointment";
+    }
+
+    /**
+     * 签到列表
+     */
+    public static String SIGNIN_LIST() {
+        return SIGNIN + "getSignInList.html";
     }
 
     /**

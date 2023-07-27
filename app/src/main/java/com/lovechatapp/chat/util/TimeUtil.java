@@ -75,10 +75,16 @@ public class TimeUtil {
      * 根据毫秒返回年月日
      */
     public static String getFormatYMD(long time) {
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm", Locale.CHINA);
+        return sdf.format(time);
+    }
+    /**
+     * 根据毫秒返回年月日
+     */
+    public static String getFormatYM(long time) {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.CHINA);
         return sdf.format(time);
     }
-
     /**
      * 时间戳格式转换
      */

@@ -22,6 +22,7 @@ import com.lovechatapp.chat.activity.InfoActiveActivity;
 import com.lovechatapp.chat.activity.PersonInfoActivity;
 import com.lovechatapp.chat.activity.RankProtectActivity;
 import com.lovechatapp.chat.activity.UserCommentActivity;
+import com.lovechatapp.chat.activity.VideoActivity;
 import com.lovechatapp.chat.adapter.CloseGiftRecyclerAdapter;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseFragment;
@@ -101,7 +102,14 @@ public class PersonDataFragment extends BaseFragment {
             //星星
             StarView starView = findViewById(R.id.star_view);
             starView.setSelected((int) bean.t_score);
-
+             findViewById(R.id.rl_resber).setOnClickListener(new View.OnClickListener() {
+                 @Override
+                 public void onClick(View view) {
+                     Intent intent = new Intent(getActivity(), VideoActivity.class);
+                     intent.putExtra("userid",otherId);
+                     startActivity(intent);
+                 }
+             });
             //评分
             TextView scoreTv = findViewById(R.id.score_tv);
             scoreTv.setText(String.valueOf(bean.t_score));

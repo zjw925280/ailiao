@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -78,9 +79,9 @@ class DateMineListFragment : BaseFragment() {
                                 binding.cityIcon.isSelected = isActive
                                 when (mStatusTag) {
                                     DateBean.DATE_STATUS_NOT_GO -> {
-                                        binding.btnAppeal.visibility = View.VISIBLE
+                                        if (System.currentTimeMillis()>data.appointmentTime)  binding.btnAppeal.visibility = View.VISIBLE else binding.btnAppeal.visibility = View.GONE
                                         if (data.isSelf()) {
-                                            binding.codeRow.visibility = View.VISIBLE
+                                            binding.codeRow.visibility = View.GONE
                                             binding.codeText.text = data.appointmentCode
                                             binding.btnCode.visibility = View.GONE
                                             binding.btnCancel.visibility =
@@ -88,14 +89,14 @@ class DateMineListFragment : BaseFragment() {
                                         } else {
                                             binding.codeRow.visibility = View.GONE
                                             binding.btnCode.visibility =
-                                                if (data.appointmentStatus == DateBean.INVITE_TYPE_ACCEPTED) View.VISIBLE else View.GONE
+                                                if (data.appointmentStatus == DateBean.INVITE_TYPE_ACCEPTED) View.GONE else View.GONE
                                             binding.btnCancel.visibility = View.GONE
                                         }
                                     }
                                     else -> {
                                         binding.btnAppeal.visibility = View.GONE
                                         binding.codeRow.visibility =
-                                            if (data.isSelf()) View.VISIBLE else View.GONE
+                                            if (data.isSelf()) View.GONE else View.GONE
                                         if (data.isSelf()) {
                                             binding.codeText.text = data.appointmentCode
                                         } else {
@@ -109,7 +110,8 @@ class DateMineListFragment : BaseFragment() {
                                 binding.nameText.text = data.name
                                 binding.sexIcon.setImageLevel(data.sex)
                                 binding.ageText.text = data.age.toString()
-                                binding.phoneText.text = data.getPhoneText()
+                                binding.phoneText.text =   data.phone
+//                              binding.phoneText.text = data.getPhoneText()
                                 binding.timeText.text =
                                     SimpleDateFormat("yyyy/MM/dd  HH:mm", Locale.CHINA).format(
                                         Date(
@@ -125,7 +127,7 @@ class DateMineListFragment : BaseFragment() {
                                         //使用[code]请求服务器进行校验
                                         val paramMap = HashMap<String?, Any>()
                                         paramMap["appointmentId"] = data.appointmentId
-                                        paramMap["appointmentCode"] = code
+//                                        paramMap["appointmentCode"] = code
                                         paramMap["userId"] = AppManager.getInstance().userInfo.t_id
                                         OkHttpUtils.post().url(ChatApi.dateCodeVerify())
                                             .addParams("param", ParamUtil.getParam(paramMap))

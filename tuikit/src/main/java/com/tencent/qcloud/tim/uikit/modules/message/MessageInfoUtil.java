@@ -392,6 +392,8 @@ public class MessageInfoUtil {
         if (type == TIMElemType.Custom) {
             TIMCustomElem customElem = (TIMCustomElem) ele;
             String data = new String(customElem.getData());
+            Log.e("不支持的消息","data="+data);
+
             if (data.equals(GROUP_CREATE)) {
                 msgInfo.setMsgType(MessageInfo.MSG_TYPE_GROUP_CREATE);
                 String message = TUIKitConstants.covert2HTMLString(
@@ -450,6 +452,7 @@ public class MessageInfoUtil {
                     msgInfo.setExtra(imCustomMessageBean);
                 } catch (Exception e) {
                     e.printStackTrace();
+                    Log.e("不支持的消息","不支持的消息="+e.getMessage().toString());
                     msgInfo.setMsgType(MessageInfo.MSG_TYPE_CUSTOM);
                     msgInfo.setExtra("[不支持的消息]");
                 }
@@ -458,6 +461,7 @@ public class MessageInfoUtil {
                     // 忽略正在输入，它不能作为真正的消息展示
                     return null;
                 }
+                Log.e("不支持的消息","不支持的消息="+new Gson().toJson(msgInfo));
                 msgInfo.setMsgType(MessageInfo.MSG_TYPE_CUSTOM);
                 msgInfo.setExtra("[不支持的消息]");
             }

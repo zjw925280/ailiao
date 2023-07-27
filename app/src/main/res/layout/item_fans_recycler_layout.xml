@@ -82,7 +82,12 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="18dp"
             android:src="@drawable/fans_chat_video" />
-
+        <ImageView
+            android:id="@+id/date_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="18dp"
+            android:src="@drawable/date_love" />
     </LinearLayout>
 
     <!--  个性签名  -->

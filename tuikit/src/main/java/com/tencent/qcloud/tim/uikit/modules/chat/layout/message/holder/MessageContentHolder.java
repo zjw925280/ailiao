@@ -1,5 +1,6 @@
 package com.tencent.qcloud.tim.uikit.modules.chat.layout.message.holder;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.View;
@@ -35,10 +36,10 @@ public abstract class MessageContentHolder extends MessageEmptyHolder {
     public TextView isReadText;
     public TextView unreadAudioText;
 
+
     public MessageContentHolder(View itemView) {
         super(itemView);
         rootView = itemView;
-
         leftUserIcon = itemView.findViewById(R.id.left_user_icon_view);
         rightUserIcon = itemView.findViewById(R.id.right_user_icon_view);
         usernameText = itemView.findViewById(R.id.user_name_tv);

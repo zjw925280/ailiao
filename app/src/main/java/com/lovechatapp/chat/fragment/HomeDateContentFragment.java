@@ -7,6 +7,7 @@ import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.lovechatapp.chat.activity.DateCreateActivity;
+import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.helper.IMHelper;
 import com.lovechatapp.chat.helper.ImageLoadHelper;
@@ -121,8 +123,8 @@ public class HomeDateContentFragment extends BaseFragment {
                                     IMHelper.toChat(getActivity(), bean.t_nickName, bean.t_id, bean.t_sex);
                                 });
                                 v.findViewById(R.id.btnDate).setOnClickListener(view -> {
-                                    int otherId = mContext.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
-                                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf(otherId), bean.t_nickName);
+                                    Log.e("啥玩意","是多少呢"+AppManager.getInstance().getUserInfo().t_id+" 是这个吧="+bean.t_id);
+                                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf(AppManager.getInstance().getUserInfo().t_id+10000), bean.t_nickName);
                                 });
                             }
                         };

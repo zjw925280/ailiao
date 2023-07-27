@@ -12,9 +12,12 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.activity.DateCreateActivity;
 import com.lovechatapp.chat.activity.PersonInfoActivity;
+import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseActivity;
 import com.lovechatapp.chat.bean.FansBean;
+import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.glide.GlideRoundTransform;
 import com.lovechatapp.chat.helper.IMHelper;
 import com.lovechatapp.chat.net.AudioVideoRequester;
@@ -122,6 +125,15 @@ public class FansRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     IMHelper.toChat(mContext, bean.t_nickName, bean.t_id, bean.t_sex);
                 }
             });
+            //约会
+            mHolder.date_btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    int otherId = mContext.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
+                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id), String.valueOf( String.valueOf(AppManager.getInstance().getUserInfo().t_id+10000)), bean.t_nickName);
+
+                }
+            });
 
             //音视频聊天
             mHolder.mChatVideoBtn.setOnClickListener(new View.OnClickListener() {
@@ -150,7 +162,7 @@ public class FansRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         private TextView mSignTv;
         private View mChatTextBtn;
         private View mChatVideoBtn;
-
+        private View date_btn;
         MyViewHolder(View itemView) {
             super(itemView);
             mHeadIv = itemView.findViewById(R.id.head_iv);
@@ -160,6 +172,8 @@ public class FansRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             mSignTv = itemView.findViewById(R.id.sign_tv);
             mChatTextBtn = itemView.findViewById(R.id.chat_text_btn);
             mChatVideoBtn = itemView.findViewById(R.id.chat_video_btn);
+            date_btn= itemView.findViewById(R.id.date_btn);
+
         }
     }
 }

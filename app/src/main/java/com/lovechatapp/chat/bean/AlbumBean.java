@@ -32,6 +32,8 @@ public class AlbumBean extends BaseBean {
 
     public int laudtotal;//	总的点赞数
     public int t_is_first;
+    public long t_create_time;
+
 
     public boolean isLock() {
         return t_is_private == 1;

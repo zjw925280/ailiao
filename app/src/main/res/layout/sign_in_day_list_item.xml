@@ -16,7 +16,7 @@
             android:layout_height="match_parent"/>
     <TextView
         android:id="@+id/tv_gole"
-        android:textSize="14sp"
+        android:textSize="12sp"
         android:textColor="#ffffff"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"

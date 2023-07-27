@@ -13,7 +13,6 @@ import android.support.annotation.LayoutRes
 import android.support.v4.app.FragmentActivity
 import android.support.v4.content.ContextCompat
 import android.text.TextUtils
-import android.util.Log
 import android.view.*
 import android.widget.FrameLayout
 import android.widget.RelativeLayout

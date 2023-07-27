@@ -89,7 +89,7 @@ public abstract class MessageBaseHolder extends RecyclerView.ViewHolder {
                     holder = new MessageCustomCallHolder(view);
                     break;
                 case MessageInfo.MSG_TYPE_DATE:
-                    holder = new MessageChatDateHolder(view);
+                    holder = new MessageChatDateHolder(view, parent.getContext());
                     break;
                 default:
                     holder = new MessageCustomHolder(view);

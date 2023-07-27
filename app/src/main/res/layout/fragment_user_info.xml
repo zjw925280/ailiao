@@ -238,33 +238,66 @@
                 android:src="@drawable/person_arrow" />
 
         </LinearLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/tv_user"
+        style="@style/actor_menu"
+        android:text="用户印象" />
+
+    <LinearLayout
+        android:layout_below="@+id/tv_user"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.lovechatapp.chat.view.StarView
+            android:id="@+id/star_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <TextView
-            style="@style/actor_menu"
-            android:text="用户印象" />
-
-        <LinearLayout
+            android:id="@+id/score_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
+            android:layout_marginStart="8dp"
+            android:text="0"
+            android:textColor="#ff333333"
+            android:textSize="14sp" />
 
-            <com.lovechatapp.chat.view.StarView
-                android:id="@+id/star_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+    </LinearLayout>
+    <RelativeLayout
+        android:visibility="visible"
+        android:id="@+id/rl_resber"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/person_info_fabu_bg"
+        android:layout_width="60dp"
+        android:layout_height="60dp">
+       <LinearLayout
+           android:layout_centerVertical="true"
+           android:layout_centerHorizontal="true"
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+           <ImageView
+               android:src="@drawable/video_chat_video"
+               android:layout_width="match_parent"
+               android:layout_height="20dp"/>
+           <TextView
+               android:gravity="center_horizontal"
+               android:textColor="#ffffff"
+               android:text="发布"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"/>
+       </LinearLayout>
 
-            <TextView
-                android:id="@+id/score_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:text="0"
-                android:textColor="#ff333333"
-                android:textSize="14sp" />
+    </RelativeLayout>
 
-        </LinearLayout>
+</RelativeLayout>
+
 
         <LinearLayout
             android:id="@+id/comment_ll"

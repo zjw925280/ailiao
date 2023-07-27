@@ -19,13 +19,13 @@ import java.util.List;
 public class SigninDayRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
-    private List<SigninDayBean> mBeans = new ArrayList<>();
+    private List<SigninDayBean.RowsBean> mBeans = new ArrayList<>();
 
     public SigninDayRecyclerAdapter(Context context) {
         mContext = context;
     }
 
-    public void loadData(List<SigninDayBean> beans) {
+    public void loadData(List<SigninDayBean.RowsBean> beans) {
         mBeans = beans;
         notifyDataSetChanged();
     }
@@ -40,14 +40,14 @@ public class SigninDayRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
         MyViewHolder mHolder = (MyViewHolder) holder;
-        SigninDayBean signinDayBean = mBeans.get(position);
-        mHolder.tv_day_num.setText(signinDayBean.getDayNum());
-        mHolder.tv_gole.setText("+"+signinDayBean.getGole());
+        SigninDayBean.RowsBean rowsBean = mBeans.get(position);
+        mHolder.tv_day_num.setText(rowsBean.getDay()+"");
+        mHolder.tv_gole.setText("+"+rowsBean.getGold()+"");
 
-        if (signinDayBean.getIsSignIn()==0){
-            mHolder.imge_num_bg.setImageResource(R.drawable.sign_in_day_item_h_bg);
-        }else {
+        if (rowsBean.isSignIn()){
             mHolder.imge_num_bg.setImageResource(R.drawable.sign_in_day_item_y_bg);
+        }else {
+            mHolder.imge_num_bg.setImageResource(R.drawable.sign_in_day_item_h_bg);
         }
     }
 

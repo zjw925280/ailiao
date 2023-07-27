@@ -44,13 +44,9 @@ public class RtcManager {
         try {
 
             mRtcEventHandler = new RtcEngineEventHandlerProxy();
-
             mRtcEngine = RtcEngine.create(AppManager.getInstance(), Constant.AGORA_APP_ID, mRtcEventHandler);
             mRtcEngine.setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
             mRtcEngine.setClientRole(Constants.CLIENT_ROLE_BROADCASTER);
-
-
-
 
             preprocessorFaceUnity = new PreprocessorFaceUnity(AppManager.getInstance());
 
