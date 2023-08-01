@@ -220,7 +220,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
                 public void onClick(View v) {
                     int otherId = activity.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
 
-                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_id), String.valueOf(AppManager.getInstance().getUserInfo().t_id), videoBeans.get(position).t_nickName);
+                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_user_id), String.valueOf(AppManager.getInstance().getUserInfo().t_id), videoBeans.get(position).t_nickName);
                 }
             });
             /**

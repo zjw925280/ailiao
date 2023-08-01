@@ -134,7 +134,7 @@ class DateCreateActivity : BaseActivity() {
 
             if (AppManager.getInstance().userInfo.t_sex==0){//女性发起约会
                 DatePayDialog(mContext,intent.getStringExtra("targetId") ?: "",intent.getStringExtra("chatid")?:"",intent.getStringExtra("targetName")?:"",address,time,phone,mark,bean1).show()
-          return@setClick
+                return@setClick
             }
 
             //创建约会
@@ -232,7 +232,8 @@ class DateCreateActivity : BaseActivity() {
         paramMap["appointmentTime"] = time
         paramMap["appointmentAddress"] = address
         paramMap["remarks"] = mark
-        Log.e("ralph", "params ========= $paramMap"+" url="+ChatApi.createDate())
+        Log.e("ralph", "params ========= $paramMap")
+
         //创建请求
         OkHttpUtils.post()
             .url(ChatApi.createDate())
@@ -304,9 +305,7 @@ class DateCreateActivity : BaseActivity() {
             info.fromUser = TIMManager.getInstance().loginUser
             val chatInfo = ChatInfo()
             val targetId=  intent.getStringExtra("targetId") ?: ""
-            Log.e("是不是这个","targetId="+targetId)
             val i: Int = targetId.toInt() + 10000
-            Log.e("是不是这个","targetId=i="+i.toString())
             chatInfo.id = i.toString()
             chatInfo.chatName = intent.getStringExtra("targetName") ?: ""
             chatInfo.isTopChat = false

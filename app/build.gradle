@@ -64,10 +64,10 @@ android {
             buildConfigField "boolean", "debug", "true"
             buildConfigField "String", "rkey", "\"${AppKey}\""
             buildConfigField "String", "charset", "\"UTF-8\""
-            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
-            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
-//            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
-//            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
+//            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
+//            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
+            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
+            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
             signingConfig signingConfigs.release
         }
         //正式环境

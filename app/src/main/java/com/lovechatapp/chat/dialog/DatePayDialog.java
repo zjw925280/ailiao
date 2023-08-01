@@ -299,8 +299,9 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
         paramMap.put("appointmentTime", time);
         paramMap.put("appointmentAddress", address);
         paramMap.put("remarks", mark);
-        Log.e("ralph", "params ========= " + paramMap);
-
+       String param= ParamUtil.getParam(paramMap);
+        Log.e("ralph", "params ========= " + paramMap+" param="+param);
+        ToastUtil.showToast(activity,param);
         OkHttpUtils.post()
                 .url(ChatApi.createDate())
                 .addParams("param", ParamUtil.getParam(paramMap))
