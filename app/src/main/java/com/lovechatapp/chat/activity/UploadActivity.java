@@ -23,7 +23,6 @@ import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.dialog.ChoosePriceDialog;
 import com.lovechatapp.chat.helper.ImageHelper;
-import com.lovechatapp.chat.listener.OnCommonListener;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.util.FileUtil;

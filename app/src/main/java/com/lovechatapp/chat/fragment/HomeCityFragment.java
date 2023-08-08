@@ -1,6 +1,5 @@
 package com.lovechatapp.chat.fragment;
 
-import android.view.View;
 import android.widget.TextView;
 
 import com.lovechatapp.chat.dialog.CityPickerDialog;

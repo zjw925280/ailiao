@@ -2,7 +2,6 @@ package com.lovechatapp.chat.util;
 
 import android.os.Build;
 import android.text.TextUtils;
-import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.IOException;

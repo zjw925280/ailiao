@@ -8,7 +8,6 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
@@ -23,14 +22,12 @@ import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseBean;
 import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.SiginBean;
-import com.lovechatapp.chat.bean.SigninDayBean;
 import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

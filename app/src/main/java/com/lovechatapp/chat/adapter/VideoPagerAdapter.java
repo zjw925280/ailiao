@@ -25,10 +25,8 @@ import com.lovechatapp.chat.bean.LabelBean;
 import com.lovechatapp.chat.bean.AlbumBean;
 import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.dialog.GiftDialog;
-import com.lovechatapp.chat.dialog.LookResourceDialog;
 import com.lovechatapp.chat.glide.GlideCircleTransform;
 import com.lovechatapp.chat.helper.IMHelper;
-import com.lovechatapp.chat.listener.OnCommonListener;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.AudioVideoRequester;
 import com.lovechatapp.chat.net.FocusRequester;
@@ -220,7 +218,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
                 public void onClick(View v) {
                     int otherId = activity.getIntent().getIntExtra(Constant.ACTOR_ID, 0);
 
-                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_user_id), String.valueOf(AppManager.getInstance().getUserInfo().t_id), videoBeans.get(position).t_nickName);
+                    DateCreateActivity.startActivity(activity, String.valueOf(videoBeans.get(position).t_user_id), String.valueOf(AppManager.getInstance().getUserInfo().t_id), AppManager.getInstance().getUserInfo().t_nickName);
                 }
             });
             /**

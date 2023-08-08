@@ -38,7 +38,6 @@ import com.lovechatapp.chat.util.ToastUtil
 import com.zhy.http.okhttp.OkHttpUtils
 import okhttp3.Call
 import java.util.*
-import kotlin.math.cos
 
 /*
  * Copyright (C) 2018

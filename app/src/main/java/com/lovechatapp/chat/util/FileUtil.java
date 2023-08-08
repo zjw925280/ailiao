@@ -13,9 +13,7 @@ import android.support.v4.content.FileProvider;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 /*
  * Copyright (C) 2018

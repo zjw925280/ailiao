@@ -2,7 +2,6 @@ package com.lovechatapp.chat.activity;
 
 import android.os.Handler;
 import android.os.Looper;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -21,8 +20,6 @@ import com.lovechatapp.chat.util.TimeUtil;
 import com.lovechatapp.chat.view.recycle.AbsRecycleAdapter;
 import com.lovechatapp.chat.view.recycle.ViewHolder;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
-import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.tencent.imsdk.TIMConversation;
 import com.tencent.imsdk.TIMConversationType;
 import com.tencent.imsdk.TIMGroupManager;

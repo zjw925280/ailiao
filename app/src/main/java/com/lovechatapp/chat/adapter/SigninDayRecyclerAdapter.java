@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.lovechatapp.chat.R;
-import com.lovechatapp.chat.bean.ChargeListBean;
 import com.lovechatapp.chat.bean.SigninDayBean;
 
 import java.util.ArrayList;

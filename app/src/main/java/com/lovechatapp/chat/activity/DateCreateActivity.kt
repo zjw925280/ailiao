@@ -223,6 +223,7 @@ class DateCreateActivity : BaseActivity() {
             sendMessage()
             return
         }
+
         //组装提交服务器的参数列表
         val paramMap: MutableMap<String, Any?> = HashMap()
         paramMap["inviterId"] = userId
@@ -232,6 +233,7 @@ class DateCreateActivity : BaseActivity() {
         paramMap["appointmentTime"] = time
         paramMap["appointmentAddress"] = address
         paramMap["remarks"] = mark
+        paramMap["isDeley"] = false
         Log.e("ralph", "params ========= $paramMap")
 
         //创建请求
@@ -320,14 +322,13 @@ class DateCreateActivity : BaseActivity() {
             //发送消息
             C2CChatManagerKit.getInstance().sendMessage(info, false, object : IUIKitCallBack {
                 override fun onSuccess(data: Any?) {
-                    Log.e("是不是这个","发送成功data=="+data);
+                    ToastUtil.showToast("发送成功")
                     //消息发送成功，退出界面
                     this@DateCreateActivity.finish()
                 }
 
                 override fun onError(module: String?, errCode: Int, errMsg: String?) {
                     //TODO 失败处理
-                    ToastUtil.showToast(errMsg ?: "出错啦！")
                     Log.e("是不是这个","出错啦errMsg=="+errMsg+" module="+module)
                 }
             })

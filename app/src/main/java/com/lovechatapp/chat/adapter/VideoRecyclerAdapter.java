@@ -11,17 +11,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.bean.AlbumBean;
-import com.lovechatapp.chat.bean.SigninDayBean;
 import com.lovechatapp.chat.glide.GlideRoundTransform;
 import com.lovechatapp.chat.util.TimeUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import jp.wasabeef.glide.transformations.BlurTransformation;
 
 public class VideoRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 

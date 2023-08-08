@@ -4,7 +4,6 @@ import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -18,10 +17,8 @@ import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.SiginBean;
 import com.lovechatapp.chat.bean.SigninDayBean;
 import com.lovechatapp.chat.constant.ChatApi;
-import com.lovechatapp.chat.dialog.FreeImDialog;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.util.ParamUtil;
-import com.lovechatapp.chat.util.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import org.jetbrains.annotations.NotNull;

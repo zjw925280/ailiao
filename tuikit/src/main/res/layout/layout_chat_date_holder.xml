@@ -9,10 +9,12 @@
         android:id="@+id/dateBg"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:adjustViewBounds="true"
-        android:background="@mipmap/bg_date_w"
+        android:layout_alignBottom="@+id/bottomLayout"
         android:layout_alignParentTop="true"
-        android:layout_alignBottom="@+id/bottomLayout"/>
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:adjustViewBounds="true"
+        android:background="@mipmap/bg_date_w" />
 
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/dateGiftImg"
@@ -112,6 +114,8 @@
             app:layout_constraintTop_toBottomOf="@+id/iconTime" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/textName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -124,6 +128,8 @@
             tools:text="张一楠" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/textPhone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -136,6 +142,8 @@
             tools:text="17756236523" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/textLocation"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -148,6 +156,8 @@
             tools:text="西安市" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/textTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -160,6 +170,8 @@
             tools:text="2023-05-15     14:00" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:ellipsize="end"
+            android:maxLines="1"
             android:id="@+id/textMark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

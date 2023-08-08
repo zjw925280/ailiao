@@ -2,7 +2,6 @@ package com.lovechatapp.chat.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -10,8 +9,6 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.adapter.UserAlbumListRecyclerAdapter;
 import com.lovechatapp.chat.base.BaseActivity;

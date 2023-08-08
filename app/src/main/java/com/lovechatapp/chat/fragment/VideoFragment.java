@@ -1,17 +1,13 @@
 package com.lovechatapp.chat.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.VideoPagerActivity;
 import com.lovechatapp.chat.adapter.HomeVideoRecyclerAdapter;

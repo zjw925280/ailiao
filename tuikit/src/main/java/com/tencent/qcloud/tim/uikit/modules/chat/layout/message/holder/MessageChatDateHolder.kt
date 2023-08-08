@@ -174,8 +174,7 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
                     override fun onResponse(response: BaseResponse<StatusBean>?, id: Int) {
                         response?.apply {
                             if (response.m_istatus == 1 && response.m_object != null) {
-                                goDataSet.invoke(response.m_object.appointmentStatus)
-                            } else {
+                                goDataSet.invoke(response.m_object.appointmentStatus)                            } else {
                                 goDataSet.invoke(status)
                             }
                         } ?: apply {
@@ -371,6 +370,7 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
             paramMap["appointmentTime"] = time
             paramMap["appointmentAddress"] = address
             paramMap["remarks"] = mark
+            paramMap["isDeley"] = true
             Log.e("ralph", "params ========= $paramMap")
             //创建请求
             OkHttpUtils.post()

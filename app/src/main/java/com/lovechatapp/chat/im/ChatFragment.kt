@@ -16,7 +16,6 @@ import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.TextView
 import com.google.gson.Gson
-import com.lovechatapp.chat.R
 import com.lovechatapp.chat.activity.DateCreateActivity.Companion.startActivityForResult
 import com.lovechatapp.chat.activity.PersonInfoActivity
 import com.lovechatapp.chat.activity.ReportActivity
@@ -64,7 +63,7 @@ import okhttp3.Call
 import org.json.JSONObject
 import java.net.MalformedURLException
 import java.net.URL
-
+import com.lovechatapp.chat.R
 class ChatFragment : BaseFragment() {
     private lateinit var mBaseView: View
     private lateinit var mChatLayout: ChatLayout

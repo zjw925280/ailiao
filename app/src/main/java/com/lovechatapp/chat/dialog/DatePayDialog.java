@@ -3,13 +3,11 @@ package com.lovechatapp.chat.dialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.text.TextUtils;
 import android.util.Log;
@@ -22,9 +20,7 @@ import android.widget.TextView;
 import com.faceunity.fulivedemo.utils.ToastUtil;
 import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
-import com.lovechatapp.chat.activity.DateCreateActivity;
 import com.lovechatapp.chat.base.AppManager;
-import com.lovechatapp.chat.base.BaseBean;
 import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.DateGiftBean;
 import com.lovechatapp.chat.constant.ChatApi;
@@ -40,23 +36,16 @@ import com.tencent.qcloud.tim.uikit.base.IUIKitCallBack;
 import com.tencent.qcloud.tim.uikit.modules.chat.C2CChatManagerKit;
 import com.tencent.qcloud.tim.uikit.modules.chat.base.ChatInfo;
 import com.tencent.qcloud.tim.uikit.modules.chat.layout.message.ImCustomMessage;
-import com.tencent.qcloud.tim.uikit.modules.message.ImFilter;
 import com.tencent.qcloud.tim.uikit.modules.message.MessageInfo;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneOffset;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
 import okhttp3.Call;
-import okhttp3.Request;
 
 public class DatePayDialog extends Dialog implements View.OnClickListener{
     private final Activity activity;
@@ -299,9 +288,9 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
         paramMap.put("appointmentTime", time);
         paramMap.put("appointmentAddress", address);
         paramMap.put("remarks", mark);
+        paramMap.put("isDeley", false);
        String param= ParamUtil.getParam(paramMap);
         Log.e("ralph", "params ========= " + paramMap+" param="+param);
-        ToastUtil.showToast(activity,param);
         OkHttpUtils.post()
                 .url(ChatApi.createDate())
                 .addParams("param", ParamUtil.getParam(paramMap))

@@ -25,7 +25,6 @@ import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.ToastUtil;
 import com.lovechatapp.chat.view.recycle.AbsRecycleAdapter;
-import com.lovechatapp.chat.view.recycle.OnItemClickListener;
 import com.lovechatapp.chat.view.recycle.ViewHolder;
 import com.zhy.http.okhttp.OkHttpUtils;
 

@@ -5,7 +5,6 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
-import com.lovechatapp.chat.BuildConfig;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.bean.ChatUserInfo;
 import com.lovechatapp.chat.socket.domain.Mid;

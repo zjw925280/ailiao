@@ -1,6 +1,5 @@
 package com.lovechatapp.chat.activity;
 
-import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -8,8 +7,6 @@ import android.widget.TextView;
 
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
-import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.adapter.AccountBalanceRecyclerAdapter;
 import com.lovechatapp.chat.base.BaseActivity;

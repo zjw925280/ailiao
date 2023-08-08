@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,7 +24,6 @@ import com.lovechatapp.chat.net.PageRequester;
 import com.lovechatapp.chat.net.RefreshHandler;
 import com.lovechatapp.chat.net.RefreshPageListener;
 import com.lovechatapp.chat.view.recycle.ListTypeAdapter;
-import com.lovechatapp.chat.view.recycle.OnItemClickListener;
 import com.lovechatapp.chat.view.recycle.RecycleGridDivider;
 import com.lovechatapp.chat.view.recycle.ViewHolder;
 

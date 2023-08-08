@@ -5,13 +5,11 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import com.lovechatapp.chat.bean.DateGiftBean
-import com.lovechatapp.chat.dialog.BottomDateGiftDialog.GiftSelectedListener
 import android.os.Bundle
 import android.graphics.drawable.ColorDrawable
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.GridLayoutManager
 import com.lovechatapp.chat.util.CommonMarginDecoration
-import com.lovechatapp.chat.dialog.BottomDateGiftDialog.RvAdapter
 import com.lovechatapp.chat.dialog.BottomDateGiftDialog.RvAdapter.GiftHolder
 import com.lovechatapp.chat.helper.ImageLoadHelper
 import android.support.v7.widget.AppCompatTextView

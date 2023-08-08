@@ -46,27 +46,27 @@
         android:theme="@style/AppTheme"
         tools:replace="android:name">
         <activity
-            android:name=".activity.DateMineActivity"
+            android:name="com.lovechatapp.chat.activity.DateMineActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.VideoActivity"
+            android:name="com.lovechatapp.chat.activity.VideoActivity"
             android:exported="false" />
 
         <activity
-            android:name=".activity.DateCreateActivity"
+            android:name="com.lovechatapp.chat.activity.DateCreateActivity"
             android:exported="false"/>
         <activity
-            android:name=".activity.DateInviteListActivity"
+            android:name="com.lovechatapp.chat.activity.DateInviteListActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.SignInActivity"
+            android:name="com.lovechatapp.chat.activity.SignInActivity"
             android:exported="false" />
 
         <uses-library
             android:name="org.apache.http.legacy"
             android:required="false" /> <!-- activity页面 start -->
         <activity
-            android:name=".activity.SplashActivity"
+            android:name="com.lovechatapp.chat.activity.SplashActivity"
             android:exported="true"
             android:screenOrientation="unspecified">
             <intent-filter>
@@ -76,245 +76,245 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activity.MainActivity"
+            android:name="com.lovechatapp.chat.activity.MainActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SlidePhotoActivity"
+            android:name="com.lovechatapp.chat.activity.SlidePhotoActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ModifyUserInfoActivity"
+            android:name="com.lovechatapp.chat.activity.ModifyUserInfoActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ApplyVerifyOneActivity"
+            android:name="com.lovechatapp.chat.activity.ApplyVerifyOneActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ChargeActivity"
+            android:name="com.lovechatapp.chat.activity.ChargeActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ActorVideoAlbumActivity"
+            android:name="com.lovechatapp.chat.activity.ActorVideoAlbumActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.WithDrawActivity"
+            android:name="com.lovechatapp.chat.activity.WithDrawActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.WithDrawDetailActivity"
+            android:name="com.lovechatapp.chat.activity.WithDrawDetailActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ActorVideoPlayActivity"
+            android:name="com.lovechatapp.chat.activity.ActorVideoPlayActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.VideoPagerActivity"
+            android:name="com.lovechatapp.chat.activity.VideoPagerActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ReportActivity"
+            android:name="com.lovechatapp.chat.activity.ReportActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.WaitActorActivity"
+            android:name="com.lovechatapp.chat.activity.WaitActorActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.CallingActivity"
+            android:name="com.lovechatapp.chat.activity.CallingActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.AudioChatActivity"
+            android:name="com.lovechatapp.chat.activity.AudioChatActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.CommonWebViewActivity"
+            android:name="com.lovechatapp.chat.activity.CommonWebViewActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MyFollowActivity"
+            android:name="com.lovechatapp.chat.activity.MyFollowActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PhoneLoginActivity"
+            android:name="com.lovechatapp.chat.activity.PhoneLoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ChooseGenderActivity"
+            android:name="com.lovechatapp.chat.activity.ChooseGenderActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SettingActivity"
+            android:name="com.lovechatapp.chat.activity.SettingActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.OpinionActivity"
+            android:name="com.lovechatapp.chat.activity.OpinionActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.RedPackActivity"
+            android:name="com.lovechatapp.chat.activity.RedPackActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SystemMessageActivity"
+            android:name="com.lovechatapp.chat.activity.SystemMessageActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SetChargeActivity"
+            android:name="com.lovechatapp.chat.activity.SetChargeActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.UploadActivity"
+            android:name="com.lovechatapp.chat.activity.UploadActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PhoneVerifyActivity"
+            android:name="com.lovechatapp.chat.activity.PhoneVerifyActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PhotoActivity"
+            android:name="com.lovechatapp.chat.activity.PhotoActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.GoldNotEnoughActivity"
+            android:name="com.lovechatapp.chat.activity.GoldNotEnoughActivity"
             android:launchMode="singleTop"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name=".activity.VipAlertActivity"
+            android:name="com.lovechatapp.chat.activity.VipAlertActivity"
             android:launchMode="singleTop"
             android:theme="@style/DialogStyle" />
         <activity
-            android:name=".activity.VideoCommentActivity"
+            android:name="com.lovechatapp.chat.activity.VideoCommentActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.WeChatAccountActivity"
+            android:name="com.lovechatapp.chat.activity.WeChatAccountActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.AlipayAccountActivity"
+            android:name="com.lovechatapp.chat.activity.AlipayAccountActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SearchActivity"
+            android:name="com.lovechatapp.chat.activity.SearchActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MyActorActivity"
+            android:name="com.lovechatapp.chat.activity.MyActorActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ApplyCompanyActivity"
+            android:name="com.lovechatapp.chat.activity.ApplyCompanyActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ActorEarnDetailActivity"
+            android:name="com.lovechatapp.chat.activity.ActorEarnDetailActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.VipCenterActivity"
+            android:name="com.lovechatapp.chat.activity.VipCenterActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ReceiveGiftListActivity"
+            android:name="com.lovechatapp.chat.activity.ReceiveGiftListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ApplyCPSActivity"
+            android:name="com.lovechatapp.chat.activity.ApplyCPSActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.CPSIntroduceActivity"
+            android:name="com.lovechatapp.chat.activity.CPSIntroduceActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.RankActivity"
+            android:name="com.lovechatapp.chat.activity.RankActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ErWeiCodeActivity"
+            android:name="com.lovechatapp.chat.activity.ErWeiCodeActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.InviteEarnActivity"
+            android:name="com.lovechatapp.chat.activity.InviteEarnActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.InviteActivity"
+            android:name="com.lovechatapp.chat.activity.InviteActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MyInviteActivity"
+            android:name="com.lovechatapp.chat.activity.MyInviteActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.RankRewardActivity"
+            android:name="com.lovechatapp.chat.activity.RankRewardActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.InviteRewardActivity"
+            android:name="com.lovechatapp.chat.activity.InviteRewardActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.AccountBalanceActivity"
+            android:name="com.lovechatapp.chat.activity.AccountBalanceActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.CloseRankActivity"
+            android:name="com.lovechatapp.chat.activity.CloseRankActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.GiftPackActivity"
+            android:name="com.lovechatapp.chat.activity.GiftPackActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.UserAlbumListActivity"
+            android:name="com.lovechatapp.chat.activity.UserAlbumListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.CallListActivity"
+            android:name="com.lovechatapp.chat.activity.CallListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.KeFuWebViewActivity"
+            android:name="com.lovechatapp.chat.activity.KeFuWebViewActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ActorVerifyingActivity"
+            android:name="com.lovechatapp.chat.activity.ActorVerifyingActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PhoneNaviActivity"
+            android:name="com.lovechatapp.chat.activity.PhoneNaviActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PostActiveActivity"
+            android:name="com.lovechatapp.chat.activity.PostActiveActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.CameraActivity"
+            android:name="com.lovechatapp.chat.activity.CameraActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ActiveCommentActivity"
+            android:name="com.lovechatapp.chat.activity.ActiveCommentActivity"
             android:launchMode="singleTop"
             android:theme="@style/translucent"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.PhotoViewActivity"
+            android:name="com.lovechatapp.chat.activity.PhotoViewActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SelectPositionActivity"
+            android:name="com.lovechatapp.chat.activity.SelectPositionActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MyFocusActivity"
+            android:name="com.lovechatapp.chat.activity.MyFocusActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.UserSelfActiveActivity"
+            android:name="com.lovechatapp.chat.activity.UserSelfActiveActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.QuickVideoChatActivity"
+            android:name="com.lovechatapp.chat.activity.QuickVideoChatActivity"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.VideoChatActivity"
+            android:name="com.lovechatapp.chat.activity.VideoChatActivity"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.HelpCenterActivity"
+            android:name="com.lovechatapp.chat.activity.HelpCenterActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PersonInfoActivity"
+            android:name="com.lovechatapp.chat.activity.PersonInfoActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.InfoActiveActivity"
+            android:name="com.lovechatapp.chat.activity.InfoActiveActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.RegisterActivity"
+            android:name="com.lovechatapp.chat.activity.RegisterActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ScrollLoginActivity"
+            android:name="com.lovechatapp.chat.activity.ScrollLoginActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SetBeautyActivity"
+            android:name="com.lovechatapp.chat.activity.SetBeautyActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.BigHouseActivity"
+            android:name="com.lovechatapp.chat.activity.BigHouseActivity"
             android:screenOrientation="unspecified"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".activity.ModifyTwoActivity"
+            android:name="com.lovechatapp.chat.activity.ModifyTwoActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ApplyVerifyHandActivity"
+            android:name="com.lovechatapp.chat.activity.ApplyVerifyHandActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.WhoSawTaActivity"
+            android:name="com.lovechatapp.chat.activity.WhoSawTaActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MyVisitorActivity"
+            android:name="com.lovechatapp.chat.activity.MyVisitorActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.YoungModeActivity"
+            android:name="com.lovechatapp.chat.activity.YoungModeActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ShareActivity"
+            android:name="com.lovechatapp.chat.activity.ShareActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified"
             android:theme="@style/dialog_normal" />
@@ -325,17 +325,17 @@
          Only fullscreen activities can request orientation
         -->
         <activity
-            android:name=".activity.PayChooserActivity"
+            android:name="com.lovechatapp.chat.activity.PayChooserActivity"
             android:launchMode="singleTop"
             android:theme="@style/dialog_normal" />
         <activity
-            android:name=".activity.YoungModePasswordActivity"
+            android:name="com.lovechatapp.chat.activity.YoungModePasswordActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.BlackListActivity"
+            android:name="com.lovechatapp.chat.activity.BlackListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PayInnerWebViewActivity"
+            android:name="com.lovechatapp.chat.activity.PayInnerWebViewActivity"
             android:screenOrientation="unspecified" />
         <activity
             android:name="com.lovechatapp.chat.im.ChatActivity"
@@ -346,34 +346,34 @@
             android:launchMode="singleTask"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ServeListActivity"
+            android:name="com.lovechatapp.chat.activity.ServeListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PayWebViewActivity"
+            android:name="com.lovechatapp.chat.activity.PayWebViewActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.VideoRecordActivity"
+            android:name="com.lovechatapp.chat.activity.VideoRecordActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ApplyUploadVideoActivity"
+            android:name="com.lovechatapp.chat.activity.ApplyUploadVideoActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.VerifyIdentityActivity"
+            android:name="com.lovechatapp.chat.activity.VerifyIdentityActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MultipleVideoActivity"
+            android:name="com.lovechatapp.chat.activity.MultipleVideoActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.MultipleAudioActivity"
+            android:name="com.lovechatapp.chat.activity.MultipleAudioActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.PostListActivity"
+            android:name="com.lovechatapp.chat.activity.PostListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.VerifyListActivity"
+            android:name="com.lovechatapp.chat.activity.VerifyListActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.SettingSwitchActivity"
+            android:name="com.lovechatapp.chat.activity.SettingSwitchActivity"
             android:screenOrientation="unspecified" />
         <activity
             android:name="com.lovechatapp.chat.util.permission.CheckPermissionActivity"
@@ -384,23 +384,23 @@
             android:configChanges="keyboardHidden|orientation|screenSize|navigation|keyboard"
             android:theme="@style/transparencyActivityStyle" />
         <activity
-            android:name=".activity.PromotionPosterActivity"
+            android:name="com.lovechatapp.chat.activity.PromotionPosterActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.VerifyOptionActivity"
+            android:name="com.lovechatapp.chat.activity.VerifyOptionActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.UserCommentActivity"
+            android:name="com.lovechatapp.chat.activity.UserCommentActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.RankProtectActivity"
+            android:name="com.lovechatapp.chat.activity.RankProtectActivity"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.ImGroupActivity"
+            android:name="com.lovechatapp.chat.activity.ImGroupActivity"
             android:launchMode="singleTop"
             android:screenOrientation="unspecified" />
         <activity
-            android:name=".activity.UpdateActivity"
+            android:name="com.lovechatapp.chat.activity.UpdateActivity"
             android:launchMode="singleTop"
             android:theme="@style/transparencyActivityStyle" /> <!-- activity页面 end -->
         <!-- service start -->

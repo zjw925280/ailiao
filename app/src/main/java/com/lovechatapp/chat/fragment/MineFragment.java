@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.graphics.Typeface;
@@ -30,14 +29,11 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.AccountBalanceActivity;
-import com.lovechatapp.chat.activity.ActorVerifyingActivity;
 import com.lovechatapp.chat.activity.ApplyCompanyActivity;
-import com.lovechatapp.chat.activity.ApplyVerifyHandActivity;
 import com.lovechatapp.chat.activity.ChargeActivity;
 import com.lovechatapp.chat.activity.DateInviteListActivity;
 import com.lovechatapp.chat.activity.DateMineActivity;
 import com.lovechatapp.chat.activity.HelpCenterActivity;
-import com.lovechatapp.chat.activity.InviteActivity;
 import com.lovechatapp.chat.activity.ModifyUserInfoActivity;
 import com.lovechatapp.chat.activity.MyActorActivity;
 import com.lovechatapp.chat.activity.MyFollowActivity;
@@ -73,7 +69,6 @@ import com.lovechatapp.chat.util.CodeUtil;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.ToastUtil;
 import com.lovechatapp.chat.view.recycle.AbsRecycleAdapter;
-import com.lovechatapp.chat.view.recycle.OnItemClickListener;
 import com.lovechatapp.chat.view.recycle.ViewHolder;
 import com.robinhood.ticker.TickerView;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -289,14 +284,13 @@ public class MineFragment extends BaseFragment {
      * 设置功能按钮
      */
     private void setFunction() {
-        final List<MineMenu> list =new ArrayList<>(Arrays.asList(
+        final List<MineMenu> list = new ArrayList<>(Arrays.asList(
                 new MineMenu(R.mipmap.icon_date_invite, "约会邀请", DateInviteListActivity.class),
                 new MineMenu(R.mipmap.icon_date_mine, "我的约会", DateMineActivity.class),
                 new MineMenu(R.mipmap.mine_funciton_albm, "我的视频", UserAlbumListActivity.class),
-                new MineMenu(R.drawable.mine_function_invite, "邀请有奖", InviteActivity.class),
+//                new MineMenu(R.drawable.mine_function_invite, "邀请有奖", InviteActivity.class),
                 new MineMenu(R.drawable.mine_funciton_vip, "开通会员", VipCenterActivity.class),
                 menuApply = new MineMenu(R.drawable.mine_funciton_apply, "申请主播", VerifyOptionActivity.class),
-
 
 
                 new MineMenu(R.drawable.mine_funciton_verify, "我的公会", MyActorActivity.class),
@@ -309,9 +303,9 @@ public class MineFragment extends BaseFragment {
                 new MineMenu(R.drawable.sign_in_logo, "签到日历", SignInActivity.class)));
 //        男性用户不能申请主播
         ChatUserInfo accountInfo = SharedPreferenceHelper.getAccountInfo(getActivity());
-        Log.e("有没有值","有没有值"+accountInfo.isSexMan());
+        Log.e("有没有值", "有没有值" + accountInfo.isSexMan());
         if (accountInfo.isSexMan()) {
-            list.remove(5);
+            list.remove(4);
 
         }
         RecyclerView recyclerView = findViewById(R.id.mine_rv);
@@ -459,9 +453,7 @@ public class MineFragment extends BaseFragment {
                             }
 
                             if (state != actorVerifyState) {
-
                                 actorVerifyState = state;
-
                                 int[] stringIds = {R.string.apply_actor, R.string.actor_ing, R.string.set_money, R.string.apply_actor};
                                 String text = getString(stringIds[++state]);
 //                                ((TextView) getView().findViewById(R.id.verify_btn)).setText(text);
