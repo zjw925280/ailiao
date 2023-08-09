@@ -265,11 +265,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         //根据状态[dateStatus]显示或隐藏部分控件
         when (dateStatus) {
             0 -> {
-                if (mpay){
-                    acceptBtn.text="接受并支付"
-                }else{
-                    acceptBtn.text="接受"
-                }
                 statusIv.visibility = View.GONE
                 if (mIsSelf) {
                     acceptBtn.visibility = View.GONE

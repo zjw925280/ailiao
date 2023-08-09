@@ -157,8 +157,14 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onResponse(String response, int id) {
+                        Log.e("返回啥","返回啥=="+response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
+                            int m_istatus = jsonObject.getInt("m_istatus");
+                            if (m_istatus==0){
+                                ToastUtil.showToast(activity,jsonObject.getString("m_strMessage"));
+                           return;
+                            }
                             JSONObject m_object = jsonObject.getJSONObject("m_object");
                             int invitationId = m_object.getInt("invitationId");
                             int status = m_object.getInt("status");

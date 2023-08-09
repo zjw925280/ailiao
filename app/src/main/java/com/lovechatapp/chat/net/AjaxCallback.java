@@ -41,6 +41,7 @@ public abstract class AjaxCallback<T> extends Callback<T> {
 
     @Override
     public T parseNetworkResponse(Response response, int id) throws Exception {
+        Log.e("http数据"," isSuccessful=="+response.isSuccessful());
         if (response.isSuccessful() && types != null && types.length > 0) {
 
             String str = response.body().string();

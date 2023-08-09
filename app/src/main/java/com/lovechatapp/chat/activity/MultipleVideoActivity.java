@@ -388,12 +388,12 @@ public class MultipleVideoActivity extends BaseActivity {
                     View surfaceView;
                     if (role == selfRole) {
                         surfaceView = new SurfaceView(holder.itemView.getContext());
-                        rtcManager.rtcEngine().setupLocalVideo(new VideoCanvas(surfaceView, VideoCanvas.RENDER_MODE_FIT, 0));
+                        rtcManager.rtcEngine().setupLocalVideo(new VideoCanvas((SurfaceView) surfaceView, VideoCanvas.RENDER_MODE_FIT, 0));
                         rtcManager.rtcEngine().startPreview();
                     } else {
                         surfaceView = new SurfaceView(holder.itemView.getContext());
                         VideoCanvas videoCanvas = new VideoCanvas(
-                                surfaceView,
+                                (SurfaceView)surfaceView,
                                 Constants.RENDER_MODE_HIDDEN,
                                 String.valueOf(chatInfo.mansionRoomId),
                                 role.uid,

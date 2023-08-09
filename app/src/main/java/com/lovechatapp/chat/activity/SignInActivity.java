@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -17,6 +18,7 @@ import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.SiginBean;
 import com.lovechatapp.chat.bean.SigninDayBean;
 import com.lovechatapp.chat.constant.ChatApi;
+import com.lovechatapp.chat.dialog.FreeImDialog;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
@@ -45,7 +47,6 @@ public class SignInActivity extends BaseActivity {
     private SigninDayRecyclerAdapter signinDayRecyclerAdapter;
     private SigninDayFriendRecyclerAdapter signinDayFriendRecyclerAdapter;
     private   List<SigninDayBean.RowsBean> dayNumList=new ArrayList<>();
-    private SigninDayBean m_object;
 
     @NotNull
     @Override
@@ -57,6 +58,7 @@ public class SignInActivity extends BaseActivity {
     protected void onContentAdded() {
         setTitle("签到日历");
         initRecyclerView(this);
+        signIn();
     }
 
 
@@ -77,28 +79,26 @@ public class SignInActivity extends BaseActivity {
         rv_signin_friend.setLayoutManager(linearLayoutManager);
         signinDayFriendRecyclerAdapter = new SigninDayFriendRecyclerAdapter(context);
         rv_signin_friend.setAdapter(signinDayFriendRecyclerAdapter);
-
-        signIn();
-
         rv_signin_friend.setNestedScrollingEnabled(false);
     }
 
     public void signIn() {
         Map<String, Object> params = new HashMap<>();
         params.put("userId", AppManager.getInstance().getUserInfo().t_id);
+        Log.e("签到","请求参数=="+new Gson().toJson(params)+" url=="+ChatApi.SIGIN_NOW());
         OkHttpUtils
                 .post()
                 .url(ChatApi.SIGIN_NOW())
                 .addParams("param", ParamUtil.getParam(params))
                 .build()
-                .execute(new AjaxCallback<BaseResponse>() {
+                .execute(new AjaxCallback<BaseResponse<String>>() {
                     @Override
-                    public void onResponse(BaseResponse response, int id) {
-                        SiginBean siginBean = new Gson().fromJson(new Gson().toJson(response.m_object), SiginBean.class);
+                    public void onResponse(BaseResponse<String> response, int id) {
+                        Log.e("签到","返回数据=="+response.m_object);
+                        SiginBean siginBean = new Gson().fromJson(response.m_object, SiginBean.class);
                         List<SiginBean.SiginInRecordBean> signInRecord =siginBean.getSignInRecord();
                         signinDayFriendRecyclerAdapter.loadData(signInRecord);
                         tv_day.setText(siginBean.getDay()+"");
-
 
                         List<SigninDayBean.RowsBean> rows = siginBean.getSignInList();
                         for (int a=0;a<rows.size();a++){
@@ -112,12 +112,8 @@ public class SignInActivity extends BaseActivity {
 
                         signinDayRecyclerAdapter.loadData(rows);
                     }
-
-                    @Override
-                    public void onError(Call call, Exception e, int id) {
-                        super.onError(call, e, id);
-                    }
                 });
+
 //        ToastUtil.INSTANCE.showToast(ChatApi.SIGNIN_LIST());
 //        Map<String, Object> params1 = new HashMap<>();
 //        params1.put("userId", AppManager.getInstance().getUserInfo().t_id);

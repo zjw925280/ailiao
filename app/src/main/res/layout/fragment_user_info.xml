@@ -289,7 +289,7 @@
            <TextView
                android:gravity="center_horizontal"
                android:textColor="#ffffff"
-               android:text="发布"
+               android:text="视频"
                android:layout_width="match_parent"
                android:layout_height="wrap_content"/>
        </LinearLayout>

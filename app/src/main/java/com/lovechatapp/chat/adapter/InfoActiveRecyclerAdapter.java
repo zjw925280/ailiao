@@ -21,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.activity.DateCreateActivity;
 import com.lovechatapp.chat.activity.PersonInfoActivity;
 import com.lovechatapp.chat.activity.ActiveCommentActivity;
 import com.lovechatapp.chat.activity.ReportActivity;
@@ -173,6 +174,13 @@ public class InfoActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
                     if (bean.t_id > 0) {
                         showReportDialog(bean.t_id);
                     }
+                }
+            });
+           //约会
+            mHolder.date_iv.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    DateCreateActivity.startActivity(mContext, String.valueOf(bean.t_id),  String.valueOf(AppManager.getInstance().getUserInfo().t_id+10000), bean.t_nickName);
                 }
             });
             //撩她文字聊天
@@ -423,6 +431,7 @@ public class InfoActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
         TextView mVideoTimeTv;
         View mChatHerTv;
         TextView mFocusTv;
+        ImageView date_iv;
 
         MyViewHolder(View itemView) {
             super(itemView);
@@ -457,6 +466,8 @@ public class InfoActiveRecyclerAdapter extends RecyclerView.Adapter<RecyclerView
             mTwoImageOneFl = itemView.findViewById(R.id.two_image_one_fl);
             mTwoImageTwoFl = itemView.findViewById(R.id.two_image_two_fl);
             mFocusTv = itemView.findViewById(R.id.focus_tv);
+            date_iv = itemView.findViewById(R.id.date_iv);
+
         }
     }
 

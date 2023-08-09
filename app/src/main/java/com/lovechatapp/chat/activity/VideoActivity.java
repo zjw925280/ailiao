@@ -1,20 +1,26 @@
 package com.lovechatapp.chat.activity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 
 import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.adapter.VideoRecyclerAdapter;
+import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseActivity;
 import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.AlbumBean;
 import com.lovechatapp.chat.bean.PageBeanOne;
 import com.lovechatapp.chat.constant.ChatApi;
+import com.lovechatapp.chat.constant.Constant;
+import com.lovechatapp.chat.dialog.LookResourceDialog;
+import com.lovechatapp.chat.listener.OnCommonListener;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -39,10 +45,13 @@ public class VideoActivity extends BaseActivity {
     @BindView(R.id.refreshLayout)
     RefreshLayout refreshLayout;
 
+    private List<AlbumBean> palyList=new ArrayList<>();
     private List<AlbumBean> dayNumList=new ArrayList<>();
     private VideoRecyclerAdapter videoRecyclerAdapter;
     private int otherId;
     private int page=1;
+    private int mCurrentPage = 1;
+    private int mQueryType = -1;
     @NotNull
     @Override
     protected View getContentView() {
@@ -59,12 +68,28 @@ public class VideoActivity extends BaseActivity {
 
     private void initRecyclerView(Context context) {
 
-
-
         //设置签到RecyclerView
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context,3, LinearLayoutManager.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context,2, LinearLayoutManager.VERTICAL,false);
         rv_video.setLayoutManager(gridLayoutManager);
-        videoRecyclerAdapter = new VideoRecyclerAdapter(context);
+        videoRecyclerAdapter = new VideoRecyclerAdapter(context){
+            @Override
+            public void itemClick(int position) {
+                AlbumBean albumBean = dayNumList.get(position);
+                Log.e("视频info","视频info="+new Gson().toJson(albumBean));
+
+//                if (albumBean.canSee()) {
+                    toIntent(albumBean);
+//                } else {
+//                    LookResourceDialog.showAlbum(VideoActivity.this, albumBean, albumBean.t_id, new OnCommonListener<Boolean>() {
+//                        @Override
+//                        public void execute(Boolean aBoolean) {
+//                            if (aBoolean) {
+//                                toIntent(albumBean);
+//                            }
+//                        }
+//                    });
+//                }
+            }};
         rv_video.setAdapter(videoRecyclerAdapter);
 
         refreshLayout.setOnRefreshListener(new OnRefreshListener() {
@@ -115,5 +140,8 @@ public class VideoActivity extends BaseActivity {
                         super.onError(call, e, id);
                     }
                 });
+    }
+    private void toIntent(AlbumBean bean) {
+        ActorVideoPlayActivity.start(VideoActivity.this, bean.t_id, bean.t_addres_url);
     }
 }

@@ -63,7 +63,6 @@ public class UserAlbumListRecyclerAdapter extends RecyclerView.Adapter<RecyclerV
         MyViewHolder mHolder = (MyViewHolder) holder;
 
         if (bean != null) {
-
             //审核状态
             mHolder.mStatusTv.setVisibility(View.GONE);
             if (bean.t_auditing_type == 0) {//审核中

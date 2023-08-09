@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
     <android.support.v7.widget.AppCompatImageView
@@ -76,7 +76,8 @@
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iconPhone"
             android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_height="17dp"
+            android:paddingTop="3dp"
             android:layout_marginTop="7dp"
             android:adjustViewBounds="true"
             android:src="@drawable/level_icon_date_phone"
@@ -86,7 +87,8 @@
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iconLocation"
             android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_height="17dp"
+            android:paddingTop="3dp"
             android:layout_marginTop="7dp"
             android:adjustViewBounds="true"
             android:src="@drawable/level_icon_date_location"
@@ -96,18 +98,20 @@
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iconTime"
             android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_height="17dp"
+            android:paddingTop="3dp"
             android:layout_marginTop="7dp"
             android:adjustViewBounds="true"
             android:src="@drawable/level_icon_date_time"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/iconLocation" />
+            app:layout_constraintTop_toBottomOf="@id/textLocation" />
 
         <android.support.v7.widget.AppCompatImageView
             android:id="@+id/iconMark"
             android:layout_width="14dp"
-            android:layout_height="14dp"
+            android:layout_height="17dp"
             android:layout_marginTop="7dp"
+            android:paddingTop="3dp"
             android:adjustViewBounds="true"
             android:src="@drawable/level_icon_date_remark"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -128,6 +132,7 @@
             tools:text="张一楠" />
 
         <android.support.v7.widget.AppCompatTextView
+            android:paddingTop="3dp"
             android:ellipsize="end"
             android:maxLines="1"
             android:id="@+id/textPhone"
@@ -142,22 +147,19 @@
             tools:text="17756236523" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:ellipsize="end"
-            android:maxLines="1"
+            android:layout_marginEnd="10dp"
             android:id="@+id/textLocation"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="20dp"
             android:textColor="#AD75F7"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/iconLocation"
             app:layout_constraintLeft_toRightOf="@+id/iconLocation"
             app:layout_constraintTop_toTopOf="@+id/iconLocation"
             tools:text="西安市" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:ellipsize="end"
-            android:maxLines="1"
+            android:paddingTop="3dp"
             android:id="@+id/textTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -170,15 +172,13 @@
             tools:text="2023-05-15     14:00" />
 
         <android.support.v7.widget.AppCompatTextView
-            android:ellipsize="end"
-            android:maxLines="1"
+            android:layout_marginEnd="10dp"
             android:id="@+id/textMark"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="6dp"
+            android:layout_marginStart="20dp"
             android:textColor="#333333"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@+id/iconMark"
             app:layout_constraintLeft_toRightOf="@+id/iconMark"
             app:layout_constraintTop_toTopOf="@+id/iconMark"
             tools:text="不见不散哦" />

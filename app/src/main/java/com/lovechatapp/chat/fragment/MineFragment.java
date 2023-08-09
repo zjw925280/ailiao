@@ -517,7 +517,7 @@ public class MineFragment extends BaseFragment {
 
             //ID
             ((TextView) getView().findViewById(R.id.id_tv))
-                    .setText(String.format("爱聊号: %s", userCenterBean.t_idcard));
+                    .setText(String.format("ID号: %s", userCenterBean.t_idcard));
 
             //我的粉丝
             ((TextView) getView().findViewById(R.id.fan_tv)).setText(String.valueOf(userCenterBean.likeMeCount));

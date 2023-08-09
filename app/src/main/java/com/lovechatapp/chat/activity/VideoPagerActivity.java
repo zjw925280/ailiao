@@ -167,8 +167,7 @@ public class VideoPagerActivity extends BaseActivity {
                 VideoPagerActivity.this.dismissLoadingDialog();
             }
         };
-        List<AlbumBean> data = JSON.parseObject(getIntent().getStringExtra("data"), new TypeReference<List<AlbumBean>>() {
-        });
+        List<AlbumBean> data = JSON.parseObject(getIntent().getStringExtra("data"), new TypeReference<List<AlbumBean>>() {});
         videoPagerAdapter.setBeans(data, false);
         rv.setLayoutManager(mLayoutManager);
         rv.setAdapter(videoPagerAdapter);

@@ -402,7 +402,7 @@ public class PersonInfoFragment extends BaseFragment {
 
             //ID号
             TextView idTv = findViewById(R.id.id_tv);
-            idTv.setText(String.format("爱聊号: %s   ", bean.t_idcard));
+            idTv.setText(String.format("ID号: %s   ", bean.t_idcard));
             if (!TextUtils.isEmpty(bean.t_city)) {
                 idTv.append(String.format("|   %s", bean.t_city));
             }
