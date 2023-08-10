@@ -295,7 +295,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
                     }
 
                 }
-
                 acceptBtn.setOnClickListener {
                     if (mpay){//接受并支付
                         showDialog(dataJson.optInt("giftGold").toString(),context)

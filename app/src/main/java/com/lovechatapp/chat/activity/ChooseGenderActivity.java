@@ -42,8 +42,8 @@ import okhttp3.Request;
  */
 public class ChooseGenderActivity extends BaseActivity {
 
-    @BindView(R.id.code_ll)
-    View codeLl;
+//    @BindView(R.id.code_ll)
+//    View codeLl;
 
     @BindView(R.id.girl_iv)
     ImageView mGirlIv;
@@ -79,8 +79,8 @@ public class ChooseGenderActivity extends BaseActivity {
         setTitle(R.string.choose_gender);
         setRightText(R.string.confirm);
         setBackVisibility(View.GONE);
-        codeLl.setVisibility(View.GONE);
-        getReferee();
+//        codeLl.setVisibility(View.GONE);
+//        getReferee();
     }
 
     @OnClick({R.id.boy_iv, R.id.girl_iv, R.id.right_text})
@@ -138,7 +138,7 @@ public class ChooseGenderActivity extends BaseActivity {
             @Override
             public void onResponse(BaseResponse response, int id) {
                 if (!isFinishing() && response != null && response.m_istatus == -1) {
-                    codeLl.setVisibility(View.VISIBLE);
+//                    codeLl.setVisibility(View.VISIBLE);
                 }
             }
 
