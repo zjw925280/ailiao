@@ -15,6 +15,7 @@ import com.lovechatapp.chat.dialog.AgreementDialog;
 import com.lovechatapp.chat.helper.IMHelper;
 import com.lovechatapp.chat.helper.RingVibrateManager;
 import com.lovechatapp.chat.helper.SharedPreferenceHelper;
+import com.tencent.mm.opensdk.utils.Log;
 
 /*
  * Copyright (C) 2018

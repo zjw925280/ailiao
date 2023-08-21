@@ -1,8 +1,13 @@
 package com.lovechatapp.chat.activity;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.net.Uri;
@@ -53,6 +58,7 @@ import com.lovechatapp.chat.listener.OnCommonListener;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.util.BadgeNumberUtil;
+import com.lovechatapp.chat.util.FinishActivityManager;
 import com.lovechatapp.chat.util.LogUtil;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.ToastUtil;
@@ -110,7 +116,7 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
     MainMsgTabViewHolder mainMsgTabViewHolder;
     MainMineTabViewHolder mainMineTabViewHolder;
 
-
+    private static final int REQUEST_CODE = 123;
     //系统未读消息数
     private int mSystemMessageCount;
 
@@ -128,29 +134,18 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
 
     @Override
     protected void onContentAdded() {
-
+        FinishActivityManager.getManager().addActivity(this);
         needHeader(false);
         initIm();
         initViewPager();
         checkUpdate();
 
+
+
         LocationHelper.get().startLocation();
-
-        if (!LocationHelper.get().isHasPerMission()) {
-            PermissionUtil.requestPermissions(this, new PermissionUtil.OnPermissionListener() {
-
-                @Override
-                public void onPermissionGranted() {
-
-                }
-
-                @Override
-                public void onPermissionDenied() {
-//                    ToastUtil.INSTANCE.showToast("温馨提示: 无定位权限，附近功能无法正常使用");
-                }
-
-            }, PermissionUtil.locationPermission);
-        }
+//        if (!LocationHelper.get().isHasPerMission()) {
+//            showDialog(0,this,"这边需要获取您的位置信息，以便为您找到同城以及附近的好友");
+//        }
 
         IMFilterHelper.getInstance().updateImFilterWord();
         AppManager.getInstance().startService();
@@ -178,6 +173,53 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
 //        rewardView.setActivity(mContext);
     }
 
+    public void showDialog( int a,Context context,String conntes) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
+        // 设置对话框标题和消息
+        alertDialogBuilder.setTitle("提示");
+        alertDialogBuilder.setMessage(conntes);
+
+        // 设置关闭按钮
+        alertDialogBuilder.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        // 设置确认按钮
+        alertDialogBuilder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                if (a==1){
+
+                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+                }else {
+                    PermissionUtil.requestPermissions(MainActivity.this, new PermissionUtil.OnPermissionListener() {
+
+                        @Override
+                        public void onPermissionGranted() {
+
+                        }
+
+                        @Override
+                        public void onPermissionDenied() {
+//                    ToastUtil.INSTANCE.showToast("温馨提示: 无定位权限，附近功能无法正常使用");
+                        }
+
+                    }, PermissionUtil.locationPermission);
+                }
+
+
+
+            }
+        });
+
+        // 创建并显示对话框
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
     @Override
     protected void onStart() {
         super.onStart();
@@ -197,7 +239,6 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
     }
 
     private void initIm() {
-
 
         //注册新消息通知
         TIMManager.getInstance().addMessageListener(this);

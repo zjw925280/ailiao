@@ -398,7 +398,7 @@ public class PersonDataFragment extends BaseFragment {
             list.add("婚姻: " + actorInfoBean.t_marriage);
         }
         if (!TextUtils.isEmpty(actorInfoBean.t_login_time)) {
-            list.add(actorInfoBean.t_login_time);
+//            list.add(actorInfoBean.t_login_time);
         }
         if (list.size() > 0) {
             TagFlowLayout flowLayout = findViewById(R.id.flow_view);

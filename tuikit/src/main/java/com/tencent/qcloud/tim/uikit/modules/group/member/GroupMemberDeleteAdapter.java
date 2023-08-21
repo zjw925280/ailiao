@@ -10,6 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.request.RequestListener;
 import com.tencent.qcloud.tim.uikit.R;
 import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.tencent.qcloud.tim.uikit.component.picture.imageEngine.impl.GlideEngine;
@@ -58,7 +59,7 @@ public class GroupMemberDeleteAdapter extends BaseAdapter {
         }
         final GroupMemberInfo info = getItem(i);
         if (!TextUtils.isEmpty(info.getIconUrl()))
-            GlideEngine.loadImage(holder.memberIcon, info.getIconUrl(), null);
+            GlideEngine.loadImage(holder.memberIcon, info.getIconUrl(),  null);
         holder.memberName.setText(info.getAccount());
         holder.delCheck.setChecked(false);
         holder.delCheck.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {

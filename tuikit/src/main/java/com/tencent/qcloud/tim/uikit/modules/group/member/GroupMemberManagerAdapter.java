@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 
+import com.bumptech.glide.request.RequestListener;
 import com.tencent.qcloud.tim.uikit.R;
 import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.tencent.qcloud.tim.uikit.base.IUIKitCallBack;
@@ -63,7 +64,7 @@ public class GroupMemberManagerAdapter extends BaseAdapter {
         }
         final GroupMemberInfo info = getItem(i);
         if (!TextUtils.isEmpty(info.getIconUrl()))
-            GlideEngine.loadImage(holder.memberIcon, info.getIconUrl(), null);
+            GlideEngine.loadImage(holder.memberIcon, info.getIconUrl(),  null);
         holder.memberName.setText(info.getAccount());
         view.setOnLongClickListener(new View.OnLongClickListener() {
             @Override

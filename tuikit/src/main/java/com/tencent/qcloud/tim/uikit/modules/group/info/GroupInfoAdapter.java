@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.request.RequestListener;
 import com.tencent.imsdk.TIMGroupMemberRoleType;
 import com.tencent.imsdk.TIMManager;
 import com.tencent.qcloud.tim.uikit.R;
@@ -70,7 +71,7 @@ public class GroupInfoAdapter extends BaseAdapter {
         }
         final GroupMemberInfo info = getItem(i);
         if (!TextUtils.isEmpty(info.getIconUrl())) {
-            GlideEngine.loadImage(holder.memberIcon, info.getIconUrl(), null);
+            GlideEngine.loadImage(holder.memberIcon, info.getIconUrl(),  null);
         }
         if (!TextUtils.isEmpty(info.getAccount())) {
             holder.memberName.setText(info.getAccount());

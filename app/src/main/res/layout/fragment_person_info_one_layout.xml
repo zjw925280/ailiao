@@ -200,6 +200,7 @@
 
             <!--最后登录时间-->
             <TextView
+                android:visibility="gone"
                 android:id="@+id/last_time_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"

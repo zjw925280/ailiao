@@ -47,6 +47,7 @@ public class SignInActivity extends BaseActivity {
     private SigninDayRecyclerAdapter signinDayRecyclerAdapter;
     private SigninDayFriendRecyclerAdapter signinDayFriendRecyclerAdapter;
     private   List<SigninDayBean.RowsBean> dayNumList=new ArrayList<>();
+    private   List<SiginBean.SiginInRecordBean> dayFriendNumList=new ArrayList<>();
 
     @NotNull
     @Override
@@ -66,22 +67,19 @@ public class SignInActivity extends BaseActivity {
      * 初始化RecyclerView
      */
     private void initRecyclerView(Context context) {
-
         //设置签到RecyclerView
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context,6,LinearLayoutManager.VERTICAL,false);
         rv_signin.setLayoutManager(gridLayoutManager);
-        signinDayRecyclerAdapter = new SigninDayRecyclerAdapter(context);
+        signinDayRecyclerAdapter = new SigninDayRecyclerAdapter(context,dayNumList);
         rv_signin.setAdapter(signinDayRecyclerAdapter);
-
 
         //设置已经签到好友RecyclerView
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
         rv_signin_friend.setLayoutManager(linearLayoutManager);
-        signinDayFriendRecyclerAdapter = new SigninDayFriendRecyclerAdapter(context);
+        signinDayFriendRecyclerAdapter = new SigninDayFriendRecyclerAdapter(context,dayFriendNumList);
         rv_signin_friend.setAdapter(signinDayFriendRecyclerAdapter);
         rv_signin_friend.setNestedScrollingEnabled(false);
     }
-
     public void signIn() {
         Map<String, Object> params = new HashMap<>();
         params.put("userId", AppManager.getInstance().getUserInfo().t_id);
@@ -94,12 +92,10 @@ public class SignInActivity extends BaseActivity {
                 .execute(new AjaxCallback<BaseResponse<String>>() {
                     @Override
                     public void onResponse(BaseResponse<String> response, int id) {
+                        dayNumList.clear();
                         Log.e("签到","返回数据=="+response.m_object);
                         SiginBean siginBean = new Gson().fromJson(response.m_object, SiginBean.class);
-                        List<SiginBean.SiginInRecordBean> signInRecord =siginBean.getSignInRecord();
-                        signinDayFriendRecyclerAdapter.loadData(signInRecord);
                         tv_day.setText(siginBean.getDay()+"");
-
                         List<SigninDayBean.RowsBean> rows = siginBean.getSignInList();
                         for (int a=0;a<rows.size();a++){
                             if (rows.get(a).getDay()<=siginBean.getDay()){
@@ -109,8 +105,14 @@ public class SignInActivity extends BaseActivity {
                             }
                         }
                         tv_day_num.setText(rows.get(siginBean.getDay() - 1).getGold()+"");
-
-                        signinDayRecyclerAdapter.loadData(rows);
+                        dayNumList.addAll(rows);
+                        signinDayRecyclerAdapter.notifyDataSetChanged();
+                        List<SiginBean.SiginInRecordBean> signInRecord =siginBean.getSignInRecord();
+                        for (int b=0;b<20;b++){
+                            SiginBean.SiginInRecordBean siginInRecordBean = signInRecord.get(b);
+                            dayFriendNumList.add(siginInRecordBean);
+                        }
+                        signinDayFriendRecyclerAdapter.notifyDataSetChanged();
                     }
                 });
 

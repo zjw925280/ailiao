@@ -48,7 +48,6 @@ public class RankGroupFragment extends BaseFragment {
         TabFragmentAdapter adapter = new TabFragmentAdapter(getChildFragmentManager(), mContentVp);
 
         adapter.init(
-
                 FragmentParamBuilder.create()
                         .withName("魅力榜")
                         .withBundle(bundle)
@@ -56,26 +55,26 @@ public class RankGroupFragment extends BaseFragment {
                         .withViewHolder(new RankLabelViewHolder(tabPagerLayout))
                         .build(),
 
-                FragmentParamBuilder.create()
-                        .withName("邀请榜")
-                        .withBundle(bundle1)
-                        .withClazz(RankFragment.class)
-                        .withViewHolder(new RankLabelViewHolder(tabPagerLayout))
-                        .build(),
+//                FragmentParamBuilder.create()
+//                        .withName("邀请榜")
+//                        .withBundle(bundle1)
+//                        .withClazz(RankFragment.class)
+//                        .withViewHolder(new RankLabelViewHolder(tabPagerLayout))
+//                        .build(),
 
                 FragmentParamBuilder.create()
                         .withName("富豪榜")
                         .withBundle(bundle3)
                         .withClazz(RankFragment.class)
                         .withViewHolder(new RankLabelViewHolder(tabPagerLayout))
-                        .build(),
-
-                FragmentParamBuilder.create()
-                        .withName("守护榜")
-                        .withBundle(bundle4)
-                        .withClazz(RankFragment.class)
-                        .withViewHolder(new RankLabelViewHolder(tabPagerLayout))
                         .build()
+
+//                FragmentParamBuilder.create()
+//                        .withName("守护榜")
+//                        .withBundle(bundle4)
+//                        .withClazz(RankFragment.class)
+//                        .withViewHolder(new RankLabelViewHolder(tabPagerLayout))
+//                        .build()
         );
         tabPagerLayout.init(mContentVp);
 

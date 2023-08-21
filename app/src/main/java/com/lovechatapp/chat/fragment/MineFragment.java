@@ -34,6 +34,7 @@ import com.lovechatapp.chat.activity.ChargeActivity;
 import com.lovechatapp.chat.activity.DateInviteListActivity;
 import com.lovechatapp.chat.activity.DateMineActivity;
 import com.lovechatapp.chat.activity.HelpCenterActivity;
+import com.lovechatapp.chat.activity.InviteActivity;
 import com.lovechatapp.chat.activity.ModifyUserInfoActivity;
 import com.lovechatapp.chat.activity.MyActorActivity;
 import com.lovechatapp.chat.activity.MyFollowActivity;
@@ -288,24 +289,26 @@ public class MineFragment extends BaseFragment {
                 new MineMenu(R.mipmap.icon_date_invite, "约会邀请", DateInviteListActivity.class),
                 new MineMenu(R.mipmap.icon_date_mine, "我的约会", DateMineActivity.class),
                 new MineMenu(R.mipmap.mine_funciton_albm, "我的视频", UserAlbumListActivity.class),
-//                new MineMenu(R.drawable.mine_function_invite, "邀请有奖", InviteActivity.class),
+                new MineMenu(R.drawable.mine_function_invite, "邀请有奖", InviteActivity.class),
                 new MineMenu(R.drawable.mine_funciton_vip, "开通会员", VipCenterActivity.class),
                 menuApply = new MineMenu(R.drawable.mine_funciton_apply, "申请主播", VerifyOptionActivity.class),
 
-
+                new MineMenu(R.drawable.mine_funciton_bind, "绑定手机", PhoneVerifyActivity.class),
+                new MineMenu(R.drawable.sign_in_logo, "签到日历", SignInActivity.class),
                 new MineMenu(R.drawable.mine_funciton_verify, "我的公会", MyActorActivity.class),
                 new MineMenu(R.drawable.mine_funciton_beauty, "美颜设置", SetBeautyActivity.class),
                 new MineMenu(R.drawable.mine_funciton_help, "常见问题", HelpCenterActivity.class),
 
                 new MineMenu(R.drawable.mine_funciton_call, "来电提醒", PhoneNaviActivity.class),
-                new MineMenu(R.drawable.mine_funciton_sys, "系统设置", SettingActivity.class),
-                new MineMenu(R.drawable.mine_funciton_bind, "绑定手机", PhoneVerifyActivity.class),
-                new MineMenu(R.drawable.sign_in_logo, "签到日历", SignInActivity.class)));
+                new MineMenu(R.drawable.mine_funciton_sys, "系统设置", SettingActivity.class)
+
+        )
+        );
 //        男性用户不能申请主播
         ChatUserInfo accountInfo = SharedPreferenceHelper.getAccountInfo(getActivity());
         Log.e("有没有值", "有没有值" + accountInfo.isSexMan());
         if (accountInfo.isSexMan()) {
-            list.remove(4);
+            list.remove(5);
 
         }
         RecyclerView recyclerView = findViewById(R.id.mine_rv);

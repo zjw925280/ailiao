@@ -36,12 +36,12 @@ public class RtcEngineEventHandlerProxy extends IRtcEngineEventHandler {
         }
     }
 
-    @Override
-    public void onRemoteVideoStateChanged(int uid, int state, int reason, int elapsed) {
-        for (RtcEngineEventHandler handler : mEventHandlers) {
-            handler.onRemoteVideoStateChanged(uid, state, reason, elapsed);
-        }
-    }
+//    @Override
+//    public void onRemoteVideoStateChanged(int uid, int state, int reason, int elapsed) {
+//        for (RtcEngineEventHandler handler : mEventHandlers) {
+//            handler.onRemoteVideoStateChanged(uid, state, reason, elapsed);
+//        }
+//    }
 
     @Override
     public void onUserMuteVideo(int uid, boolean muted) {

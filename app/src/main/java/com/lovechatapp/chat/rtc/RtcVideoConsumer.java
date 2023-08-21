@@ -42,11 +42,11 @@ public class RtcVideoConsumer implements IVideoConsumer, IVideoSource {
             int format = frame.format.getTexFormat() == GLES20.GL_TEXTURE_2D
                     ? AgoraVideoFrame.FORMAT_TEXTURE_2D
                     : AgoraVideoFrame.FORMAT_TEXTURE_OES;
-            if (mRtcConsumer != null) {
-                mRtcConsumer.consumeTextureFrame(frame.textureId, format,
-                        frame.format.getWidth(), frame.format.getHeight(),
-                        frame.rotation, frame.timestamp, frame.textureTransform);
-            }
+//            if (mRtcConsumer != null) {
+//                mRtcConsumer.consumeTextureFrame(frame.textureId, format,
+//                        frame.format.getWidth(), frame.format.getHeight(),
+//                        frame.rotation, frame.timestamp, frame.textureTransform);
+//            }
         }
     }
 
@@ -126,7 +126,15 @@ public class RtcVideoConsumer implements IVideoConsumer, IVideoSource {
         return MediaIO.BufferType.TEXTURE.intValue();
     }
 
+    @Override
+    public int getCaptureType() {
+        return 0;
+    }
 
+    @Override
+    public int getContentHint() {
+        return 0;
+    }
 
 
 }

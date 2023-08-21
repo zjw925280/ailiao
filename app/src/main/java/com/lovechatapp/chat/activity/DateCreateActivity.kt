@@ -133,7 +133,7 @@ class DateCreateActivity : BaseActivity() {
             }
 
             if (AppManager.getInstance().userInfo.t_sex==0){//女性发起约会
-                DatePayDialog(mContext,intent.getStringExtra("targetId") ?: "",intent.getStringExtra("chatid")?:"",intent.getStringExtra("targetName")?:"",address,time,phone,mark,bean1).show()
+                DatePayDialog(mContext,intent.getStringExtra("targetId") ?: "",intent.getStringExtra("chatid")?:"",intent.getStringExtra("targetName")?:"",address,time,phone,mark,bean1,true).show()
                 return@setClick
             }
 
@@ -253,12 +253,19 @@ class DateCreateActivity : BaseActivity() {
                                 isCreateRequested = true //设置标识
                                 //记录返回的数据
                                 jsonStr = m_object
-
                                 //调用发送消息的方法
                                 sendMessage()
                             }
                             -1 -> {//请求出错，提示用户
-                                ToastUtil.showToast(m_strMessage)
+                                if(m_strMessage.contains("余额不足")){
+                                    ToastUtil.showToast(m_strMessage)
+                                    val intent = Intent(this@DateCreateActivity, ChargeActivity::class.java)
+                                    startActivity(intent)
+                                    finish()
+                                }else{
+
+                                    ToastUtil.showToast(m_strMessage)
+                                }
                             }
                             else -> {
                                 ToastUtil.showToast("发起约会失败，请稍后重试")

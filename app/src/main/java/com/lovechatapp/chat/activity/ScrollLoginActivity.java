@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Point;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -149,32 +150,36 @@ public class ScrollLoginActivity extends BaseActivity {
                 break;
             }
             case R.id.private_tv: {//隐私协议
-                Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
-                intent.putExtra(Constant.TITLE, getString(R.string.private_detail));
-                intent.putExtra(Constant.URL, "file:///android_asset/private.html");
-                startActivity(intent);
+//                Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
+//                intent.putExtra(Constant.TITLE, getString(R.string.private_detail));
+//                intent.putExtra(Constant.URL, "file:///android_asset/private.html");
+////                intent.putExtra(Constant.URL, "http://api.lnqianlian.top:8080/tmApp/file/privacy.txt");
+//                startActivity(intent);
+
+//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+//                    startActivity(intent);
                 break;
             }
             case R.id.phone_tv: {//手机号
-                if (checkAgree()) {
-                    return;
-                }
+//                if (checkAgree()) {
+//                    return;
+//                }
                 Intent intent = new Intent(getApplicationContext(), PhoneLoginActivity.class);
                 startActivity(intent);
                 finish();
                 break;
             }
             case R.id.qq_tv: {//QQ
-                if (checkAgree()) {
-                    return;
-                }
+//                if (checkAgree()) {
+//                    return;
+//                }
                 loginQQ();
                 break;
             }
             case R.id.we_chat_tv: {
-                if (checkAgree()) {
-                    return;
-                }
+//                if (checkAgree()) {
+//                    return;
+//                }
                 loginToWeiXin();
                 break;
             }

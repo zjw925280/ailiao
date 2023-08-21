@@ -13,6 +13,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -87,6 +88,9 @@ public class PhoneLoginActivity extends BaseActivity {
     @BindView(R.id.forget_tv)
     TextView mForgetTv;
 
+    @BindView(R.id.agree_cb)
+    CheckBox checkBox;
+
     private CountDownTimer mCountDownTimer;
 
     @Override
@@ -129,17 +133,39 @@ public class PhoneLoginActivity extends BaseActivity {
         return true;
     }
 
-    @OnClick({
-            R.id.login_tv,
-            R.id.send_verify_tv,
-            R.id.account_ll,
-            R.id.verify_code_ll,
-            R.id.register_tv,
-            R.id.forget_tv
-    })
+    public boolean  checkAgree() {
+
+        if (!checkBox.isChecked()) {
+            ToastUtil.INSTANCE.showToast("请阅读并同意《用户协议》和《隐私政策》");
+            return true;
+        }
+        return false;
+    }
+
+    @OnClick({R.id.private_tv,R.id.agree_tv,R.id.login_tv, R.id.send_verify_tv, R.id.account_ll, R.id.verify_code_ll, R.id.register_tv, R.id.forget_tv})
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.private_tv: {//隐私协议
+                //隐私协议
+                Intent intent = new Intent(this, CommonWebViewActivity.class);
+                intent.putExtra(Constant.TITLE, getString(R.string.private_detail));
+//                intent.putExtra(Constant.URL, "file:///android_asset/private.html");
+                intent.putExtra(Constant.URL, "http://api.lnqianlian.top:8080/tmApp/file/privacy.txt");
+                startActivity(intent);
+                break;
+            }
+            case R.id.agree_tv: {//用户协议
+                //用户协议
+                Intent intent = new Intent(this, CommonWebViewActivity.class);
+                intent.putExtra(Constant.TITLE, getString(R.string.agree_detail));
+                intent.putExtra(Constant.URL, "file:///android_asset/agree.html");
+                startActivity(intent);
+                break;
+            }
             case R.id.login_tv: {//登录
+                if (checkAgree()) {
+                    return;
+                }
                 if (mAccountV.getVisibility() == View.VISIBLE) {//账号密码登录
                     requestAccountLogin();
                 } else {//短信验证码登录

@@ -23,8 +23,10 @@ public class SigninDayFriendRecyclerAdapter extends RecyclerView.Adapter<Recycle
     private Context mContext;
     private List<SiginBean.SiginInRecordBean> mBeans = new ArrayList<>();
 
-    public SigninDayFriendRecyclerAdapter(Context context) {
+    public SigninDayFriendRecyclerAdapter(Context context,List<SiginBean.SiginInRecordBean> beans) {
         mContext = context;
+        mBeans = beans;
+
     }
 
     public void loadData(List<SiginBean.SiginInRecordBean> beans) {

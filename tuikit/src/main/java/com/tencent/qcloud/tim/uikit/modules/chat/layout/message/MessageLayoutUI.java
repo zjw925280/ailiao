@@ -29,25 +29,25 @@ public abstract class MessageLayoutUI extends RecyclerView implements IMessageLa
 
     public MessageLayoutUI(Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public MessageLayoutUI(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
     public MessageLayoutUI(Context context, @Nullable AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         setLayoutFrozen(false);
         setItemViewCacheSize(0);
         setHasFixedSize(true);
         setFocusableInTouchMode(false);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext()){
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context){
             @Override
             public void onLayoutChildren(RecyclerView.Recycler recycler, RecyclerView.State state) {
                 try {

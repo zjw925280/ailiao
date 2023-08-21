@@ -110,7 +110,7 @@ import butterknife.OnClick;
 import io.agora.rtc.Constants;
 import io.agora.rtc.RtcEngine;
 import io.agora.rtc.video.VideoCanvas;
-import io.agora.rtc.video.VideoEncoderConfiguration;
+//import io.agora.rtc.video.VideoEncoderConfiguration;
 
 /**
  * 视频聊天
@@ -753,7 +753,7 @@ public class VideoChatActivity extends BaseActivity implements TIMMessageListene
                 new VideoCanvas(
                         surfaceView,
                         VideoCanvas.RENDER_MODE_HIDDEN,
-                        chatBean.roomId + "",
+                        chatBean.roomId+"" ,
                         uid, Constants.VIDEO_MIRROR_MODE_ENABLED));
         remoteView.addView(surfaceView, 0, new FrameLayout.LayoutParams(-1, -1));
     }
@@ -763,21 +763,21 @@ public class VideoChatActivity extends BaseActivity implements TIMMessageListene
      */
     protected void initVideo() {
 
-        VideoEncoderConfiguration configuration = new VideoEncoderConfiguration(
-                VideoEncoderConfiguration.VD_640x360,
-                VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
-                VideoEncoderConfiguration.STANDARD_BITRATE,
-                VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT);
+//        VideoEncoderConfiguration configuration = new VideoEncoderConfiguration(
+//                VideoEncoderConfiguration.VD_640x360,
+//                VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
+//                VideoEncoderConfiguration.STANDARD_BITRATE,
+//                VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT);
+//        rtcManager.rtcEngine().setVideoEncoderConfiguration(configuration);
 
         rtcManager = RtcManager.get();
         rtcManager.addRtcHandler(rtcEngineEventHandler);
-        rtcManager.rtcEngine().setVideoEncoderConfiguration(configuration);
-        rtcManager.rtcEngine().setVideoSource(new RtcVideoConsumer());
+//        rtcManager.rtcEngine().setVideoSource(new RtcVideoConsumer());
         rtcManager.rtcEngine().enableVideo();
         rtcManager.getCameraManager().setLocalPreview(localVideoView);
         rtcManager.startCamera();
 
-        rtcManager.rtcEngine().enableLocalAudio(true);
+//        rtcManager.rtcEngine().enableLocalAudio(true);
         rtcManager.rtcEngine().enableLocalVideo(true);
         rtcManager.rtcEngine().setChannelProfile(Constants.CHANNEL_PROFILE_LIVE_BROADCASTING);
         rtcManager.rtcEngine().setClientRole(Constants.CLIENT_ROLE_BROADCASTER);

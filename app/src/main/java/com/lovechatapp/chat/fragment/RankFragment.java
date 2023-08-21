@@ -6,6 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSONObject;
@@ -45,7 +46,6 @@ import okhttp3.Call;
 public class RankFragment extends BaseFragment implements View.OnClickListener {
 
     private RecyclerView mContentRv;
-
     /**
      * 上周、上月奖励按钮
      */
@@ -115,6 +115,7 @@ public class RankFragment extends BaseFragment implements View.OnClickListener {
                 toPersonData((RankBean) obj);
             }
         });
+
         mContentRv = findViewById(R.id.content_rv);
         mContentRv.setNestedScrollingEnabled(false);
         mContentRv.setLayoutManager(new LinearLayoutManager(getContext()));

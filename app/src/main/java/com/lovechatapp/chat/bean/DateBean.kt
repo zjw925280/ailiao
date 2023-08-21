@@ -165,10 +165,16 @@ class DateBean : BaseBean() {
     fun canCancel(): Boolean {
         return when (appointmentStatus) {
             INVITE_TYPE_NEW -> {
-                isSelf()
+                true
             }
             INVITE_TYPE_ACCEPTED -> {
                 true
+            }
+            INVITE_TYPE_ACCEPTED -> {
+                false
+            }
+            INVITE_TYPE_CANCELED -> {
+                false
             }
             else -> {
                 false

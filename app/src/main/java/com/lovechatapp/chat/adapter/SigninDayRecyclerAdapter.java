@@ -20,8 +20,9 @@ public class SigninDayRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.
     private Context mContext;
     private List<SigninDayBean.RowsBean> mBeans = new ArrayList<>();
 
-    public SigninDayRecyclerAdapter(Context context) {
+    public SigninDayRecyclerAdapter(Context context,List<SigninDayBean.RowsBean> beans) {
         mContext = context;
+        mBeans=beans;
     }
 
     public void loadData(List<SigninDayBean.RowsBean> beans) {

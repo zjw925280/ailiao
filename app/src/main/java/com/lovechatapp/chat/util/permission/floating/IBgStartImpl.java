@@ -103,7 +103,6 @@ public class IBgStartImpl implements BgStart {
         try {
             BridgeBroadcast bridgeBroadcast = new BridgeBroadcast(lisenter);
             bridgeBroadcast.register(activity);
-
             Intent intent = new Intent(activity, BridgeActivity.class);
             activity.startActivityForResult(intent, SystemAlertWindow.REQUEST_OVERLY);
         } catch (Exception e) {

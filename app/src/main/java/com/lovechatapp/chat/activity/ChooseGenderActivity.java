@@ -48,8 +48,8 @@ public class ChooseGenderActivity extends BaseActivity {
     @BindView(R.id.girl_iv)
     ImageView mGirlIv;
 
-    @BindView(R.id.code_et)
-    EditText codeEt;
+//    @BindView(R.id.code_et)
+//    EditText codeEt;
 
     @BindView(R.id.boy_iv)
     ImageView mBoyIv;
@@ -156,9 +156,9 @@ public class ChooseGenderActivity extends BaseActivity {
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("userId", getUserId());
         paramMap.put("sex", String.valueOf(mSelectGender));
-        if (!TextUtils.isEmpty(codeEt.getText().toString().trim())) {
-            paramMap.put("id_card", codeEt.getText().toString().trim());
-        }
+//        if (!TextUtils.isEmpty(codeEt.getText().toString().trim())) {
+//            paramMap.put("id_card", codeEt.getText().toString().trim());
+//        }
         OkHttpUtils.post().url(ChatApi.UPDATE_USER_SEX())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {

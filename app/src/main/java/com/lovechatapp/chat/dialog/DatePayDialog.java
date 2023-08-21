@@ -3,6 +3,7 @@ package com.lovechatapp.chat.dialog;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
@@ -20,6 +21,7 @@ import android.widget.TextView;
 import com.faceunity.fulivedemo.utils.ToastUtil;
 import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.activity.ChargeActivity;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.DateGiftBean;
@@ -63,7 +65,7 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
     private  DateGiftBean bean;
     /**是否已经请求创建约会接口并成功*/
     private boolean isCreateRequested = false;
-    public DatePayDialog(@NonNull Activity context, String inviteeId,String chatid ,String targetName, String address, String time, String phone , String mark, DateGiftBean bean) {
+    public DatePayDialog(@NonNull Activity context, String inviteeId,String chatid ,String targetName, String address, String time, String phone , String mark, DateGiftBean bean,boolean isPay) {
         super(context);
         activity = context;
         this.inviteeId = inviteeId;
@@ -74,7 +76,7 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
         this.mark = mark;
         this.bean = bean;
         this.chatid = chatid;
-
+        this.isPay=isPay;
     }
 
     @SuppressLint("MissingInflatedId")
@@ -318,7 +320,16 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
                                         throw new RuntimeException(e);
                                     }
                                 case -1:
-                                    ToastUtil.showToast(activity,response.m_strMessage);
+
+                                    if(response.m_strMessage.contains("余额不足")){
+                                        ToastUtil.showToast(activity,response.m_strMessage);
+                                        Intent intent = new Intent(activity, ChargeActivity.class);
+                                        activity.startActivity(intent);
+                                        activity.finish();
+                                    }else{
+
+                                        ToastUtil.showToast(activity,response.m_strMessage);
+                                    }
                                     break;
                                 default:
                                     ToastUtil.showToast(activity,"发起约会失败，请稍后重试");

@@ -1,7 +1,10 @@
 package com.lovechatapp.chat.activity;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Point;
 import android.net.Uri;
@@ -32,6 +35,7 @@ import com.lovechatapp.chat.helper.SharedPreferenceHelper;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.util.FileUtil;
+import com.lovechatapp.chat.util.FinishActivityManager;
 import com.lovechatapp.chat.util.LogUtil;
 import com.lovechatapp.chat.util.MyDataCleanManager;
 import com.lovechatapp.chat.util.ParamUtil;
@@ -79,6 +83,10 @@ public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.vibrate_group_iv)
     ImageView mVibrateGroupIv;
+
+    @BindView(R.id.zhuxiao_tv)
+    TextView zhuxiao_tv;
+
 
     private MyHandler mHandler = new MyHandler(SettingActivity.this);
     private final int DONE = 1;
@@ -145,9 +153,13 @@ public class SettingActivity extends BaseActivity {
             R.id.help_tv,
             R.id.agreement_tv,
             R.id.private_tv,
-            R.id.black_tv})
+            R.id.black_tv, R.id.zhuxiao_tv})
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.zhuxiao_tv: {//注销账号
+                showDialogaa(SettingActivity.this);
+                break;
+            }
             case R.id.opinion_rl: {//意见反馈
                 Intent intent = new Intent(getApplicationContext(), OpinionActivity.class);
                 startActivity(intent);
@@ -227,7 +239,33 @@ public class SettingActivity extends BaseActivity {
             }
         }
     }
+    public void showDialogaa( Context context) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
 
+        // 设置对话框标题和消息
+        alertDialogBuilder.setTitle("提示");
+        alertDialogBuilder.setMessage("确定要注销账号吗？");
+
+        // 设置关闭按钮
+        alertDialogBuilder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+
+        // 设置确认按钮
+        alertDialogBuilder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                FinishActivityManager.getManager().finishActivity(MainActivity.class);
+                finish();
+            }
+        });
+        // 创建并显示对话框
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
     /**
      * 清除app缓存
      */

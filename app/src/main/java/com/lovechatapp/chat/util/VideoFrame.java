@@ -35,7 +35,7 @@ public class VideoFrame implements OnCompressListener {
         FileUtil.checkDirection(Constant.AFTER_COMPRESS_DIR);
         Bitmap bitmap = VideoFileUtils.getVideoFirstFrame(videoPath);
         BitmapUtil.saveBitmapAsJpg(bitmap, filePath);
-        Luban.with(AppManager.getInstance())
+        Luban.with (AppManager.getInstance())
                 .load(filePath)
                 .setTargetDir(Constant.AFTER_COMPRESS_DIR)
                 .setCompressListener(listener)

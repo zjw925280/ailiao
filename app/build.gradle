@@ -13,12 +13,12 @@ android {
         applicationId "com.lovechatapp.chat"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 3
-        versionName "1.1.0"
+        versionCode 123
+        versionName "1.2.3"
         multiDexEnabled true// dex突破65535的限制
         ndk {
-            abiFilters 'armeabi-v7a'
-//, 'arm64-v8a'
+            abiFilters 'armeabi-v7a' , 'arm64-v8a'
+//
         }
 
         manifestPlaceholders = [
@@ -61,11 +61,12 @@ android {
     buildTypes {
         //测试环境
         debug {
+            minifyEnabled false
             buildConfigField "boolean", "debug", "true"
             buildConfigField "String", "rkey", "\"${AppKey}\""
             buildConfigField "String", "charset", "\"UTF-8\""
-//            buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
-//            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
+//          buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
+//          buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
             buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
             buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
             signingConfig signingConfigs.release
@@ -77,9 +78,9 @@ android {
             buildConfigField "String", "charset", "\"UTF-8\""
             buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
             buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
-//            minifyEnabled true
-//            shrinkResources true
-//            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false
+//          shrinkResources true
+//          proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
         }
     }
@@ -104,7 +105,7 @@ dependencies {
 
     //注解butter knife
     implementation 'com.jakewharton:butterknife:8.4.0'
-
+    implementation files('libs\\pldroid-player-2.1.9.jar')
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.4.0'
 
     //沉浸式状态栏
@@ -205,6 +206,6 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
-    implementation 'io.agora.rtc:full-sdk:3.0.0'
-    implementation 'io.agora.rtm:rtm-sdk:1.1.0'
+    implementation 'io.agora.rtc:full-sdk:3.1.3'
+
 }

@@ -79,6 +79,7 @@ class DateMineListFragment : BaseFragment() {
                                 when (mStatusTag) {
                                     DateBean.DATE_STATUS_NOT_GO -> {
                                         if (System.currentTimeMillis()>data.appointmentTime)  binding.btnAppeal.visibility = View.VISIBLE else binding.btnAppeal.visibility = View.GONE
+
                                         if (data.isSelf()) {
                                             binding.codeRow.visibility = View.GONE
                                             binding.codeText.text = data.appointmentCode
@@ -89,7 +90,7 @@ class DateMineListFragment : BaseFragment() {
                                             binding.codeRow.visibility = View.GONE
                                             binding.btnCode.visibility =
                                                 if (data.appointmentStatus == DateBean.INVITE_TYPE_ACCEPTED) View.GONE else View.GONE
-                                            binding.btnCancel.visibility = View.GONE
+                                            binding.btnCancel.visibility = if (data.canCancel()) View.VISIBLE else View.GONE
                                         }
                                     }
                                     else -> {

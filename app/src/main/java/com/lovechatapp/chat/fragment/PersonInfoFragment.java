@@ -120,11 +120,11 @@ public class PersonInfoFragment extends BaseFragment {
                         .withName("资料")
                         .withClazz(PersonDataFragment.class)
                         .withViewHolder(new LabelViewHolder(tabPagerLayout))
-                        .build(),
-                FragmentParamBuilder.create()
-                        .withClazz(PersonInfoOneFragment.class)
-                        .withBundle(bundle)
                         .build()
+//                FragmentParamBuilder.create()
+//                        .withClazz(PersonInfoOneFragment.class)
+//                        .withBundle(bundle)
+//                        .build()
         );
 
         tabPagerLayout.init(viewPager);

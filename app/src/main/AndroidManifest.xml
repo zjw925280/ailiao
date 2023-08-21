@@ -7,8 +7,8 @@
         android:name="android.hardware.camera"
         android:required="false" />
     <uses-permission android:name="android.permission.INTERNET" /> <!-- 知乎Matisse所需权限 -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 头像图片选择 从拍照 -->
+<!--    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />-->
+<!--    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> &lt;!&ndash; 头像图片选择 从拍照 &ndash;&gt;-->
     <uses-permission android:name="android.permission.CAMERA" /> <!-- 微信多出来的权限 -->
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
@@ -36,6 +36,9 @@
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
     <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
     <uses-permission android:name="com.huawei.android.launcher.permission.CHANGE_BADGE" />
+
+    <!-- 对于 Android 12.0 及以上设备，还需要添加如下权限： -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT"  />
 
     <application
         android:name="com.lovechatapp.chat.base.AppManager"
@@ -89,7 +92,12 @@
             android:screenOrientation="unspecified" />
         <activity
             android:name="com.lovechatapp.chat.activity.ChargeActivity"
-            android:screenOrientation="unspecified" />
+            android:screenOrientation="unspecified" >
+        <intent-filter>
+            <action android:name="com.example.ACTION_NAME" />
+            <category android:name="android.intent.category.DEFAULT" />
+        </intent-filter>
+        </activity>
         <activity
             android:name="com.lovechatapp.chat.activity.ActorVideoAlbumActivity"
             android:screenOrientation="unspecified" />

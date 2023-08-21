@@ -398,17 +398,16 @@
     </LinearLayout>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/gray_f5f5f5"
         android:orientation="vertical">
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
             android:background="@drawable/corner25_top_lr_solid_white">
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/content_rv"
                 android:layout_width="match_parent"

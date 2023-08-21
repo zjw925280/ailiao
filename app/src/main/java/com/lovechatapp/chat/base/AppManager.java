@@ -1,18 +1,22 @@
 package com.lovechatapp.chat.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.app.job.JobInfo;
 import android.app.job.JobScheduler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.http.HttpResponseCache;
 import android.os.Build;
 import android.os.Environment;
+import android.preference.PreferenceManager;
 import android.support.multidex.MultiDex;
 import android.text.TextUtils;
 
 import com.lovechatapp.chat.bean.DateBean;
+import com.lovechatapp.chat.dialog.AgreementDialog;
 import com.mcxiaoke.packer.helper.PackerNg;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.SplashActivity;
@@ -22,6 +26,7 @@ import com.lovechatapp.chat.rtc.RtcManager;
 import com.tencent.imsdk.TIMCallBack;
 import com.tencent.imsdk.TIMManager;
 import com.tencent.imsdk.TIMSdkConfig;
+import com.tencent.mm.opensdk.utils.Log;
 import com.tencent.qcloud.tim.uikit.TUIKit;
 import com.lovechatapp.chat.BuildConfig;
 import com.lovechatapp.chat.activity.ScrollLoginActivity;
@@ -48,7 +53,9 @@ import com.lovechatapp.chat.util.ParamUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -112,10 +119,7 @@ public class AppManager extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        File folder = new File(APP_CACHE_PATH);
-        if (!folder.exists()) {
-            folder.mkdirs();
-        }
+
         mInstance = this;
         dateStatusMap.put(DateBean.INVITE_TYPE_NEW, "邀请中");
         dateStatusMap.put(DateBean.INVITE_TYPE_ACCEPTED, "已同意");
@@ -132,23 +136,67 @@ public class AppManager extends Application {
 
         //crash
 //        CrashHandler.getInstance().init(this);
-        CaocConfig.Builder.create()
-                //程序在后台时，发生崩溃的三种处理方式
-                //BackgroundMode.BACKGROUND_MODE_SHOW_CUSTOM: //当应用程序处于后台时崩溃，也会启动错误页面，
-                //BackgroundMode.BACKGROUND_MODE_CRASH:      //当应用程序处于后台崩溃时显示默认系统错误（一个系统提示的错误对话框），
-                //BackgroundMode.BACKGROUND_MODE_SILENT:     //当应用程序处于后台时崩溃，默默地关闭程序！
-                .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT)
-                .enabled(!BuildConfig.DEBUG)     //false表示对崩溃的拦截阻止。用它来禁用customactivityoncrash框架
-                .showErrorDetails(true) //这将隐藏错误活动中的“错误详细信息”按钮，从而隐藏堆栈跟踪,—》针对框架自带程序崩溃后显示的页面有用(DefaultErrorActivity)。。
-                .showRestartButton(false)    //是否可以重启页面,针对框架自带程序崩溃后显示的页面有用(DefaultErrorActivity)。
-                .trackActivities(true)     //错误页面中显示错误详细信息；针对框架自带程序崩溃后显示的页面有用(DefaultErrorActivity)。
-                .minTimeBetweenCrashesMs(2000)      //定义应用程序崩溃之间的最短时间，以确定我们不在崩溃循环中。比如：在规定的时间内再次崩溃，框架将不处理，让系统处理！
-                .errorDrawable(R.mipmap.ic_launcher)     //崩溃页面显示的图标
-                .restartActivity(SplashActivity.class)      //重新启动后的页面
-//                    .errorActivity(ErrorActivity.class) //程序崩溃后显示的页面
-//                    .eventListener(new CustomEventListener())//设置监听
-                .apply();
+//        CaocConfig.Builder.create()
+//                //程序在后台时，发生崩溃的三种处理方式
+//                //BackgroundMode.BACKGROUND_MODE_SHOW_CUSTOM: //当应用程序处于后台时崩溃，也会启动错误页面，
+//                //BackgroundMode.BACKGROUND_MODE_CRASH:      //当应用程序处于后台崩溃时显示默认系统错误（一个系统提示的错误对话框），
+//                //BackgroundMode.BACKGROUND_MODE_SILENT:     //当应用程序处于后台时崩溃，默默地关闭程序！
+//                .backgroundMode(CaocConfig.BACKGROUND_MODE_SILENT)
+//                .enabled(!BuildConfig.DEBUG)     //false表示对崩溃的拦截阻止。用它来禁用customactivityoncrash框架
+//                .showErrorDetails(true) //这将隐藏错误活动中的“错误详细信息”按钮，从而隐藏堆栈跟踪,—》针对框架自带程序崩溃后显示的页面有用(DefaultErrorActivity)。。
+//                .showRestartButton(false)    //是否可以重启页面,针对框架自带程序崩溃后显示的页面有用(DefaultErrorActivity)。
+//                .trackActivities(true)     //错误页面中显示错误详细信息；针对框架自带程序崩溃后显示的页面有用(DefaultErrorActivity)。
+//                .minTimeBetweenCrashesMs(2000)      //定义应用程序崩溃之间的最短时间，以确定我们不在崩溃循环中。比如：在规定的时间内再次崩溃，框架将不处理，让系统处理！
+//                .errorDrawable(R.mipmap.ic_launcher)     //崩溃页面显示的图标
+//                .restartActivity(SplashActivity.class)      //重新启动后的页面
+////                    .errorActivity(ErrorActivity.class) //程序崩溃后显示的页面
+////                    .eventListener(new CustomEventListener())//设置监听
+//                .apply();
 
+
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(this);
+        boolean agree = sp.getBoolean("agree", false);
+        Log.e("agree","agree="+agree);
+   if (agree){
+
+       Log.e("那個先","AppManager");
+       File folder = new File(APP_CACHE_PATH);
+       if (!folder.exists()) {
+           folder.mkdirs();
+       }
+
+       Thread.setDefaultUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler() {
+           @Override
+           public void uncaughtException(Thread thread, Throwable throwable) {
+               // 在这里处理异常，可以写入文件或执行其他操作
+               // 请确保处理异常的操作是快速且可靠的，因为应用即将崩溃
+               uncaughtException1(thread,throwable);
+           }
+       });
+       initsdk();
+
+   }
+
+        token = SharedPreferenceHelper.getToken();
+    }
+    public void uncaughtException1(Thread thread, Throwable throwable) {
+        try {
+            // 创建一个文件来保存异常信息
+            File logFile = new File(getExternalFilesDir(null), "语聊Log.txt");
+
+            // 将异常信息写入文件
+            PrintWriter writer = new PrintWriter(new FileWriter(logFile, true));
+            throwable.printStackTrace(writer);
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        // 终止应用程序
+        System.exit(1);
+    }
+    public void initsdk(){
         //极光
         JPushInterface.setDebugMode(BuildConfig.DEBUG);
         JPushInterface.init(this);
@@ -171,8 +219,6 @@ public class AppManager extends Application {
 
         //消息分发初始化
         SocketMessageManager.get();
-
-        token = SharedPreferenceHelper.getToken();
     }
 
     public HashMap<Integer, String> getDateStatusMap() {

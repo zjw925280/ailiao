@@ -2,10 +2,10 @@ package com.tencent.qcloud.tim.uikit.modules.chat.layout.message.holder
 
 import android.annotation.SuppressLint
 import android.app.AlertDialog
-import android.app.Application
 import android.content.Context
 import android.content.Intent
 import android.support.v4.content.ContextCompat
+import android.support.v4.content.ContextCompat.startActivity
 import android.support.v7.widget.AppCompatImageView
 import android.support.v7.widget.AppCompatTextView
 import android.util.Log
@@ -29,6 +29,7 @@ import kotlinx.coroutines.launch
 import org.json.JSONObject
 import java.text.SimpleDateFormat
 import java.util.*
+
 
 class MessageChatDateHolder(itemView: View,private val context: Context) : MessageContentHolder(itemView) {
     companion object {
@@ -383,11 +384,20 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
 
                                     //记录返回的数据
                                     jsonStr = Gson().toJson(response.m_object)
-
+                                    upDataStu(dataJson.optInt("invitationID"),isYes)
                                     onBtnClick(view,1,response.m_object.appointmentId)
                                 }
                                 -1 -> {//请求出错，提示用户
-                                    ToastUtil.toastLongMessage(m_strMessage)
+                                    if(m_strMessage.contains("余额不足")){
+                                        ToastUtil.toastLongMessage(m_strMessage)
+                                        val intent = Intent("com.example.ACTION_NAME")
+                                        intent.addCategory(Intent.CATEGORY_DEFAULT)
+                                        context.startActivity(intent)
+                                    }else{
+
+                                        ToastUtil.toastLongMessage(m_strMessage)
+                                    }
+
                                 }
                                 else -> {
                                     ToastUtil.toastLongMessage("约会失败，请稍后重试")
@@ -423,7 +433,7 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         // 设置确认按钮
         alertDialogBuilder.setPositiveButton("支付") { dialog, _ ->
             isYes = 0
-            upDataStu(dataJson.optInt("invitationID"),isYes)
+
             createDate(acceptBtn,dataJson.optString("appointmentAddress"),
                 dataJson.optString("appointmentTime"),
                 dataJson.optString("remarks"), dataJson.optString("inviterPhone"), dataJson.optInt("inviteeId"), dataJson.optInt("inviterId"),dataJson.optInt("giftId"),dataJson.optString("inviterName"),dataJson.optInt("inviterId").toString(),dataJson.optInt("invitationID"))

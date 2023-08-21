@@ -10,6 +10,7 @@ import android.net.Uri;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +21,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.adapter.CoverRecyclerAdapter;
 import com.lovechatapp.chat.base.AppManager;
@@ -110,8 +112,18 @@ public class ModifyUserInfoActivity extends BaseActivity {
     @BindView(R.id.upload_iv)
     ImageView mUploadIv;
 
+
+    @BindView(R.id.fing_tv)
+    TextView fing_tv;
+
+    @BindView(R.id.care_tv)
+    TextView care_tv;
+
     @BindView(R.id.scrollView)
     LinearLayout mScrollView;
+
+    @BindView(R.id.edt_like)
+    EditText edt_like;
 
     //腾讯云
     private QServiceCfg mQServiceCfg;
@@ -129,6 +141,8 @@ public class ModifyUserInfoActivity extends BaseActivity {
     private PersonBean<LabelBean, CoverUrlBean> personBean;
 
     private boolean isVerify;
+    private int car;
+    private int house;
 
     public static void verifyStart(Context context) {
         Intent starter = new Intent(context, ModifyUserInfoActivity.class);
@@ -171,6 +185,8 @@ public class ModifyUserInfoActivity extends BaseActivity {
     }
 
     @OnClick({
+            R.id.fing_rl,
+            R.id.care_rl,
             R.id.submit_tv,
             R.id.upload_iv,
             R.id.job_ll,
@@ -183,6 +199,14 @@ public class ModifyUserInfoActivity extends BaseActivity {
     })
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.fing_rl: {//care
+                showOptionDialog(FANG);
+                break;
+            }
+            case R.id.care_rl: {//care
+                showOptionDialog(CARE);
+                break;
+            }
 
             case R.id.submit_tv: {
 
@@ -267,11 +291,14 @@ public class ModifyUserInfoActivity extends BaseActivity {
     /**
      * 显示收费标准dialog
      */
+
     private final int JOB = 0;
     private final int AGE = 1;
     private final int MARRIAGE = 2;
     private final int HIGH = 3;
     private final int BODY = 4;
+    private final int CARE = 5;
+    private final int FANG = 6;
 
     private void showOptionDialog(int index) {
         final Dialog mDialog = new Dialog(this, R.style.DialogStyle_Dark_Background);
@@ -304,6 +331,20 @@ public class ModifyUserInfoActivity extends BaseActivity {
 
         final List<String> beans = new ArrayList<>();
         switch (index) {
+            case FANG: {
+                title_tv.setText(R.string.job);
+                beans.add("保密");
+                beans.add("没有");
+                beans.add("有");
+                break;
+            }
+            case CARE: {
+                title_tv.setText(R.string.job);
+                beans.add("保密");
+                beans.add("没有");
+                beans.add("有");
+                break;
+            }
             case JOB: {
                 title_tv.setText(R.string.job);
                 beans.add("网红");
@@ -361,6 +402,14 @@ public class ModifyUserInfoActivity extends BaseActivity {
         TextView confirm_tv = view.findViewById(R.id.confirm_tv);
         confirm_tv.setOnClickListener(v -> {
             switch (index) {
+                case FANG: {
+                    fing_tv.setText(mOptionSelectStr);
+                    break;
+                }
+                case CARE: {
+                    care_tv.setText(mOptionSelectStr);
+                    break;
+                }
                 case JOB: {
                     mJobTv.setText(mOptionSelectStr);
                     break;
@@ -398,6 +447,8 @@ public class ModifyUserInfoActivity extends BaseActivity {
                 .build().execute(new AjaxCallback<BaseResponse<PersonBean<LabelBean, CoverUrlBean>>>() {
             @Override
             public void onResponse(BaseResponse<PersonBean<LabelBean, CoverUrlBean>> response, int id) {
+
+                Log.e("返回数据",new Gson().toJson(response));
 
                 if (isFinishing()) {
                     return;
@@ -507,7 +558,28 @@ public class ModifyUserInfoActivity extends BaseActivity {
         //个性签名
         String sign = mSignEt.getText().toString().trim();
 
-        Map<String, String> paramMap = new HashMap<>();
+        //兴趣爱好
+        String hobby = edt_like.getText().toString().trim();
+        //个性签名
+        String care =care_tv.getText().toString().trim();
+        if (care.equals("保密")){
+            car=2;
+        }else if (care.equals("有")){
+            car=1;
+        }else if (care.equals("没有")){
+            car=0;
+        }
+        //个性签名
+        String hous = fing_tv.getText().toString().trim();
+        if (hous.equals("保密")){
+            house=2;
+        }else if (hous.equals("有")){
+            house=1;
+        }else if (hous.equals("没有")){
+            house=0;
+        }
+
+        Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", getUserId());
         paramMap.put("t_nickName", nick);
 //        paramMap.put("t_phone", phone);
@@ -518,6 +590,9 @@ public class ModifyUserInfoActivity extends BaseActivity {
         paramMap.put("t_autograph", sign);
         paramMap.put("t_vocation", job);
         paramMap.put("t_age", age);
+        paramMap.put("hobby",hobby );
+        paramMap.put("house", house);
+        paramMap.put("car", car);
 //        paramMap.put("t_weixin", weChat);
 //        paramMap.put("t_qq", qqChat);
 //        paramMap.put("t_handImg", TextUtils.isEmpty(mHeadImageHttpUrl) ? "" : mHeadImageHttpUrl);

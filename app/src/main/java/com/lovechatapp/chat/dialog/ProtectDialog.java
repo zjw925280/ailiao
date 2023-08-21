@@ -206,6 +206,7 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
                 .execute(new AjaxCallback<BaseResponse<Protect>>() {
                     @Override
                     public void onResponse(BaseResponse<Protect> response, int id) {
+
                         if (response == null) {
                             return;
                         }

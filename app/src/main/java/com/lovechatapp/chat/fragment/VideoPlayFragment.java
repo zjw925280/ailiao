@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.PersonInfoActivity;
 import com.lovechatapp.chat.activity.ReportActivity;
@@ -38,6 +39,7 @@ import com.lovechatapp.chat.util.DensityUtil;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.ToastUtil;
 import com.lovechatapp.chat.view.viewpager.YViewPager;
+import com.pili.pldroid.player.PLOnErrorListener;
 import com.pili.pldroid.player.widget.PLVideoTextureView;
 import com.zhy.http.okhttp.OkHttpUtils;
 
@@ -52,7 +54,7 @@ import butterknife.Unbinder;
 /**
  * 动态视频播放页 & 主播视频封面播放页（上下滑动布局） & 个人相册视频播放页
  */
-public class VideoPlayFragment extends BaseFragment {
+public class VideoPlayFragment extends BaseFragment implements PLOnErrorListener {
 
     @BindView(R.id.plv)
     PLVideoTextureView plv;
@@ -141,10 +143,12 @@ public class VideoPlayFragment extends BaseFragment {
             headImg.setOnClickListener(v -> PersonInfoActivity.start(requireActivity(), mActorId));
         }
 
-        plv.setOnErrorListener(i -> {
-            ToastUtil.INSTANCE.showToast("Sorry,播放失败" + i);
-            return false;
-        });
+//        plv.setOnErrorListener(i -> {
+//            ToastUtil.INSTANCE.showToast("Sorry,播放失败" + i);
+//            return false;
+//        });
+
+        plv.setOnErrorListener(this);
     }
 
     @Override
@@ -355,4 +359,16 @@ public class VideoPlayFragment extends BaseFragment {
             loadData(mActorInfoBean);
         }
     }
+
+    @Override
+    public boolean onError(int i) {
+        ToastUtil.INSTANCE.showToast("Sorry,播放失败" + i);
+        return false;
+    }
+
+//    @Override
+//    public boolean onError(int i, Object o) {
+//        ToastUtil.INSTANCE.showToast("Sorry,播放失败" + i);
+//        return false;
+//    }
 }

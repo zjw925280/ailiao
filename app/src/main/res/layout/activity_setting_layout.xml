@@ -307,7 +307,63 @@
             tools:ignore="RelativeOverlap" />
 
         <View style="@style/HorizontalDivideLine" />
+        <TextView
+            android:id="@+id/zhuxiao_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:drawableEnd="@drawable/icon_arrow_gray"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp"
+            android:text="注销账号"
+            android:textColor="@color/black_333333"
+            android:textSize="17sp"
+            tools:ignore="RelativeOverlap" />
 
+<!--        <View style="@style/HorizontalDivideLine" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/gongs_tv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:paddingTop="18dp"-->
+<!--            android:paddingBottom="18dp"-->
+<!--            android:text="公司名称：辽宁科恋科技有限公司"-->
+<!--            android:textColor="@color/black_333333"-->
+<!--            android:textSize="17sp"-->
+<!--            tools:ignore="RelativeOverlap" />-->
+
+<!--        <View style="@style/HorizontalDivideLine" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/banben_tv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:paddingTop="18dp"-->
+<!--            android:paddingBottom="18dp"-->
+<!--            android:text="版本号：V1.0.0"-->
+<!--            android:textColor="@color/black_333333"-->
+<!--            android:textSize="17sp"-->
+<!--            tools:ignore="RelativeOverlap" />-->
+
+<!--        <View style="@style/HorizontalDivideLine" />-->
+<!--        <TextView-->
+<!--            android:id="@+id/shijian_tv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_marginStart="15dp"-->
+<!--            android:layout_marginEnd="15dp"-->
+<!--            android:paddingTop="18dp"-->
+<!--            android:paddingBottom="18dp"-->
+<!--            android:text="时间：2023.2.15"-->
+<!--            android:textColor="@color/black_333333"-->
+<!--            android:textSize="17sp"-->
+<!--            tools:ignore="RelativeOverlap" />-->
+
+<!--        <View style="@style/HorizontalDivideLine" />-->
         <TextView
             android:id="@+id/exit_tv"
             android:layout_width="250dp"

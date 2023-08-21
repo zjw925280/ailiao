@@ -90,7 +90,7 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import io.agora.rtc.Constants;
 import io.agora.rtc.video.VideoCanvas;
-import io.agora.rtc.video.VideoEncoderConfiguration;
+//import io.agora.rtc.video.VideoEncoderConfiguration;
 import okhttp3.Call;
 import okhttp3.Request;
 
@@ -395,7 +395,7 @@ public class MultipleVideoActivity extends BaseActivity {
                         VideoCanvas videoCanvas = new VideoCanvas(
                                 (SurfaceView)surfaceView,
                                 Constants.RENDER_MODE_HIDDEN,
-                                String.valueOf(chatInfo.mansionRoomId),
+                               chatInfo.mansionRoomId+"",
                                 role.uid,
                                 Constants.VIDEO_MIRROR_MODE_ENABLED);
                         rtcManager.rtcEngine().setupRemoteVideo(videoCanvas);
@@ -557,12 +557,12 @@ public class MultipleVideoActivity extends BaseActivity {
             rtcManager.rtcEngine().muteLocalVideoStream(true);
         } else {
             QiNiuChecker.get().checkEnable();
-            VideoEncoderConfiguration configuration = new VideoEncoderConfiguration(
-                    VideoEncoderConfiguration.VD_640x360,
-                    VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
-                    VideoEncoderConfiguration.STANDARD_BITRATE,
-                    VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT);
-            rtcManager.rtcEngine().setVideoEncoderConfiguration(configuration);
+//            VideoEncoderConfiguration configuration = new VideoEncoderConfiguration(
+//                    VideoEncoderConfiguration.VD_640x360,
+//                    VideoEncoderConfiguration.FRAME_RATE.FRAME_RATE_FPS_15,
+//                    VideoEncoderConfiguration.STANDARD_BITRATE,
+//                    VideoEncoderConfiguration.ORIENTATION_MODE.ORIENTATION_MODE_FIXED_PORTRAIT);
+//            rtcManager.rtcEngine().setVideoEncoderConfiguration(configuration);
             rtcManager.rtcEngine().enableVideo();
             rtcManager.rtcEngine().switchCamera();
             rtcManager.rtcEngine().muteLocalAudioStream(false);
@@ -1299,9 +1299,9 @@ public class MultipleVideoActivity extends BaseActivity {
 
         @Override
         public void onRemoteVideoStateChanged(int uid, int state, int reason, int elapsed) {
-            if (state == Constants.REMOTE_VIDEO_STATE_STARTING) {
+//            if (state == Constants.REMOTE_VIDEO_STATE_STARTING) {
                 onUserJoined(uid, elapsed);
-            }
+//            }
         }
 
         @Override
