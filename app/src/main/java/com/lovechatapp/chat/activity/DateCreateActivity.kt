@@ -157,6 +157,7 @@ class DateCreateActivity : BaseActivity() {
             bean.t_gift_still_url,
             mBinding.giftImg
         )
+        mBinding.giftTv.visibility=View.GONE
     }
 
     /**请求服务器获取礼物列表数据*/
@@ -205,6 +206,7 @@ class DateCreateActivity : BaseActivity() {
 
     /**显示礼物弹框*/
     private fun showGiftDialog() {
+
         if (dialog != null) {//如果礼物弹框对象不为空，则直接弹出
             dialog!!.show()
         } else {//若为空，则请求礼物列表进行初始化

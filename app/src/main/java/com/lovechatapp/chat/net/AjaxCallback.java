@@ -41,12 +41,11 @@ public abstract class AjaxCallback<T> extends Callback<T> {
 
     @Override
     public T parseNetworkResponse(Response response, int id) throws Exception {
-        Log.e("http数据"," isSuccessful=="+response.isSuccessful());
         if (response.isSuccessful() && types != null && types.length > 0) {
 
             String str = response.body().string();
             if (BuildConfig.DEBUG) {
-                Log.e("错误了", new Gson().toJson(response));
+                Log.e("http数据", "response.body()="+str);
             }
 
             BaseResponse baseResponse = JSON.parseObject(str, BaseResponse.class);

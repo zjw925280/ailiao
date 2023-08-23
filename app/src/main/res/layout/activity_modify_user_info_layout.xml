@@ -518,7 +518,7 @@
             android:layout_height="0.5dp"
             android:layout_marginStart="14dp"
             android:background="@color/gray_e1e1e1" />
-        <!--城市-->
+        <!--车子-->
         <RelativeLayout
             android:id="@+id/care_rl"
             android:layout_width="match_parent"
@@ -530,7 +530,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="14dp"
-                android:text="车"
+                android:text="车子"
                 android:textColor="@color/black_333333"
                 android:textSize="15sp" />
             <LinearLayout
@@ -573,8 +573,7 @@
             android:layout_height="0.5dp"
             android:layout_marginStart="14dp"
             android:background="@color/gray_e1e1e1" />
-        <!--城市-->
-
+         <!--房子-->
         <RelativeLayout
             android:id="@+id/fing_rl"
             android:layout_width="match_parent"
@@ -586,7 +585,7 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="14dp"
-                android:text="房"
+                android:text="房子"
                 android:textColor="@color/black_333333"
                 android:textSize="15sp" />
 

@@ -93,7 +93,7 @@ public class AgreementDialog extends Dialog implements View.OnClickListener {
                                         //用户协议
                                         Intent intent = new Intent(activity, CommonWebViewActivity.class);
                                         intent.putExtra(Constant.TITLE, activity.getString(R.string.agree_detail));
-                                        intent.putExtra(Constant.URL, "file:///android_asset/agree.html");
+                                        intent.putExtra(Constant.URL, "http://api.zhongzhiqian.cn:8080/tmApp/file/agreement.txt");
                                         activity.startActivity(intent);
                                     }
 
@@ -152,12 +152,12 @@ public class AgreementDialog extends Dialog implements View.OnClickListener {
                     uncaughtException1(thread,throwable);
                 }
             });
-            if (activity.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
-                    || activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                activity.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
-            } else {
-                // 已经有权限，可以执行操作SD卡的代码
-            }
+//            if (activity.checkSelfPermission(Manifest.permission.READ_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED
+//                    || activity.checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+//                activity.requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
+//            } else {
+//                // 已经有权限，可以执行操作SD卡的代码
+//            }
             //极光
             JPushInterface.setDebugMode(BuildConfig.DEBUG);
             JPushInterface.init(activity);
@@ -183,12 +183,14 @@ public class AgreementDialog extends Dialog implements View.OnClickListener {
 
             SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(activity);
             sp.edit().putBoolean("agree", true).apply();
+            dismiss();
             activity.startActivity(new Intent(activity, ScrollLoginActivity.class));
 
         } else {
+            dismiss();
             activity.finish();
         }
-        dismiss();
+
     }
 
     public void uncaughtException1(Thread thread, Throwable throwable) {

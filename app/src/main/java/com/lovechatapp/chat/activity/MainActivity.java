@@ -62,7 +62,6 @@ import com.lovechatapp.chat.util.FinishActivityManager;
 import com.lovechatapp.chat.util.LogUtil;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.ToastUtil;
-import com.lovechatapp.chat.util.permission.PermissionUtil;
 import com.lovechatapp.chat.util.permission.floating.IBgStartImpl;
 import com.lovechatapp.chat.util.permission.floating.api.PermissionLisenter;
 import com.lovechatapp.chat.view.tab.FragmentParamBuilder;
@@ -173,52 +172,6 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
 //        rewardView.setActivity(mContext);
     }
 
-    public void showDialog( int a,Context context,String conntes) {
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        // 设置对话框标题和消息
-        alertDialogBuilder.setTitle("提示");
-        alertDialogBuilder.setMessage(conntes);
-
-        // 设置关闭按钮
-        alertDialogBuilder.setNegativeButton("关闭", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.dismiss();
-            }
-        });
-
-        // 设置确认按钮
-        alertDialogBuilder.setPositiveButton("确认", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                if (a==1){
-
-                    requestPermissions(new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, REQUEST_CODE);
-                }else {
-                    PermissionUtil.requestPermissions(MainActivity.this, new PermissionUtil.OnPermissionListener() {
-
-                        @Override
-                        public void onPermissionGranted() {
-
-                        }
-
-                        @Override
-                        public void onPermissionDenied() {
-//                    ToastUtil.INSTANCE.showToast("温馨提示: 无定位权限，附近功能无法正常使用");
-                        }
-
-                    }, PermissionUtil.locationPermission);
-                }
-
-
-
-            }
-        });
-
-        // 创建并显示对话框
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.show();
-    }
 
     @Override
     protected void onStart() {

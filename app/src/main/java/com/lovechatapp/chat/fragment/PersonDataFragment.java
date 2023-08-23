@@ -1,21 +1,29 @@
 package com.lovechatapp.chat.fragment;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.CircleCrop;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.GiftPackActivity;
 import com.lovechatapp.chat.activity.InfoActiveActivity;
@@ -43,10 +51,13 @@ import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.dialog.LookNumberDialog;
 import com.lovechatapp.chat.glide.GlideRoundTransform;
+import com.lovechatapp.chat.helper.ChargeHelper;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.net.PageRequester;
+import com.lovechatapp.chat.util.FileUtil;
 import com.lovechatapp.chat.util.ParamUtil;
+import com.lovechatapp.chat.util.ToastUtil;
 import com.lovechatapp.chat.view.StarView;
 import com.lovechatapp.chat.view.recycle.AbsRecycleAdapter;
 import com.lovechatapp.chat.view.recycle.ViewHolder;
@@ -63,17 +74,28 @@ import java.util.Map;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import jp.wasabeef.glide.transformations.BlurTransformation;
+import okhttp3.Call;
 
 /**
  * 个人资料页面
  */
-public class PersonDataFragment extends BaseFragment {
+public class PersonDataFragment extends BaseFragment  {
 
     Unbinder unbinder;
 
     private int otherId;
-
     private ActorInfoBean<CoverUrlBean, LabelBean, ChargeBean, InfoRoomBean> bean;
+    private TextView see_des_tv;
+    private TextView cancel_tv;
+    private TextView confirm_tv;
+    private TextView we_chat_tv;
+    private TextView phone_tv;
+    private TextView see_phone_tv;
+    private TextView see_wechat_tv;
+    private RelativeLayout we_chat_rl;
+    private RelativeLayout phone_rl;
+
+    private int t_sex;
 
     @Override
     protected int initLayout() {
@@ -84,6 +106,36 @@ public class PersonDataFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         otherId = requireActivity().getIntent().getIntExtra(Constant.ACTOR_ID, 0);
+        findViewById(R.id.see_wechat_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (t_sex== bean.t_sex) {
+                    ToastUtil.INSTANCE.showToast( R.string.sex_can_not_communicate);
+                    return;
+                }
+                int weChat = 0;
+                showSeeWeChatRemindDialog(weChat);
+            }
+        });
+        findViewById(R.id.see_phone_tv).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (AppManager.getInstance().getUserInfo().t_sex == bean.t_sex) {
+                    ToastUtil.INSTANCE.showToast( R.string.sex_can_not_communicate);
+                    return;
+                }
+                int phone = 1;
+                showSeeWeChatRemindDialog(phone);
+            }
+        });
+         we_chat_tv = findViewById(R.id.we_chat_tv);
+         phone_tv=findViewById(R.id.phone_tv);
+        see_phone_tv = findViewById(R.id.see_phone_tv);
+        see_wechat_tv=findViewById(R.id.see_wechat_tv);
+        we_chat_rl=findViewById(R.id.we_chat_rl);
+        phone_rl=findViewById(R.id.phone_rl);
+
+         t_sex = AppManager.getInstance().getUserInfo().t_sex;
         getData();
         protectRv();
         getIntimateGift();
@@ -384,6 +436,7 @@ public class PersonDataFragment extends BaseFragment {
      * 资料
      */
     private void setMaterial(ActorInfoBean actorInfoBean) {
+        Log.e("主播信息","主播信息资料="+new Gson().toJson(actorInfoBean));
         List<String> list = new ArrayList<>();
         if (actorInfoBean.t_height != 0) {
             list.add("身高: " + actorInfoBean.t_height + "cm");
@@ -397,7 +450,31 @@ public class PersonDataFragment extends BaseFragment {
         if (!TextUtils.isEmpty(actorInfoBean.t_marriage)) {
             list.add("婚姻: " + actorInfoBean.t_marriage);
         }
-        if (!TextUtils.isEmpty(actorInfoBean.t_login_time)) {
+
+
+
+        if (TextUtils.isEmpty(bean.getT_weixin()) || bean.getT_role() < 1) {
+            we_chat_rl.setVisibility(View.GONE);
+        } else {
+            we_chat_rl.setVisibility(View.GONE);
+            we_chat_tv.setText("微信号："+bean.getT_weixin());
+            see_wechat_tv.setVisibility(bean.getIsWeixin() == 1 ? View.GONE : View.VISIBLE);
+        }
+
+        if (TextUtils.isEmpty(bean.getT_phone()) || bean.getT_role() < 1) {
+            phone_rl.setVisibility(View.GONE);
+        } else {
+            phone_rl.setVisibility(View.GONE);
+            phone_tv.setText("手机号："+bean.getT_phone());
+            see_phone_tv.setVisibility(bean.getIsPhone() == 1 ? View.GONE : View.VISIBLE);
+        }
+//        if (!TextUtils.isEmpty(actorInfoBean.t_phone)) {
+//            list.add("手机: " + actorInfoBean.t_phone);
+//        }
+//        if (!TextUtils.isEmpty(actorInfoBean.t_weixin)) {
+//            list.add("微信: " + actorInfoBean.t_weixin);
+//        }
+        if (!TextUtils.isEmpty(actorInfoBean.t_login_time)) {//掩藏了的最后登录时间
 //            list.add(actorInfoBean.t_login_time);
         }
         if (list.size() > 0) {
@@ -501,4 +578,123 @@ public class PersonDataFragment extends BaseFragment {
         adapter.loadData(beans);
     }
 
+
+
+    /**
+     * 显示查看微信号提醒
+     */
+    private void showSeeWeChatRemindDialog(int position) {
+        View dialogView = LayoutInflater.from(getContext()).inflate(R.layout.dialog_see_we_chat_number_layout, null);
+
+        see_des_tv=dialogView.findViewById(R.id.see_des_tv);
+        cancel_tv=dialogView.findViewById(R.id.cancel_tv);
+        confirm_tv=dialogView.findViewById(R.id.confirm_tv);
+        Dialog mDialog = new Dialog(requireActivity(), R.style.DialogStyle_Dark_Background);
+        setDialogView( mDialog, position);
+        mDialog.setContentView(dialogView);
+        Point outSize = new Point();
+        requireActivity().getWindowManager().getDefaultDisplay().getSize(outSize);
+        Window window = mDialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams params = window.getAttributes();
+            params.width = outSize.x;
+            window.setGravity(Gravity.CENTER); // You can set the dialog's position here
+        }
+        mDialog.setCanceledOnTouchOutside(false);
+        if (!requireActivity().isFinishing()) {
+            mDialog.show();
+        }
+    }
+
+    private void setDialogView( Dialog mDialog, int position) {
+        float cost = 0f;
+        String typeStr = (position == 0) ? "微信号" : "手机号码";
+
+        if (bean.getAnchorSetup() != null && bean.getAnchorSetup().size() > 0) {
+            ChargeBean chargeBean =  bean.getAnchorSetup().get(0);
+            cost = (position == 0) ? chargeBean.getT_weixin_gold() : chargeBean.getT_phone_gold();
+
+            if (cost == 0f) {
+                see_des_tv.setText(getString(R.string.info_block_des, typeStr));
+            } else {
+                see_des_tv.setText(getString(R.string.see_info_number_des, typeStr, FileUtil.parseFloatToString(cost)));
+            }
+        } else {
+            see_des_tv.setText(getString(R.string.info_block_des, typeStr));
+        }
+
+        cancel_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mDialog.dismiss();
+            }
+        });
+
+        float finalCost = cost;
+        confirm_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (finalCost > 0) {
+                    seeWeChat(position);
+                }
+                mDialog.dismiss();
+            }
+        });
+    }
+    private void seeWeChat(int position) {
+        String url;
+        if (position == 0) {
+            url = ChatApi.SEE_WEI_XIN_CONSUME();
+        } else {
+            url = ChatApi.SEE_PHONE_CONSUME();
+        }
+
+        Map<String, String> paramMap = new HashMap<>();
+        paramMap.put("userId", String.valueOf(AppManager.getInstance().getUserInfo().t_id));
+        paramMap.put("coverConsumeUserId", String.valueOf(requireActivity().getIntent().getIntExtra(Constant.ACTOR_ID, 0)));
+
+        OkHttpUtils.post().url(url)
+                .addParams("param", ParamUtil.getParam(paramMap))
+                .build().execute(new AjaxCallback<BaseResponse<String>>() {
+                    @Override
+                    public void onResponse(BaseResponse<String> response, int id) {
+                        if (requireActivity().isFinishing()) {
+                            return;
+                        }
+                        if (response != null) {
+                            if (response.m_istatus == NetCode.SUCCESS || response.m_istatus == 2) {
+                                String message = response.m_strMessage;
+                                if (!TextUtils.isEmpty(message)) {
+                                    ToastUtil.INSTANCE.showToast(requireActivity(), message);
+                                } else {
+                                    if (response.m_istatus == 2) {
+                                        ToastUtil.INSTANCE.showToast(requireActivity(), R.string.vip_free);
+                                    } else {
+                                        ToastUtil.INSTANCE.showToast(requireActivity(), R.string.pay_success);
+                                    }
+                                }
+                                if (position == 0) {
+                                   we_chat_tv.setText("微信号:"+response.m_object);
+                                   see_wechat_tv.setVisibility(View.GONE);
+                                } else {
+                                   phone_tv.setText("手机号:"+ response.m_object);
+                                    see_phone_tv.setVisibility(View.GONE);
+                                }
+                            } else if (response.m_istatus == -1) {
+                                ChargeHelper.showSetCoverDialog(requireActivity());
+                            } else {
+                                ToastUtil.INSTANCE.showToast(requireActivity(), R.string.system_error);
+                            }
+                        } else {
+                            ToastUtil.INSTANCE.showToast(requireActivity(), R.string.system_error);
+                        }
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        super.onError(call, e, id);
+                        ToastUtil.INSTANCE.showToast(requireActivity(), R.string.system_error);
+                    }
+                });
+    }
 }

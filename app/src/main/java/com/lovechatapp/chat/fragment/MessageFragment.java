@@ -521,7 +521,7 @@ public class MessageFragment extends BaseFragment implements View.OnClickListene
                 mContext.startActivity(intent);
             });
 
-            //在线客服
+            //跳转客服
             viewHolder.getView(R.id.serve_btn).setOnClickListener(v -> CodeUtil.jumpToQQ(mContext));
 
             lastGroupMessage(timMessage);

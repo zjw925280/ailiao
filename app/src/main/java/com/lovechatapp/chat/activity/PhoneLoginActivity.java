@@ -158,7 +158,7 @@ public class PhoneLoginActivity extends BaseActivity {
                 //用户协议
                 Intent intent = new Intent(this, CommonWebViewActivity.class);
                 intent.putExtra(Constant.TITLE, getString(R.string.agree_detail));
-                intent.putExtra(Constant.URL, "file:///android_asset/agree.html");
+                intent.putExtra(Constant.URL, "http://api.zhongzhiqian.cn:8080/tmApp/file/agreement.txt");
                 startActivity(intent);
                 break;
             }

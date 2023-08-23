@@ -226,14 +226,14 @@ public class SettingActivity extends BaseActivity {
             case R.id.agreement_tv: {
                 Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
                 intent.putExtra(Constant.TITLE, getResources().getString(R.string.agree_detail));
-                intent.putExtra(Constant.URL, "file:///android_asset/agree.html");
+                intent.putExtra(Constant.URL, "http://api.zhongzhiqian.cn:8080/tmApp/file/agreement.txt");
                 startActivity(intent);
                 break;
             }
             case R.id.private_tv: {//隐私协议
                 Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
                 intent.putExtra(Constant.TITLE, getResources().getString(R.string.private_detail));
-                intent.putExtra(Constant.URL, "file:///android_asset/private.html");
+                intent.putExtra(Constant.URL, "http://api.lnqianlian.top:8080/tmApp/file/privacy.txt");
                 startActivity(intent);
                 break;
             }

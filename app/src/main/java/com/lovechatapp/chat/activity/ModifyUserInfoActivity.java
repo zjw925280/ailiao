@@ -497,6 +497,28 @@ public class ModifyUserInfoActivity extends BaseActivity {
 //                            }
                         }
 
+                        //兴趣爱好
+                        if (!TextUtils.isEmpty(personBean.hobby)) {
+                            edt_like.setText(personBean.hobby);
+                        }
+
+                        //车子
+                        if (personBean.car==0) {
+                            care_tv.setText("没有");
+                        }else if (personBean.car==1){
+                            care_tv.setText("有");
+                        }else if (personBean.car==2){
+                            care_tv.setText("保密");
+                        }
+
+                        //房子
+                        if (personBean.house==0) {
+                            fing_tv.setText("没有");
+                        }else if (personBean.house==1){
+                            fing_tv.setText("有");
+                        }else if (personBean.house==2){
+                            fing_tv.setText("保密");
+                        }
                         //个性签名
                         if (!TextUtils.isEmpty(personBean.t_autograph)) {
                             mSignEt.setText(personBean.t_autograph);
@@ -597,6 +619,9 @@ public class ModifyUserInfoActivity extends BaseActivity {
 //        paramMap.put("t_qq", qqChat);
 //        paramMap.put("t_handImg", TextUtils.isEmpty(mHeadImageHttpUrl) ? "" : mHeadImageHttpUrl);
 //        paramMap.put("lables", labels);
+
+
+        Log.e("兴趣爱好","paramMap="+new Gson().toJson(paramMap));
         OkHttpUtils.post().url(ChatApi.UPDATE_PERSON_DATA())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse>() {
@@ -901,7 +926,6 @@ public class ModifyUserInfoActivity extends BaseActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         //删除cover目录中的图片
         FileUtil.deleteFiles(Constant.COVER_AFTER_SHEAR_DIR);
         FileUtil.deleteFiles(Constant.HEAD_AFTER_SHEAR_DIR);

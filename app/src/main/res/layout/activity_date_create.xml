@@ -29,6 +29,21 @@
         app:layout_constraintLeft_toLeftOf="@+id/giftBg"
         app:layout_constraintTop_toTopOf="@+id/giftBg" />
 
+    <android.support.v7.widget.AppCompatTextView
+        android:layout_marginTop="17dp"
+        android:id="@+id/giftTv"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_marginLeft="40dp"
+        android:adjustViewBounds="true"
+        android:text="如对方拒绝，礼物退还"
+        android:textColor="#ff0000"
+        app:layout_constraintBottom_toBottomOf="@+id/giftBg"
+        app:layout_constraintLeft_toRightOf="@+id/giftTitle"
+        app:layout_constraintTop_toTopOf="@+id/giftBg"
+        app:layout_constraintVertical_bias="0.0"
+        tools:src="@mipmap/ic_launcher" />
+
     <android.support.v7.widget.AppCompatImageView
         android:id="@+id/giftImg"
         android:layout_width="wrap_content"

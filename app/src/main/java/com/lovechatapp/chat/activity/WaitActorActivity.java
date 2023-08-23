@@ -1,6 +1,7 @@
 package com.lovechatapp.chat.activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
 import android.view.View;
@@ -328,14 +329,25 @@ public class WaitActorActivity extends BaseActivity {
                     if (!ok) {
                         boolean notVipAlert = false;
                         if (response != null) {
-                            if (response.m_istatus == -7) {
-                                new VipDialog(WaitActorActivity.this).show();
-                                notVipAlert = true;
-                            } else if (response.m_istatus == -1) {
-                                ChargeHelper.showSetCoverDialog(WaitActorActivity.this);
+                            if (response.m_strMessage.contains("余额不足")) {
+                                Intent intent = new Intent(WaitActorActivity.this, ChargeActivity.class);
+                                startActivity(intent);
                             } else {
-                                if (!TextUtils.isEmpty(response.m_strMessage)) {
-                                    ToastUtil.INSTANCE.showToast(response.m_strMessage);
+                                if (response.m_istatus == -7) {
+                                    new VipDialog(WaitActorActivity.this).show();
+                                    notVipAlert = true;
+                                } else if (response.m_istatus == -1) {
+                                    ChargeHelper.showSetCoverDialog(WaitActorActivity.this);
+                                } else {
+                                    if (response.m_istatus==-5){
+                                        ToastUtil.INSTANCE.showToast("余额不足!请充值");
+                                        Intent intent = new Intent(WaitActorActivity.this, ChargeActivity.class);
+                                        startActivity(intent);
+                                    }else {
+                                        if (!TextUtils.isEmpty(response.m_strMessage)) {
+                                            ToastUtil.INSTANCE.showToast(response.m_strMessage);
+                                        }
+                                    }
                                 }
                             }
                         } else {

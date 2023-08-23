@@ -15,6 +15,7 @@ import com.lovechatapp.chat.dialog.AgreementDialog;
 import com.lovechatapp.chat.helper.IMHelper;
 import com.lovechatapp.chat.helper.RingVibrateManager;
 import com.lovechatapp.chat.helper.SharedPreferenceHelper;
+import com.lovechatapp.chat.util.FinishActivityManager;
 import com.tencent.mm.opensdk.utils.Log;
 
 /*
@@ -48,17 +49,7 @@ public class SplashActivity extends Activity {
 
         setContentView(R.layout.activity_splash_layout);
 
-        new Handler().postDelayed(() -> {
-            if (isFinishing()) {
-                return;
-            }
-            toIntent();
-        }, 2000);
 
-        if (chatUserInfo.t_id > 0) {
-            IMHelper.checkLogin();
-            AppManager.getInstance().refreshMyInfo();
-        }
 
 //        OkHttpUtils.post()
 //                .url(ChatApi.getProtectAppVersion())
@@ -97,6 +88,18 @@ public class SplashActivity extends Activity {
     @Override
     protected void onStart() {
         super.onStart();
+        FinishActivityManager.getManager().addActivity(this);
+        new Handler().postDelayed(() -> {
+            if (isFinishing()) {
+                return;
+            }
+            toIntent();
+        }, 2000);
+
+        if (chatUserInfo.t_id > 0) {
+            IMHelper.checkLogin();
+            AppManager.getInstance().refreshMyInfo();
+        }
         RingVibrateManager.syncSwitch();
     }
 

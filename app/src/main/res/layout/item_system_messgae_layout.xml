@@ -31,6 +31,7 @@
         android:showDividers="beginning|middle|end">
 
         <FrameLayout
+            android:visibility="gone"
             android:id="@+id/serve_btn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

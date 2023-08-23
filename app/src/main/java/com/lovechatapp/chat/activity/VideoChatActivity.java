@@ -874,16 +874,29 @@ public class VideoChatActivity extends BaseActivity implements TIMMessageListene
                 boolean ok = response != null && response.m_istatus == NetCode.SUCCESS;
                 if (!ok) {
                     if (response != null) {
-                        if (response.m_istatus == -7) {
-                            VipAlertActivity.start(VideoChatActivity.this);
+                        if (response.m_strMessage.contains("余额不足")) {
+                            Intent intent = new Intent(VideoChatActivity.this, ChargeActivity.class);
+                            startActivity(intent);
                         } else {
-                            if (!TextUtils.isEmpty(response.m_strMessage)) {
-                                ToastUtil.INSTANCE.showToast(getApplicationContext(), response.m_strMessage);
+                            if (response.m_istatus == -7) {
+                                VipAlertActivity.start(VideoChatActivity.this);
+                            } else {
+                                if (response.m_istatus==-5){
+                                    ToastUtil.INSTANCE.showToast("余额不足!请充值");
+                                    Intent intent = new Intent(VideoChatActivity.this, ChargeActivity.class);
+                                    startActivity(intent);
+                                }else {
+
+                                    if (!TextUtils.isEmpty(response.m_strMessage)) {
+                                        ToastUtil.INSTANCE.showToast(getApplicationContext(), response.m_strMessage);
+                                    }
+                                }
                             }
                         }
-                    } else {
-                        ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.please_retry);
-                    }
+                        } else{
+                            ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.please_retry);
+                        }
+
                     cancelAutoTimer();
                     hangUp(HANGUP_BILLING, AppManager.getInstance().getUserInfo().t_id);
                 } else {

@@ -2,9 +2,11 @@ package com.lovechatapp.chat.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -12,9 +14,12 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -121,6 +126,7 @@ public class PersonInfoFragment extends BaseFragment {
                         .withClazz(PersonDataFragment.class)
                         .withViewHolder(new LabelViewHolder(tabPagerLayout))
                         .build()
+//                ,
 //                FragmentParamBuilder.create()
 //                        .withClazz(PersonInfoOneFragment.class)
 //                        .withBundle(bundle)
@@ -134,8 +140,8 @@ public class PersonInfoFragment extends BaseFragment {
                 @Override
                 public void run() {
                     try {
-                        sleep(1000);
-                        tabPagerLayout.post(() -> tabPagerLayout.setSelected(1));
+//                        sleep(1000);
+//                        tabPagerLayout.post(() -> tabPagerLayout.setSelected(1));
                         sleep(1000);
                         tabPagerLayout.post(() -> tabPagerLayout.setSelected(0));
                     } catch (InterruptedException e) {
@@ -187,7 +193,6 @@ public class PersonInfoFragment extends BaseFragment {
                 }
                 new GiftDialog(mContext, otherId).show();
                 break;
-
             /*
              * 私信
              */
@@ -420,6 +425,8 @@ public class PersonInfoFragment extends BaseFragment {
                     bean.t_autograph : getString(R.string.lazy));
         }
     }
+
+
 
     /**
      * 获取主播资料

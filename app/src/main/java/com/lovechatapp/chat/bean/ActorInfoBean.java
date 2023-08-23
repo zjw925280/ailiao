@@ -59,4 +59,309 @@ public class ActorInfoBean<T, K, L, M> extends BaseBean {
     public int t_is_vip = 1;//	是否VIP 0.是1.否
 
     public float t_score;//分数
+
+
+    public int getT_is_not_disturb() {
+        return t_is_not_disturb;
+    }
+
+    public void setT_is_not_disturb(int t_is_not_disturb) {
+        this.t_is_not_disturb = t_is_not_disturb;
+    }
+
+    public int getT_height() {
+        return t_height;
+    }
+
+    public void setT_height(int t_height) {
+        this.t_height = t_height;
+    }
+
+    public String getT_autograph() {
+        return t_autograph;
+    }
+
+    public void setT_autograph(String t_autograph) {
+        this.t_autograph = t_autograph;
+    }
+
+    public String getT_phone() {
+        return t_phone;
+    }
+
+    public void setT_phone(String t_phone) {
+        this.t_phone = t_phone;
+    }
+
+    public String getT_weixin() {
+        return t_weixin;
+    }
+
+    public void setT_weixin(String t_weixin) {
+        this.t_weixin = t_weixin;
+    }
+
+    public String getT_qq() {
+        return t_qq;
+    }
+
+    public void setT_qq(String t_qq) {
+        this.t_qq = t_qq;
+    }
+
+    public String getT_constellation() {
+        return t_constellation;
+    }
+
+    public void setT_constellation(String t_constellation) {
+        this.t_constellation = t_constellation;
+    }
+
+    public String getT_marriage() {
+        return t_marriage;
+    }
+
+    public void setT_marriage(String t_marriage) {
+        this.t_marriage = t_marriage;
+    }
+
+    public int getT_onLine() {
+        return t_onLine;
+    }
+
+    public void setT_onLine(int t_onLine) {
+        this.t_onLine = t_onLine;
+    }
+
+    public int getT_weight() {
+        return t_weight;
+    }
+
+    public void setT_weight(int t_weight) {
+        this.t_weight = t_weight;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
+
+    public String getT_nickName() {
+        return t_nickName;
+    }
+
+    public void setT_nickName(String t_nickName) {
+        this.t_nickName = t_nickName;
+    }
+
+    public String getT_city() {
+        return t_city;
+    }
+
+    public void setT_city(String t_city) {
+        this.t_city = t_city;
+    }
+
+    public String getT_vocation() {
+        return t_vocation;
+    }
+
+    public void setT_vocation(String t_vocation) {
+        this.t_vocation = t_vocation;
+    }
+
+    public int getIsFollow() {
+        return isFollow;
+    }
+
+    public void setIsFollow(int isFollow) {
+        this.isFollow = isFollow;
+    }
+
+    public String getT_reception() {
+        return t_reception;
+    }
+
+    public void setT_reception(String t_reception) {
+        this.t_reception = t_reception;
+    }
+
+    public List<T> getLunbotu() {
+        return lunbotu;
+    }
+
+    public void setLunbotu(List<T> lunbotu) {
+        this.lunbotu = lunbotu;
+    }
+
+    public String getT_addres_url() {
+        return t_addres_url;
+    }
+
+    public void setT_addres_url(String t_addres_url) {
+        this.t_addres_url = t_addres_url;
+    }
+
+    public String getT_handImg() {
+        return t_handImg;
+    }
+
+    public void setT_handImg(String t_handImg) {
+        this.t_handImg = t_handImg;
+    }
+
+    public List<K> getLable() {
+        return lable;
+    }
+
+    public void setLable(List<K> lable) {
+        this.lable = lable;
+    }
+
+    public String getT_login_time() {
+        return t_login_time;
+    }
+
+    public void setT_login_time(String t_login_time) {
+        this.t_login_time = t_login_time;
+    }
+
+    public List<L> getAnchorSetup() {
+        return anchorSetup;
+    }
+
+    public void setAnchorSetup(List<L> anchorSetup) {
+        this.anchorSetup = anchorSetup;
+    }
+
+    public int getIsWeixin() {
+        return isWeixin;
+    }
+
+    public void setIsWeixin(int isWeixin) {
+        this.isWeixin = isWeixin;
+    }
+
+    public int getIsPhone() {
+        return isPhone;
+    }
+
+    public void setIsPhone(int isPhone) {
+        this.isPhone = isPhone;
+    }
+
+    public int getIsQQ() {
+        return isQQ;
+    }
+
+    public void setIsQQ(int isQQ) {
+        this.isQQ = isQQ;
+    }
+
+    public int getT_idcard() {
+        return t_idcard;
+    }
+
+    public void setT_idcard(int t_idcard) {
+        this.t_idcard = t_idcard;
+    }
+
+    public int getT_sex() {
+        return t_sex;
+    }
+
+    public void setT_sex(int t_sex) {
+        this.t_sex = t_sex;
+    }
+
+    public int getT_role() {
+        return t_role;
+    }
+
+    public void setT_role(int t_role) {
+        this.t_role = t_role;
+    }
+
+    public int getT_age() {
+        return t_age;
+    }
+
+    public void setT_age(int t_age) {
+        this.t_age = t_age;
+    }
+
+    public String getT_called_video() {
+        return t_called_video;
+    }
+
+    public void setT_called_video(String t_called_video) {
+        this.t_called_video = t_called_video;
+    }
+
+    public int getScore() {
+        return score;
+    }
+
+    public void setScore(int score) {
+        this.score = score;
+    }
+
+    public M getBigRoomData() {
+        return bigRoomData;
+    }
+
+    public void setBigRoomData(M bigRoomData) {
+        this.bigRoomData = bigRoomData;
+    }
+
+    public int getIsGreet() {
+        return isGreet;
+    }
+
+    public void setIsGreet(int isGreet) {
+        this.isGreet = isGreet;
+    }
+
+    public int getVideoIdentity() {
+        return videoIdentity;
+    }
+
+    public void setVideoIdentity(int videoIdentity) {
+        this.videoIdentity = videoIdentity;
+    }
+
+    public int getPhoneIdentity() {
+        return phoneIdentity;
+    }
+
+    public void setPhoneIdentity(int phoneIdentity) {
+        this.phoneIdentity = phoneIdentity;
+    }
+
+    public int getIdcardIdentity() {
+        return idcardIdentity;
+    }
+
+    public void setIdcardIdentity(int idcardIdentity) {
+        this.idcardIdentity = idcardIdentity;
+    }
+
+    public int getT_is_vip() {
+        return t_is_vip;
+    }
+
+    public void setT_is_vip(int t_is_vip) {
+        this.t_is_vip = t_is_vip;
+    }
+
+    public float getT_score() {
+        return t_score;
+    }
+
+    public void setT_score(float t_score) {
+        this.t_score = t_score;
+    }
 }

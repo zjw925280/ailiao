@@ -126,7 +126,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
             val ele = element as TIMCustomElem
             val json = String(ele.data)
             dataJson = JSONObject(json)
-            Log.e("啥数值呢","啥数值呢"+Gson().toJson(msg)+" json="+Gson().toJson(json))
             setData(dataJson)
             getNewStatus()
         }
@@ -134,7 +133,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
 
     private fun getNewStatus() {
         var status1=-1
-        Log.e("自付","mpay="+mpay)
         if (mpay){
             status1 = dataJson.optInt("invitationStatus")
         }else{
@@ -143,14 +141,12 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         setData(dataJson)
         if (status1 <= 1) {
             if (mpay){
-                Log.e("自付","mpay="+mpay)
                 getInvitation( dataJson.optInt("invitationID"),dataJson.optInt("invitationStatus")){
                         dataJson.remove("invitationStatus")
                         dataJson.put("invitationStatus", it)
                        setData(dataJson)
                 }
             }else{
-                Log.e("自付","mpay="+mpay)
                 doGetNewStatus( dataJson.optInt("appointmentId"), dataJson.optInt("appointmentStatus")) {
                         dataJson.remove("appointmentStatus")
                         dataJson.put("appointmentStatus", it)
@@ -159,7 +155,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
             }
 
         } else {
-            Log.e("自付","status1>1")
             setData(dataJson)
         }
     }
@@ -168,7 +163,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
             val map = HashMap<String, Any>()
             map["appointmentId"] = dateId
             map["appointmentStatus"] = status
-           Log.e("自付","dateId="+dateId+" appointmentStatus="+status)
             OkHttpUtils.post().url("${BuildConfig.hostAddress}app/getAppointmentStatus.html")
                 .addParams("param", getParamStr(map))
                 .build().execute(object : AjaxCallback<BaseResponse<StatusBean>>() {
@@ -195,7 +189,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         val method = cls.getDeclaredMethod("getParam", Map::class.java)
         method.isAccessible = true
         return method.invoke(constructor.newInstance(), map) as String
-
     }
 
     private fun setData(jObject: JSONObject) {
@@ -206,7 +199,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         }else{
             dateStatus = jObject.optInt("appointmentStatus")
         }
-
         //根据状态[dateStatus]设置背景的图片加载
         bgIv.background =
             ContextCompat.getDrawable(
@@ -233,15 +225,15 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         nameText.text = jObject.optString("inviterName")
         cityText.text = jObject.optString("appointmentAddress")
         val remark = jObject.optString("remarks")
-        if (remark.isNotEmpty()) {
+        if (remark!=null&&!remark.equals("")) {
             remarkText.text = remark
             remarkIcon.visibility = View.VISIBLE
             remarkText.visibility = View.VISIBLE
         } else {
+
             remarkIcon.visibility = View.GONE
             remarkText.visibility = View.GONE
         }
-        Log.e("是不是时间戳","是不是时间戳="+jObject.optString("appointmentTime"))
         if (jObject.optString("appointmentTime").length==13){
             timeText.text = SimpleDateFormat("yyyy/MM/dd  HH:mm", Locale.CHINA).format(
                     Date(
@@ -257,7 +249,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         }else{
             timeText.text = jObject.optString("appointmentTime")
         }
-
 
         ageText.text = jObject.optInt("inviterAge").toString()
         //设置性别显示
@@ -277,7 +268,6 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
                 //同意或拒绝约会的按钮点击监听
                 refuseBtn.setOnClickListener {
                     //拒绝邀请
-                    Log.e("自付","mpay="+mpay)
                     if (mpay){//拒绝邀请
 //                        createDate(refuseBtn,dataJson.optString("appointmentAddress"),
 //                            dataJson.optString("appointmentTime"),
@@ -307,8 +297,8 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
             }
             else -> {
                 statusIv.visibility = View.VISIBLE
-                remarkIcon.visibility = View.GONE
-                remarkText.visibility = View.GONE
+                remarkIcon.visibility = View.VISIBLE
+                remarkText.visibility = View.VISIBLE
                 acceptBtn.visibility = View.GONE
                 refuseBtn.visibility = View.GONE
             }
@@ -366,6 +356,7 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
             paramMap["appointmentAddress"] = address
             paramMap["remarks"] = mark
             paramMap["isDeley"] = true
+            Log.e("啥数值呢","params ========="+mark)
             Log.e("ralph", "params ========= $paramMap")
             //创建请求
             OkHttpUtils.post()
@@ -430,10 +421,10 @@ class MessageChatDateHolder(itemView: View,private val context: Context) : Messa
         alertDialogBuilder.setNegativeButton("关闭") { dialog, _ ->
             dialog.dismiss()
         }
+        Log.e("啥数值呢"," dataJson.optString(\"remarks\")="+ dataJson.optString("remarks"))
         // 设置确认按钮
         alertDialogBuilder.setPositiveButton("支付") { dialog, _ ->
             isYes = 0
-
             createDate(acceptBtn,dataJson.optString("appointmentAddress"),
                 dataJson.optString("appointmentTime"),
                 dataJson.optString("remarks"), dataJson.optString("inviterPhone"), dataJson.optInt("inviteeId"), dataJson.optInt("inviterId"),dataJson.optInt("giftId"),dataJson.optString("inviterName"),dataJson.optInt("inviterId").toString(),dataJson.optInt("invitationID"))

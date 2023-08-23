@@ -5,37 +5,47 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@drawable/shape_bg_corner8_white">
-
-    <View
+    <RelativeLayout
+        android:paddingBottom="8dp"
+        android:paddingTop="8dp"
         android:id="@+id/titleBg"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:background="@drawable/selector_bg_date_mine_item_title"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent" >
 
     <android.support.v7.widget.AppCompatImageView
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
         android:id="@+id/cityIcon"
         android:layout_width="@dimen/dp_16"
         android:layout_height="@dimen/dp_16"
         android:layout_marginStart="12dp"
         android:adjustViewBounds="true"
         android:src="@drawable/selector_icon_date_mine_item_city"
-        app:layout_constraintBottom_toBottomOf="@id/titleBg"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="@id/titleBg" />
+        />
 
     <android.support.v7.widget.AppCompatTextView
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/cityIcon"
         android:id="@+id/cityText"
-        android:layout_width="wrap_content"
+        android:layout_toLeftOf="@+id/lin_qusxiao"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:textColor="@color/black_333333"
         android:textSize="14sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/titleBg"
-        app:layout_constraintLeft_toRightOf="@+id/cityIcon"
-        app:layout_constraintTop_toTopOf="@+id/titleBg"
-        tools:text="西安市" />
+        tools:text="西安市vvvvvvvvvvvvs;dlkjsdlksjdlkskldj;slsl;djs;ldja;lsdjas;ldja;ljsd;aljsd;lajs;dlja;salsjd;aljsd;lajsd;aasl;dja;lsdj;aljd;alsjd;aljsd;lajsd;llajs;oa;ldj;alsdvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv" />
+
+<LinearLayout
+
+    android:layout_centerVertical="true"
+    android:id="@+id/lin_qusxiao"
+    android:layout_alignParentRight="true"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
 
     <android.support.v7.widget.AppCompatTextView
@@ -52,10 +62,20 @@
         android:text="约会暗语"
         android:textColor="@color/white"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/titleBg"
-        app:layout_constraintRight_toLeftOf="@+id/btnAppeal"
-        app:layout_constraintTop_toTopOf="@+id/titleBg" />
+        />
 
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/btnCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        android:background="@drawable/shape_date_refuse_button"
+        android:gravity="center"
+        android:paddingHorizontal="8dp"
+        android:paddingVertical="7dp"
+        android:text="取消约会"
+        android:textColor="#9A52F4"
+        android:textSize="14sp"/>
     <android.support.v7.widget.AppCompatTextView
         android:id="@+id/btnAppeal"
         android:layout_width="wrap_content"
@@ -69,26 +89,10 @@
         android:text="申诉"
         android:textColor="@color/black"
         android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/titleBg"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/titleBg" />
-
-    <android.support.v7.widget.AppCompatTextView
-        android:id="@+id/btnCancel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="12dp"
-        android:background="@drawable/shape_date_refuse_button"
-        android:gravity="center"
-        android:paddingHorizontal="8dp"
-        android:paddingVertical="7dp"
-        android:text="取消约会"
-        android:textColor="#9A52F4"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="@+id/titleBg"
-        app:layout_constraintRight_toLeftOf="@+id/btnCode"
-        app:layout_constraintTop_toTopOf="@+id/titleBg" />
-
+        />
+</LinearLayout>
+        />
+    </RelativeLayout>
     <TableLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

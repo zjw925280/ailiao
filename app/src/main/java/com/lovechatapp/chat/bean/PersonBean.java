@@ -37,6 +37,8 @@ public class PersonBean<T, K> extends BaseBean {
     public String t_video_img;//视频封面图
     public String t_addres_url;//视频地址
     public String t_marriage;//婚姻状况
-
+    public String hobby;//兴趣爱好
+    public int car;//车子
+    public int house;//房子
 
 }

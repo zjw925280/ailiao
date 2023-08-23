@@ -84,7 +84,7 @@ import io.agora.rtc.Constants;
 import okhttp3.Call;
 
 
-public class AudioChatActivity extends BaseActivity implements TIMMessageListener {
+public class  AudioChatActivity extends BaseActivity implements TIMMessageListener {
 
     //上方信息部分----------------------------
     //头像
@@ -693,6 +693,11 @@ public class AudioChatActivity extends BaseActivity implements TIMMessageListene
                     return;
                 }
                 if (response != null) {
+                    if(response.m_strMessage.contains("余额不足")){
+                        Intent intent = new Intent(AudioChatActivity.this, ChargeActivity.class);
+                        startActivity(intent);
+                    }else {
+
                     if (response.m_istatus == NetCode.SUCCESS) {
                         joinChannel();
                     } else if (response.m_istatus == -7) {
@@ -700,12 +705,19 @@ public class AudioChatActivity extends BaseActivity implements TIMMessageListene
                     } else if (response.m_istatus == -1) {
                         ChargeHelper.showSetCoverDialog(AudioChatActivity.this);
                     } else {
-                        if (!TextUtils.isEmpty(response.m_strMessage)) {
-                            ToastUtil.INSTANCE.showToast(getApplicationContext(), response.m_strMessage);
-                        } else {
-                            ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.please_retry);
+                        if (response.m_istatus==-5){
+                            ToastUtil.INSTANCE.showToast("余额不足!请充值");
+                            Intent intent = new Intent(AudioChatActivity.this, ChargeActivity.class);
+                            startActivity(intent);
+                        }else {
+                            if (!TextUtils.isEmpty(response.m_strMessage)) {
+                                ToastUtil.INSTANCE.showToast(getApplicationContext(), response.m_strMessage);
+                            } else {
+                                ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.please_retry);
+                            }
+                            finish();
                         }
-                        finish();
+                    }
                     }
                 } else {
                     ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.please_retry);

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -183,7 +184,76 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="gone" />
+        <!--微信号-->
+        <RelativeLayout
+            android:id="@+id/we_chat_rl"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_info_text_one_back"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:visibility="gone">
 
+            <!--微信号-->
+            <TextView
+                android:id="@+id/we_chat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/see_wechat_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:text="查看微信"
+                android:textColor="@color/red_ff7689"
+                android:textSize="14sp"
+                android:visibility="visible"
+                tools:ignore="RelativeOverlap"
+                />
+
+        </RelativeLayout>
+
+        <!--手机号-->
+        <RelativeLayout
+            android:id="@+id/phone_rl"
+            android:layout_width="250dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/shape_info_text_one_back"
+            android:orientation="horizontal"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:visibility="gone">
+
+            <!--手机号-->
+            <TextView
+                android:id="@+id/phone_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/see_phone_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:gravity="center_vertical"
+                android:text="查看手机"
+                android:textColor="@color/red_ff7689"
+                android:textSize="14sp"
+                android:visibility="visible"
+                tools:ignore="RelativeOverlap" />
+
+        </RelativeLayout>
         <TextView
             style="@style/actor_menu"
             android:text="TA的守护" />

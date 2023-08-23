@@ -30,6 +30,7 @@ import com.lovechatapp.chat.helper.SharedPreferenceHelper;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.util.CodeUtil;
+import com.lovechatapp.chat.util.FinishActivityManager;
 import com.lovechatapp.chat.util.LogUtil;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.SystemUtil;
@@ -87,6 +88,7 @@ public class ScrollLoginActivity extends BaseActivity {
 
     @Override
     protected void onContentAdded() {
+
         needHeader(false);
         initStart();
 
@@ -102,6 +104,12 @@ public class ScrollLoginActivity extends BaseActivity {
         if (hasFocus) {
             saveClipShareUserId();
         }
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
     }
 
     /**
@@ -145,7 +153,7 @@ public class ScrollLoginActivity extends BaseActivity {
             case R.id.agree_tv: {//用户协议
                 Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
                 intent.putExtra(Constant.TITLE, getString(R.string.agree_detail));
-                intent.putExtra(Constant.URL, "file:///android_asset/agree.html");
+                intent.putExtra(Constant.URL, "http://api.zhongzhiqian.cn:8080/tmApp/file/agreement.txt");
                 startActivity(intent);
                 break;
             }
