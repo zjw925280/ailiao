@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="48dp"
-            android:text="甛觅Mru视频交友平台"
+            android:text="甛觅Mru"
             android:textColor="@color/gray_666666"
             android:textSize="20sp" />
 

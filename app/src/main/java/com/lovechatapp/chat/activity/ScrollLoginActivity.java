@@ -47,6 +47,7 @@ import com.tencent.tauth.UiError;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.HashMap;
@@ -109,7 +110,6 @@ public class ScrollLoginActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
     /**
@@ -147,7 +147,7 @@ public class ScrollLoginActivity extends BaseActivity {
         return false;
     }
 
-    @OnClick({R.id.phone_tv, R.id.agree_tv, R.id.qq_tv, R.id.we_chat_tv, R.id.private_tv})
+    @OnClick({R.id.phone_tv, R.id.qq_tv, R.id.we_chat_tv, R.id.agree_tv, R.id.private_tv})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.agree_tv: {//用户协议
@@ -158,36 +158,34 @@ public class ScrollLoginActivity extends BaseActivity {
                 break;
             }
             case R.id.private_tv: {//隐私协议
-//                Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
-//                intent.putExtra(Constant.TITLE, getString(R.string.private_detail));
+                Intent intent = new Intent(this, CommonWebViewActivity.class);
+                intent.putExtra(Constant.TITLE, getString(R.string.private_detail));
 //                intent.putExtra(Constant.URL, "file:///android_asset/private.html");
-////                intent.putExtra(Constant.URL, "http://api.lnqianlian.top:8080/tmApp/file/privacy.txt");
-//                startActivity(intent);
-
-//                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-//                    startActivity(intent);
+                intent.putExtra(Constant.URL, "http://api.lnqianlian.top:8080/tmApp/file/privacy.txt");
+                startActivity(intent);
                 break;
             }
             case R.id.phone_tv: {//手机号
-//                if (checkAgree()) {
-//                    return;
-//                }
+                if (checkAgree()) {
+                    return;
+                }
+                FinishActivityManager.getManager().finishActivity(SplashActivity.class);
                 Intent intent = new Intent(getApplicationContext(), PhoneLoginActivity.class);
                 startActivity(intent);
-                finish();
+
                 break;
             }
             case R.id.qq_tv: {//QQ
-//                if (checkAgree()) {
-//                    return;
-//                }
+                if (checkAgree()) {
+                    return;
+                }
                 loginQQ();
                 break;
             }
             case R.id.we_chat_tv: {
-//                if (checkAgree()) {
-//                    return;
-//                }
+                if (checkAgree()) {
+                    return;
+                }
                 loginToWeiXin();
                 break;
             }
@@ -329,7 +327,6 @@ public class ScrollLoginActivity extends BaseActivity {
             mBeenCloseDialog.show();
         }
     }
-
     /**
      * 设置查看微信号提醒view
      */
@@ -352,7 +349,7 @@ public class ScrollLoginActivity extends BaseActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
                 intent.putExtra(Constant.TITLE, getResources().getString(R.string.agree_detail));
-                intent.putExtra(Constant.URL, "file:///android_asset/agree.html");
+                intent.putExtra(Constant.URL, "http://api.zhongzhiqian.cn:8080/tmApp/file/agreement.txt");
                 startActivity(intent);
                 mDialog.dismiss();
             }
@@ -438,25 +435,34 @@ public class ScrollLoginActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response, int id) {
-                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
-                    try {
-                        int startIndex = response.indexOf("{");
-                        int endIndex = response.indexOf("}");
-                        String content = response.substring(startIndex, endIndex + 1);
-                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
-                        String cip = jsonObject.getString("cip");
-                        if (!TextUtils.isEmpty(cip)) {
-                            loginQQWay(object, cip);
-                        } else {
-                            loginQQWay(object, "0.0.0.0");
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        loginQQWay(object, "0.0.0.0");
-                    }
+
+
+                String replace = response.replace("ipCallback({ip:\"", "");
+                String    cip= replace.replace("\"})", "");
+                if (!TextUtils.isEmpty(cip)) {
+                    loginQQWay(object, cip);
                 } else {
                     loginQQWay(object, "0.0.0.0");
                 }
+//                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
+//                    try {
+//                        int startIndex = response.indexOf("{");
+//                        int endIndex = response.indexOf("}");
+//                        String content = response.substring(startIndex, endIndex + 1);
+//                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
+//                        String cip = jsonObject.getString("cip");
+//                        if (!TextUtils.isEmpty(cip)) {
+//                            loginQQWay(object, cip);
+//                        } else {
+//                            loginQQWay(object, "0.0.0.0");
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        loginQQWay(object, "0.0.0.0");
+//                    }
+//                } else {
+//                    loginQQWay(object, "0.0.0.0");
+//                }
             }
         });
     }

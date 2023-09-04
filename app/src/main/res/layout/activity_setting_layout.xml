@@ -132,6 +132,36 @@
         </RelativeLayout>
 
         <View style="@style/HorizontalDivideLine" />
+        <!--消息提示震动-->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="18dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:text="个性化推荐"
+                android:textColor="@color/black_333333"
+                android:textSize="17sp"
+                tools:ignore="RelativeOverlap" />
+
+            <ImageView
+                android:id="@+id/vibrate_group"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="14dp"
+                android:background="@drawable/selector_bother_checked_background"
+                android:contentDescription="@null" />
+
+        </RelativeLayout>
+
+        <View style="@style/HorizontalDivideLine" />
 
         <TextView
             android:id="@+id/black_tv"
@@ -320,7 +350,7 @@
             android:textColor="@color/black_333333"
             android:textSize="17sp"
             tools:ignore="RelativeOverlap" />
-
+        <View style="@style/HorizontalDivideLine" />
 <!--        <View style="@style/HorizontalDivideLine" />-->
 <!--        <TextView-->
 <!--            android:id="@+id/gongs_tv"-->
@@ -365,6 +395,7 @@
 
 <!--        <View style="@style/HorizontalDivideLine" />-->
         <TextView
+            android:layout_marginBottom="20dp"
             android:id="@+id/exit_tv"
             android:layout_width="250dp"
             android:layout_height="50dp"

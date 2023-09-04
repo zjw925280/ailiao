@@ -58,7 +58,7 @@ public class SharedPreferenceHelper {
     private static final String SOUND2 = "tip_sound2";
     private static final String VIBRATE = "tip_vibrate";
     private static final String VIBRATE2 = "tip_vibrate2";
-
+    private static final String GEXINGHUI = "tip_gengxinghui";
     //客服QQ号
     private static final String KEY_QQ = "key_qq";
     private static final String QQ = "qq";
@@ -272,6 +272,19 @@ public class SharedPreferenceHelper {
         SharedPreferences.Editor editor = sp.edit();
         editor.putBoolean(SOUND, open);
         editor.apply();
+    }
+    /**
+     * 保存个性化推荐
+     */
+    public static void saveTipSound5(Context context, boolean open) {
+        SharedPreferences sp = context.getSharedPreferences(KEY_TIP, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean(GEXINGHUI, open);
+        editor.apply();
+    }
+    public static boolean getTipSound5(Context context) {
+        SharedPreferences sp = context.getSharedPreferences(KEY_TIP, Context.MODE_PRIVATE);
+        return sp.getBoolean(GEXINGHUI, false);
     }
 
     /**

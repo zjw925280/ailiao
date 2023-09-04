@@ -186,7 +186,7 @@
             app:layout_constraintRight_toLeftOf="@+id/btn_date"
             app:layout_constraintTop_toTopOf="@+id/btn_video" />
 
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/btn_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

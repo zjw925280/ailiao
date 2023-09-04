@@ -451,7 +451,25 @@ public class PersonDataFragment extends BaseFragment  {
             list.add("婚姻: " + actorInfoBean.t_marriage);
         }
 
+        if (actorInfoBean.house==0) {
+            list.add("房子: 没有");
+        }else if(actorInfoBean.house==1){
+            list.add("房子: 有");
+        }else if(actorInfoBean.house==2){
+            list.add("房子: 保密");
+        }
 
+        if (actorInfoBean.car==0) {
+            list.add("车子: 没有");
+        }else if(actorInfoBean.car==1){
+            list.add("车子: 有");
+        }else if(actorInfoBean.car==2){
+            list.add("车子: 保密");
+        }
+
+        if (!TextUtils.isEmpty(actorInfoBean.hobby)) {
+            list.add("兴趣爱好: " + actorInfoBean.hobby);
+        }
 
         if (TextUtils.isEmpty(bean.getT_weixin()) || bean.getT_role() < 1) {
             we_chat_rl.setVisibility(View.GONE);
@@ -613,7 +631,6 @@ public class PersonDataFragment extends BaseFragment  {
         if (bean.getAnchorSetup() != null && bean.getAnchorSetup().size() > 0) {
             ChargeBean chargeBean =  bean.getAnchorSetup().get(0);
             cost = (position == 0) ? chargeBean.getT_weixin_gold() : chargeBean.getT_phone_gold();
-
             if (cost == 0f) {
                 see_des_tv.setText(getString(R.string.info_block_des, typeStr));
             } else {

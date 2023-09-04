@@ -78,7 +78,11 @@ class DateMineListFragment : BaseFragment() {
                                 binding.cityIcon.isSelected = isActive
                                 when (mStatusTag) {
                                     DateBean.DATE_STATUS_NOT_GO -> {
-                                        if (System.currentTimeMillis()>data.appointmentTime)  binding.btnAppeal.visibility = View.VISIBLE else binding.btnAppeal.visibility = View.GONE
+                                        if (System.currentTimeMillis()>data.appointmentTime) {
+                                            binding.btnAppeal.visibility = View.GONE
+                                        } else {
+                                            binding.btnAppeal.visibility = View.VISIBLE
+                                        }
 
                                         if (data.isSelf()) {
                                             binding.codeRow.visibility = View.GONE

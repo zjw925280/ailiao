@@ -61,7 +61,6 @@ public class ConnectManager {
      * 每次连接时重新初始化
      */
     private void init() {
-
         //销毁连接对象
         if (mConnection != null) {
             mConnection.dispose();

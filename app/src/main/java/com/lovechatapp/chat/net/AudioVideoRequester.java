@@ -40,7 +40,7 @@ import sakura.bottommenulibrary.bottompopfragmentmenu.BottomMenuFragment;
 import sakura.bottommenulibrary.bottompopfragmentmenu.MenuItem;
 
 public class AudioVideoRequester {
-
+//1:视频 2:语音
     public static final int CHAT_VIDEO = 1;
 
     public static final int CHAT_AUDIO = 2;

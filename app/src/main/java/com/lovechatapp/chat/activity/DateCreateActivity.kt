@@ -37,7 +37,9 @@ import com.tencent.qcloud.tim.uikit.modules.chat.base.ChatInfo
 import com.tencent.qcloud.tim.uikit.modules.chat.layout.message.ImCustomMessage
 import com.tencent.qcloud.tim.uikit.modules.message.MessageInfo
 import com.zhy.http.okhttp.OkHttpUtils
+import okhttp3.Call
 import org.json.JSONObject
+import java.lang.Exception
 
 /**
  * 发起约会界面
@@ -106,6 +108,8 @@ class DateCreateActivity : BaseActivity() {
             showGiftDialog()
         }
         mBinding.btnSubmit.setClick {//提交约会按钮点击
+
+
             val address =
                 mBinding.textAddress.text.toString().trim()//获取输入的地址
             val phone = mBinding.textPhone.text.toString().trim()//获取手机号码
@@ -220,6 +224,7 @@ class DateCreateActivity : BaseActivity() {
     /**使用输入的地址[address]， 约会时间[time]， 备注[mark]创建约会的方法*/
     @SuppressLint("SimpleDateFormat")
      fun createDate(address: String, time: String, mark: String, phone: String) {
+        mBinding.btnSubmit.isEnabled=false
         showLoadingDialog()
         if (isCreateRequested && jsonStr.isNotEmpty()) {//如果已经请求过创建约会的服务器且成功，则直接发送消息
             sendMessage()
@@ -244,6 +249,10 @@ class DateCreateActivity : BaseActivity() {
             .addParams("param", ParamUtil.getParam(paramMap))
             .build()
             .execute(object : AjaxCallback<BaseResponse<String>?>() {
+                override fun onError(call: Call?, e: Exception?, id: Int) {
+                    super.onError(call, e, id)
+                    mBinding.btnSubmit.isEnabled=true
+                }
                 override fun onResponse(response: BaseResponse<String>?, id: Int) {
                     if (this@DateCreateActivity.isFinishing) {
                         return
@@ -259,17 +268,19 @@ class DateCreateActivity : BaseActivity() {
                                 sendMessage()
                             }
                             -1 -> {//请求出错，提示用户
+                                mBinding.btnSubmit.isEnabled=true
                                 if(m_strMessage.contains("余额不足")){
-                                    ToastUtil.showToast(m_strMessage)
+                                     ToastUtil.showToast(m_strMessage)
                                     val intent = Intent(this@DateCreateActivity, ChargeActivity::class.java)
                                     startActivity(intent)
                                     finish()
                                 }else{
-
-                                    ToastUtil.showToast(m_strMessage)
+                                    ToastUtil.showToast("请返回约会列表查看")
+                                    finish()
                                 }
                             }
                             else -> {
+                                mBinding.btnSubmit.isEnabled=true
                                 ToastUtil.showToast("发起约会失败，请稍后重试")
                             }
                         }
@@ -331,13 +342,14 @@ class DateCreateActivity : BaseActivity() {
             //发送消息
             C2CChatManagerKit.getInstance().sendMessage(info, false, object : IUIKitCallBack {
                 override fun onSuccess(data: Any?) {
+                    mBinding.btnSubmit.isEnabled=true
                     ToastUtil.showToast("发送成功")
                     //消息发送成功，退出界面
                     this@DateCreateActivity.finish()
                 }
 
                 override fun onError(module: String?, errCode: Int, errMsg: String?) {
-                    //TODO 失败处理
+                    mBinding.btnSubmit.isEnabled=true
                     Log.e("是不是这个","出错啦errMsg=="+errMsg+" module="+module)
                 }
             })

@@ -118,7 +118,6 @@ public abstract class AbsRecycleAdapter extends RecyclerView.Adapter<ViewHolder>
     }
 
     public static class Type {
-
         int layoutId;
         Class clazz;
 

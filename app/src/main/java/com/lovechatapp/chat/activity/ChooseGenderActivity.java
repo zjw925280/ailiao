@@ -3,10 +3,13 @@ package com.lovechatapp.chat.activity;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
+import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseActivity;
@@ -16,9 +19,14 @@ import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.helper.SharedPreferenceHelper;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
+import com.lovechatapp.chat.util.LogUtil;
 import com.lovechatapp.chat.util.ParamUtil;
 import com.lovechatapp.chat.util.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -57,6 +65,8 @@ public class ChooseGenderActivity extends BaseActivity {
     private final int BOY = 1;
     private final int GIRL = 0;
     private int mSelectGender = -1;
+    private String cip;
+    private String city;
 
     private ChatUserInfo chatUserInfo;
 
@@ -95,7 +105,7 @@ public class ChooseGenderActivity extends BaseActivity {
                 break;
             }
             case R.id.right_text: {//确定
-                chooseGender();
+                getRealIp();
                 break;
             }
         }
@@ -146,9 +156,66 @@ public class ChooseGenderActivity extends BaseActivity {
     }
 
     /**
+     * 获取真实ip
+     */
+    private void getRealIp() {
+        OkHttpUtils.get().url(ChatApi.GET_REAL_IP())
+                .build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        chooseGender("","");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("这是cityWX真实IP: " + response);
+                        String replace = response.replace("ipCallback({ip:\"", "");
+                        String cip= replace.replace("\"})", "");
+                        getCity(cip);
+                    }
+                });
+    }
+
+    /**
+     * 获取真实ip
+     */
+    private void getCity(String string) {
+        OkHttpUtils.get().url(ChatApi.GET_CITY(string))
+                .build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        chooseGender("","");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("这是city城市json: " + response);
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(response);
+                            String result = jsonObject.getString("result");
+                            JSONObject jsonObject1 = new JSONObject(result);
+                            String ad_info = jsonObject1.getString("ad_info");
+                            JSONObject jsonObject2 = new JSONObject(ad_info);
+                            String city = jsonObject2.getString("city");
+                            LogUtil.i("这是city城市信息: " + city+" ip="+string);
+                            chooseGender(string,city);
+                        } catch (JSONException e) {
+                            chooseGender("","");
+                            throw new RuntimeException(e);
+
+                        }
+
+                    }
+                });
+    }
+
+
+    /**
      * 选择性别
      */
-    private void chooseGender() {
+    private void chooseGender(String ip,String city) {
+        LogUtil.i("这是city进入访问接口: ip===" + ip+" city=="+city);
         if (mSelectGender == -1) {
             ToastUtil.INSTANCE.showToast("请选择性别");
             return;
@@ -156,9 +223,10 @@ public class ChooseGenderActivity extends BaseActivity {
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("userId", getUserId());
         paramMap.put("sex", String.valueOf(mSelectGender));
-//        if (!TextUtils.isEmpty(codeEt.getText().toString().trim())) {
-//            paramMap.put("id_card", codeEt.getText().toString().trim());
-//        }
+        paramMap.put("ip",ip );
+        paramMap.put("city",city );
+
+        LogUtil.i("这是city访问接口的参数","param==="+new Gson().toJson(paramMap));
         OkHttpUtils.post().url(ChatApi.UPDATE_USER_SEX())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {

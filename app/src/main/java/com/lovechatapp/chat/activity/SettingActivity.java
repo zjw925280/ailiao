@@ -84,6 +84,9 @@ public class SettingActivity extends BaseActivity {
     @BindView(R.id.vibrate_group_iv)
     ImageView mVibrateGroupIv;
 
+    @BindView(R.id.vibrate_group)
+    ImageView vibrate_group;
+
     @BindView(R.id.zhuxiao_tv)
     TextView zhuxiao_tv;
 
@@ -110,6 +113,10 @@ public class SettingActivity extends BaseActivity {
         //消息提示音
         boolean sound = SharedPreferenceHelper.getTipSound(getApplicationContext());
         mSoundIv.setSelected(sound);
+
+        //个性化推荐
+        boolean vibr= SharedPreferenceHelper.getTipSound5(getApplicationContext());
+        vibrate_group.setSelected(vibr);
 
         //群消息提示音
         boolean sound2 = SharedPreferenceHelper.getTipSound2(getApplicationContext());
@@ -140,8 +147,9 @@ public class SettingActivity extends BaseActivity {
 
     }
 
-
-    @OnClick({R.id.opinion_rl,
+    @OnClick({
+            R.id.vibrate_group,
+            R.id.opinion_rl,
             R.id.exit_tv,
             R.id.check_rl,
             R.id.clear_cache_tv,
@@ -153,9 +161,17 @@ public class SettingActivity extends BaseActivity {
             R.id.help_tv,
             R.id.agreement_tv,
             R.id.private_tv,
-            R.id.black_tv, R.id.zhuxiao_tv})
+            R.id.black_tv,
+            R.id.zhuxiao_tv
+    })
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.vibrate_group: {//个性化推荐
+                vibrate_group.setSelected(!vibrate_group.isSelected());
+                SharedPreferenceHelper.saveTipSound5(getApplicationContext(), vibrate_group.isSelected());
+                RingVibrateManager.syncSwitch();
+                break;
+            }
             case R.id.zhuxiao_tv: {//注销账号
                 showDialogaa(SettingActivity.this);
                 break;

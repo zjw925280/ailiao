@@ -92,6 +92,7 @@ public class PhoneLoginActivity extends BaseActivity {
     CheckBox checkBox;
 
     private CountDownTimer mCountDownTimer;
+    private String cip;
 
     @Override
     protected void onDestroy() {
@@ -374,26 +375,29 @@ public class PhoneLoginActivity extends BaseActivity {
             @Override
             public void onResponse(String response, int id) {
                 LogUtil.i("WX真实IP: " + response);
-                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
-                    try {
-                        int startIndex = response.indexOf("{");
-                        int endIndex = response.indexOf("}");
-                        String content = response.substring(startIndex, endIndex + 1);
-                        LogUtil.i("截取的: " + content);
-                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
-                        String cip = jsonObject.getString("cip");
+//                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
+//                    try {
+//                        int startIndex = response.indexOf("{");
+//                        int endIndex = response.indexOf("}");
+//                        String content = response.substring(startIndex, endIndex + 1);
+//                        LogUtil.i("截取的: " + content);
+//                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
+//                        String cip = jsonObject.getString("cip");
+                LogUtil.i("WX真实IP: " + response);
+                String replace = response.replace("ipCallback({ip:\"", "");
+                cip= replace.replace("\"})", "");
                         if (!TextUtils.isEmpty(cip)) {
                             requestSmsLogin(cip, phone, verifyCode);
                         } else {
                             requestSmsLogin("0.0.0.0", phone, verifyCode);
                         }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        requestSmsLogin("0.0.0.0", phone, verifyCode);
-                    }
-                } else {
-                    requestSmsLogin("0.0.0.0", phone, verifyCode);
-                }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        requestSmsLogin("0.0.0.0", phone, verifyCode);
+//                    }
+//                } else {
+//                    requestSmsLogin("0.0.0.0", phone, verifyCode);
+//                }
             }
         });
     }

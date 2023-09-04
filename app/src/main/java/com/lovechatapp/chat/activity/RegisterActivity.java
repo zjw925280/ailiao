@@ -6,11 +6,13 @@ import android.content.Intent;
 import android.graphics.Point;
 import android.os.CountDownTimer;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -107,8 +109,15 @@ public class RegisterActivity extends BaseActivity {
             mPassCodeEt.setHint(getString(R.string.please_set_new_password));
         }
     }
-
-    @OnClick({R.id.send_verify_tv, R.id.confirm_tv, R.id.login_tv, R.id.register_tv})
+    private boolean checkAgree() {
+        CheckBox checkBox = findViewById(R.id.agree_cb);
+        if (!checkBox.isChecked()) {
+            ToastUtil.INSTANCE.showToast("请阅读并同意《用户协议》和《隐私政策》");
+            return true;
+        }
+        return false;
+    }
+    @OnClick({R.id.agree_tv, R.id.private_tv,R.id.send_verify_tv, R.id.confirm_tv, R.id.login_tv, R.id.register_tv})
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.send_verify_tv: {//获取验证码
@@ -130,11 +139,27 @@ public class RegisterActivity extends BaseActivity {
                 break;
             }
             case R.id.register_tv: {//注册
+
                 int joinTypeRegister = 0;
                 Intent intent = new Intent(getApplicationContext(), RegisterActivity.class);
                 intent.putExtra(Constant.JOIN_TYPE, joinTypeRegister);
                 startActivity(intent);
                 finish();
+                break;
+            }
+            case R.id.agree_tv: {//用户协议
+                Intent intent = new Intent(getApplicationContext(), CommonWebViewActivity.class);
+                intent.putExtra(Constant.TITLE, getString(R.string.agree_detail));
+                intent.putExtra(Constant.URL, "http://api.zhongzhiqian.cn:8080/tmApp/file/agreement.txt");
+                startActivity(intent);
+                break;
+            }
+            case R.id.private_tv: {//隐私协议
+                Intent intent = new Intent(this, CommonWebViewActivity.class);
+                intent.putExtra(Constant.TITLE, getString(R.string.private_detail));
+//                intent.putExtra(Constant.URL, "file:///android_asset/private.html");
+                intent.putExtra(Constant.URL, "http://api.lnqianlian.top:8080/tmApp/file/privacy.txt");
+                startActivity(intent);
                 break;
             }
         }
@@ -228,26 +253,36 @@ public class RegisterActivity extends BaseActivity {
             @Override
             public void onResponse(String response, int id) {
                 LogUtil.i("WX真实IP: " + response);
-                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
-                    try {
-                        int startIndex = response.indexOf("{");
-                        int endIndex = response.indexOf("}");
-                        String content = response.substring(startIndex, endIndex + 1);
-                        LogUtil.i("截取的: " + content);
-                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
-                        String cip = jsonObject.getString("cip");
-                        if (!TextUtils.isEmpty(cip)) {
-                            register(cip);
-                        } else {
-                            register("0.0.0.0");
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        register("0.0.0.0");
-                    }
+
+                String replace = response.replace("ipCallback({ip:\"", "");
+                String    cip= replace.replace("\"})", "");
+                if (!TextUtils.isEmpty(cip)) {
+                    register(cip);
                 } else {
                     register("0.0.0.0");
                 }
+
+//
+//                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
+//                    try {
+//                        int startIndex = response.indexOf("{");
+//                        int endIndex = response.indexOf("}");
+//                        String content = response.substring(startIndex, endIndex + 1);
+//                        LogUtil.i("截取的: " + content);
+//                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
+//                        String cip = jsonObject.getString("cip");
+//                        if (!TextUtils.isEmpty(cip)) {
+//                            register(cip);
+//                        } else {
+//                            register("0.0.0.0");
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        register("0.0.0.0");
+//                    }
+//                } else {
+//                    register("0.0.0.0");
+//                }
             }
         });
     }
@@ -256,6 +291,9 @@ public class RegisterActivity extends BaseActivity {
      * 注册
      */
     private void register(String ip) {
+        if (checkAgree()) {
+            return;
+        }
         final String phone = mMobileEt.getText().toString().trim();
         if (TextUtils.isEmpty(phone)) {
             ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.phone_number_null);
@@ -284,7 +322,7 @@ public class RegisterActivity extends BaseActivity {
         //用于师徒
         String t_system_version = "Android " + SystemUtil.getSystemVersion();
         String deviceNumber = SystemUtil.getOnlyOneId(getApplicationContext());
-
+        Log.i("deviceNumber","deviceNumber=="+deviceNumber);
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("phone", phone);
         paramMap.put("password", password);
@@ -415,6 +453,7 @@ public class RegisterActivity extends BaseActivity {
         confirm_tv.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 String code = code_et.getText().toString().trim();
                 if (TextUtils.isEmpty(code)) {
                     ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.please_input_image_code);

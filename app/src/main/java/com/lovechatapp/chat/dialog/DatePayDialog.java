@@ -61,8 +61,10 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
     private TextView tv_df;
     public  static boolean isPay=true;
     private TextView tv_money;
+    private TextView tv_suer_pay;
     private final String chatid;
     private  DateGiftBean bean;
+
     /**是否已经请求创建约会接口并成功*/
     private boolean isCreateRequested = false;
     public DatePayDialog(@NonNull Activity context, String inviteeId,String chatid ,String targetName, String address, String time, String phone , String mark, DateGiftBean bean,boolean isPay) {
@@ -99,7 +101,8 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
                 dismiss();
             }
         });
-        findViewById(R.id.tv_suer_pay).setOnClickListener(new View.OnClickListener() {
+         tv_suer_pay = findViewById(R.id.tv_suer_pay);
+        tv_suer_pay  .setOnClickListener(new View.OnClickListener() {
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View view) {
@@ -140,7 +143,7 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
     }
 
     private void getDateId(String dateTime) {
-
+        tv_suer_pay.setEnabled(false);
         Map<String, Object> paramMap = new HashMap<>();
 //        paramMap.put("inviterId",AppManager.getInstance().getUserInfo().t_id);
 //        paramMap.put("inviteeId",chatid);
@@ -159,6 +162,7 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
                     @RequiresApi(api = Build.VERSION_CODES.O)
                     @Override
                     public void onResponse(String response, int id) {
+
                         Log.e("返回啥","返回啥=="+response);
                         try {
                             JSONObject jsonObject = new JSONObject(response);
@@ -181,7 +185,7 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
                     public void onError(Call call, Exception e, int id) {
                         super.onError(call, e, id);
                         Log.e("失败", "params ========= "+e.getMessage());
-
+                        tv_suer_pay.setEnabled(true);
                     }
 
 
@@ -255,6 +259,7 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
         C2CChatManagerKit.getInstance().sendMessage(info, false,new IUIKitCallBack(){
             @Override
             public void onSuccess(Object data) {
+                tv_suer_pay.setEnabled(true);
 //                发生成功
                 ToastUtil.showToast(activity,"发送成功");
                 dismiss();
@@ -264,6 +269,7 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
             @Override
             public void onError(String module, int errCode, String errMsg) {
                 ToastUtil.showToast(activity, errMsg);
+                tv_suer_pay.setEnabled(true);
             }
         });
     } catch (JSONException e) {
@@ -277,7 +283,7 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
     @RequiresApi(api = Build.VERSION_CODES.O)
     @SuppressLint("SimpleDateFormat")
     private void createDate(boolean isPay,String address , String time,String  mark,String phone,int chatid) {
-
+        tv_suer_pay.setEnabled(false);
         if (isCreateRequested && !jsonStr.isEmpty()) {
             try {
                 JSONObject jsonObject = new JSONObject(jsonStr);
@@ -305,7 +311,14 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
                 .build()
                 .execute(new AjaxCallback<BaseResponse<String>>() {
                     @Override
+                    public void onError(Call call, Exception e, int id) {
+                        super.onError(call, e, id);
+                        tv_suer_pay.setEnabled(true);
+                    }
+
+                    @Override
                     public void onResponse(BaseResponse<String> response, int id) {
+                        tv_suer_pay.setEnabled(true);
                         Log.e("創建約會",""+new Gson().toJson(response));
                         if (response != null) {
                             switch (response.m_istatus) {
@@ -320,15 +333,14 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
                                         throw new RuntimeException(e);
                                     }
                                 case -1:
-
                                     if(response.m_strMessage.contains("余额不足")){
                                         ToastUtil.showToast(activity,response.m_strMessage);
                                         Intent intent = new Intent(activity, ChargeActivity.class);
                                         activity.startActivity(intent);
                                         activity.finish();
                                     }else{
-
-                                        ToastUtil.showToast(activity,response.m_strMessage);
+                                        activity.finish();
+                                        ToastUtil.showToast(activity,"请返回约会列表查看");
                                     }
                                     break;
                                 default:

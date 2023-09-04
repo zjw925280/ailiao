@@ -336,7 +336,7 @@ public class MineFragment extends BaseFragment {
             MineMenu bean = (MineMenu) adapter.getData().get(position);
             Class clazz = bean.clazz;
             if (clazz == Object.class) {//跳转客服
-//                CodeUtil.jumpToQQ(mContext);
+                CodeUtil.jumpToQQ(mContext);
             } else if (clazz == VerifyOptionActivity.class) {
 
 //                //未开放男性申请主播

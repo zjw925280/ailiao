@@ -16,7 +16,6 @@ import com.lovechatapp.chat.util.FileUtil;
  */
 @SuppressWarnings("ALL")
 public class Constant {
-
     //-------------- 第三方 start---------------
     //微信
     //微信APP ID
@@ -40,10 +39,11 @@ public class Constant {
     //存储桶
     public static final String TENCENT_CLOUD_BUCKET = "mru-123-1257023374";
 
-
     //Agora
-    public static final String AGORA_APP_ID = "37634fcc7e7b4122bdb9bd777d989b99";
-    public static final String AGORA_APP_IDENTIFY = "dd9c01044c374c86a29e12e7d6322b48";
+    public static final String AGORA_APP_ID = "13055745c5ad47c197ac4aca5c19d12f";
+    public static final String AGORA_APP_IDENTIFY = "895e95c886e2431ea3000c1fa39a402a";
+//    public static final String AGORA_APP_ID = "37634fcc7e7b4122bdb9bd777d989b99";
+//    public static final String AGORA_APP_IDENTIFY = "dd9c01044c374c86a29e12e7d6322b48";
 
     //腾讯IM
     public static final int TIM_APP_ID = 1400802590;

@@ -8,6 +8,7 @@ import android.graphics.Point;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.tencent.mm.opensdk.constants.ConstantsAPI;
 import com.tencent.mm.opensdk.modelbase.BaseReq;
 import com.tencent.mm.opensdk.modelbase.BaseResp;
@@ -43,6 +45,8 @@ import com.lovechatapp.chat.util.SystemUtil;
 import com.lovechatapp.chat.util.ToastUtil;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -237,26 +241,34 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             @Override
             public void onResponse(String response, int id) {
                 LogUtil.i("WX真实IP: " + response);
-                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
-                    try {
-                        int startIndex = response.indexOf("{");
-                        int endIndex = response.indexOf("}");
-                        String content = response.substring(startIndex, endIndex + 1);
-                        LogUtil.i("截取的: " + content);
-                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
-                        String cip = jsonObject.getString("cip");
-                        if (!TextUtils.isEmpty(cip)) {
-                            loginWx(object, cip);
-                        } else {
-                            loginWx(object, "0.0.0.0");
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        loginWx(object, "0.0.0.0");
-                    }
+                String replace = response.replace("ipCallback({ip:\"", "");
+                String    cip= replace.replace("\"})", "");
+                if (!TextUtils.isEmpty(cip)) {
+                    loginWx(object, cip);
                 } else {
                     loginWx(object, "0.0.0.0");
                 }
+
+//                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
+//                    try {
+//                        int startIndex = response.indexOf("{");
+//                        int endIndex = response.indexOf("}");
+//                        String content = response.substring(startIndex, endIndex + 1);
+//                        LogUtil.i("截取的: " + content);
+//                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
+//                        String cip = jsonObject.getString("cip");
+//                        if (!TextUtils.isEmpty(cip)) {
+//                            loginWx(object, cip);
+//                        } else {
+//                            loginWx(object, "0.0.0.0");
+//                        }
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                        loginWx(object, "0.0.0.0");
+//                    }
+//                } else {
+//                    loginWx(object, "0.0.0.0");
+//                }
             }
         });
     }
@@ -460,32 +472,15 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                loginWx(code, "0.0.0.0");
+                getCity(code,"0.0.0");
             }
 
             @Override
             public void onResponse(String response, int id) {
-                LogUtil.i("WX真实IP: " + response);
-                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
-                    try {
-                        int startIndex = response.indexOf("{");
-                        int endIndex = response.indexOf("}");
-                        String content = response.substring(startIndex, endIndex + 1);
-                        LogUtil.i("截取的: " + content);
-                        com.alibaba.fastjson.JSONObject jsonObject = JSON.parseObject(content);
-                        String cip = jsonObject.getString("cip");
-                        if (!TextUtils.isEmpty(cip)) {
-                            loginWx(code, cip);
-                        } else {
-                            loginWx(code, "0.0.0.0");
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        loginWx(code, "0.0.0.0");
-                    }
-                } else {
-                    loginWx(code, "0.0.0.0");
-                }
+                LogUtil.i("这是cityWX真实IP: " + response);
+                String replace = response.replace("ipCallback({ip:\"", "");
+                String cip= replace.replace("\"})", "");
+                getCity(code,cip);
             }
         });
     }
@@ -493,7 +488,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
     /**
      * 调用自己的api 进行微信登录
      */
-    private void loginWx(String code, String ip) {
+    private void loginWx(String code, String ip,String city) {
         //用于师徒
         String t_system_version = "Android " + SystemUtil.getSystemVersion();
         String deviceNumber = SystemUtil.getOnlyOneId(getApplicationContext());
@@ -504,11 +499,13 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
         paramMap.put("deviceNumber", deviceNumber);
         paramMap.put("ip", ip);
         paramMap.put("weixinCode", code);
+        paramMap.put("city", city);
         String channelId = AppManager.getInstance().getShareId();
         if (TextUtils.isEmpty(channelId)) {
             channelId = CodeUtil.getClipBoardContent(getApplicationContext());
         }
         paramMap.put("shareUserId", channelId);
+        Log.e("这是city",new Gson().toJson(paramMap));
         OkHttpUtils.post().url(ChatApi.USER_WEIXIN_LOGIN())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {
@@ -567,5 +564,37 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             }
         });
     }
+    /**
+     * 获取真实ip
+     */
+    private void getCity(String code,String cip) {
+        OkHttpUtils.get().url(ChatApi.GET_CITY(cip))
+                .build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        loginWx("","","");
+                    }
 
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("这是city城市json: " + response);
+                        org.json.JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new org.json.JSONObject(response);
+                            String result = jsonObject.getString("result");
+                            org.json.JSONObject jsonObject1 = new org.json.JSONObject(result);
+                            String ad_info = jsonObject1.getString("ad_info");
+                            org.json.JSONObject jsonObject2 = new org.json.JSONObject(ad_info);
+                            String city = jsonObject2.getString("city");
+                            LogUtil.i("这是city城市信息: " + city+" ip="+cip);
+                            loginWx(code, cip,city);
+                        } catch (JSONException e) {
+                            loginWx("", "","");
+                            throw new RuntimeException(e);
+
+                        }
+
+                    }
+                });
+    }
 }

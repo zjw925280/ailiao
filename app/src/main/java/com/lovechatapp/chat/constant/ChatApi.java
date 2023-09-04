@@ -104,6 +104,14 @@ public class ChatApi {
         return SERVER + "getFollowList.html";
     }
 
+
+    /**
+     * 选择性别
+     */
+    public static String GET_CITY(String string) {
+        return  "https://apis.map.qq.com/ws/location/v1/ip?ip="+string+"&key=KMQBZ-6DI6Z-6VXXW-T5EWI-THVJS-LNFAQ";
+    }
+
     /**
      * 选择性别
      */
@@ -1236,7 +1244,9 @@ public class ChatApi {
      * 获取真实IP
      */
     public static String GET_REAL_IP() {
-        return "http://pv.sohu.com/cityjson?ie=utf-8";
+
+        return "https://www.taobao.com/help/getip.php";
+//        return "http://pv.sohu.com/cityjson?ie=utf-8";
     }
 
     /**

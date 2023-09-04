@@ -13,8 +13,8 @@ android {
         applicationId "com.lovechatapp.chat"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 128
-        versionName "1.2.8"
+        versionCode 133
+        versionName "1.3.32"
         multiDexEnabled true// dex突破65535的限制
         ndk {
             abiFilters 'armeabi-v7a' , 'arm64-v8a'
@@ -66,10 +66,11 @@ android {
             buildConfigField "String", "rkey", "\"${AppKey}\""
             buildConfigField "String", "charset", "\"UTF-8\""
 //          buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
-//            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
+            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
             buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
-          buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
+//          buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
             signingConfig signingConfigs.release
+
         }
         //正式环境
         release {

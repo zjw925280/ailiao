@@ -134,6 +134,8 @@ public class ChatServeFragment extends BaseFragment {
         getView().findViewById(com.tencent.qcloud.tim.uikit.R.id.vip_btn).setVisibility(View.GONE);
         //守护
         getView().findViewById(com.tencent.qcloud.tim.uikit.R.id.protect_btn).setVisibility(View.GONE);
+        //约会
+        getView().findViewById(com.tencent.qcloud.tim.uikit.R.id.btn_date).setVisibility(View.GONE);
 
         //拦截器
         mChatLayout.setCanSend(new ISend() {

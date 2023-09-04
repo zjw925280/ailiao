@@ -51,15 +51,39 @@ public class ActorInfoBean<T, K, L, M> extends BaseBean {
     public int score;//星级
     public M bigRoomData;//大房间直播
     public int isGreet;//是否打过招呼
+    public String hobby;//兴趣爱好
+    public int house;//房子
+    public int car;//车子
 
     public int videoIdentity;// 视频认证状态 0未认证  1认证通过
     public int phoneIdentity;// 手机认证状态 0未认证  1认证通过（通过有无手机号判断）
     public int idcardIdentity;// 身份认证状态0未认证  1认证通过
-
     public int t_is_vip = 1;//	是否VIP 0.是1.否
-
     public float t_score;//分数
 
+    public String getHobby() {
+        return hobby;
+    }
+
+    public void setHobby(String hobby) {
+        this.hobby = hobby;
+    }
+
+    public int getHouse() {
+        return house;
+    }
+
+    public void setHouse(int house) {
+        this.house = house;
+    }
+
+    public int getCar() {
+        return car;
+    }
+
+    public void setCar(int car) {
+        this.car = car;
+    }
 
     public int getT_is_not_disturb() {
         return t_is_not_disturb;

@@ -1,5 +1,6 @@
 package com.lovechatapp.chat.fragment;
 
+import android.util.Log;
 import android.widget.TextView;
 
 import com.lovechatapp.chat.dialog.CityPickerDialog;
@@ -27,8 +28,10 @@ public class HomeCityFragment extends HomeContentFragment {
     protected void beforeGetData() {
         if (city == null) {
             String localCity = SharedPreferenceHelper.getCity(getActivity());
+            Log.e("city","localCity=="+localCity);
             requester.setParam("t_city", localCity);
         } else {
+            Log.e("city","city=="+city);
             requester.setParam("t_city", city);
             city = null;
         }
