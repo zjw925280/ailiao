@@ -92,6 +92,7 @@ public class VideoPlayFragment extends BaseFragment implements PLOnErrorListener
     private String videoUrl;
 
     private boolean canPlay = true;
+    private boolean qufan;
 
     @Override
     protected int initLayout() {
@@ -290,9 +291,15 @@ public class VideoPlayFragment extends BaseFragment implements PLOnErrorListener
                     ToastUtil.INSTANCE.showToast(requireActivity(), R.string.sex_can_not_communicate);
                     return;
                 }
+                if (AppManager.getInstance().getUserInfo().t_role==1){
+                    qufan=false;
+                }else {
+                    qufan=true;
+                }
+
                 AudioVideoRequester audioVideoRequester = new AudioVideoRequester(
                         requireActivity(),
-                        true,
+                        qufan,
                         mActorId);
 //                if (view.getId() == R.id.video_chat_btn) {
                 audioVideoRequester.executeVideo();

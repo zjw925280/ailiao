@@ -38,6 +38,9 @@ import com.lovechatapp.chat.util.VerifyUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -247,21 +250,15 @@ public class RegisterActivity extends BaseActivity {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                register("0.0.0.0");
+                register("0.0.0.0","");
             }
 
             @Override
             public void onResponse(String response, int id) {
                 LogUtil.i("WX真实IP: " + response);
-
                 String replace = response.replace("ipCallback({ip:\"", "");
-                String    cip= replace.replace("\"})", "");
-                if (!TextUtils.isEmpty(cip)) {
-                    register(cip);
-                } else {
-                    register("0.0.0.0");
-                }
-
+                String cip= replace.replace("\"})", "");
+                getCity(cip);
 //
 //                if (!TextUtils.isEmpty(response) && response.contains("{") && response.contains("}")) {
 //                    try {
@@ -288,9 +285,46 @@ public class RegisterActivity extends BaseActivity {
     }
 
     /**
+     * 获取真实ip
+     */
+    private void getCity(String cip) {
+        OkHttpUtils.get().url(ChatApi.GET_CITY(cip))
+                .build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        register("0.0.0.0","");
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("这是city城市json: " + response);
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(response);
+                            String result = jsonObject.getString("result");
+                            JSONObject jsonObject1 = new JSONObject(result);
+                            String ad_info = jsonObject1.getString("ad_info");
+                            JSONObject jsonObject2 = new JSONObject(ad_info);
+                            String city = jsonObject2.getString("city");
+                            LogUtil.i("这是city城市信息: " + city+" ip="+cip);
+                                register(cip,city);
+                        } catch (JSONException e) {
+                                register("0.0.0.0","");
+
+                            throw new RuntimeException(e);
+
+                        }
+
+                    }
+                });
+    }
+
+
+
+    /**
      * 注册
      */
-    private void register(String ip) {
+    private void register(String ip,String city) {
         if (checkAgree()) {
             return;
         }
@@ -331,6 +365,7 @@ public class RegisterActivity extends BaseActivity {
         paramMap.put("t_system_version", TextUtils.isEmpty(t_system_version) ? "" : t_system_version);
         paramMap.put("deviceNumber", deviceNumber);
         paramMap.put("ip", ip);
+        paramMap.put("t_city", city);
         String channelId = AppManager.getInstance().getShareId();
         if (TextUtils.isEmpty(channelId)) {
             channelId = CodeUtil.getClipBoardContent(getApplicationContext());

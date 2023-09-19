@@ -14,6 +14,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextUtils;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -81,6 +82,7 @@ public class PersonInfoFragment extends BaseFragment {
     private ActorInfoBean<CoverUrlBean, LabelBean, ChargeBean, InfoRoomBean> bean;
 
     private TabFragmentAdapter tabFragmentAdapter;
+    private boolean qufan;
 
     @Override
     protected int initLayout() {
@@ -222,18 +224,26 @@ public class PersonInfoFragment extends BaseFragment {
                     ToastUtil.INSTANCE.showToast(requireActivity(), R.string.can_not_communicate);
                     return;
                 }
+
+                if (AppManager.getInstance().getUserInfo().t_role==1){
+                    qufan=false;
+                }else {
+                    qufan=true;
+                }
+
                 AudioVideoRequester audioVideoRequester = new AudioVideoRequester(
                         requireActivity(),
-                        getBean().t_role == 1,
+                        qufan,
                         otherId);
                 audioVideoRequester.executeVideo();
                 break;
             }
 
             /*
-             * 守护榜
+             * 守护
              */
             case R.id.chat_hello:
+                Log.e("礼物","点击了");
                 new ProtectDialog(mContext, otherId) {
                     @Override
                     protected void update() {

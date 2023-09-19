@@ -81,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="60dp"
                 android:layout_marginTop="3dp"
-                android:text="我的通话"
+                android:text="视频通话"
                 android:textColor="@color/black_333333"
                 android:textSize="13sp" />
 
@@ -91,7 +91,7 @@
                 android:layout_gravity="bottom"
                 android:layout_marginStart="60dp"
                 android:layout_marginBottom="3dp"
-                android:text="全部通话显示"
+                android:text="全部视频通话查询"
                 android:textColor="@color/gray_868686"
                 android:textSize="12sp" />
 

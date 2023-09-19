@@ -379,6 +379,8 @@ class ChatFragment : BaseFragment() {
                     ToastUtil.showToast(requireActivity(), R.string.can_not_communicate)
                     return@OnClickListener
                 }
+
+       Log.e("是不是主播","actorId="+actorId+" 角色=="+mUserCenterBean!!.t_role);
                 val audioVideoRequester = AudioVideoRequester(
                     requireActivity(),
                     mUserCenterBean!!.t_role == 1,

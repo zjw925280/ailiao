@@ -359,12 +359,7 @@ public class ChatApi {
         return SERVER + "getAgoraRoomSign.html";
     }
 
-    /**
-     * 用户对主播发起聊天
-     */
-    public static String LAUNCH_VIDEO_CHAT() {
-        return SERVER + "launchVideoChat.html";
-    }
+
 
     /**
      * 用户或者主播挂断链接
@@ -562,12 +557,24 @@ public class ChatApi {
         return SERVER + "getOnLineUserList.html";
     }
 
+
+
+    /**
+     * 用户对主播发起聊天
+     */
+    public static String LAUNCH_VIDEO_CHAT() {
+        return SERVER + "launchVideoChat.html";
+    }
+
+
     /**
      * 主播对用户发起聊天
      */
     public static String ACTOR_LAUNCH_VIDEO_CHAT() {
         return SERVER + "anchorLaunchVideoChat.html";
     }
+
+
 
     /**
      * 获取用户是否新用户

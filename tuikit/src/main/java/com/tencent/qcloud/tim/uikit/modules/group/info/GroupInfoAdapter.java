@@ -25,6 +25,8 @@ import java.util.List;
 
 public class GroupInfoAdapter extends BaseAdapter {
 
+
+
     private static final int ADD_TYPE = -100;
     private static final int DEL_TYPE = -101;
     private static final int OWNER_PRIVATE_MAX_LIMIT = 10;  //讨论组,owner可以添加成员和删除成员，

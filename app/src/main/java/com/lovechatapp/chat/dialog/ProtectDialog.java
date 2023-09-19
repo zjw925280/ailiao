@@ -3,6 +3,7 @@ package com.lovechatapp.chat.dialog;
 import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -12,12 +13,16 @@ import android.support.v7.widget.RecyclerView;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
+import com.lovechatapp.chat.activity.AudioChatActivity;
+import com.lovechatapp.chat.activity.ChargeActivity;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseResponse;
 import com.lovechatapp.chat.bean.GiftBean;
@@ -49,7 +54,7 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
     private Activity activity;
     private ProgressDialog progressDialog;
     private int selected = 0;
-
+    private int giftNum;
     public ProtectDialog(@NonNull Activity context, int actorId) {
         super(context);
         this.actorId = actorId;
@@ -83,6 +88,11 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
 
         TextView contentTv = findViewById(R.id.dialog_content_message);
 
+       if (bean.twoGiftList == null|| bean.twoGiftList.size() == 0) {
+           contentTv.setText(String.format("花费%s个约豆守护TA", bean.t_gift_gold));
+
+           return;
+           }
         AbsRecycleAdapter adapter = new AbsRecycleAdapter(
                 new AbsRecycleAdapter.Type(R.layout.item_handsel_protect, GiftBean.GiftAmountBean.class)) {
             @Override
@@ -136,14 +146,19 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
      * 打赏礼物
      */
     private void rewardGift(final View view, final GiftBean giftBean) {
-        GiftBean.GiftAmountBean amountBean = (GiftBean.GiftAmountBean) bean.twoGiftList.get(selected);
         progressDialog.show();
         view.setClickable(false);
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("userId", AppManager.getInstance().getUserInfo().t_id + "");
         paramMap.put("coverConsumeUserId", actorId);
         paramMap.put("giftId", giftBean.t_gift_id);
-        paramMap.put("giftNum", amountBean.t_two_gift_number);
+        if (bean.twoGiftList!=null&&bean.twoGiftList.size()>0){
+            GiftBean.GiftAmountBean  amountBean = (GiftBean.GiftAmountBean) bean.twoGiftList.get(selected);
+            giftNum= amountBean.t_two_gift_number;
+        }else {
+            giftNum=1;
+        }
+        paramMap.put("giftNum", giftNum);
         OkHttpUtils.post().url(ChatApi.USER_GIVE_GIFT())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse>() {
@@ -162,6 +177,8 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
                         update();
                     } else if (response.m_istatus == -1) {
                         ToastUtil.INSTANCE.showToast(R.string.gold_not_enough);
+                        Intent intent = new Intent(activity, ChargeActivity.class);
+                        activity.startActivity(intent);
                     } else {
                         ToastUtil.INSTANCE.showToast(R.string.pay_fail);
                     }
@@ -195,6 +212,7 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
 
     @Override
     public void show() {
+
         Map<String, Object> params = new HashMap<>();
         params.put("userId", AppManager.getInstance().getUserInfo().t_id);
         params.put("coverUserId", actorId);
@@ -206,7 +224,7 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
                 .execute(new AjaxCallback<BaseResponse<Protect>>() {
                     @Override
                     public void onResponse(BaseResponse<Protect> response, int id) {
-
+                        Log.e("礼物","礼物="+new Gson().toJson(response));
                         if (response == null) {
                             return;
                         }
@@ -214,12 +232,18 @@ public class ProtectDialog extends Dialog implements View.OnClickListener {
                             ToastUtil.INSTANCE.showToast(response.m_strMessage);
                             return;
                         }
-                        if (response.m_object.twoGiftList == null
-                                || response.m_object.twoGiftList.size() == 0) {
-                            return;
-                        }
+//                        if (response.m_object.twoGiftList == null
+//                                || response.m_object.twoGiftList.size() == 0) {
+//                            return;
+//                        }
                         bean = response.m_object;
                         ProtectDialog.super.show();
+                    }
+
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        super.onError(call, e, id);
+                        Log.e("礼物","欧耶母鸡呀="+e.getMessage());
                     }
                 });
     }

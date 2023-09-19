@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.util.Log;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
@@ -51,6 +52,7 @@ public class GlideEngine implements ImageEngine {
                 .load(filePath)
                 .listener(listener)
                 .into(imageView);
+
     }
 
     public static void loadProfileImage(ImageView imageView, String filePath, RequestListener listener) {
@@ -65,14 +67,14 @@ public class GlideEngine implements ImageEngine {
         Glide.with(TUIKit.getAppContext()).clear(imageView);
     }
 
-    public static void loadImage(ImageView imageView, Uri uri) {
+    public static void loadImage(ImageView imageView, Uri uri,Context context) {
         if (uri == null) {
             return;
         }
-        Glide.with(TUIKit.getAppContext())
-                .load(uri)
-                .apply(new RequestOptions().error(R.drawable.default_user_icon))
-                .into(imageView);
+            Glide.with(context)
+                    .load(uri)
+                    .apply(new RequestOptions().error(R.drawable.default_user_icon))
+                    .into(imageView);
     }
 
     public static void loadImage(String filePath, final String url, final RequestListener<File> fileRequestListener) {

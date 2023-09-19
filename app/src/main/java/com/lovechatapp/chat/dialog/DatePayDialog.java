@@ -107,7 +107,7 @@ public class DatePayDialog extends Dialog implements View.OnClickListener{
             @Override
             public void onClick(View view) {
                 Log.e("isPay","isPay="+isPay);
-
+                tv_suer_pay.setEnabled(false);
                 if(isPay){
                     getDateId(time);
                 }else {
@@ -259,7 +259,6 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
         C2CChatManagerKit.getInstance().sendMessage(info, false,new IUIKitCallBack(){
             @Override
             public void onSuccess(Object data) {
-                tv_suer_pay.setEnabled(true);
 //                发生成功
                 ToastUtil.showToast(activity,"发送成功");
                 dismiss();
@@ -318,7 +317,6 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
 
                     @Override
                     public void onResponse(BaseResponse<String> response, int id) {
-                        tv_suer_pay.setEnabled(true);
                         Log.e("創建約會",""+new Gson().toJson(response));
                         if (response != null) {
                             switch (response.m_istatus) {
@@ -339,8 +337,8 @@ public void sendMessge(boolean isPay,int appointmentId,int appointmentStatus,int
                                         activity.startActivity(intent);
                                         activity.finish();
                                     }else{
-                                        activity.finish();
                                         ToastUtil.showToast(activity,"请返回约会列表查看");
+                                        activity.finish();
                                     }
                                     break;
                                 default:

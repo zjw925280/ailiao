@@ -17,4 +17,6 @@ public class AdBean extends BaseBean {
     public int t_ad_table_type;
     public String t_ad_table_url;
     public String t_ad_table_target;
+
+
 }

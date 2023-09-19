@@ -7,9 +7,11 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.PowerManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.SparseArray;
 
 import com.alibaba.fastjson.JSON;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.activity.AudioChatActivity;
 import com.lovechatapp.chat.activity.CallingActivity;
 import com.lovechatapp.chat.activity.WaitActorActivity;
@@ -151,26 +153,26 @@ public class SocketMessageManager {
 
         @Override
         public void execute(SocketResponse response) {
-
+            Log.e("房间号","房间号="+new Gson().toJson(response));
             switch (response.mid) {
-
                 case Mid.anchorLinkUserToVoiceRes:
                 case Mid.onLineToVoiceRes: {
-                    if (AppManager.getInstance().getActivityObserve().isWaitChatState()) {
-                        return;
-                    }
-                    screenOn();
-                    AVChatBean avChatBean = new AVChatBean();
-                    avChatBean.chatType = AudioVideoRequester.CHAT_AUDIO;
-                    avChatBean.roomId = response.roomId;
-                    avChatBean.otherId = response.connectUserId;
-                    avChatBean.coverRole = response.mid == Mid.anchorLinkUserToVoiceRes ? 1 : 0;
-                    AudioChatActivity.startReceive(AppManager.getInstance(), avChatBean);
+//                    if (AppManager.getInstance().getActivityObserve().isWaitChatState()) {
+//                        return;
+//                    }
+//                    screenOn();
+//                    AVChatBean avChatBean = new AVChatBean();
+//                    avChatBean.chatType = AudioVideoRequester.CHAT_AUDIO;
+//                    avChatBean.roomId = response.roomId;
+//                    avChatBean.otherId = response.connectUserId;
+//                    avChatBean.coverRole = response.mid == Mid.anchorLinkUserToVoiceRes ? 1 : 0;
+//                    AudioChatActivity.startReceive(AppManager.getInstance(), avChatBean);
                     break;
                 }
 
                 case Mid.CHAT_LINK:
                 case Mid.USER_GET_INVITE: {
+
                     if (AppManager.getInstance().getActivityObserve().isWaitChatState()) {
                         return;
                     }

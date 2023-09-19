@@ -3,6 +3,7 @@ package com.lovechatapp.chat.adapter;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -139,6 +140,7 @@ public class FansRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             mHolder.mChatVideoBtn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Log.e("是不是呀","是不是呀");
                     new AudioVideoRequester(mContext,
                             false,
                             bean.t_id).executeVideo();

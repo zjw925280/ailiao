@@ -2,9 +2,11 @@ package com.lovechatapp.chat.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseActivity;
@@ -89,7 +91,6 @@ public class PersonInfoActivity extends BaseActivity {
 //        if (TextUtils.isEmpty(mActorInfoBean.t_addres_url)) {
 
         tabFragmentAdapter.init(
-
                 FragmentParamBuilder.create()
                         .withClazz(PersonInfoFragment.class)
                         .build()
@@ -130,6 +131,7 @@ public class PersonInfoActivity extends BaseActivity {
 
             @Override
             public void onResponse(BaseResponse<ActorInfoBean<CoverUrlBean, LabelBean, ChargeBean, InfoRoomBean>> response, int id) {
+                Log.e("主播数据","主播数据="+new Gson().toJson(response));
                 if (isFinishing()) {
                     return;
                 }

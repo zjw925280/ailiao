@@ -97,7 +97,9 @@ public class SharedPreferenceHelper {
         editor.putInt(USER_ID, chatUserInfo.t_id);
         editor.putInt(IS_VIP, chatUserInfo.t_is_vip);
         editor.putInt(T_ROLE, chatUserInfo.t_role);
-        editor.putInt(GENDER, chatUserInfo.t_sex);
+        if ( chatUserInfo.t_sex!=null){
+            editor.putInt(GENDER, chatUserInfo.t_sex);
+        }
         editor.putString(NICK_NAME, chatUserInfo.t_nickName);
         editor.putString(HEAD_URL, chatUserInfo.headUrl);
         editor.putString(TOKEN, chatUserInfo.t_token);

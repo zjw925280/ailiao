@@ -1,5 +1,6 @@
 package com.tencent.qcloud.tim.uikit.modules.contact;
 
+import android.annotation.SuppressLint;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
@@ -44,9 +45,9 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
     public ContactAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return new ContactAdapter.ViewHolder(mInflater.inflate(R.layout.contact_selecable_adapter_item, parent, false));
     }
-
+    @SuppressLint("RecyclerView")
     @Override
-    public void onBindViewHolder(final ContactAdapter.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final ContactAdapter.ViewHolder holder,  final int position) {
         final ContactItemBean contactBean = mData.get(position);
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)holder.line.getLayoutParams();
         if (position < mData.size() - 1) {
@@ -135,7 +136,7 @@ public class ContactAdapter extends RecyclerView.Adapter<ContactAdapter.ViewHold
                     holder.avatar.setImageResource(R.drawable.default_head);
                 }
             } else {
-                GlideEngine.loadImage(holder.avatar, Uri.parse(contactBean.getAvatarurl()));
+                GlideEngine.loadImage(holder.avatar, Uri.parse(contactBean.getAvatarurl()),TUIKit.getAppContext());
             }
         }
 

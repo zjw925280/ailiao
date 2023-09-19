@@ -7,6 +7,7 @@ import android.graphics.Point;
 import android.os.CountDownTimer;
 import android.text.InputType;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -21,6 +22,7 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.base.AppManager;
 import com.lovechatapp.chat.base.BaseActivity;
@@ -39,6 +41,9 @@ import com.lovechatapp.chat.util.ToastUtil;
 import com.lovechatapp.chat.util.VerifyUtils;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -110,6 +115,7 @@ public class PhoneLoginActivity extends BaseActivity {
 
     @Override
     protected void onContentAdded() {
+
         needHeader(false);
         mCodeEt.setOnKeyListener(new View.OnKeyListener() {
             @Override
@@ -265,7 +271,12 @@ public class PhoneLoginActivity extends BaseActivity {
             ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.length_wrong);
             return;
         }
+        getRealIp(phone, password, 1);
 
+
+    }
+
+    private void phonePassWordLogin(String phone, String password,String city,String cip) {
         Map<String, String> paramMap = new HashMap<>();
         paramMap.put("phone", phone);
         paramMap.put("password", password);
@@ -273,12 +284,15 @@ public class PhoneLoginActivity extends BaseActivity {
         if (TextUtils.isEmpty(channelId)) {
             channelId = CodeUtil.getClipBoardContent(getApplicationContext());
         }
+        paramMap.put("ip", cip);
+        paramMap.put("city", city);
         paramMap.put("shareUserId", channelId);
         OkHttpUtils.post().url(ChatApi.USER_LOGIN())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {
             @Override
             public void onResponse(BaseResponse<ChatUserInfo> response, int id) {
+                Log.e("两年","两年="+new Gson().toJson(response));
                 dismissLoadingDialog();
                 if (response != null) {
                     if (response.m_istatus == NetCode.SUCCESS) {
@@ -336,7 +350,6 @@ public class PhoneLoginActivity extends BaseActivity {
                 dismissLoadingDialog();
             }
         });
-
     }
 
     /**
@@ -358,18 +371,18 @@ public class PhoneLoginActivity extends BaseActivity {
             return;
         }
         //获取真实IP
-        getRealIp(phone, verifyCode);
+        getRealIp(phone, verifyCode,0);
     }
 
     /**
      * 获取WX登录方式真实ip
      */
-    private void getRealIp(final String phone, final String verifyCode) {
+    private void getRealIp(final String phone, final String verifyCode,int a) {
         OkHttpUtils.get().url(ChatApi.GET_REAL_IP())
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                requestSmsLogin("0.0.0.0", phone, verifyCode);
+                requestSmsLogin("","0.0.0.0", phone, verifyCode);
             }
 
             @Override
@@ -386,11 +399,8 @@ public class PhoneLoginActivity extends BaseActivity {
                 LogUtil.i("WX真实IP: " + response);
                 String replace = response.replace("ipCallback({ip:\"", "");
                 cip= replace.replace("\"})", "");
-                        if (!TextUtils.isEmpty(cip)) {
-                            requestSmsLogin(cip, phone, verifyCode);
-                        } else {
-                            requestSmsLogin("0.0.0.0", phone, verifyCode);
-                        }
+                getCity(cip,phone,verifyCode,a);
+
 //                    } catch (Exception e) {
 //                        e.printStackTrace();
 //                        requestSmsLogin("0.0.0.0", phone, verifyCode);
@@ -401,6 +411,52 @@ public class PhoneLoginActivity extends BaseActivity {
             }
         });
     }
+
+
+    /**
+     * 获取真实ip
+     */
+    private void getCity(String string,String phone,String verifyCode,int a) {
+        OkHttpUtils.get().url(ChatApi.GET_CITY(string))
+                .build().execute(new StringCallback() {
+                    @Override
+                    public void onError(Call call, Exception e, int id) {
+                        requestSmsLogin("",cip, phone, verifyCode);
+                    }
+
+                    @Override
+                    public void onResponse(String response, int id) {
+                        LogUtil.i("这是city城市json: " + response);
+                        JSONObject jsonObject = null;
+                        try {
+                            jsonObject = new JSONObject(response);
+                            String result = jsonObject.getString("result");
+                            JSONObject jsonObject1 = new JSONObject(result);
+                            String ad_info = jsonObject1.getString("ad_info");
+                            JSONObject jsonObject2 = new JSONObject(ad_info);
+                            String city = jsonObject2.getString("city");
+                            LogUtil.i("这是city城市信息: " + city+" ip="+string);
+                            if (a==0){
+
+                                requestSmsLogin(city,cip, phone, verifyCode);
+                            }else {
+                                phonePassWordLogin( phone,verifyCode, city,cip);
+                            }
+                        } catch (JSONException e) {
+                            if (a==0){
+                                requestSmsLogin("",cip, phone, verifyCode);
+                            }else {
+                                phonePassWordLogin(phone,verifyCode, "",cip);
+                            }
+
+                            throw new RuntimeException(e);
+
+                        }
+
+                    }
+                });
+    }
+
 
     /**
      * 发送短信验证码
@@ -488,7 +544,7 @@ public class PhoneLoginActivity extends BaseActivity {
     /**
      * 验证码登录方式登录
      */
-    private void requestSmsLogin(String ip, final String phone, String verifyCode) {
+    private void requestSmsLogin(String city,String ip, final String phone, String verifyCode) {
         //用于师徒
         String t_system_version = "Android " + SystemUtil.getSystemVersion();
         String deviceNumber = SystemUtil.getOnlyOneId(getApplicationContext());
@@ -500,6 +556,8 @@ public class PhoneLoginActivity extends BaseActivity {
         paramMap.put("t_system_version", TextUtils.isEmpty(t_system_version) ? "" : t_system_version);
         paramMap.put("deviceNumber", deviceNumber);
         paramMap.put("ip", ip);
+        paramMap.put("city", city);
+
         String channelId = AppManager.getInstance().getShareId();
         if (TextUtils.isEmpty(channelId)) {
             channelId = CodeUtil.getClipBoardContent(getApplicationContext());
@@ -510,7 +568,6 @@ public class PhoneLoginActivity extends BaseActivity {
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {
             @Override
             public void onResponse(BaseResponse<ChatUserInfo> response, int id) {
-                LogUtil.i("短信验证码登录==--", JSON.toJSONString(response));
                 dismissLoadingDialog();
                 if (response != null) {
                     if (response.m_istatus == NetCode.SUCCESS) {
@@ -522,10 +579,15 @@ public class PhoneLoginActivity extends BaseActivity {
                             SharedPreferenceHelper.saveAccountInfo(getApplicationContext(), userInfo);
                             ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.login_success);
                             Intent intent;
-                            if (userInfo.t_sex == 2) {
+                            if (userInfo.t_sex!=null){
+                                if (userInfo.t_sex ==1||userInfo.t_sex ==0) {
+                                    intent = new Intent(getApplicationContext(), MainActivity.class);
+
+                                } else {
+                                    intent = new Intent(getApplicationContext(), ChooseGenderActivity.class);
+                                }
+                            }else {
                                 intent = new Intent(getApplicationContext(), ChooseGenderActivity.class);
-                            } else {
-                                intent = new Intent(getApplicationContext(), MainActivity.class);
                             }
                             startActivity(intent);
                             finish();

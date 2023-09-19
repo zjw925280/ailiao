@@ -13,8 +13,8 @@ android {
         applicationId "com.lovechatapp.chat"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 133
-        versionName "1.3.32"
+        versionCode 134
+        versionName "1.3.4"
         multiDexEnabled true// dex突破65535的限制
         ndk {
             abiFilters 'armeabi-v7a' , 'arm64-v8a'
@@ -48,7 +48,7 @@ android {
         variant.outputs.all {
             def releaseTime = new Date().format("MMdd_HHmm", TimeZone.getDefault())
             if ("release" == variant.buildType.name) {
-                outputFileName = "loveChat_V${versionName}_${releaseTime}.apk"
+                outputFileName = "loveChat_V${versionName}_${releaseTime}-32-64.apk"
             }
         }
     }
@@ -66,9 +66,9 @@ android {
             buildConfigField "String", "rkey", "\"${AppKey}\""
             buildConfigField "String", "charset", "\"UTF-8\""
 //          buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_DEBUG")
-            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
+//            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_DEBUG")
             buildConfigField "String", "socketIp", buildProperties.getProperty("SOCKET_RELEASE")
-//          buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
+            buildConfigField "String", "hostAddress", buildProperties.getProperty("SERVER_PATH_RELEASE")
             signingConfig signingConfigs.release
 
         }

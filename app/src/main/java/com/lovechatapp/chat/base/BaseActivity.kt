@@ -1,12 +1,16 @@
 package com.lovechatapp.chat.base
 
 import android.annotation.SuppressLint
+import android.app.Activity
+import android.app.Application
 import android.app.Dialog
 import android.content.BroadcastReceiver
+import android.content.ComponentCallbacks
 import android.content.Context
 import android.content.Intent
 import android.content.IntentFilter
 import android.content.pm.ActivityInfo
+import android.content.res.Configuration
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.LayoutRes
@@ -32,6 +36,7 @@ import com.lovechatapp.chat.socket.domain.ReceiveFloatingBean
 import com.lovechatapp.chat.socket.domain.SocketResponse
 import com.lovechatapp.chat.util.*
 import com.zhy.http.okhttp.OkHttpUtils
+
 
 /*
  * Copyright (C) 2018
@@ -72,6 +77,7 @@ abstract class BaseActivity : FragmentActivity() {
     @SuppressLint("SourceLockedOrientationActivity")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setCustomDensity(application,this);
         ActivityManager.getInstance().addActivity(this)
         SocketMessageManager.get().subscribe(baseSubscribe, Mid.RECEIVE_GIFT)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_PORTRAIT
@@ -389,4 +395,45 @@ abstract class BaseActivity : FragmentActivity() {
             }
         }
     }
+
+    private var aNoncompatDensity = 0f
+    private var aNoncompatScaledDensity = 0f
+    fun setCustomDensity(application: Application, activity: Activity) {
+        val appDisplayMetrics = application.resources.displayMetrics
+
+        if (aNoncompatDensity == 0f) {
+            aNoncompatDensity = appDisplayMetrics.density
+            aNoncompatScaledDensity = appDisplayMetrics.scaledDensity
+
+            application.registerComponentCallbacks(object : ComponentCallbacks {
+                override fun onConfigurationChanged(newConfig: Configuration) {
+                    if (newConfig.fontScale > 0) {
+                        aNoncompatScaledDensity = application.resources.displayMetrics.scaledDensity
+                    }
+                }
+
+                override fun onLowMemory() {
+                    // Do nothing
+                }
+            })
+        }
+
+        val targetDensity = appDisplayMetrics.widthPixels / 360f
+        val targetScaledDensity = targetDensity * (aNoncompatScaledDensity / aNoncompatDensity)
+        val targetDensityDpi = (targetDensity * 160).toInt()
+
+        // Set application's Density
+        appDisplayMetrics.density = targetDensity
+        appDisplayMetrics.scaledDensity = targetScaledDensity
+        appDisplayMetrics.densityDpi = targetDensityDpi
+
+        // Set activity's Density
+        val activityDisplayMetrics = activity.resources.displayMetrics
+        activityDisplayMetrics.density = targetDensity
+        activityDisplayMetrics.scaledDensity = targetScaledDensity
+        activityDisplayMetrics.densityDpi = targetDensityDpi
+    }
+
+
+
 }

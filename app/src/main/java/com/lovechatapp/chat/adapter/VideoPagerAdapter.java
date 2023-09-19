@@ -5,6 +5,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,6 +48,7 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
 
     private List<AlbumBean> videoBeans;
     private Activity activity;
+    private boolean qufan;
 
     public VideoPagerAdapter(Activity activity) {
         videoBeans = new ArrayList<>();
@@ -274,12 +276,26 @@ public class VideoPagerAdapter extends RecyclerView.Adapter<VideoPagerAdapter.Vi
 //                        ToastUtil.INSTANCE.showToast(activity, R.string.sex_can_not_communicate);
 //                        return;
 //                    }
-                    //如果对方是主播,直接用户对主播发起,如果不是就主播对用户发起
-                    AudioVideoRequester audioVideoRequester = new AudioVideoRequester(activity,
-                            true,
+
+                    Log.e("是不是呀","是不是呀");
+                    if (AppManager.getInstance().getUserInfo().t_role==1){
+                        qufan=false;
+                    }else {
+                        qufan=true;
+                    }
+
+                    AudioVideoRequester audioVideoRequester = new AudioVideoRequester(
+                            activity,
+                            qufan,
                             getActorId());
-//                    if (v.getTag() != null) {
                     audioVideoRequester.executeVideo();
+
+                    //如果对方是主播,直接用户对主播发起,如果不是就主播对用户发起
+//                    AudioVideoRequester audioVideoRequester = new AudioVideoRequester(activity,
+//                            true,
+//                            getActorId());
+//                    if (v.getTag() != null) {
+//                    audioVideoRequester.executeVideo();
 //                    } else {
 //                        audioVideoRequester.executeAudio();
 //                    }

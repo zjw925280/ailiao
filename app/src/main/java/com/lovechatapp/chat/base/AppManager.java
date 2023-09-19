@@ -301,6 +301,7 @@ public class AppManager extends Application {
 
     public void setUserInfo(ChatUserInfo userInfo) {
         this.mUserInfo = userInfo;
+
     }
 
     public static AppManager getInstance() {
@@ -403,7 +404,7 @@ public class AppManager extends Application {
             @Override
             public void execute(UserCenterBean bean) {
                 if (bean != null) {
-                    SharedPreferenceHelper.saveCity(AppManager.getInstance(), bean.t_city);
+                    SharedPreferenceHelper.saveCity(AppManager.getInstance(),SharedPreferenceHelper.getCity(mInstance));
                     AppManager.getInstance().getUserInfo().t_nickName = bean.nickName;
                     IMHelper.checkTIMInfo(bean.nickName, bean.handImg);
                 }

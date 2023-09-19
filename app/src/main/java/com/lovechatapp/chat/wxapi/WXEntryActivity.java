@@ -15,7 +15,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
-
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.google.gson.Gson;
@@ -318,14 +317,13 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                         AppManager.getInstance().setUserInfo(userInfo);
                         SharedPreferenceHelper.saveAccountInfo(getApplicationContext(), userInfo);
                         ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.login_success);
-
                         Intent intent;
-                        if (userInfo.t_sex == 2) {
+                        if (userInfo.t_sex ==1||userInfo.t_sex ==0) {
+                            intent = new Intent(getApplicationContext(), MainActivity.class);
+                        } else {
                             intent = new Intent(getApplicationContext(), ChooseGenderActivity.class);
                             intent.putExtra(Constant.NICK_NAME, nickName);
                             intent.putExtra(Constant.MINE_HEAD_URL, handImg);
-                        } else {
-                            intent = new Intent(getApplicationContext(), MainActivity.class);
                         }
                         startActivity(intent);
 
@@ -472,7 +470,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                 .build().execute(new StringCallback() {
             @Override
             public void onError(Call call, Exception e, int id) {
-                getCity(code,"0.0.0");
+                getCity(code,"");
             }
 
             @Override
@@ -505,7 +503,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             channelId = CodeUtil.getClipBoardContent(getApplicationContext());
         }
         paramMap.put("shareUserId", channelId);
-        Log.e("这是city",new Gson().toJson(paramMap));
+        Log.e("来这了",new Gson().toJson(paramMap));
         OkHttpUtils.post().url(ChatApi.USER_WEIXIN_LOGIN())
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse<ChatUserInfo>>() {
@@ -516,14 +514,15 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                         CodeUtil.clearClipBoard(getApplicationContext());
                         ChatUserInfo userInfo = response.m_object;
                         if (userInfo != null) {
+                            Log.e("来这了","来这了"+userInfo.t_city);
                             AppManager.getInstance().setUserInfo(userInfo);
                             SharedPreferenceHelper.saveAccountInfo(getApplicationContext(), userInfo);
                             ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.login_success);
-                            if (userInfo.t_sex == 2) {
-                                Intent intent = new Intent(getApplicationContext(), ChooseGenderActivity.class);
+                            if (userInfo.t_sex == 0||userInfo.t_sex == 1) {
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             } else {
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), ChooseGenderActivity.class);
                                 startActivity(intent);
                             }
                             //发送广播关闭Login页面
@@ -564,6 +563,7 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
             }
         });
     }
+
     /**
      * 获取真实ip
      */

@@ -8,9 +8,11 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.google.gson.Gson;
 import com.lovechatapp.chat.R;
 import com.lovechatapp.chat.activity.AudioChatActivity;
 import com.lovechatapp.chat.activity.VideoChatActivity;
@@ -207,6 +209,7 @@ public class AudioVideoRequester {
      * 获取签名,并登陆 然后创建房间,并加入
      */
     private void getSign(final int chatType, final AVChatBean avChatBean) {
+
         if (avChatBean != null) {
             showLoadingDialog();
             getAgoraSign(avChatBean.roomId, s -> {
@@ -220,6 +223,7 @@ public class AudioVideoRequester {
                         requestChat(avChatBean);
                     }
                 } else {
+
                     ToastUtil.INSTANCE.showToast("连接失败");
                 }
                 dismissLoadingDialog();
@@ -275,11 +279,11 @@ public class AudioVideoRequester {
      * 发起通信
      */
     private void requestChat(final AVChatBean chatBean) {
-
         String method;
         Map<String, Object> paramMap = new HashMap<>();
         paramMap.put("roomId", chatBean.roomId);
         paramMap.put("chatType", chatBean.chatType);
+
         if (isUserToActor) {
             method = ChatApi.LAUNCH_VIDEO_CHAT();
             paramMap.put("userId", getUserId());
@@ -289,21 +293,19 @@ public class AudioVideoRequester {
             paramMap.put("anchorUserId", getUserId());
             paramMap.put("userId", otherId);
         }
+        Log.e("入参值","入参值"+new Gson().toJson(paramMap));
         OkHttpUtils.post()
                 .url(method)
                 .addParams("param", ParamUtil.getParam(paramMap))
                 .build().execute(new AjaxCallback<BaseResponse<String>>() {
             @Override
             public void onResponse(BaseResponse response, int id) {
-
+                Log.e("是这吗","是这吗"+new Gson().toJson(response));
                 if (weakReference.get().isFinishing())
                     return;
-
                 dismissLoadingDialog();
-
                 if (response != null) {
                     if (response.m_istatus == NetCode.SUCCESS) {
-
                         //视频跳转
                         if (chatBean.chatType == 1) {
                             VideoChatActivity.start(weakReference.get(), chatBean);

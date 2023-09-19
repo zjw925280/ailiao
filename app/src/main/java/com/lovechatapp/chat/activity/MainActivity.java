@@ -76,6 +76,10 @@ import com.tencent.imsdk.TIMManager;
 import com.tencent.imsdk.TIMMessage;
 import com.tencent.imsdk.TIMMessageListener;
 import com.zhy.http.okhttp.OkHttpUtils;
+import com.zhy.http.okhttp.callback.StringCallback;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.File;
 import java.util.HashMap;
@@ -134,13 +138,11 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
     @Override
     protected void onContentAdded() {
         FinishActivityManager.getManager().addActivity(this);
+        FinishActivityManager.getManager().finishActivity(SplashActivity.class);
         needHeader(false);
         initIm();
         initViewPager();
         checkUpdate();
-
-
-
         LocationHelper.get().startLocation();
 //        if (!LocationHelper.get().isHasPerMission()) {
 //            showDialog(0,this,"这边需要获取您的位置信息，以便为您找到同城以及附近的好友");
@@ -181,6 +183,7 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
         if (JPushInterface.isPushStopped(getApplicationContext())) {
             JPushInterface.resumePush(getApplicationContext());
         }
+
     }
 
     //-------------------------------------定位部分----------------------------------

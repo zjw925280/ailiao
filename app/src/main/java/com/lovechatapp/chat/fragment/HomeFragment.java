@@ -25,6 +25,7 @@ import com.lovechatapp.chat.bean.VerifyBean;
 import com.lovechatapp.chat.constant.ChatApi;
 import com.lovechatapp.chat.constant.Constant;
 import com.lovechatapp.chat.dialog.FirstChargeDialog;
+import com.lovechatapp.chat.helper.SharedPreferenceHelper;
 import com.lovechatapp.chat.net.AjaxCallback;
 import com.lovechatapp.chat.net.NetCode;
 import com.lovechatapp.chat.util.ParamUtil;
@@ -419,6 +420,7 @@ public class HomeFragment extends BaseFragment {
                 if ("7".equals(bean.t_ad_table_target)) {
                     cityViewHolder = new LabelCityViewHolder(tabPagerLayout);
                     labelViewHolder = cityViewHolder;
+                    bean.t_ad_table_name=SharedPreferenceHelper.getCity(getActivity());
                 } else {
                     labelViewHolder = new LabelViewHolder(tabPagerLayout);
                 }

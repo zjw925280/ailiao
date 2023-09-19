@@ -169,7 +169,6 @@ public class ScrollLoginActivity extends BaseActivity {
                 if (checkAgree()) {
                     return;
                 }
-                FinishActivityManager.getManager().finishActivity(SplashActivity.class);
                 Intent intent = new Intent(getApplicationContext(), PhoneLoginActivity.class);
                 startActivity(intent);
 
@@ -243,14 +242,13 @@ public class ScrollLoginActivity extends BaseActivity {
                             AppManager.getInstance().setUserInfo(userInfo);
                             SharedPreferenceHelper.saveAccountInfo(getApplicationContext(), userInfo);
                             ToastUtil.INSTANCE.showToast(getApplicationContext(), R.string.login_success);
-
-                            if (userInfo.t_sex == 2) {//没有性别
+                            if (userInfo.t_sex ==0||userInfo.t_sex ==1) {
+                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                                startActivity(intent);
+                            } else {//没有性别
                                 Intent intent = new Intent(getApplicationContext(), ChooseGenderActivity.class);
                                 intent.putExtra(Constant.NICK_NAME, nickName);
                                 intent.putExtra(Constant.MINE_HEAD_URL, headImg);
-                                startActivity(intent);
-                            } else {
-                                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                                 startActivity(intent);
                             }
                             finish();
@@ -435,8 +433,6 @@ public class ScrollLoginActivity extends BaseActivity {
 
             @Override
             public void onResponse(String response, int id) {
-
-
                 String replace = response.replace("ipCallback({ip:\"", "");
                 String    cip= replace.replace("\"})", "");
                 if (!TextUtils.isEmpty(cip)) {

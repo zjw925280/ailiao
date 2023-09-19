@@ -23,14 +23,14 @@ public class ChatUserInfo extends BaseBean {
     public int t_id;//用户编号
     public int gold;//	约豆
     public String phone;//电话号码
-    public int t_sex = 2;//性别：0.女，1.男 2.需要选择性别
+    public Integer t_sex = 2;//性别：0.女，1.男 2.需要选择性别
     public int t_role;//用户角色  1 主播 0 用户
     public String t_nickName;//用户昵称
     public String headUrl;//用户头像地址
     public String t_token;
     public int t_is_vip = 1;//是否VIP 0.是1.否
     public int t_phone_status;//0未绑定,1已绑定手机号
-
+    public String t_city;
     /**
      * IdCard
      */
