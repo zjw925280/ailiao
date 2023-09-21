@@ -13,8 +13,8 @@ android {
         applicationId "com.lovechatapp.chat"
         minSdkVersion 23
         targetSdkVersion 28
-        versionCode 134
-        versionName "1.3.4"
+        versionCode 136
+        versionName "1.3.6"
         multiDexEnabled true// dex突破65535的限制
         ndk {
             abiFilters 'armeabi-v7a' , 'arm64-v8a'

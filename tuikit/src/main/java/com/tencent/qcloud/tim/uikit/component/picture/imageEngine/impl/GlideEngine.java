@@ -6,6 +6,7 @@ import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
@@ -94,20 +95,21 @@ public class GlideEngine implements ImageEngine {
         });
     }
 
-    public static void loadImage(ImageView imageView, Object uri) {
+    public static void loadImage(Context context,ImageView imageView, Object uri) {
         if (uri == null) {
             return;
         }
-        Glide.with(TUIKit.getAppContext())
-                .load(uri)
-                .apply(new RequestOptions().error(R.drawable.default_head))
-                .into(imageView);
+            Glide.with(context)
+                    .load(uri)
+                    .apply(new RequestOptions().error(R.drawable.default_head))
+                    .into(imageView);
     }
 
     public static Bitmap loadBitmap(Object imageUrl, int targetImageSize) throws InterruptedException, ExecutionException {
         if (imageUrl == null) {
             return null;
         }
+
         return Glide.with(TUIKit.getAppContext()).asBitmap()
                 .load(imageUrl)
                 .apply(new RequestOptions().error(R.drawable.default_head))

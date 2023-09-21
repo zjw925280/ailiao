@@ -7,6 +7,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.Point;
@@ -20,6 +21,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -138,7 +140,6 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
     @Override
     protected void onContentAdded() {
         FinishActivityManager.getManager().addActivity(this);
-        FinishActivityManager.getManager().finishActivity(SplashActivity.class);
         needHeader(false);
         initIm();
         initViewPager();
@@ -523,11 +524,10 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         //注销消息接收
         TIMManager.getInstance().removeMessageListener(this);
-
         unReadBeanOnCommonListener = null;
+
     }
 
     private OnCommonListener<UnReadBean<UnReadMessageBean>> unReadBeanOnCommonListener;
@@ -657,4 +657,5 @@ public class MainActivity extends BaseActivity implements TIMMessageListener {
             }
         }
     }
+
 }

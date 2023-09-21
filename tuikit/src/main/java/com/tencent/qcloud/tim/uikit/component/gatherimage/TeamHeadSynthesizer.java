@@ -287,7 +287,7 @@ public class TeamHeadSynthesizer implements Synthesizer {
         }
 
         if (multiImageData.size() == 1) {
-            GlideEngine.loadImage(imageView, multiImageData.getImageUrls().get(0));
+            GlideEngine.loadImage(mContext,imageView, multiImageData.getImageUrls().get(0));
             return;
         }
 

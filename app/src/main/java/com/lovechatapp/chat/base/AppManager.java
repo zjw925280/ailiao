@@ -159,7 +159,6 @@ public class AppManager extends Application {
         boolean agree = sp.getBoolean("agree", false);
         Log.e("agree","agree="+agree);
    if (agree){
-
        Log.e("那個先","AppManager");
        File folder = new File(APP_CACHE_PATH);
        if (!folder.exists()) {
@@ -180,6 +179,7 @@ public class AppManager extends Application {
 
         token = SharedPreferenceHelper.getToken();
     }
+
     public void uncaughtException1(Thread thread, Throwable throwable) {
         try {
             // 创建一个文件来保存异常信息
@@ -196,6 +196,8 @@ public class AppManager extends Application {
         // 终止应用程序
         System.exit(1);
     }
+
+
     public void initsdk(){
         //极光
         JPushInterface.setDebugMode(BuildConfig.DEBUG);

@@ -185,7 +185,6 @@ public class AgreementDialog extends Dialog implements View.OnClickListener {
             sp.edit().putBoolean("agree", true).apply();
             dismiss();
             activity.startActivity(new Intent(activity, ScrollLoginActivity.class));
-
         } else {
             dismiss();
             activity.finish();
@@ -216,7 +215,7 @@ public class AgreementDialog extends Dialog implements View.OnClickListener {
     private void initTIM() {
 
         //ImUi
-        TUIKit.init(activity, Constant.TIM_APP_ID, new ConfigHelper().getConfigs());
+        TUIKit.init(getContext(), Constant.TIM_APP_ID, new ConfigHelper().getConfigs());
 
         //初始化 SDK 基本配置
         TIMSdkConfig config = new TIMSdkConfig(Constant.TIM_APP_ID);

@@ -48,6 +48,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
     private static final String TAG = FriendProfileLayout.class.getSimpleName();
 
     private final int CHANGE_REMARK_CODE = 200;
+    private Context mContext;
 
     private TitleBarLayout mTitleBar;
     private CircleImageView mHeadImageView;
@@ -72,6 +73,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
     public FriendProfileLayout(Context context) {
         super(context);
         init();
+        this.mContext=context;
     }
 
     public FriendProfileLayout(Context context, @Nullable AttributeSet attrs) {
@@ -144,7 +146,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
                 }
             });
             if (!TextUtils.isEmpty(mContactInfo.getAvatarurl())) {
-                GlideEngine.loadImage(mHeadImageView, Uri.parse(mContactInfo.getAvatarurl()));
+                GlideEngine.loadImage(mContext,mHeadImageView, Uri.parse(mContactInfo.getAvatarurl()));
             }
         } else if (data instanceof TIMFriendPendencyItem) {
             mPendencyItem = (TIMFriendPendencyItem) data;
@@ -248,7 +250,7 @@ public class FriendProfileLayout extends LinearLayout implements View.OnClickLis
         }
 
         if (!TextUtils.isEmpty(bean.getAvatarurl())) {
-            GlideEngine.loadImage(mHeadImageView, Uri.parse(bean.getAvatarurl()));
+            GlideEngine.loadImage(mContext,mHeadImageView, Uri.parse(bean.getAvatarurl()));
         }
         mIDView.setContent(mId);
     }

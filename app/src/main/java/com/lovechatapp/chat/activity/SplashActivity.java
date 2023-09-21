@@ -60,40 +60,6 @@ public class SplashActivity extends Activity {
         setContentView(R.layout.activity_splash_layout);
 
         getRealIp();
-
-
-//        OkHttpUtils.post()
-//                .url(ChatApi.getProtectAppVersion())
-//                .build()
-//                .execute(new AjaxCallback<BaseResponse<UrlResponse>>() {
-//
-//                    @Override
-//                    public void onResponse(BaseResponse<UrlResponse> response, int id) {
-//                        if (response != null && response.m_object != null) {
-//                            UrlResponse urlResponse = response.m_object;
-//                            if (urlResponse.request_status == 1) {
-//                                setUrl(urlResponse);
-//                                saveUrl(urlResponse);
-//                            }
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onError(Call call, Exception e, int id) {
-//                        String localUrlData = PreferenceManager.getDefaultSharedPreferences(AppManager.getInstance())
-//                                .getString("local_url_data", null);
-//                        if (!TextUtils.isEmpty(localUrlData)) {
-//                            try {
-//                                UrlResponse urlResponse = JSON.parseObject(localUrlData, UrlResponse.class);
-//                                setUrl(urlResponse);
-//                            } catch (Exception e2) {
-//                                e2.printStackTrace();
-//                            }
-//                        }
-//                    }
-//
-//                });
-
     }
     /**
      * 获取真实ip
@@ -146,10 +112,7 @@ public class SplashActivity extends Activity {
 
                     }
                 });
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
+
         new Handler().postDelayed(() -> {
             if (isFinishing()) {
                 return;
@@ -161,6 +124,10 @@ public class SplashActivity extends Activity {
             AppManager.getInstance().refreshMyInfo();
         }
         RingVibrateManager.syncSwitch();
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
     }
 
     private void toIntent() {
